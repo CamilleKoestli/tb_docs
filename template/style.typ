@@ -1,5 +1,8 @@
 #import "macros.typ": *
 
+#import "@local/syntastica:0.1.1": syntastica, languages, themes, theme-bg, theme-fg
+
+
 #let TBStyle(TBauthor, confidential, body) = {
   set heading(numbering: none)
 
@@ -92,6 +95,14 @@
     inset: 10pt,
     radius: 4pt,
   )
+
+  // Set the default code style
+  show raw: text.with(size: 0.95em, font: "Fira Code")
+
+  // Enable syntastica only if the build mode is "full" as it is slow
+  let syntastica-enabled = read("../build.mode.txt") == "full"
+  show raw: it => if syntastica-enabled { align(left)[#syntastica(it, theme: "catppuccin::latte")]} else { it }
+
 
   body
 }
