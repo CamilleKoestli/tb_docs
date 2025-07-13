@@ -115,6 +115,34 @@
     radius: 2pt,
   )
 
+
+// If the figure contains a #raw snippet (a code block), we use "Snippet" instead of "Figure" as the supplement
+show figure.where(kind: raw): set figure(
+  supplement: "Code"
+)
+
+// Show the figure caption (the text below) with the correct supplement ("Figure" or "Snippet")
+// Replace "Fig." by "Figure"
+// Remove the dot after the supplement and after the number
+// Some a small space above the caption
+show figure.caption: c => context [
+  #v(0.1cm)
+  #text(fill: figure_supplement_color)[
+    #c.supplement.text.replace("Fig.", "Figure") #c.counter.display(c.numbering)
+  ]#c.separator.text.replace(".", "") #c.body
+]
+
+// Help from https://github.com/typst/typst/discussions/3871
+// Show the reference to a label with the name of the supplement of this reference
+// It's sadly not possible to to add the figure_supplement_color to both the supplement and the number
+set ref(supplement: it => {
+  if it.func() == figure {
+    if type(it.body) == content {
+      text(it.supplement.text.replace("Fig.", "Figure"))
+    }
+  }
+})
+
   
 
   body
