@@ -1,4 +1,4 @@
-= Architecture de la plateforme CyberGame <architecture>
+= Architecture de la plateforme \ CyberGame <architecture>
 
 == Présentation générale <presentation>
 Le site web est une plateforme pédagogique créée par le pôle Y-Sécurity de la Haute École d’Ingénierie et de Gestion de Vaud. Elle a pour objectif d'introduire au ethical hacking et propose actuellement deux scénarios interactifs. La plateforme est donc conçu avec une page d'accueil @noauthor_initiation_nodate qui présente le cadre général. Le premier jeu "Shana a disparu" est accessible @noauthor_shana_nodate ainsi qu'un autre scénario "Sauve la Terre de l'arme galactique" @noauthor_sauve_nodate se trouve sur la plateforme. Pour aider les joueurs à avancer dans les différents challenges, une boîte à outils et un petit IDE Python ont été développé @noauthor_initiation_nodate.
