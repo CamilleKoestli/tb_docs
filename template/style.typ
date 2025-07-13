@@ -77,7 +77,7 @@
   // LaTeX look and feel :)
   set text(font: "New Computer Modern")
   set par(justify: true)
-  show raw: set text(font: "New Computer Modern Mono")
+  
   show heading: set block(above: 1.4em, below: 1em)
 
   // settings table
@@ -90,19 +90,32 @@
   
   show link: underline
 
-  show raw.where(block: true): block.with(
-    fill: luma(240),
-    inset: 10pt,
-    radius: 4pt,
-  )
-
   // Set the default code style
   show raw: text.with(size: 0.95em, font: "Fira Code")
+  //show raw: set text(font: "New Computer Modern Mono")
 
   // Enable syntastica only if the build mode is "full" as it is slow
   let syntastica-enabled = read("../build.mode.txt") == "full"
   show raw: it => if syntastica-enabled { align(left)[#syntastica(it, theme: "catppuccin::latte")]} else { it }
 
+
+  // Set the default style for the code blocks
+  show raw.where(block: true): block.with(
+    fill: luma(240),
+    inset: 10pt,
+    radius: 2pt,
+    stroke: 1pt + luma(200),
+  )
+
+  // Set the default style for the inline code 
+  show raw.where(block: false): block.with(
+    fill : luma(240),
+    inset: (x: 3pt, y: 0pt),
+    outset: (y: 3pt),
+    radius: 2pt,
+  )
+
+  
 
   body
 }
