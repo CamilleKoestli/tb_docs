@@ -6,10 +6,12 @@
     table.header([*Date*], [*Description*], [*Rech. \[h\]*], [*Dev. \[h\]*], [*Rapport \[h\]*], [*Admin \[h\]*],),
 
     
-    [07.07.2025], [Recherche sur la sensibilisation et rédaction cahier des charges], [4], [0], [4], [0],
+    [07.07.2025], [Recherches sur la sensibilisation\ Rédaction du cahier des charges et de quelques idées], [2], [0], [6], [0],
     [08.07.2025 \
-    09.07.2025], [Analyse du mécanisme et des techniques des challenges], [0], [0], [0], [0],
+    09.07.2025], [Analyse de la plateforme et des techniques des challenges], [0], [16], [0], [0],
     [10.07.2025 \
-    ??.07.2025], [Recherche, rédactions des scénarios et de l'état de l'art], [?], [0], [?], [?],
+    11.07.2025], [Recherches serious game, CTF, ... \ Rédactions des scénarios et de l'état de l'art], [6], [0], [10], [0],
+    [14.07.2025 \
+    ??.07.2025], [Rédactions plus approfondies des scénarios\ Recherches], [10], [0], [30], [0],
     
   )
