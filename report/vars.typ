@@ -26,7 +26,7 @@
 #let TBresumePubliable = [
   Ce travail est dans la continuité de "Shana a disparu", un jeu pédagogique en ligne. Ce jeu vise à initier le public au ethical hachinkg grâce à une narration immersive et des défis techniques. L'objectif est de concevoir et développer un nouveau scénario qui s'adresse à un tout public dans le but de renforcer la sensibilisation aux risques numériques.
 
-  Le projet comporte 5 challenges techniques de difficulté progressive qui sont intégrés dans une histoire originale. Ces défis reprennent des thématiques connues dans la cybersécurité telles que le XSS //TODO
+  Le projet comporte 5 challenges techniques de difficulté progressive qui sont intégrés dans une histoire originale. Ces défis reprennent des thématiques connues dans la cybersécurité telles *TODO*
   
   Réalisé sur 450 heures, le projet produira un contenu technique, scénarisé et réutilisable, intégré à la plateforme existante.
 
