@@ -41,15 +41,15 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
   - Créer une histoire captivante, qui peut être une suite de Shana ou une intrigue totalement nouvelle.
   - Proposer des niveaux plus complexes que les scénarios existants.
   - Inclure 5 à 10 challenges de difficulté progressive.
-  - Imaginer les épreuves en réfléchissant au côté sensibilisation et notamment aux messages que le participant en tirera
-  - Introduire les nouveaux concepts techniques et pédagogiques correspondants
+  - Imaginer les épreuves en réfléchissant au côté sensibilisation et notamment aux messages que le participant en tirera.
+  - Introduire les nouveaux concepts techniques et pédagogiques correspondants.
 - Thématiques techniques :
         - Couvrir plusieurs aspects de la cybersécurité comme web exploitation, escalade de privilèges, reverse engineering, forensic, etc.
         - Si nécessaire, intégrer un robot interactif pour simuler le comportement d’utilisateurs vulnérables (ex. clics sur une XSS).
         - Intégrer tous les challenges dans une narration immersive et cohérente, fidèle à l’esprit du projet.
 - Développer le nouveau serious game :
         - Il doit être intégré dans la plateforme CyberGame existante, tant sur la forme, le contenu que les technologies utilisées.
-        - Inclure le scénario complet, les étapes du jeu, les mécaniques interactives, ainsi que les apports techniques et pédagoiques nécessaires.
+        - Inclure le scénario complet, les étapes du jeu, les mécaniques interactives, ainsi que les apports techniques et pédagogiques nécessaires.
         - Gérer les parties back-end nécessaires.
         - Garantir la sécurité de l’infrastructure et du contenu.
 - Réaliser des tests utilisateurs et appliquer les correctifs nécessaires pour assurer une expérience optimale.
@@ -67,14 +67,14 @@ Les délivrables seront les suivants :
 
 === Planification <planification>
 Le travail se déroule entre le 7 juillet et le 10 octobre 2025, pour un total de 450h :
-    - Du 7 juillet au 15 septembre : travail à temps plein (~45h/semaine)
-    - Du 16 septembre au 10 octobre : travail à temps partiel (~12–13h/semaine)
+    - Du 7 juillet au 15 septembre : travail à temps plein (~45h/semaine).
+    - Du 16 septembre au 10 octobre : travail à temps partiel (~12–13h/semaine).
 Le rendu intermédiaire est prévu pour la date du 31 juillet 2025, le rendu final est fixé au 8 octobre 2025, enfin, la défense devra être fixé après le 13 février 2026.
 Décomposition des tâches :
 
 === Décomposition des tâches <décomposition-tâches>
     + Analyse du scénario existant : _07 – 09.08 2025_
-        - Étudier les mécaniques de jeu et les défis utilisés dans « Shana a disparu ».
+        - Étudier les mécaniques de jeu et les défis utilisés dans "Shana a disparu".
         - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
         - Évaluer les points positifs et les points à améliorer du scénario actuel.
         - Étudier l’architecture de la plateforme CyberGame 
