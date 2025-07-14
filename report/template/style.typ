@@ -92,8 +92,8 @@
   //show raw: set text(font: "New Computer Modern Mono")
 
   // Enable syntastica only if the build mode is "full" as it is slow
-  // let syntastica-enabled = read("../build.mode.txt") == "full"
-  // show raw: it => if syntastica-enabled { align(left)[#syntastica(it, theme: "catppuccin::latte")]} else { it }
+  let syntastica-enabled = read("../build.mode.txt") == "full"
+  show raw: it => if syntastica-enabled {[#syntastica(it, theme: "catppuccin::latte")]} else { it }
 
 
   // Set the default style for the code blocks
@@ -105,12 +105,12 @@
   )
 
   // Set the default style for the inline code 
-  // show raw.where(block: false): block.with(
-  //   fill : luma(240),
-  //   inset: (x: 3pt, y: 0pt),
-  //   outset: (y: 3pt),
-  //   radius: 2pt,
-  // )
+  show raw.where(block: false): box.with(
+    fill : luma(240),
+    inset: (x: 3pt, y: 0pt),
+    outset: (y: 3pt),
+    radius: 2pt,
+  )
 
 
   // If the figure contains a #raw snippet (a code block), we use "Snippet" instead of "Figure" as the supplement
