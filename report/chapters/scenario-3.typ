@@ -48,6 +48,7 @@ Retrouve la valeur d’origine, saisis-la sur le clavier, et la porte coulissera
 
 === _Portail Tech :	Exploitation Web_ <ch3-2>
 La porte du couloir est pilotée par une page React servie sur `http://172.30.0.5:8080`. Elle a un champ `ship_id vulnérable` à l’injection NoSQL. Filtre-le pour obtenir access=tech.
+
 + Ouvrir l’outil DevTools, puis l'onglet Network pour capturer la requête POST.
 + Remplacer la valeur par `{"$ne":null}` ou `{"$gt":""}`.
 + Le serveur renvoie `{"access":"tech"}` ; la porte coulisse. 
@@ -63,6 +64,7 @@ La porte du couloir est pilotée par une page React servie sur `http://172.30.0.
 
 === _Drone Patch : Reverse Engineering_ <ch3-3>
 Un droïde de maintenance patrouille le couloir. Télécharge son firmware (`drn_v2.4.bin`), trouve la fonction `patrol_area()` et patches-la pour qu’il ignore ta balise RFID. Reflash via le port JTAG exposé.
+
 + Ouvrir le firmware dans Ghidra.
 + Rechercher la chaîne `AABB9911` : mène à `cmp r0, #0xAABB9911`.
 + Remplacer l’instruction par `movs r0, #0 + bx lr` .
@@ -84,6 +86,7 @@ La porte du hangar C est verrouillée par un token override qui change chaque nu
 {"time":"03:17","dest":"bridge","msg":"override generated","token":"OVR-???"}
 ```
 Il faut récupérer la valeur du champ token.
+
 + Ouvrir hangar.log dans VS Code.
 + Rechercher override generated.
 + Copier le token (format : OVR-6HEX).
@@ -100,12 +103,13 @@ Il faut récupérer la valeur du champ token.
 
 === _Plan Secret : Stéganographie_ <ch3-5>
 Le tableau de bord de la navette exige une pass-phrase de 12 caractères. Les plans techniques `shuttle_blueprint.png` ont un poids inhabituel (14 Mo). Les ingénieurs cachent souvent les mots de passe dans les bits de poids faible.
+
 + Lancer zsteg `shuttle_blueprint.png`.
 + Extraire la couche `lsb-rgb,b1`. puis fichier `payload.txt`.
 + Ouvrir le fichier : contient `FREEFLY-42`.
 + Saisir la phrase dans la console de la navette ; moteurs au vert !
 
-*Outils nécessaires*: zsteg / steghide et éditeur texte.
+*Outils nécessaires*: binwalk / steghide / zsteg  et éditeur texte.
 
 *Indices graduels*
 - Indice 1 : Regarde les LSB, la taille du PNG est suspecte.

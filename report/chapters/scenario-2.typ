@@ -25,13 +25,12 @@ Le plan d’exfiltration se déroule en cinq étapes ; chacun correspond à un "
 )
 
 === _Hotspot Mirage : OSINT et Cryptographie_ <ch2-1>
-La veille de ta mission, tu trouves dans la poubelle de ton hôtel, un prospectus "KeyWave Keynote". En bas du papier tu trouves l'information suivante pour te connecter à leur Wi-Fi :
+Pour ce premier challenge, le joueur doit se connecter au Wi-Fi de KeyWave Systems (KWS) pour accéder à leur intranet. Le mot de passe est partiellement lisible dans un prospectus trouvé dans sa chambre d'hôtel, mais il manque une partie du texte.
 ```css
 Welcome to our guests!  Wi-Fi code: KeyWave-**-VIP
 ```
-Malheureusement, le milieu du texte est illisible.
 Le code suit toujours la convention interne : `KeyWave-<QUADRIMESTRE>-VIP`
-Le service com’ a cependant partagé un lien pour trouver la présentation d’origine `keynote_KeyWave.pdf` sur son site presse. Ce PDF contient un champ custom metadata `wifi_hash` : une empreinte du mot de passe complet.
+Le joueur doit donc retrouver le mot de passe complet en analysant les métadonnées du PDF de la présentation de KeyWave Systems `keynote_KeyWave.pdf`, présent sur le flyer. Ce PDF contient un champ custom metadata `wifi_hash` : une empreinte du mot de passe complet.
 
 + Télécharger `keynote_KeyWave.pdf`, l’ouvrir avec exiftool et lire la ligne : 
   ```ini
@@ -44,23 +43,21 @@ wifi_hash = 779a10d6ff824bbdfbed49242e48c4806977db3b
 *Outils nécessaires*: exiftool, sha1sum ou CyberChef.
 
 *Indices graduels*
-- Indice 1 : La bannière de la vidéo affiche la date complète.
+- Indice 1 : Le QR code te permet d'avoir accès à une brochure PDF. Elle conserve des métadonnées ; ouvre-la avec exiftool pour voir s’il n’y a pas un champ inhabituel.
 - Indice 2 : Le hash dans le PDF fait 40 hexa, ce qui correspond à SHA-1. 
-- Indice 3 : Il n’existe que quatre quadrimestre Q1, Q2, Q3 et Q4… teste chacun !
+- Indice 3 : le mot de passe suit toujours le motif KeyWave-Q?-VIP ; calcule le SHA-1 des quatre possibilités et repère celui qui correspond au hash trouvé.
 
 *Flag attendu* : `KeyWave-Q2-VIP`
-A partir de là, le joueur est connecté au réseau Wi-Fi de KeyWave Systems et peut accéder à leur page web.
+Le code permet d'avoir accès au Wi-Fi ainsi qu'à la page de connexion des partenaires.
 
 === _Admin Bypass : Web Exploitation_ <ch2-2>
-La page de connexion des partenaires se trouve sur
-`https://intra.keywave.local/partners/login.php` et comporte les champs e-mail et mot de passe.
-Protection mise en place : Un WAF basique refuse toute requête contenant le mot-clé exact `OR` (maj/min indifférent) ou la séquence `--`. Aucune requête préparée ; le back-end exécute toujours :
+Le joueur doit maintenant accéder à l'intranet de KeyWave Systems `https://intra.keywave.local/partners/login.php` pour voler les plans. Le formulaire de connexion comporte les champs e-mail et mot de passe. Un email de la responsable média se trouve sur le flyer. Il faudra l'utiliser pour se challenge. Il doit contourner le filtre basique WAF (Web Application Firewall) sur la page de connexion des partenaires, qui refuse toute requête contenant le mot-clé exact `OR` (maj/min indifférent) ou la séquence `--`. Aucune requête préparée et le back-end exécute toujours : 
 ```sql
 SELECT partner_id, session_token
 FROM partners
 WHERE email = '$mail' AND passwd = '$pw';
 ```
-En insérant un commentaire SQL `(/**/)` au milieu du mot-clé, tu casses le filtre WAF, recrées la condition toujours vraie et récupères ainsi le `session_token` partenaire. Renseigne une vraie adresse e-mail qui se trouve dans le PDF `Responsable média :...`.
+Pour contourner le filtre, le joueur doit utiliser une injection SQL pour contourner la restriction WAF. Il peut utiliser un commentaire `(/**/)` SQL au milieu du mot-clé pour casser le mot-clé `OR` et ainsi obtenir le `session_token` du partenaire.
     
 + Renseigner e-mail avec une vraie adresse interne, qui se trouve dans le pdf `Responsable média : alice.martin@keywave.com`.
 + Dans mot de passe, saisir : `' O/**/R 1=1 #` (le `/**/` casse le mot-clé pour le WAF ; `#` remplace `--` comme commentaire fin de ligne accepté par MySQL).
