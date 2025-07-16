@@ -17,10 +17,10 @@ Le plan d’exfiltration se déroule en cinq étapes ; chacun correspond à un "
     [*Description du challenge*],
   ),
 
-  [1], [#link(<ch2-1>)[Hotspot Mirage]], [OSINT & Cryptographie], [Retrouver le mot de passe Wi-Fi en comparant le SHA-1 stocké dans les métadonnées du PDF « keynote_KeyWave.pdf ».],
-  [2], [#link(<ch2-2>)[Admin Bypass]], [Exploitation Web (SQLi bypass WAF)], [Contourner le filtre WAF sur le formulaire login des partenaires et obtenir le `session_token`.],
+  [1], [#link(<ch2-1>)[Hotspot Mirage]], [OSINT et Cryptographie], [Retrouver le mot de passe Wi-Fi en comparant le SHA-1 stocké dans les métadonnées du PDF « keynote_KeyWave.pdf ».],
+  [2], [#link(<ch2-2>)[Admin Bypass]], [Exploitation Web], [Contourner le filtre WAF sur le formulaire login des partenaires et obtenir le `session_token`.],
   [3], [#link(<ch2-3>)[Micro-Patch]], [Reverse Engineering], [Patcher le binaire `session_tap.exe` (x86) pour désactiver la routine `audit()`.],
-  [4], [#link(<ch2-4>)[SecureNote Cipher]], [Cryptographie (XOR)], [Casser un XOR 3 octets dans `design_note.sec` afin d’extraire la pass-phrase qui protège les plans.],
+  [4], [#link(<ch2-4>)[SecureNote Cipher]], [Cryptographie], [Casser un XOR 3 octets dans `design_note.sec` afin d’extraire la pass-phrase qui protège les plans.],
   [5], [#link(<ch2-5>)[DNS Drip]], [Forensic réseau], [Reconstituer `plans.zip.aes` à partir des requêtes DNS vers `*.fox.tunnel`, décoder Base36, déchiffrer avec la pass-phrase.],
 )
 
@@ -72,7 +72,7 @@ Pour contourner le filtre, le joueur doit utiliser une injection SQL pour contou
 *Flag attendu* : `PART-7XG4`
 
 
-=== _Micro-Patch – Reverse Engineering_ <ch2-3>
+=== _Micro-Patch : Reverse Engineering_ <ch2-3>
 Le micro-service `session_tap.exe` consigne chaque utilisation d’un `session_token` partenaire.
 Tant qu’il détecte la valeur `PART-7XG4` (celle récupérée dans le challenge 2), il écrit une ligne dans `audit.log`.
 En modifiant la fonction `audit()` pour qu’elle retourne toujours 0, tu effaces toute trace de ta connexion.
