@@ -46,8 +46,6 @@
 
 #include "chapters/etat-de-lart.typ"
 
-//#include "chapters/ch_exemple.typ"
-
 #include "chapters/architecture.typ"
 
 #include "chapters/scenarios.typ"
