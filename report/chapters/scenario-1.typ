@@ -36,9 +36,9 @@ Dans un premier temps, le joueur doit analyser un e-mail de phishing qui a permi
 *Outils nécessaires* : IDE, WHOIS, VirusTotal.
 
 *Indices graduels*
-- Indice 1 : Cherche dans les premières lignes `Received:` et `Return-Path`. 
+- Indice 1 : Consulte uniquement les tout premiers entêtes `Received:`, la vraie origine est souvent dans la ligne la plus basse.
 - Indice 2 : L’expéditeur imite le sous-domaine support d’Horizon Santé. 
-- Indice 3 : Compare horizonsante.com avec horizonsante-support.com.
+- Indice 3 : Vérifie la réputation WHOIS : un domaine proche d’`horizonsante.com`, mais pas identique, ressort comme malveillant.
 
 *Flag attendu* : `horizonsante-support.com`\
 Le sous-domaine sera la cible du défi 2.
@@ -65,8 +65,8 @@ Le joueur devra ensuite explorer le code HTML pour trouver un commentaire qui po
 
 *Indices graduels*
 - Indice 1 : Regarde le code source ; les développeurs commentent parfois des URLs utiles.
-- Indice 2 : Le fichier manifest.json ressemble à un index automatique des sauvegardes.
-- Indice 3 : Utilise l’un des noms trouvés pour remplacer latest dans le paramètre file.
+- Indice 2 : Le fichier `manifest.json` ressemble à un index automatique des sauvegardes.
+- Indice 3 : Utilise l’un des noms trouvés pour remplacer `latest` dans le paramètre `file`.
 
 *Flag attendu* : `hx_srv_full_0712.tar.gz`\
 Une fois le fichier trouvé décompressé, il devient l’objet du défi 3.
@@ -82,7 +82,7 @@ Une fois qu'il a téléchargé le fichier `hx_srv_full_0712.tar.gz`, le joueur d
 *Outils nécessaires* : script Python.
 
 *Indices graduels*
-- Indice 1 : Base-64 est un encodage, pas un chiffrement.
+- Indice 1 : Une chaîne très longue terminant par = ou == est presque toujours du Base64.
 - Indice 2 : Après Base-64 tu verras beaucoup de 0x20.
 - Indice 3 : XOR avec 0x20 caractère par caractère.
 
@@ -101,15 +101,15 @@ Sur ce C2 se trouve `vault.cfg.enc`. Le joueur doit maintenant déchiffrer le fi
 *Outils nécessaires* : script Python.
 
 *Indices graduels*
-- Indice 1 : Connais-tu le mot known-plaintext ?
-- Indice 2 : Cherche une entête de configuration classique (CFG=). 
-- Indice 3 : XOR se renverse en XOR. 
+- Indice 1 : Cherche un motif ASCII typique en clair dans le début du fichier ; un fichier de config commence souvent par `CFG=`.
+- Indice 2 : Calcule `Chiffré ⊕ Clair` sur les 6 premiers octets. 
+- Indice 3 : Réapplique cette clé répétée jusqu’à la fin ; le mot de passe admin apparaît vers les premières lignes. 
 
 *Flag attendu* : `Aur0raVital@2025`\
 Le mot de passe permet d’ouvrir les logs du défi 5.
 
 === _Radiographie piégée : Stéganographie_ <ch1-5>
-Dans le dossier patient, le joueur trouve une radiographie `thorax_xray.png` qui semble normale, mais qui contient un message caché. Le ransomware a dissimulé un kill-switch dans cette image pour désactiver son attaque. Les renseignements obtenus dans le défi 4 (mot de passe `Aur0raVital@2025`) devront être utilisés pour extraire ce message.
+Dans le dossier patient, le joueur trouve une radiographie `thorax_xray.png` qui semble normale, mais qui est anormalement lourd. Le ransomware a dissimulé un kill-switch dans cette image pour désactiver son attaque. Les renseignements obtenus dans le défi 4 (mot de passe `Aur0raVital@2025`) devront être utilisés pour extraire ce message.
 
 + Télécharger `thorax_xray.png`
 + Lancer `binwalk -e thorax_xray.png` ou ouvrir l’image avec `steghide`	et déceler un fichier caché (ZIP ou steghide data)
@@ -119,9 +119,9 @@ Dans le dossier patient, le joueur trouve une radiographie `thorax_xray.png` qui
 *Outils nécessaires*: binwalk / steghide / zsteg et un éditeur de texte.
 
 *Indices graduels*
-- Indice 1 : Le PNG est vraiment trop lourd ; qu’est-ce qui se cache après l’entête ?
-- Indice 2 : `binwalk` sait extraire les fichiers concaténés à une image. 
-- Indice 3 : Le mot de passe du défi 4 ouvre ce qui est planqué. 
+- Indice 1 : 	Le PNG fait anormalement > 15 Mo : il dissimule très probablement des données concaténées.
+- Indice 2 : `binwalk -e` montre qu’un bloc ZIP/Steghide data débute après l’en-tête de l’image. 
+- Indice 3 : Utilise le mot de passe à l’étape 4 pour déverrouiller le fichier. 
 
 *Flag attendu* :`HZ_SECOND_STOP`
 
