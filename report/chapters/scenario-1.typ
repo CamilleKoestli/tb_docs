@@ -2,6 +2,8 @@
 
 Ce scénario reprend une situation fictive, mais inspirée de faits réels. Ici, le joueur fait partie d'une équipe de cybersécurité qui fait face à une attaque de ransomware dans un hôpital. Le but est de résoudre des défis techniques pour rétablir les services vitaux avant qu'il ne soit trop tard. L'inspiration de ce scénario vient de plusieurs incidents réels, notamment les attaques de ransomware avec une hausse croissante sur des infrastructures critiques comme les hôpitaux et les réseaux électriques @noauthor_when_2025.
 
+Dans un premier temps, le joueur doit remonter à l'origine de l'attaque en analysant un e-mail de phishing qui a permis aux attaquants de pénétrer le réseau de l'hôpital. L’e-mail de phishing révèle le domaine pirate ; c’est la première piste. Ensuite, il devra explorer un faux portail VPN mis en place par les attaquants pour exfiltrer des données. Grâce au commentaire HTML laissé par négligence, le joueur voit l’inventaire complet des sauvegardes et récupère une archive historique qui contient un malware. Dans cette archive se cache `hx_dropper.ps1` ; la dé-obfuscation fournit l’adresse du serveur C2, prouvant que l’hôpital est toujours sous contrôle externe. Sur le C2, un fichier de configuration chiffré recèle le mot de passe administratif du ransomware ; une simple attaque XOR suffit à l’extraire. Grâce à ce mot de passe, le joueur peut accéder aux journaux du ransomware et découvrir un kill-switch caché dans une radiographie. En entrant ce kill-switch dans la console d’urgence, le joueur neutralise la seconde vague d’attaques et sauve les services vitaux de l’hôpital.
+
 "Le Centre hospitalier Horizon Santé tourne sur groupe électrogène depuis trois heures : un ransomware a chiffré les serveurs cliniques, puis a sauté la barrière réseau et mis hors service le réseau électrique qui alimente le bloc opératoire. Le générateur de secours n’a plus que 68 minutes d’autonomie. Si rien n’est fait, huit opérations à cœur ouvert devront être interrompues.
 Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’hôpital. Votre mission : remettre les services vitaux en ligne avant la fin du compte à rebours et bloquer la seconde vague annoncée par les attaquants."
 
@@ -20,8 +22,7 @@ Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’
 [2], [#link(<ch1-2>)[Shadow VPN Portal]], [Exploitation Web], [Explorater l'HTML afin d'y trouver un commentaire qui contient la liste de toutes backup.],
 [3], [#link(<ch1-3>)[Script d’infection]], [Reverse Engineering], [Dé-obfuscation d’un script PowerShell (Base64 + XOR 0x20) pour révéler l’URL C2 `https://c2.hz-cloud.net/api`.],
 [4], [#link(<ch1-4>)[Coffre chiffré]], [Cryptographie], [Attaque known-plaintext sur `vault.cfg.enc` : découverte d’une clé XOR répétée (6 octets).],
-[5.1], [#link(<ch1-5>)[Journaux SIEM]], [Analyse de logs], [Extraction de l'ID dans `central_siem.log` pour neutraliser la seconde vague du ransomware.],
-[5.2], [#link(<ch1-6>)[Radiographie piégée]], [Stéganographie], [Extraction du kill-switch dissimulé dans la radiographie `thorax_xray.png` via `binwalk/steghide` .],
+[5], [#link(<ch1-5>)[Radiographie piégée]], [Stéganographie], [Extraction du kill-switch dissimulé dans la radiographie `thorax_xray.png` via binwalk/steghide.],
 )
 
 === _Mail Contagieux : OSINT et forensic d'email_ <ch1-1>
@@ -93,8 +94,8 @@ Cette URL pointe vers la clé chiffrée du défi 4.
 Sur ce C2 se trouve `vault.cfg.enc`. Le joueur doit maintenant déchiffrer le fichier de configuration chiffré `vault.cfg.enc` trouvé dans l'archive. Le fichier clair commence par `CFG=`. Le ransomware a utilisé un XOR de 6 octets pour chiffrer ce fichier. Le joueur doit retrouver la clé de chiffrement en utilisant une attaque known-plaintext.
 
 + Deviner que `CFG= (hex 43 46 47 3D)` est le plaintext.
-+ XORer le début du chiffré avec `CFG=` et retrouver la clé `0x56 0x32 0x19 0x7A 0x56 0x32`.
-+ Appliquer la clé en boucle pour déchiffrer tout le fichier.
++ XOR le début du chiffré avec `CFG=` et retrouver la clé.
++ Appliquer la clé pour déchiffrer tout le fichier.
 + Lire la ligne `ADMIN_PASS=Aur0raVital@2025`.
 
 *Outils nécessaires* : script Python.
@@ -107,36 +108,13 @@ Sur ce C2 se trouve `vault.cfg.enc`. Le joueur doit maintenant déchiffrer le fi
 *Flag attendu* : `Aur0raVital@2025`\
 Le mot de passe permet d’ouvrir les logs du défi 5.
 
-
-=== OPTION 1 _Journaux SIEM : Analyse de logs_ <ch1-5>
-Grâce au mot de passe trouvé, vous ouvrez enfin la console d’administration Central SIEM de l’hôpital. Une alerte indique qu’un module du ransomware tente, toutes les 90 secondes, de déclencher la "seconde vague"  sur un serveur interne encore actif : ics-power-ctrl.hz.lan. Les quelque 8 000 lignes de log de la nuit ont été exportées dans le fichier texte `central_siem.log`. Trouver l’ID d’orchestration utilisé par les attaquants pour activer cette seconde charge et le publier dans la console afin de neutraliser la commande distante.
-
-+ Télécharger le fichier` central_siem.log` (simple texte JSON-lines).
-+ Filtrer les entrées où `dest_host:ics-power-ctrl.hz.lan` et `event:POST /launch`.
-+ Repérer et copier la valeur du champ `orchestration_id`.
-
-*Outils nécessaires* :  Un éditeur de texte avec recherche (VS Code, Notepad++, Sublime) ou grep/jq en ligne de commande ou un visualiseur JSON en ligne.
-
-*Indices graduels*
-- Indice 1 : Cherche la machine `ics-power-ctrl` – elle concentre les commandes critiques. 
-- Indice 2 : Filtre les requêtes `POST /launch` : ce sont des déclencheurs. 
-- Indice 3: L’ID que tu dois envoyer est dans le champ `orchestration_id`. 
-
-*Flag attendu* : `6B98-F4A1-9112`
-
-Une fois l’ID publié, la console affiche "Seconde vague neutralisée". Sur le tableau de bord SIEM, les alertes rouges passent successivement au vert. Le compte à rebours au bloc opératoire s’interrompt.
-
-"Mission accomplie ! Les données patients sont sauves et la seconde vague n’aura jamais lieu. Nous avons déjà lancé le plan de remédiation complet et enclenché la traçabilité juridique grâce aux évidences collectées."
-
-
-=== OPTION 2 _Radiographie piégée : Stéganographie_ <ch1-6>
-L’équipe d’analyse découvre qu’un cliché thoracique (`thorax_xray.png`) déposé la veille dans le Dossier Patient contient plus de 15 Mo, anormal pour une simple image PNG. Les renseignements obtenus dans le défi 4 (mot de passe `Aur0raVital@2025`) laissent penser que les pirates ont caché – à l’intérieur même de cette radio – la phrase secrète qui désactive définitivement leur ransomware. Il faudra extraire ce message dissimulé et l’injecter dans la console d’urgence du SI pour neutraliser la seconde vague.
+=== _Radiographie piégée : Stéganographie_ <ch1-5>
+Dans le dossier patient, le joueur trouve une radiographie `thorax_xray.png` qui semble normale, mais qui contient un message caché. Le ransomware a dissimulé un kill-switch dans cette image pour désactiver son attaque. Les renseignements obtenus dans le défi 4 (mot de passe `Aur0raVital@2025`) devront être utilisés pour extraire ce message.
 
 + Télécharger `thorax_xray.png`
 + Lancer `binwalk -e thorax_xray.png` ou ouvrir l’image avec `steghide`	et déceler un fichier caché (ZIP ou steghide data)
-+ Quand l’outil demande le mot de passe, entrer `Aur0raVital@2025` (flag du défi 4)	Déverrouiller l’objet dissimulé
++ Quand l’outil demande le mot de passe, entrer `Aur0raVital@2025` (flag du défi 4)	
 + Extraire le petit fichier `kill.txt` (ou kill_switch.conf)	et lire son contenu
-+ Noter la chaîne présente : `HZ_SECOND_STOP`.
 
 *Outils nécessaires*: binwalk / steghide / zsteg et un éditeur de texte.
 
