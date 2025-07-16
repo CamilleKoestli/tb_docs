@@ -159,11 +159,11 @@ Le plan d’exfiltration se déroule en cinq étapes ; chacun correspond à un "
     [*Description du challenge*],
   ),
 
-[1], [#link(<ch2-1>)[]], [], [],
-[2], [#link(<ch2-2>)[]], [], [],
-[3], [#link(<ch2-3>)[]], [], [],
-[4], [#link(<ch2-4>)[]], [], [],
-[5], [#link(<ch2-5>)[]], [], [],
+  [1], [#link(<ch2-1>)[Hotspot Mirage]], [OSINT & Cryptographie], [Retrouver le mot de passe Wi-Fi en comparant le SHA-1 stocké dans les métadonnées du PDF « keynote_KeyWave.pdf ».],
+  [2], [#link(<ch2-2>)[Admin Bypass]], [Exploitation Web (SQLi bypass WAF)], [Contourner le filtre WAF sur le formulaire login des partenaires et obtenir le `session_token`.],
+  [3], [#link(<ch2-3>)[Micro-Patch]], [Reverse Engineering], [Patcher le binaire `session_tap.exe` (x86) pour désactiver la routine `audit()`.],
+  [4], [#link(<ch2-4>)[SecureNote Cipher]], [Cryptographie (XOR)], [Casser un XOR 3 octets dans `design_note.sec` afin d’extraire la pass-phrase qui protège les plans.],
+  [5], [#link(<ch2-5>)[DNS Drip]], [Forensic réseau], [Reconstituer `plans.zip.aes` à partir des requêtes DNS vers `*.fox.tunnel`, décoder Base36, déchiffrer avec la pass-phrase.],
 )
 
 === _Hotspot Mirage : OSINT et Cryptographie_ <ch2-1>
