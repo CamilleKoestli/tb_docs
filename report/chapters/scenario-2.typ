@@ -57,7 +57,7 @@ SELECT partner_id, session_token
 FROM partners
 WHERE email = '$mail' AND passwd = '$pw';
 ```
-Pour contourner le filtre, le joueur doit utiliser une injection SQL pour contourner la restriction WAF. Il peut utiliser un commentaire `(/**/)` SQL au milieu du mot-clé pour casser le mot-clé `OR` et ainsi obtenir le `session_token` du partenaire.
+Pour contourner le filtre, le joueur doit utiliser une injection SQL pour éviter la restriction WAF. Il peut utiliser un commentaire `(/**/)` SQL au milieu du mot-clé pour casser le mot-clé `OR` et ainsi obtenir le `session_token` du partenaire. 
     
 + Renseigner e-mail avec une vraie adresse interne, qui se trouve dans le pdf `Responsable média : alice.martin@keywave.com`.
 + Dans mot de passe, saisir : `' O/**/R 1=1 #` (le `/**/` casse le mot-clé pour le WAF ; `#` remplace `--` comme commentaire fin de ligne accepté par MySQL).
@@ -66,76 +66,65 @@ Pour contourner le filtre, le joueur doit utiliser une injection SQL pour contou
 
 *Indices graduels*
 - Indice 1 : Le WAF bloque `OR` en clair, mais un commentaire `/**/` interrompt les mots.
-- Indice 2 : MySQL accepte le dièse `#` comme commentaire d’une ligne. »
-- Indice 3 : Essaie de scinder OR : `O/**/R`, puis termine le restant de la requête avec `#`. »
+- Indice 2 : MySQL accepte le dièse `#` comme commentaire d’une ligne.
+- Indice 3 : Essaie de scinder OR : `O/**/R`, puis termine le restant de la requête avec `#`. N’oublie pas d’utiliser l’adresse `alice.martin@keywave.com` trouvée sur le flyer.
 
 *Flag attendu* : `PART-7XG4`
 
 
 === _Micro-Patch : Reverse Engineering_ <ch2-3>
-Le micro-service `session_tap.exe` consigne chaque utilisation d’un `session_token` partenaire.
-Tant qu’il détecte la valeur `PART-7XG4` (celle récupérée dans le challenge 2), il écrit une ligne dans `audit.log`.
-En modifiant la fonction `audit()` pour qu’elle retourne toujours 0, tu effaces toute trace de ta connexion.
+Le joueur a maintenant le `session_token`, mais il doit effacer toute trace de sa connexion pour éviter d'être détecté par le SOC. Le micro-service `session_tap.exe` consigne chaque utilisation d’un `session_token` partenaire dans un fichier `audit.log`. Tant qu’il détecte la valeur `PART-7XG4` (celle récupérée dans le challenge 2), il écrit une ligne dans ce journal. Le joueur doit modifier le binaire pour que la fonction `audit()` retourne toujours 0, ce qui effacera toute trace de sa connexion.
 
 + Ouvrir `session_tap.exe` (PE 32 bits) dans Ghidra.
-+ Rechercher la constante ASCII `PART-7XG4`, cela mène à `cmp eax, 0x50524154`.  (“PART”).
++ Rechercher la constante ASCII `PART-7XG4`, cela mène à `cmp eax, 0x50415254`.  ("PART").
 + Dans l’éditeur d’octets : remplacer par `31 C0 C3` (`xor eax,eax; ret`).
-+ Sauver le binaire, le copier sur la VM proxy et le relancer.
++ Sauver le binaire et le relancer.
 
 *Outils nécessaires*: Ghidra, éditeur hexadécimal intégré.
 
 *Indices graduels*
-- Indice 1 : Le fichier est un tout petit exécutable x86 (≈ 32 Ko).
-- Indice 2 : La constante ASCII PART-7XG4 apparaît en clair dans les données.
-- Indice 3 : Forcer eax à 0 juste avant ret neutralise la fonction de journalisation.
+- Indice 1 : Ouvre le binaire dans Ghidra et fais `Strings`. le token `PART-7XG4` s’y trouve en clair. 
+- Indice 2 : Clique sur Xrefs de cette chaîne et il y a un `cmp eax, 0x50415254 (ASCII “PART”)`.
+- Indice 3 : Remplace le bloc de comparaison par `31 C0 C3 (xor eax,eax ; ret)`, ce qui permettra à la fonction de renvoyer toujours 0.
 
 *Flag attendu* : `patched_md5=7ab8c6de`
 
 === _SecureNote Cipher : Cryptographie_ <ch2-4>
-Après avoir effacé les journaux, tu peux fouiller le Nextcloud interne.
-Le répertoire `/vault/` contient `design_note.sec`, chiffré "à la maison".
-Le développeur a laissé l’en-tête `KWSXORv1` ; les six premiers octets en clair valent TITLE:.
-Le reste est chiffré par un XOR répété de 3 octets.
-En cassant cette clé, tu découvriras la pass-phrase qui protège les plans exfiltrés.
+Le joueur a réussi à se connecter à l'intranet de KeyWave Systems, mais il doit maintenant accéder aux plans FIDO2. Ils sont stockés dans un fichier sécurisé `design_note.sec` dans le répertoire `/vault/`. Le fichier est chiffré avec un XOR répété de 3 octets.
+La structure du fichier est la suivante : une en-tête non chiffré qui est `KWSXORv1` (8 octets), puis le contenu chiffré commence immédiatement après l'en-tête. Le joueur sait que le texte chiffré commence par le mot TITLE: (6 octets). Il s'agit d'une attaque de type "known plaintext" (texte clair connu) sur un chiffrement XOR.
 
 + Télécharger `design_note.sec`.
 + Charger le fichier dans CyberChef et isoler le bloc chiffré.
-+ XORer ce bloc avec le plaintext connu `TITLE:`, la clé trouvée : `55 1A C3`.
++ XOR le bloc avec le plaintext connu `TITLE:`, permet de retrouver la clé.
 + Appliquer la clé répétée à tout le fichier.
-+ Lire la ligne PASSPHRASE.
++ Lire la ligne pass-phrase.
 
 *Outils nécessaires*: CyberChef ou script Python.
 
 *Indices graduels*
-- Indice 1 : Le header montre déjà six octets clairs.
-- Indice 2 : Un XOR se casse par… un XOR.
-- Indice 3 : La clé est courte (3 octets) applique-la en boucle.
+- Indice 1 : Le fichier commence par KWSXORv1 non chiffré.
+- Indice 2 : Juste après l’en-tête, il y a `TITLE:` en clair c’est un plaintext connu pour récupérer la clé.
+- Indice 3 : La clé fait 3 octets et tourne en boucle, il faut l'applique sur tout le reste pour dévoiler la pass-phrase.
 
-*Flag attendu* : `FOX-VAULT-88`
+*Flag attendu* : `K3yW4v3-Q4-VIP-F1D0-M4st3rPl4n!`
 
 === _DNS Drip : Forensic réseau_ <ch2-5>
-Les plans FIDO2 sont sortis via un tunnel DNS.
-Le SOC a remis un PCAP `exfil_dns.pcapng` capturé sur l’IDS.
-Chaque requête vers `*.fox.tunnel` transporte un bloc Base36 du fichier `plans.zip.aes`.
-Recolle, décode, puis déchiffre l’archive avec la pass-phrase du défi 4.
+Le joueur a maintenant la pass-phrase pour déchiffrer les plans, mais il doit d'abord les récupérer. Les plans FIDO2, contenus dans le fichier `plans.zip.aes`, ont été exfiltrés via un tunnel DNS. Le SOC a fourni un fichier PCAP, `exfil_dns.pcapng`, capturé sur leur Système de Détection d'Intrusion (IDS). Chaque requête DNS vers le domaine `*.fox.tunnel` transporte un bloc du fichier, encodé en Base36. Le joueur doit donc reconstituer le fichier `plans.zip.aes` à partir de ces requêtes DNS capturées, décoder les blocs Base36, puis déchiffrer l'archive obtenue en utilisant la pass-phrase récupérée lors du défi précédent.
 
-+	Ouvrir le PCAP dans Wireshark ; filtre : `dns.qry.name contains .fox.tunnel`.
++	Ouvrir le PCAP dans Wireshark et filtrer `dns.qry.name contains .fox.tunnel`.
 +	Exporter toutes les valeurs Query Name, trier, concaténer les labels avant `.fox.tunnel`.
 +	Utiliser base36decode pour obtenir `plans.zip.aes`.
-+	Déchiffrer : `openssl aes-256-cbc -d -k FOX-VAULT-88 -in plans.zip.aes -out plans.zip`.
-+	Ouvrir README.txt ; la première ligne contient `FOX_COMPLETE`.
++	Déchiffrer en utilisant la pass-phrase du défi 4 `openssl aes-256-cbc -d -k K3yW4v3-Q4-VIP-F1D0-M4st3rPl4n! -in plans.zip.aes -out plans.zip`.
++	Ouvrir README.txt ; la première ligne contient le flag.
 
 *Outils nécessaires*: Wireshark, utilitaire base36decode, openssl
 
 *Indices graduels*
-- Indice 1 : Les labels Base36 font ≤ 15 caractères, majuscules + chiffres.
-- Indice 2 : La clé de déchiffrement est la pass-phrase trouvée juste avant.
-- Indice 3 : Le fichier résultant est un ZIP AES ; pense à openssl aes-256-cbc.
+- Indice 1 : Filtre dans Wireshark `dns.qry.name contains .fox.tunnel` pour repérer une centaine de requêtes successives.
+- Indice 2 : Les sous-domaines mélangent A-Z et 0-9 seulement : c’est un encodage Base36. 
+- Indice 3 : Le fichier résultant est un ZIP AES, déchiffre-le avec la pass-phrase trouvée avant `openssl aes-256-cbc -d -k K3yW4v3-Q4-VIP-F1D0-M4st3rPl4n! -in plans.zip.aes -out plans.zip` pour lire le flag.
 
 *Flag attendu* : `FOX_COMPLETE`
 
-"Une fois `FOX_COMPLETE` validé, l’agent CipherFox déclenche son plan d’exfiltration vers un serveur offshore ; les plans FIDO2 + biométrie quittent KeyWave Systems sans qu’aucune alerte ne soit déclenchée. Mission accomplie !"
-
-*Inspiration*
-- https://www.kaspersky.com/blog/the-dark-story-of-darkhotel/15022/
-- https://en.wikipedia.org/wiki/Pegasus_%28spyware%29
+Une fois terminer, le joueur a réussi à exfiltrer les plans FIDO2 de KeyWave Systems sans se faire repérer et un dernier message apparaît :
+"`FOX_COMPLETE` est validé, l’agent CipherFox déclenche son plan d’exfiltration vers un serveur offshore ; les plans FIDO2 + biométrie quittent KeyWave Systems sans qu’aucune alerte ne soit déclenchée. Mission accomplie !"

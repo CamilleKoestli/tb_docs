@@ -125,6 +125,4 @@ Dans le dossier patient, le joueur trouve une radiographie `thorax_xray.png` qui
 
 *Flag attendu* :`HZ_SECOND_STOP`
 
-Le joueur copie la chaîne dans le champ kill-switch de la console d’urgence. L’alerte "Seconde vague neutralisée" s’affiche. Le compte à rebours au bloc opératoire s’interrompt.
-
-"Mission accomplie ! Les données patients sont sauves et la seconde vague n’aura jamais lieu. Nous avons déjà lancé le plan de remédiation complet et enclenché la traçabilité juridique grâce aux évidences collectées."
+Le joueur copie la chaîne dans le champ kill-switch de la console d’urgence. L’alerte "Seconde vague neutralisée" s’affiche. Le compte à rebours au bloc opératoire s’interrompt avec un dernier message : "Mission accomplie ! Les données patients sont sauves et la seconde vague n’aura jamais lieu. Nous avons déjà lancé le plan de remédiation complet et enclenché la traçabilité juridique grâce aux évidences collectées."
