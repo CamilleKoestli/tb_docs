@@ -78,9 +78,9 @@ Pour contourner le filtre, le joueur doit utiliser une injection SQL pour évite
 === _Micro-Patch : Reverse Engineering_ <ch2-3>
 Le joueur a maintenant le `session_token`, mais il doit effacer toute trace de sa connexion pour éviter d'être détecté par le SOC. Le micro-service `session_tap.exe` consigne chaque utilisation d’un `session_token` partenaire dans un fichier `audit.log`. Tant qu’il détecte la valeur `PART-7XG4` (celle récupérée dans le challenge 2), il écrit une ligne dans ce journal. Le joueur doit modifier le binaire pour que la fonction `audit()` retourne toujours 0, ce qui effacera toute trace de sa connexion.
 
-+ Ouvrir `session_tap.exe` (PE 32 bits) dans Ghidra.
++ Ouvrir `session_tap.exe` dans Ghidra.
 + Rechercher la constante ASCII `PART-7XG4`, cela mène à `cmp eax, 0x50415254`.  ("PART").
-+ Dans l’éditeur d’octets : remplacer par `31 C0 C3` (`xor eax,eax; ret`).
++ Dans l’éditeur d’octets, remplacer par `31 C0 C3` (`xor eax,eax; ret`).
 + Sauver le binaire et le relancer.
 
 *Outils nécessaires*: Ghidra, éditeur hexadécimal intégré.
