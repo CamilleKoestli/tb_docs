@@ -9,7 +9,7 @@ Différentes enquêtes et études montrent que la sensibilisation et la formatio
 == Écosystèmes existants
 Actuellement, il existe plusieurs plateformes et écosystèmes qui proposent des environnements d'apprentissage en cybersécurité. Ces plateformes offrent des défis variés, allant de la simple sensibilisation à des scénarios plus complexes nécessitant des compétences techniques avancées. Parmi les plus connues, on trouve "Hack The Box", "TryHackMe" et "RootMe". Ces plateformes permettent aux utilisateurs de pratiquer leurs compétences dans un environnement sécurisé et contrôlé.
 
-TODO A RELIRE ET COMPLETER
+TODO A COMPLETER
 === Plateformes ouvertes CTF
 Les plateformes ouvertes de type CTF (Capture The Flag) sont des environnements d'apprentissage interactifs qui permettent aux utilisateurs de résoudre des défis de cybersécurité. Ces plateformes sont souvent utilisées dans le cadre de compétitions, mais elles peuvent également servir de ressources pédagogiques pour les étudiants et les professionnels souhaitant améliorer leurs compétences en cybersécurité. Elles offrent une variété de défis, allant de la simple cryptographie à des scénarios plus complexes impliquant l'exploitation de vulnérabilités.
 

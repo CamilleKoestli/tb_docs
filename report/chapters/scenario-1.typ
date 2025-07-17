@@ -116,7 +116,7 @@ Dans le dossier patient, le joueur trouve une radiographie `thorax_xray.png` qui
 + Quand l’outil demande le mot de passe, entrer `Aur0raVital@2025` (flag du défi 4)	
 + Extraire le petit fichier `kill.txt` (ou kill_switch.conf)	et lire son contenu
 
-*Outils nécessaires*: Binwalk / steghide / zsteg et éditeur de texte.
+*Outils nécessaires* : Binwalk / steghide / zsteg et éditeur de texte.
 
 *Indices graduels*
 - Indice 1 : Le PNG fait anormalement > 15 Mo : il dissimule très probablement des données concaténées.

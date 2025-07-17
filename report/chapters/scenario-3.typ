@@ -34,7 +34,7 @@ unlock_hash = 54b8bc82e430c3bd7a4b52f3c2537ef84c046c07
 + Reconnaître qu’un digest de 40 hex qui est SHA-1.
 + Soumettre le hash à une base comme Hashes.com ou CrackStation.com.
 
-*Outils nécessaires*: Navigateur et site de recherche de hash.
+*Outils nécessaires* : Navigateur et site de recherche de hash.
 
 *Indices graduels*
 - Indice 1 : Le hash fait 40 hexa, ce qui correspond à SHA-1. 
@@ -86,7 +86,7 @@ En injectant la clé spéciale `__proto__`, le joueur redéfinit la propriété 
 }
 ```
 
-*Outils nécessaires*: Navigateur et DevTools.
+*Outils nécessaires* : Navigateur et DevTools.
 
 *Indices graduels*
 - Indice 1 : Le code front-end inclut lodash, cherche où `_.merge` est appelé avec `req.body.payload`.
@@ -104,7 +104,7 @@ Le joueur doit maintenant passer le droïde de maintenance qui garde le pont C. 
 + Dans l’éditeur d’octets, remplacer `cmp r0, #0xF00D ; bne` `par movs r0,#0 ; bx lr`.
 + Enregistrer le binaire et le relancer.
 
-*Outils nécessaires*: Ghidra, éditeur hexadécimal intégré.
+*Outils nécessaires* : Ghidra, éditeur hexadécimal intégré.
 
 *Indices graduels*
 - Indice 1 : Dans Ghidra, liste les Strings et repère FRIENDLY_UID, la zone de code associée suit juste derrière. .
@@ -126,7 +126,7 @@ Le joueur doit maintenant ouvrir le sas principal du hangar C pour accéder à l
   ExecStart=/usr/local/bin/doorctl --token ${ROOT_KEY}
   ```
 
-*Outils nécessaires*: Shell bash.
+*Outils nécessaires* : Shell bash.
 
 *Indices graduels*
 - Indice 1 : `systemctl list-unit-files` montre tous les services déclarés.
@@ -142,7 +142,7 @@ Enfin, pour faire décoller la navette de secours, le joueur doit entrer une pas
 + Extraire la couche `lsb-rgb,b1`. puis fichier `payload.txt`.
 + Ouvrir le fichier qui contient la phrase secrète.
 
-*Outils nécessaires*: Ninwalk / steghide / zsteg  et éditeur texte.
+*Outils nécessaires* : Ninwalk / steghide / zsteg  et éditeur texte.
 
 *Indices graduels*
 - Indice 1 : Le PNG pèse 14 Mo, ce qui est trop lourd pour un plan 2D.

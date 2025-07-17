@@ -43,7 +43,7 @@ wifi_hash = 779a10d6ff824bbdfbed49242e48c4806977db3b
 + Calculer leurs SHA-1 (sha1sum ou CyberChef) et comparer pour trouver que seule `KeyWave-Q2-VIP` correspond.
 + Se connecter au réseau KWS-Guest avec ce mot de passe.
 
-*Outils nécessaires*: Exiftool, sha1sum ou CyberChef.
+*Outils nécessaires* : Exiftool, sha1sum ou CyberChef.
 
 *Indices graduels*
 - Indice 1 : Le QR code te permet d'avoir accès à une brochure PDF. Elle conserve des métadonnées ; ouvre-la avec exiftool pour voir s’il n’y a pas un champ inhabituel.
@@ -66,7 +66,7 @@ Pour contourner le filtre, le joueur doit utiliser une injection SQL pour évite
 + Renseigner e-mail avec une vraie adresse interne, qui se trouve dans le pdf `Responsable média : alice.martin@keywave.com`.
 + Dans mot de passe, saisir : `' O/**/R 1=1 #` (le `/**/` casse le mot-clé pour le WAF ; `#` remplace `--` comme commentaire fin de ligne accepté par MySQL).
 
-*Outils nécessaires*: Navigateur.
+*Outils nécessaires* : Navigateur.
 
 *Indices graduels*
 - Indice 1 : Le WAF bloque `OR` en clair, mais un commentaire `/**/` interrompt les mots.
@@ -84,7 +84,7 @@ Le joueur a maintenant le `session_token`, mais il doit effacer toute trace de s
 + Dans l’éditeur d’octets, remplacer par `31 C0 C3` (`xor eax,eax; ret`).
 + Sauver le binaire et le relancer.
 
-*Outils nécessaires*: Ghidra, éditeur hexadécimal intégré.
+*Outils nécessaires* : Ghidra, éditeur hexadécimal intégré.
 
 *Indices graduels*
 - Indice 1 : Ouvre le binaire dans Ghidra et fais `Strings`. le token `PART-7XG4` s’y trouve en clair. 
@@ -104,7 +104,7 @@ La structure du fichier est la suivante : une en-tête non chiffré qui est `KWS
 + Appliquer la clé répétée à tout le fichier.
 + Lire la ligne pass-phrase.
 
-*Outils nécessaires*: CyberChef ou script Python.
+*Outils nécessaires* : CyberChef ou script Python.
 
 *Indices graduels*
 - Indice 1 : Le fichier commence par KWSXORv1 non chiffré.
@@ -122,7 +122,7 @@ Le joueur a maintenant la pass-phrase pour déchiffrer les plans, mais il doit d
 +	Déchiffrer en utilisant la pass-phrase du défi 4 `openssl aes-256-cbc -d -k K3yW4v3-Q4-VIP-F1D0-M4st3rPl4n! -in plans.zip.aes -out plans.zip`.
 +	Ouvrir README.txt ; la première ligne contient le flag.
 
-*Outils nécessaires*: Wireshark, utilitaire base36decode, openssl.
+*Outils nécessaires* : Wireshark, utilitaire base36decode, openssl.
 
 *Indices graduels*
 - Indice 1 : Filtre dans Wireshark `dns.qry.name contains .fox.tunnel` pour repérer une centaine de requêtes successives.
