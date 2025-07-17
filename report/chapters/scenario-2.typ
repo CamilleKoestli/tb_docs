@@ -28,7 +28,7 @@ Le plan d’exfiltration se déroule en cinq étapes ; chacun correspond à un "
 )
 
 === _Hotspot Mirage : OSINT et Cryptographie_ <ch2-1>
-Pour ce premier challenge, le joueur doit se connecter au Wi-Fi de KeyWave Systems (KWS) pour accéder à leur intranet. Le mot de passe est partiellement lisible dans un prospectus trouvé dans sa chambre d'hôtel, mais il manque une partie du texte.
+Pour ce premier challenge, le joueur doit se connecter au Wi-Fi de KeyWave Systems (KWS) pour accéder à leur intranet. Le mot de passe est partiellement lisible dans un prospectus trouvé dans sa chambre d'hôtel, mais il manque une partie du texte :
 ```css
 Welcome to our guests!  Wi-Fi code: KeyWave-**-VIP
 ```
@@ -39,11 +39,11 @@ Le joueur doit donc retrouver le mot de passe complet en analysant les métadonn
   ```ini
 wifi_hash = 779a10d6ff824bbdfbed49242e48c4806977db3b
 ```
-+ Générer les 4 candidats : `KeyWave-Q1-VIP`, `KeyWave-Q2-VIP`, `KeyWave-Q3-VIP`, `KeyWave-Q4-VIP`
++ Générer les 4 candidats : `KeyWave-Q1-VIP`, `KeyWave-Q2-VIP`, `KeyWave-Q3-VIP`, `KeyWave-Q4-VIP`.
 + Calculer leurs SHA-1 (sha1sum ou CyberChef) et comparer pour trouver que seule `KeyWave-Q2-VIP` correspond.
 + Se connecter au réseau KWS-Guest avec ce mot de passe.
 
-*Outils nécessaires*: exiftool, sha1sum ou CyberChef.
+*Outils nécessaires*: Exiftool, sha1sum ou CyberChef.
 
 *Indices graduels*
 - Indice 1 : Le QR code te permet d'avoir accès à une brochure PDF. Elle conserve des métadonnées ; ouvre-la avec exiftool pour voir s’il n’y a pas un champ inhabituel.
@@ -52,6 +52,7 @@ wifi_hash = 779a10d6ff824bbdfbed49242e48c4806977db3b
 
 *Flag attendu* : `KeyWave-Q2-VIP`
 Le code permet d'avoir accès au Wi-Fi ainsi qu'à la page de connexion des partenaires.
+
 
 === _Admin Bypass : Web Exploitation_ <ch2-2>
 Le joueur doit maintenant accéder à l'intranet de KeyWave Systems `https://intra.keywave.local/partners/login.php` pour voler les plans. Le formulaire de connexion comporte les champs e-mail et mot de passe. Un email de la responsable média se trouve sur le flyer. Il faudra l'utiliser pour se challenge. Il doit contourner le filtre basique WAF (Web Application Firewall) sur la page de connexion des partenaires, qui refuse toute requête contenant le mot-clé exact `OR` (maj/min indifférent) ou la séquence `--`. Aucune requête préparée et le back-end exécute toujours : 
@@ -65,7 +66,7 @@ Pour contourner le filtre, le joueur doit utiliser une injection SQL pour évite
 + Renseigner e-mail avec une vraie adresse interne, qui se trouve dans le pdf `Responsable média : alice.martin@keywave.com`.
 + Dans mot de passe, saisir : `' O/**/R 1=1 #` (le `/**/` casse le mot-clé pour le WAF ; `#` remplace `--` comme commentaire fin de ligne accepté par MySQL).
 
-*Outils nécessaires*: navigateur, optionnellement Burp Suite pour intercepter la requête.
+*Outils nécessaires*: Navigateur.
 
 *Indices graduels*
 - Indice 1 : Le WAF bloque `OR` en clair, mais un commentaire `/**/` interrompt les mots.
@@ -91,6 +92,7 @@ Le joueur a maintenant le `session_token`, mais il doit effacer toute trace de s
 - Indice 3 : Remplace le bloc de comparaison par `31 C0 C3 (xor eax,eax ; ret)`, ce qui permettra à la fonction de renvoyer toujours 0.
 
 *Flag attendu* : `patched_md5=7ab8c6de`
+
 
 === _SecureNote Cipher : Cryptographie_ <ch2-4>
 Le joueur a réussi à se connecter à l'intranet de KeyWave Systems, mais il doit maintenant accéder aux plans FIDO2. Ils sont stockés dans un fichier sécurisé `design_note.sec` dans le répertoire `/vault/`. Le fichier est chiffré avec un XOR répété de 3 octets.
@@ -120,7 +122,7 @@ Le joueur a maintenant la pass-phrase pour déchiffrer les plans, mais il doit d
 +	Déchiffrer en utilisant la pass-phrase du défi 4 `openssl aes-256-cbc -d -k K3yW4v3-Q4-VIP-F1D0-M4st3rPl4n! -in plans.zip.aes -out plans.zip`.
 +	Ouvrir README.txt ; la première ligne contient le flag.
 
-*Outils nécessaires*: Wireshark, utilitaire base36decode, openssl
+*Outils nécessaires*: Wireshark, utilitaire base36decode, openssl.
 
 *Indices graduels*
 - Indice 1 : Filtre dans Wireshark `dns.qry.name contains .fox.tunnel` pour repérer une centaine de requêtes successives.

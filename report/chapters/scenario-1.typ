@@ -33,7 +33,7 @@ Dans un premier temps, le joueur doit analyser un e-mail de phishing qui a permi
   + Repérer l’IP de la première ligne `Received:` et le domaine dans `Return-Path`.
   + Vérifier la réputation du domaine sur un service `WHOIS/OSINT`.
 
-*Outils nécessaires* : IDE, WHOIS, VirusTotal.
+*Outils nécessaires* : IDE, WHOIS.
 
 *Indices graduels*
 - Indice 1 : Consulte uniquement les tout premiers entêtes `Received:`, la vraie origine est souvent dans la ligne la plus basse.
@@ -46,7 +46,7 @@ Le sous-domaine sera la cible du défi 2.
 
 === _Shadow VPN Portal :  Exploitation Web_ <ch1-2>
 Le joueur doit maintenant accéder à un faux portail VPN de l'hôpital `https://vpn.horizonsante-support.com/`, qui a été mis en place par les attaquants pour exfiltrer des données. Le faux portail VPN () propose un bouton « Dernière sauvegarde » qui appelle :
-```url
+```http
 https://vpn.horizonsante-support.com/repo/download.php?file=latest
 ```
 Le joueur devra ensuite explorer le code HTML pour trouver un commentaire qui pointe vers un fichier `/repo/manifest.json`, qui contient la liste des sauvegardes disponibles.
@@ -57,11 +57,11 @@ Le joueur devra ensuite explorer le code HTML pour trouver un commentaire qui po
   ```
 + Ouvrir `https://vpn.horizonsante-support.com/repo/manifest.json` Le JSON liste toutes les sauvegardes.
 + Rejouer la requête de téléchargement mais remplacer `file=latest` par
-`file=backup-2025-07-12.tar.gz` :
-+ Le serveur répond 200 OK et livre l’archive backup-2025-07-12.tar.gz.
-+ En listant l'archive il voit une liste de dossiers et fichiers, dont un fichier tar.gz compressé.
+`file=backup-2025-07-12.tar.gz`.
++ Le serveur répond 200 OK et livre l’archive `backup-2025-07-12.tar.gz`.
++ En listant l'archive il voit une liste de dossiers et fichiers, dont un fichier `tar.gz` compressé.
 
-*Outils nécessaires* : navigateur et DevTools.
+*Outils nécessaires* : Navigateur et DevTools.
 
 *Indices graduels*
 - Indice 1 : Regarde le code source ; les développeurs commentent parfois des URLs utiles.
@@ -79,12 +79,12 @@ Une fois qu'il a téléchargé le fichier `hx_srv_full_0712.tar.gz`, le joueur d
 + Dé-obfusquer : Base64 en bytes puis XOR 0x20.
 + Lire l’URL C2 (`https://c2.hz-cloud.net/api`).
 
-*Outils nécessaires* : script Python.
+*Outils nécessaires* : Script Python.
 
 *Indices graduels*
-- Indice 1 : Une chaîne très longue terminant par = ou == est presque toujours du Base64.
-- Indice 2 : Après Base-64 tu verras beaucoup de 0x20.
-- Indice 3 : XOR avec 0x20 caractère par caractère.
+- Indice 1 : Une chaîne très longue terminant par `=` ou `==` est presque toujours du Base64.
+- Indice 2 : Après Base-64 tu verras beaucoup de `0x20`.
+- Indice 3 : XOR avec `0x20` caractère par caractère.
 
 *FLAG attendu* : `c2.hz-cloud.net`\
 Cette URL pointe vers la clé chiffrée du défi 4.
@@ -98,12 +98,12 @@ Sur ce C2 se trouve `vault.cfg.enc`. Le joueur doit maintenant déchiffrer le fi
 + Appliquer la clé pour déchiffrer tout le fichier.
 + Lire la ligne `ADMIN_PASS=Aur0raVital@2025`.
 
-*Outils nécessaires* : script Python.
+*Outils nécessaires* : Script Python.
 
 *Indices graduels*
 - Indice 1 : Cherche un motif ASCII typique en clair dans le début du fichier ; un fichier de config commence souvent par `CFG=`.
 - Indice 2 : Calcule `Chiffré ⊕ Clair` sur les 6 premiers octets. 
-- Indice 3 : Réapplique cette clé répétée jusqu’à la fin ; le mot de passe admin apparaît vers les premières lignes. 
+- Indice 3 : Réapplique cette clé répétée jusqu’à la fin, le mot de passe admin apparaît vers les premières lignes. 
 
 *Flag attendu* : `Aur0raVital@2025`\
 Le mot de passe permet d’ouvrir les logs du défi 5.
@@ -111,15 +111,15 @@ Le mot de passe permet d’ouvrir les logs du défi 5.
 === _Radiographie piégée : Stéganographie_ <ch1-5>
 Dans le dossier patient, le joueur trouve une radiographie `thorax_xray.png` qui semble normale, mais qui est anormalement lourd. Le ransomware a dissimulé un kill-switch dans cette image pour désactiver son attaque. Les renseignements obtenus dans le défi 4 (mot de passe `Aur0raVital@2025`) devront être utilisés pour extraire ce message.
 
-+ Télécharger `thorax_xray.png`
++ Télécharger `thorax_xray.png`.
 + Lancer `binwalk -e thorax_xray.png` ou ouvrir l’image avec `steghide`	et déceler un fichier caché (ZIP ou steghide data)
 + Quand l’outil demande le mot de passe, entrer `Aur0raVital@2025` (flag du défi 4)	
 + Extraire le petit fichier `kill.txt` (ou kill_switch.conf)	et lire son contenu
 
-*Outils nécessaires*: binwalk / steghide / zsteg et un éditeur de texte.
+*Outils nécessaires*: Binwalk / steghide / zsteg et éditeur de texte.
 
 *Indices graduels*
-- Indice 1 : 	Le PNG fait anormalement > 15 Mo : il dissimule très probablement des données concaténées.
+- Indice 1 : Le PNG fait anormalement > 15 Mo : il dissimule très probablement des données concaténées.
 - Indice 2 : `binwalk -e` montre qu’un bloc ZIP/Steghide data débute après l’en-tête de l’image. 
 - Indice 3 : Utilise le mot de passe à l’étape 4 pour déverrouiller le fichier. 
 
