@@ -122,12 +122,12 @@
   // Replace "Fig." by "Figure"
   // Remove the dot after the supplement and after the number
   // Some a small space above the caption
-  show figure.caption: c => context [
-    #v(0.1cm)
-    #text(fill: figure_supplement_color)[
-      #c.supplement.text.replace("Fig.", "Figure") #c.counter.display(c.numbering)
-    ]#c.separator.text.replace(".", "") #c.body
-  ]
+  // show figure.caption: c => context [
+  //   #v(0.1cm)
+  //   #text(fill: figure_supplement_color)[
+  //     #c.supplement.text.replace("Fig.", "Figure") #c.counter.display(c.numbering)
+  //   ]#c.separator.text.replace(".", "") #c.body
+  // ]
 
   // Help from https://github.com/typst/typst/discussions/3871
   // Show the reference to a label with the name of the supplement of this reference
