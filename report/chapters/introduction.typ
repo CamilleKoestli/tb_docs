@@ -25,7 +25,7 @@ Il propose actuellement deux scénarios en ligne sur cette thématique @Initiati
 
 #figure(
   image("imgs/shana-interface.png"),
-  caption: [Shana a disparu - Interface du jeu],
+  caption: ["Shana a disparu" - Interface du jeu],
 )<shana-interface>
 
 La @shana-interface permet de voir la plateforme "CyberGame" et la construction de l'interface pour le joueur·euse. L'utilisateur·trice·s peut naviguer d'un défi à l'autre grâce à la barre de navigation en haut de la page. Chaque challenge est présenté à travers une page dédiée avec une description du défi, des indices ainsi qu'un bouton afin de démarrer le challenge. Une fois le défi lancé, il peut explorer le site web, inspecter les éléments, analyser le code source, ... 
@@ -35,11 +35,15 @@ Pour aider le joueur·euse, dans la pop-up de description du défi, il y a un bo
 #figure(
   image("imgs/tools.png"),
   caption: [Boites à outils],
-)<tools>
+)<tools-imgs>
 
-Cette boîte à outils permet de trouver les outils nécessaires pour résoudre les défis. Par exemple, un outil pour inspecter le code source, un autre pour analyser les requêtes HTTP, ou encore un outil pour déchiffrer des messages cryptés.
+Cette @tools-imgs permet de mettre en évidence la boîte à outils présente sur le site web. Elle aide les joueur·euse·s à trouver les outils nécessaires pour résoudre les défis. Par exemple, un outil pour inspecter le code source, un autre pour analyser les requêtes HTTP, ou comment écrire un petit script en Python.
 
-En ce qui concerne le second scénario, "Sauve la Terre de l'arme galactique", il s'agit d'une mission interplanétaire où le joueur·euse doit récupérer des plans d'une arme galactique. Il reprend les mêmes bases que le premier scénario avec la même interface et les mêmes mécaniques de jeu. Cependant, il est moins populaire que le premier scénario, car il ne propose pas de nouveaux défis techniques et reste dans la même idée que le premier scénario.
+En ce qui concerne le second scénario, "Sauve la Terre de l'arme galactique", il s'agit d'une mission interplanétaire où le joueur·euse doit récupérer des plans d'une arme galactique. Il reprend les mêmes bases que le premier scénario, comme le montre @galac-interface, avec la même interface et les mêmes mécaniques de jeu. Cependant, il est moins populaire que le premier scénario, car il ne propose pas de nouveaux défis techniques et reste dans la même idée que le premier scénario.
+#figure(
+  image("imgs/galac-interface.png"),
+  caption: ["Sauve la Terre de l'arme galactique" - Interface du jeu],
+)<galac-interface>
 
 Grâce à leur narration immersive et leurs défis, ces jeux, en particulier "Shana a disparu" on rencontré un grand succès auprès du public. Cependant, la majorité des participant·e·s les ont déjà terminés.
 
@@ -48,3 +52,5 @@ Grâce à leur narration immersive et leurs défis, ces jeux, en particulier "Sh
 Le succès de "Shana a disparu" a atteint ses limites, beaucoup de personnes ont actuellement terminé ce jeu, et la plupart des joueur·euse·s maîtrisent déjà les certaines bases, d'autant plus que le jeu "Sauve la Terre de l'arme galactique", reprend les mêmes bases que le premier scénario. Afin de pousser les utilisateur·trice·s à continuer à pratiquer et approfondir ces sujets, il est essentiel d'élargir et de réaliser des challenges plus complexe. De plus, le monde du travail demande des profils capables de gérer des menaces complexes. La plateforme doit donc évoluer afin de proposer une nouvelle histoire immersive plus complexe tout en maintenant la motivation et en introduisant des nouveaux défis plus techniques de niveau intermédiaire à avancé.
 
 La question est donc : #quote("Comment créer une nouvelle histoire immersive et prenante qui mêle les techniques d’ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ?")
+
+L'objectif de ce travail de Bachelor est de répondre à cette question en développant un nouveau scénario pour la plateforme "CyberGame". Ce scénario doit être accessible aux débutant·e·s tout en proposant des défis plus complexes pour les utilisateur·trice·s plus expérimenté·e·s. Il doit également intégrer des éléments narratifs immersifs pour maintenir l'intérêt et la motivation des joueur·euse·s.
