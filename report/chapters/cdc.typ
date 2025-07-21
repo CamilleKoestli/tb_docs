@@ -19,7 +19,7 @@ L’objectif est donc d’intégrer des défis techniquement plus avancés, tout
 
 Cette nouvelle histoire s’adressera donc à des participant·e·s ayant résolu le premier niveau scénario (Shana) ou ayant quelques connaissances de base en sécurité informatique.
 
-Comment créer une nouvelle histoire immersive et prenante qui mêle les techniques d’ethical hacking, afin de sensibiliser et former les utilisateurs de tous les niveaux ?
+Comment créer une nouvelle histoire immersive et prenante qui mêle les techniques d’ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ?
 
 === Solutions existantes <solutions-existantes>
 A ce jour, seul le projet "Shana a disparu" a été développé par la HEIG-VD qui a pour objectif d'initier et de sensibiliser à la cybersécurité grâce à des énigmes progressives intégrées dans une narration interactive. Ce projet s'appuie sur des techniques de base comme l'inspection de sites web, l'analyse de métadonnées, ...
@@ -45,14 +45,14 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
   - Introduire les nouveaux concepts techniques et pédagogiques correspondants.
 - Thématiques techniques :
   - Couvrir plusieurs aspects de la cybersécurité comme web exploitation, escalade de privilèges, reverse engineering, forensic, etc.
-  - Intégrer un robot interactif pour simuler le comportement d’utilisateurs vulnérables (ex. clics sur une XSS).
+  - Intégrer un robot interactif pour simuler le comportement d’utilisateur·trice·s vulnérables (ex. clics sur une XSS).
   - Intégrer tous les challenges dans une narration immersive et cohérente, fidèle à l’esprit du projet.
 - Développer le nouveau serious game :
   - Il doit être intégré dans la plateforme CyberGame existante, tant sur la forme, le contenu que les technologies utilisées.
   - Inclure le scénario complet, les étapes du jeu, les mécaniques interactives, ainsi que les apports techniques et pédagogiques nécessaires.
   - Gérer les parties back-end nécessaires.
   - Garantir la sécurité de l’infrastructure et du contenu.
-- Réaliser des tests utilisateurs et appliquer les correctifs nécessaires pour assurer une expérience optimale.
+- Réaliser des tests utilisateur·trice·s et appliquer les correctifs nécessaires pour assurer une expérience optimale.
 
 === Livrables <livrables>
 Les délivrables seront les suivants :
@@ -63,7 +63,7 @@ Les délivrables seront les suivants :
   - La documentation de la plateforme CyberGame, incluant la description de l’existant et des évolutions apportées, ainsi que l’explication et justification des choix techniques.
   - Une analyse de la sécurité de la plateforme.
   - Les tests fonctionnels réalisés.
-  - Les tests utilisateurs réalisés : méthodologie, résultats, retours collectés, et correctifs appliqués.
+  - Les tests utilisateur·trice·s réalisés : méthodologie, résultats, retours collectés, et correctifs appliqués.
 
 === Planification <planification>
 Le travail se déroule entre le 7 juillet et le 10 octobre 2025, pour un total de 450h :
@@ -93,7 +93,7 @@ Décomposition des tâches :
   - Adapter les contenus au format de CyberGame.
 + Tests et validation :	_10 – 19.09 2025_
   - Réaliser des tests unitaires pour chaque challenge.
-  - Réaliser des tests utilisateurs et tester les défis par d’autres personnes pour ajuster la difficulté.
+  - Réaliser des tests utilisateur·trice·s et tester les défis par d’autres personnes pour ajuster la difficulté.
   - Corriger les éventuels bugs ou incohérence.
 + Documentation technique et pédagogique :	_20.09 – 08.10 2025_
   - Documenter chaque challenge : objectif, compétences visées, indices, solution, pièges courants.
