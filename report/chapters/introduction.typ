@@ -14,14 +14,32 @@ Face à ce manque, il est essentiel de former rapidement les jeunes mais aussi l
 
 == Contexte <contexte>
 
-Le pôle de compétence en cybersécurité réunit, depuis plus de vingt ans, les savoirs-faire de l'école en cybersécurité : une douzaine d'expert·e·s, un réseau industriel suisse et européen, ainsi qu'une expérience solide en projets Ra&D font de Y-Security un acteur clé et un véritable "écosystème" pour la formation et l'innovation en Suisse romande @YSecurityHEIGVD.
+Depuis plus de vingt ans, la HEIG-VD est un acteur majeur en cybersécurité en Suisse romande et en Europe. Le pôle Y-Security de la HEIG-VD est reconnu pour sa recherche appliquée, sa formation et son accompagnement dans le domaine de la sécurité informatique. Il regroupe une douzaine d'expert·e·s et un réseau industriel suisse et européen, ce qui en fait un véritable "écosystème" pour la formation et l'innovation en Suisse romande @YSecurityHEIGVD.
 
-Pour rendre plus accessible la pratique du hacking éthique, le pôle a créé une plateforme "CyberGame" et décide de se pencher sur les serious game. Les serious games ont pour objectif de rendre l'apprentissage de la cybersécurité ludique et accessible à tous, à travers des scénarios interactifs et progressifs.
+Pour rendre plus accessible la pratique du hacking éthique, le pôle a donc créé une plateforme "CyberGame" et décide de se pencher sur les serious game. L'objectif de ces serious games est de sensibiliser et former les utilisateur·trice·s aux bases de la cybersécurité, en leur permettant de découvrir les techniques d'ethical hacking grâce à une approche narrative immersive. Ces jeux sont destinés à un large public, allant des débutant·e·s aux personnes ayant déjà des connaissances en sécurité informatique.
 Il propose actuellement deux scénarios en ligne sur cette thématique @InitiationAuEthical:
 - "Shana a disparu" (2020) : une enquête qui vise à retrouver Shana et qui initie les débutants aux bases du piratage éthique.
 - "Sauve la Terre de l'arme galactique" (2021) : une mission interplanétaire qui a pour objectif se récupérer des plans d'une arme galactique.
 
-L'objectif de ces serious
+"Shana a disparu"  nous raconte l'histoire d'une jeune femme qui a disparu et dont il faut retrouver la trace. Le joueur·euse doit résoudre des énigmes et des défis techniques pour progresser dans l'histoire et découvrir ce qui est arrivé à Shana. Le jeu est conçu pour être accessible aux débutant·e·s, tout en offrant des défis intéressants pour les joueur·euse·s plus expérimenté·e·s. L'interface se présente sous la forme d'un site web interactif, où les joueur·euse·s peuvent naviguer entre différentes pages, résoudre des énigmes et interagir avec des éléments du jeu.
+
+#figure(
+  image("imgs/shana-interface.png"),
+  caption: [Shana a disparu - Interface du jeu],
+)<shana-interface>
+
+La @shana-interface permet de voir la plateforme "CyberGame" et la construction de l'interface pour le joueur·euse. L'utilisateur·trice·s peut naviguer d'un défi à l'autre grâce à la barre de navigation en haut de la page. Chaque challenge est présenté à travers une page dédiée avec une description du défi, des indices ainsi qu'un bouton afin de démarrer le challenge. Une fois le défi lancé, il peut explorer le site web, inspecter les éléments, analyser le code source, ... 
+Une fois le défi résolu, il devra remplir le champ `Valider l'étape !` avec la réponse correcte pour passer à l'étape suivante. 
+
+Pour aider le joueur·euse, dans la pop-up de description du défi, il y a un boutoon `Indice` qui permet d'afficher un indice pour l'aider à résoudre le défi. De plus, sur le site web, nous retrouvons aussi une boîte à outils.
+#figure(
+  image("imgs/tools.png"),
+  caption: [Boites à outils],
+)<tools>
+
+Cette boîte à outils permet de trouver les outils nécessaires pour résoudre les défis. Par exemple, un outil pour inspecter le code source, un autre pour analyser les requêtes HTTP, ou encore un outil pour déchiffrer des messages cryptés.
+
+En ce qui concerne le second scénario, "Sauve la Terre de l'arme galactique", il s'agit d'une mission interplanétaire où le joueur·euse doit récupérer des plans d'une arme galactique. Il reprend les mêmes bases que le premier scénario avec la même interface et les mêmes mécaniques de jeu. Cependant, il est moins populaire que le premier scénario, car il ne propose pas de nouveaux défis techniques et reste dans la même idée que le premier scénario.
 
 Grâce à leur narration immersive et leurs défis, ces jeux, en particulier "Shana a disparu" on rencontré un grand succès auprès du public. Cependant, la majorité des participant·e·s les ont déjà terminés.
 
