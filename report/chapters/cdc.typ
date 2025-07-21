@@ -45,7 +45,7 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
   - Introduire les nouveaux concepts techniques et pédagogiques correspondants.
 - Thématiques techniques :
         - Couvrir plusieurs aspects de la cybersécurité comme web exploitation, escalade de privilèges, reverse engineering, forensic, etc.
-        - Si nécessaire, intégrer un robot interactif pour simuler le comportement d’utilisateurs vulnérables (ex. clics sur une XSS).
+        - Intégrer un robot interactif pour simuler le comportement d’utilisateurs vulnérables (ex. clics sur une XSS).
         - Intégrer tous les challenges dans une narration immersive et cohérente, fidèle à l’esprit du projet.
 - Développer le nouveau serious game :
         - Il doit être intégré dans la plateforme CyberGame existante, tant sur la forme, le contenu que les technologies utilisées.
@@ -73,29 +73,29 @@ Le rendu intermédiaire est prévu pour la date du 31 juillet 2025, le rendu fin
 Décomposition des tâches :
 
 === Décomposition des tâches <décomposition-tâches>
-    + Analyse du scénario existant : _07 – 09.08 2025_
+    + Analyse du scénario existant : _07 – 09.07 2025_
         - Étudier les mécaniques de jeu et les défis utilisés dans "Shana a disparu".
         - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
         - Évaluer les points positifs et les points à améliorer du scénario actuel.
         - Étudier l’architecture de la plateforme CyberGame 
-    + Recherche et écriture du scénario	: _10 – 16.08 2025_
+    + Recherche et écriture du scénario	: _10 – 23.07 2025_
         - S’inspirer de CTF, serious games et projets similaires pour la structure et le contenu des défis.
         - Identifier les outils et environnements de développement.
         - Identifier les bonnes méthodes pédagogiques adaptées à la sensibilisation à la cybersécurité à travers un jeu interactif.
         - Élaborer plusieurs scénarios, puis détailler celle retenue.
-    + Conception et développement des challenges	: _17.08 – 03.09 2025_
+    + Conception et développement des challenges	: _24.07 – 03.09 2025_
         - Définir les thématiques techniques abordées et les attaques à réaliser (XSS, reverse engineering, stéganographie, etc.).
         - Concevoir entre 5 et 10 challenges.
         - Développer les services ou environnements nécessaires.
         - Ajouter, si besoin, un bot interactif pour simuler certaines interactions ou attaques.
         - S’assurer de la clarté des consignes et de la logique de chaque challenge.
-    + Intégration dans la plateforme CyberGame :	_04 – 08.09 2025_
+    + Intégration dans la plateforme CyberGame :	_04 – 09.09 2025_
         - Adapter les contenus au format de CyberGame.
-    + Tests et validation :	_09 – 15.09 2025_
+    + Tests et validation :	_10 – 19.09 2025_
         - Réaliser des tests unitaires pour chaque challenge.
         - Réaliser des tests utilisateurs et tester les défis par d’autres personnes pour ajuster la difficulté.
         - Corriger les éventuels bugs ou incohérence.
-    + Documentation technique et pédagogique :	_16.09 – 06.10 2025_
+    + Documentation technique et pédagogique :	_20.09 – 08.10 2025_
         - Documenter chaque challenge : objectif, compétences visées, indices, solution, pièges courants.
         - Rédiger la documentation du scénario.
         - Décrire les choix techniques et les modifications apportées à la plateforme.
