@@ -10,13 +10,13 @@ Le jeu "Shana a disparu" est un exemple phare : il propose une initiation au e
 
 Le jeu a eu un grand succès ce qui fait que de nombreuses personnes l’ont déjà complété et terminé. Ce projet vise donc à développer une extension du scénario existant ou de créer un tout autre scénario. Le but est d’intégrer de nouveaux défis de niveau plus avancé, tout en gardant cette idée d’approche narrative immersive qui a fait l’intérêt du projet.
 
-Cette nouvelle histoire s’adressera donc à des participant·es ayant quelques connaissances de base en sécurité informatique.
+Cette nouvelle histoire s’adressera donc à des participant·e·s ayant quelques connaissances de base en sécurité informatique.
 
 ### Problématique
 
 Le succès de "Shana a disparu" , créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, "Galac game", a été mis en place en 2021 mais a remporté un plus faible succès.
 
-Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant à un plus haut niveau de compétences.
+Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le ·e à un plus haut niveau de compétences.
 
 L’objectif est donc d’intégrer des défis techniquement plus avancés, tout en conservant l’approche narrative immersive qui fait l’intérêt et l’originalité du "serious game".
 
@@ -49,7 +49,7 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
   - Créer une histoire captivante, qui peut être une suite de Shana ou une intrigue totalement nouvelle.
   - Proposer des niveaux plus complexes que les scénarios existants.
   - Inclure 5 à 10 challenges de difficulté progressive.
-  - Imaginer les épreuves en réfléchissant au côté sensibilisation et notamment aux messages que le participant en tirera
+  - Imaginer les épreuves en réfléchissant au côté sensibilisation et notamment aux messages que le participant·e en tirera
   - Introduire les nouveaux concepts techniques et pédagogiques correspondants
 - Thématiques techniques :
   - Couvrir plusieurs aspects de la cybersécurité comme web exploitation, escalade de privilèges, reverse engineering, forensic, etc.

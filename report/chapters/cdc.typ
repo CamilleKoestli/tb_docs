@@ -11,15 +11,15 @@ Le jeu a eu un grand succès ce qui fait que de nombreuses personnes l’ont dé
 Cette nouvelle histoire s’adressera donc à des participant·es ayant quelques connaissances de base en sécurité informatique.
 
 === Problématique <problématique>
-Le succès de "Shana a disparu" , créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, "Galac game", a été mis en place en 2021 mais a remporté un plus faible succès.
+Le succès de "Shana a disparu" , créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, "Galac game", a été mis en place en 2021 mais a remporté un plus faible succès.
 
-Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant à un plus haut niveau de compétences.
+Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant·e à un plus haut niveau de compétences.
 
 L’objectif est donc d’intégrer des défis techniquement plus avancés, tout en conservant l’approche narrative immersive qui fait l’intérêt et l’originalité du "serious game".
 
 Cette nouvelle histoire s’adressera donc à des participant·e·s ayant résolu le premier niveau scénario (Shana) ou ayant quelques connaissances de base en sécurité informatique.
 
-Comment créer une nouvelle histoire immersive et prenante qui mêle les techniques d’ethical hacking, afin de sensibiliser et former les utilisateurs de tous les niveaux ?
+Comment créer une nouvelle histoire immersive et prenante qui mêle les techniques d’ethical hacking, afin de sensibiliser et former les utilisateurs de tous les niveaux ?
 
 === Solutions existantes <solutions-existantes>
 A ce jour, seul le projet "Shana a disparu" a été développé par la HEIG-VD qui a pour objectif d'initier et de sensibiliser à la cybersécurité grâce à des énigmes progressives intégrées dans une narration interactive. Ce projet s'appuie sur des techniques de base comme l'inspection de sites web, l'analyse de métadonnées, ...
@@ -41,62 +41,62 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
   - Créer une histoire captivante, qui peut être une suite de Shana ou une intrigue totalement nouvelle.
   - Proposer des niveaux plus complexes que les scénarios existants.
   - Inclure 5 à 10 challenges de difficulté progressive.
-  - Imaginer les épreuves en réfléchissant au côté sensibilisation et notamment aux messages que le participant en tirera.
+  - Imaginer les épreuves en réfléchissant au côté sensibilisation et notamment aux messages que le participant·e en tirera.
   - Introduire les nouveaux concepts techniques et pédagogiques correspondants.
 - Thématiques techniques :
-        - Couvrir plusieurs aspects de la cybersécurité comme web exploitation, escalade de privilèges, reverse engineering, forensic, etc.
-        - Intégrer un robot interactif pour simuler le comportement d’utilisateurs vulnérables (ex. clics sur une XSS).
-        - Intégrer tous les challenges dans une narration immersive et cohérente, fidèle à l’esprit du projet.
+  - Couvrir plusieurs aspects de la cybersécurité comme web exploitation, escalade de privilèges, reverse engineering, forensic, etc.
+  - Intégrer un robot interactif pour simuler le comportement d’utilisateurs vulnérables (ex. clics sur une XSS).
+  - Intégrer tous les challenges dans une narration immersive et cohérente, fidèle à l’esprit du projet.
 - Développer le nouveau serious game :
-        - Il doit être intégré dans la plateforme CyberGame existante, tant sur la forme, le contenu que les technologies utilisées.
-        - Inclure le scénario complet, les étapes du jeu, les mécaniques interactives, ainsi que les apports techniques et pédagogiques nécessaires.
-        - Gérer les parties back-end nécessaires.
-        - Garantir la sécurité de l’infrastructure et du contenu.
+  - Il doit être intégré dans la plateforme CyberGame existante, tant sur la forme, le contenu que les technologies utilisées.
+  - Inclure le scénario complet, les étapes du jeu, les mécaniques interactives, ainsi que les apports techniques et pédagogiques nécessaires.
+  - Gérer les parties back-end nécessaires.
+  - Garantir la sécurité de l’infrastructure et du contenu.
 - Réaliser des tests utilisateurs et appliquer les correctifs nécessaires pour assurer une expérience optimale.
 
 === Livrables <livrables>
 Les délivrables seront les suivants :
-    - Plateforme CyberGame mise à jour, incluant l’ensemble du nouveau scénario opérationnel.
-    - Un rapport complet, comprenant :
-        - Des propositions de scénarios, avec motivation du scénario retenu.
-        - La documentation détaillée du scénario retenu, incluant la liste complète des challenges.
-        - La documentation de la plateforme CyberGame, incluant la description de l’existant et des évolutions apportées, ainsi que l’explication et justification des choix techniques.
-        - Une analyse de la sécurité de la plateforme.
-        - Les tests fonctionnels réalisés.
-        - Les tests utilisateurs réalisés : méthodologie, résultats, retours collectés, et correctifs appliqués.
+- Plateforme CyberGame mise à jour, incluant l’ensemble du nouveau scénario opérationnel.
+- Un rapport complet, comprenant :
+  - Des propositions de scénarios, avec motivation du scénario retenu.
+  - La documentation détaillée du scénario retenu, incluant la liste complète des challenges.
+  - La documentation de la plateforme CyberGame, incluant la description de l’existant et des évolutions apportées, ainsi que l’explication et justification des choix techniques.
+  - Une analyse de la sécurité de la plateforme.
+  - Les tests fonctionnels réalisés.
+  - Les tests utilisateurs réalisés : méthodologie, résultats, retours collectés, et correctifs appliqués.
 
 === Planification <planification>
 Le travail se déroule entre le 7 juillet et le 10 octobre 2025, pour un total de 450h :
-    - Du 7 juillet au 15 septembre : travail à temps plein (~45h/semaine).
-    - Du 16 septembre au 10 octobre : travail à temps partiel (~12–13h/semaine).
+- Du 7 juillet au 15 septembre : travail à temps plein (~45h/semaine).
+- Du 16 septembre au 10 octobre : travail à temps partiel (~12–13h/semaine).
 Le rendu intermédiaire est prévu pour la date du 31 juillet 2025, le rendu final est fixé au 8 octobre 2025, enfin, la défense devra être fixé après le 13 février 2026.
 Décomposition des tâches :
 
 === Décomposition des tâches <décomposition-tâches>
-    + Analyse du scénario existant : _07 – 09.07 2025_
-        - Étudier les mécaniques de jeu et les défis utilisés dans "Shana a disparu".
-        - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
-        - Évaluer les points positifs et les points à améliorer du scénario actuel.
-        - Étudier l’architecture de la plateforme CyberGame 
-    + Recherche et écriture du scénario	: _10 – 23.07 2025_
-        - S’inspirer de CTF, serious games et projets similaires pour la structure et le contenu des défis.
-        - Identifier les outils et environnements de développement.
-        - Identifier les bonnes méthodes pédagogiques adaptées à la sensibilisation à la cybersécurité à travers un jeu interactif.
-        - Élaborer plusieurs scénarios, puis détailler celle retenue.
-    + Conception et développement des challenges	: _24.07 – 03.09 2025_
-        - Définir les thématiques techniques abordées et les attaques à réaliser (XSS, reverse engineering, stéganographie, etc.).
-        - Concevoir entre 5 et 10 challenges.
-        - Développer les services ou environnements nécessaires.
-        - Ajouter, si besoin, un bot interactif pour simuler certaines interactions ou attaques.
-        - S’assurer de la clarté des consignes et de la logique de chaque challenge.
-    + Intégration dans la plateforme CyberGame :	_04 – 09.09 2025_
-        - Adapter les contenus au format de CyberGame.
-    + Tests et validation :	_10 – 19.09 2025_
-        - Réaliser des tests unitaires pour chaque challenge.
-        - Réaliser des tests utilisateurs et tester les défis par d’autres personnes pour ajuster la difficulté.
-        - Corriger les éventuels bugs ou incohérence.
-    + Documentation technique et pédagogique :	_20.09 – 08.10 2025_
-        - Documenter chaque challenge : objectif, compétences visées, indices, solution, pièges courants.
-        - Rédiger la documentation du scénario.
-        - Décrire les choix techniques et les modifications apportées à la plateforme.
-        - Documenter les tests.
++ Analyse du scénario existant : _07 – 09.07 2025_
+  - Étudier les mécaniques de jeu et les défis utilisés dans "Shana a disparu".
+  - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
+  - Évaluer les points positifs et les points à améliorer du scénario actuel.
+  - Étudier l’architecture de la plateforme CyberGame
++ Recherche et écriture du scénario	: _10 – 23.07 2025_
+  - S’inspirer de CTF, serious games et projets similaires pour la structure et le contenu des défis.
+  - Identifier les outils et environnements de développement.
+  - Identifier les bonnes méthodes pédagogiques adaptées à la sensibilisation à la cybersécurité à travers un jeu interactif.
+  - Élaborer plusieurs scénarios, puis détailler celle retenue.
++ Conception et développement des challenges	: _24.07 – 03.09 2025_
+  - Définir les thématiques techniques abordées et les attaques à réaliser (XSS, reverse engineering, stéganographie, etc.).
+  - Concevoir entre 5 et 10 challenges.
+  - Développer les services ou environnements nécessaires.
+  - Ajouter, si besoin, un bot interactif pour simuler certaines interactions ou attaques.
+  - S’assurer de la clarté des consignes et de la logique de chaque challenge.
++ Intégration dans la plateforme CyberGame :	_04 – 09.09 2025_
+  - Adapter les contenus au format de CyberGame.
++ Tests et validation :	_10 – 19.09 2025_
+  - Réaliser des tests unitaires pour chaque challenge.
+  - Réaliser des tests utilisateurs et tester les défis par d’autres personnes pour ajuster la difficulté.
+  - Corriger les éventuels bugs ou incohérence.
++ Documentation technique et pédagogique :	_20.09 – 08.10 2025_
+  - Documenter chaque challenge : objectif, compétences visées, indices, solution, pièges courants.
+  - Rédiger la documentation du scénario.
+  - Décrire les choix techniques et les modifications apportées à la plateforme.
+  - Documenter les tests.
