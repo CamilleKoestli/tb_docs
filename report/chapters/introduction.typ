@@ -1,22 +1,27 @@
+//TODO A COMPLETER : pourquoi on fait ce tp, que fait Shana, à qui il est destiné, a quoi ça ressemble
+
 = Introduction <introduction>
 
 == Sensibilisation à la sécurité informatique <sensibilisation-sécurité>
 
-Dans le monde entrepreneurial, il y a une forte croissance de la demande concernant les compétences en cybersécurité. En 2024, plus de deux tiers des professionnel·le·s européens déclaraient un environnement de menaces "plus stressant que jamais" et 61 % signalaient un sous-effectif chronique dans leurs équipes @noauthor_european_nodate.
+Dans le monde entrepreneurial, il y a une forte croissance de la demande concernant les compétences en cybersécurité. En 2024, plus de deux tiers des professionnel·le·s européens déclaraient un environnement de menaces "plus stressant que jamais" et 61 % signalaient un sous-effectif chronique dans leurs équipes @EuropeanOutlookISACA.
 
-Le rapport mondial ISC2 2024 confirme cette augmentation : 67 % des organisations estiment ne pas disposer du nombre ou des compétences nécessaires pour atteindre les objectifs de sécurité @noauthor_2024_nodate.
+Le rapport mondial ISC2 2024 confirme cette augmentation : 67 % des organisations estiment ne pas disposer du nombre ou des compétences nécessaires pour atteindre les objectifs de sécurité @2024ISC2Cybersecurity.
 
-Selon l’étude de Fortinet 2024, 58 % des incidents majeurs seraient directement liés à un manque de savoir-faire technique ou de formation du personnel @fortinet_fortinet_2024.
+Selon l’étude de Fortinet 2024, 58 % des incidents majeurs seraient directement liés à un manque de savoir-faire technique ou de formation du personnel @fortinet2024CybersecuritySkills2024.
 
-Face à ce manque, il est essentiel de former rapidement les jeunes mais aussi les adultes à cette problématique. Les serious games sont une méthode reconnue pour permettre d'engager, de motiver et de favoriser cet apprentissage. Des travaux de recherche montrent qu’ils permettent de découvrir beaucoup de technique et de notions (cryptographie, réseau, scripts, attaque Web) tout en offrant un environnement sans risque. L’utilisateur·trice peut expérimenter et apprendre de ses erreurs @hill_comparing_2020.
+Face à ce manque, il est essentiel de former rapidement les jeunes mais aussi les adultes à cette problématique. Les serious games sont une méthode reconnue pour permettre d'engager, de motiver et de favoriser cet apprentissage. Des travaux de recherche montrent qu’ils permettent de découvrir beaucoup de technique et de notions (cryptographie, réseau, scripts, attaque Web) tout en offrant un environnement sans risque. L’utilisateur·trice peut expérimenter et apprendre de ses erreurs @hillComparingSeriousGames2020.
 
 == Contexte <contexte>
 
-Le pôle de compétence en cybersécurité réunit, depuis plus de vingt ans, les savoirs-faire de l'école en cybersécurité : une douzaine d'expert·e·s, un réseau industriel suisse et européen, ainsi qu'une expérience solide en projets Ra&D font de Y-Security un acteur clé et un véritable "écosystème" pour la formation et l'innovation en Suisse romande @noauthor_y-security_nodate.
+Le pôle de compétence en cybersécurité réunit, depuis plus de vingt ans, les savoirs-faire de l'école en cybersécurité : une douzaine d'expert·e·s, un réseau industriel suisse et européen, ainsi qu'une expérience solide en projets Ra&D font de Y-Security un acteur clé et un véritable "écosystème" pour la formation et l'innovation en Suisse romande @YSecurityHEIGVD.
 
-Pour rendre plus accessible la pratique du hacking éthique, le pôle a créé une plateforme "CyberGame" et décide de se pencher sur les serious game. Il propose actuellement deux scénarios ludiques et progressives en ligne sur cette thématique @noauthor_initiation_nodate:
+Pour rendre plus accessible la pratique du hacking éthique, le pôle a créé une plateforme "CyberGame" et décide de se pencher sur les serious game. Les serious games ont pour objectif de rendre l'apprentissage de la cybersécurité ludique et accessible à tous, à travers des scénarios interactifs et progressifs.
+Il propose actuellement deux scénarios en ligne sur cette thématique @InitiationAuEthical:
 - "Shana a disparu" (2020) : une enquête qui vise à retrouver Shana et qui initie les débutants aux bases du piratage éthique.
 - "Sauve la Terre de l'arme galactique" (2021) : une mission interplanétaire qui a pour objectif se récupérer des plans d'une arme galactique.
+
+L'objectif de ces serious
 
 Grâce à leur narration immersive et leurs défis, ces jeux, en particulier "Shana a disparu" on rencontré un grand succès auprès du public. Cependant, la majorité des participant·e·s les ont déjà terminés.
 
