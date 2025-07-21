@@ -87,29 +87,29 @@ Décomposition des tâches :
 
 ### Décomposition des tâches
 
-1. Analyse du scénario existant : _07 – 09.08 2025_
+1. Analyse du scénario existant : _07 – 09.07 2025_
     - Étudier les mécaniques de jeu et les défis utilisés dans « Shana a disparu ».
     - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
     - Évaluer les points positifs et les points à améliorer du scénario actuel.
     - Étudier l’architecture de la plateforme CyberGame.
-2. Recherche et écriture du scénario : _10 – 16.08 2025_
+2. Recherche et écriture du scénario : _10 – 23.07 2025_
     - S’inspirer de CTF, serious games et projets similaires pour la structure et le contenu des défis.
     - Identifier les outils et environnements de développement.
     - Identifier les bonnes méthodes pédagogiques adaptées à la sensibilisation à la cybersécurité à travers un jeu interactif.
     - Élaborer plusieurs scénarios, puis détailler celle retenue.
-3. Conception et développement des challenges : _17.08 – 03.09 2025_
+3. Conception et développement des challenges : _24.08 – 03.09 2025_
     - Définir les thématiques techniques abordées et les attaques à réaliser (XSS, reverse engineering, stéganographie, etc.).
     - Concevoir entre 5 et 10 challenges.
     - Développer les services ou environnements nécessaires.
     - Ajouter, si besoin, un bot interactif pour simuler certaines interactions ou attaques.
     - S’assurer de la clarté des consignes et de la logique de chaque challenge.
-4. Intégration dans la plateforme CyberGame : _04 – 08.09 2025_
+4. Intégration dans la plateforme CyberGame : _04 – 09.09 2025_
     - Adapter les contenus au format de CyberGame.
-5. Tests et validation : _09 – 15.09 2025_
+5. Tests et validation : _10 – 19.09 2025_
     - Réaliser des tests unitaires pour chaque challenge.
     - Réaliser des tests utilisateurs et tester les défis par d’autres personnes pour ajuster la difficulté.
     - Corriger les éventuels bugs ou incohérence.
-6. Documentation technique et pédagogique :  _16.09 – 06.10 2025_
+6. Documentation technique et pédagogique :  _20.09 – 08.10 2025_
     - Documenter chaque challenge : objectif, compétences visées, indices, solution, pièges courants.
     - Rédiger la documentation du scénario.
     - Décrire les choix techniques et les modifications apportées à la plateforme.
