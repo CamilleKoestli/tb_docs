@@ -140,8 +140,10 @@
     }
   })
 
+  show quote: set text(style: "italic");
 
 
   body
 }
+
 
