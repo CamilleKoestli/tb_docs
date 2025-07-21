@@ -20,6 +20,8 @@ Les cyber-ranges sont des environnements simulés qui permettent aux utilisateur
 
 //TODO expliquer que c'est surtout des entrainements pour la blue team
 
+== Outils et techniques de sensibilisation à la cybersécurité
+
 === Serious games, jeux narratifs et pédagogiques
 Les serious games, ou jeux sérieux, sont des outils pédagogiques qui utilisent des éléments de jeu pour enseigner des concepts complexes. Ils sont particulièrement efficaces dans le domaine de la cybersécurité, car ils permettent aux utilisateur·trice·s de s'engager activement dans le processus d'apprentissage. Les jeux narratifs et pédagogiques offrent une approche immersive qui peut aider à renforcer la compréhension des concepts de cybersécurité et à améliorer la rétention des connaissances. Ces jeux peuvent simuler des scénarios réels, permettant aux utilisateur·trice·s de prendre des décisions et de voir les conséquences de leurs actions dans un environnement sécurisé.
 
