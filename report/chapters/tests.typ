@@ -1,7 +1,8 @@
 = Tests <tests>
 
-== Tests fonctionnels <tests-fonctionnels>
-
-== Tests utilisateurs <tests-utilisateurs>
+#include "tests-fonctionnels.typ"
+#pagebreak()
+#include "tests-utilisateurs.typ"
+#pagebreak()
 
 == Correctifs <correctifs>
