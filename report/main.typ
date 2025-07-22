@@ -5,6 +5,13 @@
 
 #set text(lang: language)
 
+// bibliography
+#show "Available from": "Disponible à l'adresse"
+#show "Online": "En ligne"
+#show "no date": "sans date"
+#show "Accessed": "Consulté le"
+
+
 /*
  Includes
 */

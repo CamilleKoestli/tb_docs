@@ -33,7 +33,7 @@ Une fois le défi résolu, il devra remplir le champ `Valider l'étape !` avec l
 
 Pour aider le joueur·euse, dans la pop-up de description du défi, il y a un boutoon `Indice` qui permet d'afficher un indice pour l'aider à résoudre le défi. De plus, sur le site web, nous retrouvons aussi une boîte à outils.
 #figure(
-  image("imgs/tools.png"),
+  image("imgs/tools-imgs.png"),
   caption: [Boites à outils],
 )<tools-imgs>
 
