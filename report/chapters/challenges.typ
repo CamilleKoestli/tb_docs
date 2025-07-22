@@ -1,11 +1,16 @@
 = Listes des challenges pour le scénario retenu <liste-challenges>
 
-== Challenge 1 : TODO <challenge-1>
-
-== Challenge 2 : TODO  <challenge-2>
-
-== Challenge 3 : TODO  <challenge-3>
-
-== Challenge 4 : TODO  <challenge-4>
-
-== Challenge 5 : TODO <challenge-5>
+#include "challenge-1.typ"
+#pagebreak()
+#include "challenge-2.typ"
+#pagebreak()
+#include "challenge-3.typ"
+#pagebreak()
+#include "challenge-4.typ"
+#pagebreak()
+#include "challenge-5.typ"
+#pagebreak()
+#include "challenge-6.typ"
+#pagebreak()
+#include "challenge-7.typ"
+#pagebreak()
