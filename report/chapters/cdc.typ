@@ -22,9 +22,9 @@ Cette nouvelle histoire s’adressera donc à des participant·e·s ayant résol
 Comment créer une nouvelle histoire immersive et prenante qui mêle les techniques d’ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ?
 
 === Solutions existantes <solutions-existantes>
-A ce jour, seul le projet "Shana a disparu" a été développé par la HEIG-VD qui a pour objectif d'initier et de sensibiliser à la cybersécurité grâce à des énigmes progressives intégrées dans une narration interactive. Ce projet s'appuie sur des techniques de base comme l'inspection de sites web, l'analyse de métadonnées, ...
+A ce jour, seul le projet "Shana a disparu" a été développé par la HEIG-VD qui a pour objectif d'initier et de sensibiliser à la cybersécurité grâce à des énigmes progressives intégrées dans une narration interactive et qui a reconnu un certain succès. Un autre scénario "Sauve la Terre de l'arme galactique", avec des challenges plutôt similaire à "Shana a disparu", a été mis en place en 2021 mais a remporté beaucoup moins de succès. Ce projet s'appuie sur des techniques de base comme l'inspection de sites web, l'analyse de métadonnées, ...
 
-Il existe aussi d'autres solutions similaires dans le domaine de l'ethical hacking, mais plutôt sous la forme de Capture The Flag (CTF) comme "Root Me", "Hack the Box", "TryHackMe", ...
+Il existe aussi d'autres solutions similaires dans le domaine de l'ethical hacking, mais plutôt sous la forme de Capture The Flag (CTF) comme "Root Me", "Hack the Box", "TryHackMe", ..., des cyber-ranges mais qui sont plutôt orientées vers des expert·e·s en cybersécurité ou encore des formations en ligne comme "SoSafe" qui proposent des cours et des exercices pratiques sur la cybersécurité sans forcément d'histoire narrative et immersive.
 
 Ces solutions montrent un certain intérêt qui augmente pour la cybersécurité. Elles utilisent des approches ludiques mais peu combinent une narration et une progression techniques comme le fait "Shana a disparu".
 
@@ -32,6 +32,8 @@ Ces solutions montrent un certain intérêt qui augmente pour la cybersécurité
 Pour proposer une nouvelle expérience qui s'adresse à tout le monde tout en permettant de sensibiliser mais aussi de rester ludique, plusieurs options peuvent être envisagées :
 - Développer une extension directe du scénario existant avec de nouveaux challenges plus techniques.
 - Créer un nouveau jeu totalement indépendant avec un nouveau scénario, mais qui reste dans la même idée que le jeu précédent.
+
+L'option choisie est de créer un nouveau scénario qui s'adresse à tout le monde. Ce scénario doit être accessible aux débutant·e·s tout en proposant des défis plus complexes pour les utilisateur·trice·s plus expérimenté·e·s. Il doit également intégrer des éléments narratifs immersifs pour maintenir l'intérêt et la motivation des joueur·euse·s.
 
 == Cahier des charges <cahier-des-charges-1>
 Le cahier des charges va permettre d’encadrer la conception d’un scénario immersif dans le domaine de la cybersécurité tout en restant ludique. L’objectif sera de produire une nouvelle expérience à la fois ludique mais aussi dans une approche de sensibilisation.
