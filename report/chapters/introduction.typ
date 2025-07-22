@@ -1,16 +1,20 @@
-//TODO A COMPLETER : pourquoi on fait ce tp, que fait Shana, à qui il est destiné, a quoi ça ressemble
 
 = Introduction <introduction>
 
 == Sensibilisation à la sécurité informatique <sensibilisation-sécurité>
+De nos jours, la digitalisation croissante de notre quotidien, que ce soit au niveau administratif, paiements, télé-travail, ... expose les utilisateur·trice·s à de nombreux risques en matière de sécurité informatique. Dans l'article de _The Digital Decade_ les Européen·ne·s sont de plus en plus préoccupé·e·s par la sécurité de leurs données personnelles et de leur vie privée en ligne et 79% estiment  que "l'amélioration de la cybersécurité et de la protection des données [...]" est indispensable pour pouvoir profiter sans soucis des services numériques @europeancommission.directorategeneralforcommunicationsnetworkscontentandtechnology.DigitalDecade2024.\ 
+De plus, l'étude réalisé par _Wahl_ montre que 52% des répondants Européen·ne·s estiment ne pas être en mesure de se protéger suffisamment contre la cybercriminalité. Mais en contrepartie, 52% des personnes interrogées déclarent qu'il y a une augmentation de la sensibilisation à la cybersécurité @wahlEurobarometerEuropeansAttitudes2020. En complément, le rapport publié par l'ENISA (Agence européenne de cybersécurité) met en évidence une baisse de la confiance des citoyen·ne·s dans leurs capacités à se protéger contre les menaces et met en évidence "une faible connaissances des mécanisme de signalement des cybercrimes" @europeanunionagencyforcybersecurityenisa2024ReportState2024. 
 
-Dans le monde entrepreneurial, il y a une forte croissance de la demande concernant les compétences en cybersécurité. En 2024, plus de deux tiers des professionnel·le·s européens déclaraient un environnement de menaces "plus stressant que jamais" et 61 % signalaient un sous-effectif chronique dans leurs équipes @EuropeanOutlookISACA.
+Le risque principal que les utilisateur·trice·s courent est d'être la cible d'attaques, telles que le phishing, les ransomwares ou les logiciels malveillants. Aujourd'hui, les cybercriminels vont plus loin que l'exploitation des technologies et exploitent aussi les failles humaines à travers du social engineering à travers des attaques personnalisées utilisant de l'IA @spysPhishingStatistics20252025. En 2027, nous estimons une augmentation de 17% des attaques utilisant l'IA @spysPhishingStatistics20252025. Le nombre de courriels frauduleux envoyés par jour dépassent les 3,4 milliards, ce qui représente 36 % des brèches de sécurité et 94 % des infections par maliciel @spysPhishingStatistics20252025. Les campagnes de phishing se sont intensifiées, avec une augmentation de 57,5 % des attaques par ransomwares entre novembre 2024 et février 2025 @knowbe4PhishingThreatTrends2025.
+
+De plus, dans le monde entrepreneurial, il y a une forte croissance de la demande concernant les compétences en cybersécurité. En 2024, plus de deux tiers des professionnel·le·s européens déclaraient un environnement de menaces "plus stressant que jamais" et 61 % signalaient un sous-effectif chronique dans leurs équipes @santiniEuropeanOutlookISACA.
 
 Le rapport mondial ISC2 2024 confirme cette augmentation : 67 % des organisations estiment ne pas disposer du nombre ou des compétences nécessaires pour atteindre les objectifs de sécurité @2024ISC2Cybersecurity.
 
 Selon l’étude de Fortinet 2024, 58 % des incidents majeurs seraient directement liés à un manque de savoir-faire technique ou de formation du personnel @fortinet2024CybersecuritySkills2024.
 
-Face à ce manque, il est essentiel de former rapidement les jeunes mais aussi les adultes à cette problématique. Les serious games sont une méthode reconnue pour permettre d'engager, de motiver et de favoriser cet apprentissage. Des travaux de recherche montrent qu’ils permettent de découvrir beaucoup de technique et de notions (cryptographie, réseau, scripts, attaque Web) tout en offrant un environnement sans risque. L’utilisateur·trice peut expérimenter et apprendre de ses erreurs @hillComparingSeriousGames2020.
+Face à ce manque, il est essentiel de former rapidement les jeunes mais aussi les adultes à cette problématique, mais aussi le grand public. La recherche montre l'efficacité des approches plus ludiques pour des apprentissages. Une revue conclue  que les serious games sont un moyen efficace pour sensibiliser les utilisateur·trice·s dépourvus de bagage technique @ngCybersecuritySeriousGames2025.
+Les serious games sont une méthode reconnue pour permettre d'engager, de motiver et de favoriser cet apprentissage. Des travaux de recherche montrent qu’ils permettent de découvrir beaucoup de technique et de notions (cryptographie, réseau, scripts, attaque Web) tout en offrant un environnement sans risque. L’utilisateur·trice peut expérimenter et apprendre de ses erreurs @hillComparingSeriousGames2020. C'est là que le pôle Y-Security de la HEIG-VD intervient et décide de se pencher sur les serious games pour sensibiliser et former le grand public à la cybersécurité.
 
 == Contexte <contexte>
 
@@ -25,7 +29,7 @@ Il propose actuellement deux scénarios en ligne sur cette thématique @Initiati
 
 #figure(
   image("imgs/shana-interface.png"),
-  caption: ["Shana a disparu" - Interface du jeu],
+  caption: ["Shana a disparu" - Interface du jeu @ShanaDisparuRetrouvela],
 )<shana-interface>
 
 La @shana-interface permet de voir la plateforme "CyberGame" et la construction de l'interface pour le joueur·euse. L'utilisateur·trice·s peut naviguer d'un défi à l'autre grâce à la barre de navigation en haut de la page. Chaque challenge est présenté à travers une page dédiée avec une description du défi, des indices ainsi qu'un bouton afin de démarrer le challenge. Une fois le défi lancé, il peut explorer le site web, inspecter les éléments, analyser le code source, ... 
@@ -34,7 +38,7 @@ Une fois le défi résolu, il devra remplir le champ `Valider l'étape !` avec l
 Pour aider le joueur·euse, dans la pop-up de description du défi, il y a un boutoon `Indice` qui permet d'afficher un indice pour l'aider à résoudre le défi. De plus, sur le site web, nous retrouvons aussi une boîte à outils.
 #figure(
   image("imgs/tools-imgs.png"),
-  caption: [Boites à outils],
+  caption: [Boite à outils @InformationsOutilsMethodes],
 )<tools-imgs>
 
 Cette @tools-imgs permet de mettre en évidence la boîte à outils présente sur le site web. Elle aide les joueur·euse·s à trouver les outils nécessaires pour résoudre les défis. Par exemple, un outil pour inspecter le code source, un autre pour analyser les requêtes HTTP, ou comment écrire un petit script en Python.
@@ -42,7 +46,7 @@ Cette @tools-imgs permet de mettre en évidence la boîte à outils présente su
 En ce qui concerne le second scénario, "Sauve la Terre de l'arme galactique", il s'agit d'une mission interplanétaire où le joueur·euse doit récupérer des plans d'une arme galactique. Il reprend les mêmes bases que le premier scénario, comme le montre @galac-interface, avec la même interface et les mêmes mécaniques de jeu. Cependant, il est moins populaire que le premier scénario, car il ne propose pas de nouveaux défis techniques et reste dans la même idée que le premier scénario.
 #figure(
   image("imgs/galac-interface.png"),
-  caption: ["Sauve la Terre de l'arme galactique" - Interface du jeu],
+  caption: ["Sauve la Terre de l'arme galactique" - Interface du jeu @SauveTerreLarme],
 )<galac-interface>
 
 Grâce à leur narration immersive et leurs défis, ces jeux, en particulier "Shana a disparu" on rencontré un grand succès auprès du public. Cependant, la majorité des participant·e·s les ont déjà terminés.
