@@ -22,7 +22,7 @@ Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’
   [2],
   [#link(<ch1-2>)[Shadow VPN Portal]],
   [Exploitation Web],
-  [Explorater l'HTML afin d'y trouver un commentaire qui contient la liste de toutes backup.],
+  [Explorer l'HTML afin d'y trouver un commentaire qui contient la liste de toutes backup.],
 
   [3],
   [#link(<ch1-3>)[Script d’infection]],
