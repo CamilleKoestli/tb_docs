@@ -1,7 +1,7 @@
 == Scénario science-fiction : Fuite de l'Acheron <scénario-3>
-Dans ce scénario, le joueur·euse incarne un hacker capturé par des pirates de l’espace. Il devra résoudre une série de défis pour pouvoir s'échapper du vaisseau spatial Acheron. Le scénario est inspiré de récits de science-fiction et de jeux vidéo, où les joueur·euse·euse·s doivent utiliser leur ingéniosité pour surmonter des obstacles technologiques.
+Dans ce scénario, le joueur·euse incarne un hacker capturé par des pirates de l’espace. Il devra résoudre une série de défis pour pouvoir s'échapper du vaisseau spatial Acheron. Le scénario est inspiré de récits de science-fiction et de jeux vidéo, où les joueur·euse·s doivent utiliser leur ingéniosité pour surmonter des obstacles technologiques.
 
-Le premier défi consiste à déverrouiller la porte de sa cellule en retrouvant le mot de passe d'origine à partir d'un hash SHA-1 stocké dans le système de sécurité. Ensuite, il doit exploiter une vulnérabilité de type prototype pollution dans un portail web pour obtenir un accès technicien et débloquer le sas du couloir principal. Le joueur·euse devra également patcher le firmware d'un droïde de maintenance pour neutraliser sa fonction de détection et pouvoir passer sans être repéré. Puis, en utilisant un shell restreint, il devra explorer le système pour récupérer une clé de déverrouillage cachée dans un fichier de service systemd et ouvrir le sas principal du hangar. Enfin, il devra utiliser des techniques de stéganographie pour extraire une phrase secrète dissimulée dans les bits de poids faible d'une image des plans de la navette, permettant ainsi de démarrer les moteurs et de s'échapper.
+Le premier défi consiste à déverrouiller la porte de sa cellule en retrouvant le mot de passe d'origine à partir d'un hash SHA-1 stocké dans le système de sécurité. Ensuite, il doit exploiter une vulnérabilité de type prototype pollution dans un portail web pour obtenir un accès technicien et débloquer le sas du couloir principal. Le joueur·euse devra également patcher le firmware d'un droïde de maintenance pour neutraliser sa fonction de détection et pouvoir passer sans être repéré. Puis, en utilisant un shell restreint, il devra explorer le système pour récupérer une clé de déverrouillage cachée dans un fichier de service `systemd` et ouvrir le sas principal du hangar. Enfin, il devra utiliser des techniques de stéganographie pour extraire une phrase secrète dissimulée dans les bits de poids faible d'une image des plans de la navette, permettant ainsi de démarrer les moteurs et de s'échapper.
 
 "L’Acheron est un transport spatial pirate opérant dans la Ceinture de Kuiper. Son équipage t’a enlevé parce qu’ils connaissent ta réputation : ils veulent que tu craques le noyau de sécurité d’OrbitalBank, la banque décentralisée qui garde les coffres-forts crypto de la Fédération. Plutôt que de collaborer, tu décides d'essayer de te sauver. Le seul moyen de quitter l’Acheron est une navette de secours verrouillée au pont C. Pour l’atteindre, tu dois d’abord ouvrir chaque compartiment en détournant les systèmes du vaisseau."
 
@@ -26,7 +26,7 @@ Le premier défi consiste à déverrouiller la porte de sa cellule en retrouvant
   [3],
   [#link(<ch3-3>)[Drone Patch]],
   [Reverse Engineering],
-  [Dans `drn_guard.bin` localiser la chaîne FRIENDLY_UID, remplacer le bloc pour neutralise le droïde sentinelle.],
+  [Dans `drn_guard.bin` localiser la chaîne `FRIENDLY_UID`, remplacer le bloc pour neutraliser le droïde sentinelle.],
 
   [4],
   [#link(<ch3-4>)[Service Secret]],
@@ -46,14 +46,14 @@ unlock_hash = 54b8bc82e430c3bd7a4b52f3c2537ef84c046c07
 ```
 
 + Ouvrir la console fournie  et lire hatch.cfg.	Isoler la valeur du hash.
-+ Reconnaître qu’un digest de 40 hex qui est SHA-1.
++ Reconnaître qu’un hash de 40 hex est un SHA-1.
 + Soumettre le hash à une base comme Hashes.com ou CrackStation.com.
 
 *Outils nécessaires* : Navigateur et site de recherche de hash.
 
 *Indices graduels*
 - Indice 1 : Le hash fait 40 hexa, ce qui correspond à SHA-1.
-- Indice 2 : Essaie une rainbow table en ligne.
+- Indice 2 : Essaie une rainbow-table en ligne.
 - Indice 3 : Les pirates adorent nommer leurs codes d’après les constellations, pense à un mot spatial + nombre .
 
 *Flag attendu* : `Orion88`
@@ -71,7 +71,7 @@ Content-Type: application/json
   "payload": {}
 }
 ```
-Le back-end Node.js assemble ensuite :
+Le back-end `Node.js` assemble ensuite :
 ```js
 const cfg = _.merge(
   { role: "guest" },
@@ -106,7 +106,7 @@ En injectant la clé spéciale `__proto__`, le joueur·euse redéfinit la propri
 *Indices graduels*
 - Indice 1 : Le code front-end inclut lodash, cherche où `_.merge` est appelé avec `req.body.payload`.
 - Indice 2 : Dans JavaScript, la clé magique `__proto__` peut injecter des propriétés dans tous les objets créés ensuite.
-- Indice 3 : Si tu ajoutes `__proto__: {"role":"tech"}` dans payload, la condition `cfg.role === "tech"` devient vraie.
+- Indice 3 : Si tu ajoutes `__proto__: {"role":"tech"}` dans la payload, la condition `cfg.role === "tech"` devient vraie.
 
 *Flag attendu* : `ACRN-42F9-TEK`
 
@@ -115,14 +115,14 @@ En injectant la clé spéciale `__proto__`, le joueur·euse redéfinit la propri
 Le joueur·euse doit maintenant passer le droïde de maintenance qui garde le pont C. Le droïde est contrôlé par un firmware `drn_guard.bin` qui ne laisse passer que les badges dont l'UID est marqué comme "friendly". Par chance, les développeurs ont laissé la chaîne ASCII `FRIENDLY_UID` dans le binaire, juste avant la fonction de comparaison d'UID. En localisant cette chaîne et en remplaçant la comparaison qui suit par un retour 0, le joueur·euse peut rendre le droïde aveugle à tous les badges, lui permettant ainsi de passer jusqu'au pont C sans être détecté.
 
 + Ouvrir `drn_guard.bin` dans Ghidra.
-+ Rechercher la constante ASCII FRIENDLY_UID.
++ Rechercher la constante ASCII `FRIENDLY_UID`.
 + Dans l’éditeur d’octets, remplacer `cmp r0, #0xF00D ; bne` `par movs r0,#0 ; bx lr`.
 + Enregistrer le binaire et le relancer.
 
 *Outils nécessaires* : Ghidra, éditeur hexadécimal intégré.
 
 *Indices graduels*
-- Indice 1 : Dans Ghidra, liste les Strings et repère FRIENDLY_UID, la zone de code associée suit juste derrière. .
+- Indice 1 : Dans Ghidra, liste les Strings et repère `FRIENDLY_UID`, la zone de code associée suit juste derrière.
 - Indice 2 : Modifie ce test pour qu'il n'échoue jamais `cmp r0,#0xF00D ; bne` `: 0xF00D` est l’UID ami.
 - Indice 3 : Remplace les octets par `01 20 70 47` (`movs r0,#0 + bx lr`), ça permet à la fonction de retourner toujours OK.
 
@@ -132,7 +132,7 @@ Ce jeton servira ensuite de mot de passe pour le terminal du sas dans le défi 4
 === _Service Secret: Enum système / Forensic_ <ch3-4>
 Le joueur·euse doit maintenant ouvrir le sas principal du hangar C pour accéder à la navette de secours. Le sas est contrôlé par une unité systemd nommée `hangar-door.service`. En se connectant avec le jeton récupéré lors du défi précédent, le joueur·euse obtient un shell restreint `tech_guest`. Les développeurs ont commis l'erreur de laisser le fichier de service lisible par tous, avec la clé de déverrouillage stockée en clair dans la section Environment. Il suffit donc d'afficher le contenu du fichier de service pour récupérer la clé et commander l'ouverture du sas.
 
-+ Lister les unités systemd `systemctl list-unit-files | grep hangar`.
++ Lister les unités `systemd` `systemctl list-unit-files | grep hangar`.
 + Afficher le fichier d’unité `cat /etc/systemd/system/hangar-door.service`.
 + Repérer la variable sensible :
   ```ini

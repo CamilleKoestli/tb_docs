@@ -12,7 +12,7 @@
   [07 – 09 \ juillet 2025],
   [
     Étude des mécaniques des deux jeux, inventaire des technologies,
-    analyse critique, analyse de l’architecture CyberGame.
+    analyse critique, analyse de l’architecture "CyberGame".
   ],
 
   [2. Recherche et écriture du scénario],
@@ -26,14 +26,14 @@
   [24 juillet – \ 03  septembre 2025],
   [
     Définition des thématiques (XSS, RE, stéganographie, …), conception de
-    5 – 10 challenges, développement des services, ajout éventuel d’un bot,
+    5 – 10 challenges, développement des services, ajout d’un bot,
     clarification des consignes.
   ],
 
-  [4. Intégration dans la plateforme CyberGame],
+  [4. Intégration dans la plateforme "CyberGame"],
   [04 – 09 \ septembre 2025],
   [
-    Adaptation des contenus et déploiement au format CyberGame.
+    Adaptation des contenus et déploiement au format "CyberGame".
   ],
 
   [5. Tests et validation],

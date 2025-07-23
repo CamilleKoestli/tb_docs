@@ -17,7 +17,7 @@ Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’
   [1],
   [#link(<ch1-1>)[Mail Contagieux]],
   [OSINT & forensic e-mail],
-  [Analyse d’un fichier .eml : inspection des entêtes Received/Return-Path pour identifier l’IP et le domaine d’envoi.],
+  [Analyse d’un fichier .eml : inspection des entêtes `Received/Return-Path` pour identifier l’IP et le domaine d’envoi.],
 
   [2],
   [#link(<ch1-2>)[Shadow VPN Portal]],
@@ -51,7 +51,7 @@ Dans un premier temps, le joueur·euse doit analyser un e-mail de phishing qui a
 *Outils nécessaires* : IDE, WHOIS.
 
 *Indices graduels*
-- Indice 1 : Consulte uniquement les tout premiers entêtes `Received:`, la vraie origine est souvent dans la ligne la plus basse.
+- Indice 1 : Consulte uniquement les tous premiers entêtes `Received:`, la vraie origine est souvent dans la ligne la plus basse.
 - Indice 2 : L’expéditeur imite le sous-domaine support d’Horizon Santé.
 - Indice 3 : Vérifie la réputation WHOIS : un domaine proche d’`horizonsante.com`, mais pas identique, ressort comme malveillant.
 
@@ -60,7 +60,7 @@ Le sous-domaine sera la cible du défi 2.
 
 
 === _Shadow VPN Portal :  Exploitation Web_ <ch1-2>
-Le joueur·euse doit maintenant accéder à un faux portail VPN de l'hôpital `https://vpn.horizonsante-support.com/`, qui a été mis en place par les attaquants pour exfiltrer des données. Le faux portail VPN () propose un bouton « Dernière sauvegarde » qui appelle :
+Le joueur·euse doit maintenant accéder à un faux portail VPN de l'hôpital `https://vpn.horizonsante-support.com/`, qui a été mis en place par les attaquants pour exfiltrer des données. Le faux portail VPN propose un bouton "Dernière sauvegarde" qui appelle :
 ```http
 https://vpn.horizonsante-support.com/repo/download.php?file=latest
 ```
@@ -127,7 +127,7 @@ Le mot de passe permet d’ouvrir les logs du défi 5.
 Dans le dossier patient, le joueur·euse trouve une radiographie `thorax_xray.png` qui semble normale, mais qui est anormalement lourd. Le ransomware a dissimulé un kill-switch dans cette image pour désactiver son attaque. Les renseignements obtenus dans le défi 4 (mot de passe `Aur0raVital@2025`) devront être utilisés pour extraire ce message.
 
 + Télécharger `thorax_xray.png`.
-+ Lancer `binwalk -e thorax_xray.png` ou ouvrir l’image avec `steghide`	et déceler un fichier caché (ZIP ou steghide data)
++ Lancer `binwalk -e thorax_xray.png` ou ouvrir l’image avec `steghide`	et trouver un fichier caché (ZIP ou steghide data)
 + Quand l’outil demande le mot de passe, entrer `Aur0raVital@2025` (flag du défi 4)
 + Extraire le petit fichier `kill.txt` (ou kill_switch.conf)	et lire son contenu
 

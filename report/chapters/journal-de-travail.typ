@@ -10,10 +10,10 @@
     [08.07.2025 \
     09.07.2025], [Analyse de la plateforme et des techniques des challenges], [0], [18], [0], [0],
     [10.07.2025 \
-    11.07.2025], [Recherches serious game, CTF, ... \ Rédactions des scénarios et de l'état de l'art], [7], [0], [11], [0],
+    11.07.2025], [Recherches serious game, CTF, ... \ Rédaction des scénarios et de l'état de l'art], [7], [0], [11], [0],
     [14.07.2025 \
-    18.07.2025], [Rédactions plus approfondies des scénarios\ Recherches], [15], [0], [30], [0],
+    18.07.2025], [Rédaction plus approfondies des scénarios\ Recherches], [15], [0], [30], [0],
     [21.07.2025 \
-    23.07.2025], [Rédactions détaillées de l'introduction et de l'état de l'art\ Recherches\ Rédaction et modification du scénario définitif], [9], [0], [18], [0],
+    23.07.2025], [Rédaction détaillées de l'introduction et de l'état de l'art\ Recherches\ Rédaction et modification du scénario définitif], [9], [0], [18], [0],
     
   )

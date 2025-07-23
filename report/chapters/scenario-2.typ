@@ -70,7 +70,7 @@ Le code permet d'avoir accès au Wi-Fi ainsi qu'à la page de connexion des part
 
 
 === _Admin Bypass : Web Exploitation_ <ch2-2>
-Le joueur·euse doit maintenant accéder à l'intranet de KeyWave Systems `https://intra.keywave.local/partners/login.php` pour voler les plans. Le formulaire de connexion comporte les champs e-mail et mot de passe. Un email de la responsable média se trouve sur le flyer. Il faudra l'utiliser pour se challenge. Il doit contourner le filtre basique WAF (Web Application Firewall) sur la page de connexion des partenaires, qui refuse toute requête contenant le mot-clé exact `OR` (maj/min indifférent) ou la séquence `--`. Aucune requête préparée et le back-end exécute toujours :
+Le joueur·euse doit maintenant accéder à l'intranet de KeyWave Systems `https://intra.keywave.local/partners/login.php` pour voler les plans. Le formulaire de connexion comporte les champs e-mail et mot de passe. Un email de la responsable média se trouve sur le flyer. Il faudra l'utiliser pour ce challenge. Il doit contourner le filtre basique WAF (Web Application Firewall) sur la page de connexion des partenaires, qui refuse toute requête contenant le mot-clé exact `OR` (maj/min indifférent) ou la séquence `--`. Aucune requête préparée et le back-end exécute toujours :
 ```sql
 SELECT partner_id, session_token
 FROM partners
@@ -86,13 +86,13 @@ Pour contourner le filtre, le joueur·euse doit utiliser une injection SQL pour 
 *Indices graduels*
 - Indice 1 : Le WAF bloque `OR` en clair, mais un commentaire `/**/` interrompt les mots.
 - Indice 2 : MySQL accepte le dièse `#` comme commentaire d’une ligne.
-- Indice 3 : Essaie de scinder OR : `O/**/R`, puis termine le restant de la requête avec `#`. N’oublie pas d’utiliser l’adresse `alice.martin@keywave.com` trouvée sur le flyer.
+- Indice 3 : Essaie de scinder `OR` : `O/**/R`, puis termine le restant de la requête avec `#`. N’oublie pas d’utiliser l’adresse `alice.martin@keywave.com` trouvée sur le flyer.
 
 *Flag attendu* : `PART-7XG4`
 
 
 === _Micro-Patch : Reverse Engineering_ <ch2-3>
-Le joueur·euse a maintenant le `session_token`, mais il doit effacer toute trace de sa connexion pour éviter d'être détecté par le SOC. Le micro-service `session_tap.exe` consigne chaque utilisation d’un `session_token` partenaire dans un fichier `audit.log`. Tant qu’il détecte la valeur `PART-7XG4` (celle récupérée dans le challenge 2), il écrit une ligne dans ce journal. Le joueur·euse doit modifier le binaire pour que la fonction `audit()` retourne toujours 0, ce qui effacera toute trace de sa connexion.
+Le joueur·euse a maintenant le `session_token`, mais il doit effacer toute trace de sa connexion pour éviter d'être détecté par le SOC. Le micro-service `session_tap.exe` consigne chaque utilisation d’un `session_token` partenaire dans un fichier `audit.log`. Tant qu’il détecte la valeur `PART-7XG4` (celle récupérée dans le challenge 2), il écrit une ligne dans ce journal. Le joueur·euse doit modifier le binaire pour que la fonction `audit()` retourne toujours `0`, ce qui effacera toute trace de sa connexion.
 
 + Ouvrir `session_tap.exe` dans Ghidra.
 + Rechercher la constante ASCII `PART-7XG4`, cela mène à `cmp eax, 0x50415254`.  ("PART").
@@ -104,14 +104,14 @@ Le joueur·euse a maintenant le `session_token`, mais il doit effacer toute trac
 *Indices graduels*
 - Indice 1 : Ouvre le binaire dans Ghidra et fais `Strings`. le token `PART-7XG4` s’y trouve en clair.
 - Indice 2 : Clique sur Xrefs de cette chaîne et il y a un `cmp eax, 0x50415254 (ASCII “PART”)`.
-- Indice 3 : Remplace le bloc de comparaison par `31 C0 C3 (xor eax,eax ; ret)`, ce qui permettra à la fonction de renvoyer toujours 0.
+- Indice 3 : Remplace le bloc de comparaison par `31 C0 C3 (xor eax,eax ; ret)`, ce qui permettra à la fonction de renvoyer toujours `0`.
 
 *Flag attendu* : `patched_md5=7ab8c6de`
 
 
 === _SecureNote Cipher : Cryptographie_ <ch2-4>
 Le joueur·euse a réussi à se connecter à l'intranet de KeyWave Systems, mais il doit maintenant accéder aux plans FIDO2. Ils sont stockés dans un fichier sécurisé `design_note.sec` dans le répertoire `/vault/`. Le fichier est chiffré avec un XOR répété de 3 octets.
-La structure du fichier est la suivante : une en-tête non chiffré qui est `KWSXORv1` (8 octets), puis le contenu chiffré commence immédiatement après l'en-tête. Le joueur·euse sait que le texte chiffré commence par le mot TITLE: (6 octets). Il s'agit d'une attaque de type "known plaintext" (texte clair connu) sur un chiffrement XOR.
+La structure du fichier est la suivante : un en-tête non chiffré qui est `KWSXORv1` (8 octets), puis le contenu chiffré commence immédiatement après l'en-tête. Le joueur·euse sait que le texte chiffré commence par le mot `TITLE:` (6 octets). Il s'agit d'une attaque de type "known plaintext" (texte clair connu) sur un chiffrement XOR.
 
 + Télécharger `design_note.sec`.
 + Charger le fichier dans CyberChef et isoler le bloc chiffré.
@@ -122,9 +122,9 @@ La structure du fichier est la suivante : une en-tête non chiffré qui est `KWS
 *Outils nécessaires* : CyberChef ou script Python.
 
 *Indices graduels*
-- Indice 1 : Le fichier commence par KWSXORv1 non chiffré.
+- Indice 1 : Le fichier commence par `KWSXORv1` non chiffré.
 - Indice 2 : Juste après l’en-tête, il y a `TITLE:` en clair c’est un plaintext connu pour récupérer la clé.
-- Indice 3 : La clé fait 3 octets et tourne en boucle, il faut l'applique sur tout le reste pour dévoiler la pass-phrase.
+- Indice 3 : La clé fait 3 octets et tourne en boucle, il faut l'appliquer sur tout le reste pour dévoiler la pass-phrase.
 
 *Flag attendu* : `K3yW4v3-Q4-VIP-F1D0-M4st3rPl4n!`
 
@@ -146,5 +146,5 @@ Le joueur·euse a maintenant la pass-phrase pour déchiffrer les plans, mais il 
 
 *Flag attendu* : `FOX_COMPLETE`
 
-Une fois terminer, le joueur·euse a réussi à exfiltrer les plans FIDO2 de KeyWave Systems sans se faire repérer et un dernier message apparaît :
+Une fois terminé, le joueur·euse a réussi à exfiltrer les plans FIDO2 de KeyWave Systems sans se faire repérer et un dernier message apparaît :
 "`FOX_COMPLETE` est validé, l’agent CipherFox déclenche son plan d’exfiltration vers un serveur offshore ; les plans FIDO2 + biométrie quittent KeyWave Systems sans qu’aucune alerte ne soit déclenchée. Mission accomplie !"
