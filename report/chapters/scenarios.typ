@@ -1,4 +1,4 @@
-= Scénarios <scenarios> 
+= Scénarios <scenarios>
 #include "scenario-1.typ"
 #pagebreak()
 #include "scenario-2.typ"
@@ -64,6 +64,8 @@ En explorant ce portail, le joueur·euse découvre que les pirates ont déjà vo
 Après avoir décodé ce script et identifié l'infrastructure C2, le joueur·euse doit neutraliser le serveur distant en exploitant une faille de sécurité. Pour terminer, il doit réaliser une analyse des logs du réseau de l'hôpital pour identifier l'adresse IP source de l'attaque et la bloquer définitivement dans le pare-feu, pour empêcher toute nouvelle tentative d'exfiltration.\
 Cette progression permet au joueur·euse de vivre une investigation complète, depuis la détection initiale jusqu'à la neutralisation de la menace, en passant par l'analyse forensique et l'exploitation de vulnérabilités.
 
+Il est important de noter que les challenges pourront être adaptés en fonction des compétences des joueur·e·s et de leur niveau d'expérience lors de l'implémentation du code. Il s'agit que d'une proposition de structure et de contenu pour le scénario. Les défis peuvent être modifiés ou ajustés pour mieux correspondre aux objectifs pédagogiques et aux compétences visées.
+
 === _Mail Contagieux_ : OSINT et forensic email <ch-1>
 Ce premier défi montre au joueur·euse un l’e-mail de phishing qui serait l’origine de l’attaque. Il s’agit d’un message piégé, qui aurait été envoyé par le support d’Horizon Santé, avec en pièce jointe un fichier malveillant `planning_salle_op.xlsx`. Le but est d’analyser les en-têtes techniques de cet e-mail pour remonter à son véritable expéditeur et identifier le domaine frauduleux utilisé par les attaquants. \
 Ce challenge a pour objectif de sensibiliser aux signes d’un courriel d’hameçonnage.
@@ -99,8 +101,8 @@ Ce challenge sensibilise aux failles d’injection et montre qu’une protection
 
 *Indices graduels :*
 - Le premier indice rappelle qu’il faut utiliser une adresse e-mail valide pour passer le contrôle de format. Il est suggéré d’utiliser un format plausible, comme `prenom.nom@horizonsante.com`, qui est à retrouver dans le challenge précédant.
-- Le second indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour les commentaires. 
-- Le troisième indice suggère de combiner l’astuce du commentaire au milieu de `OR` et le commentaire en fin de requête. 
+- Le second indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour les commentaires.
+- Le troisième indice suggère de combiner l’astuce du commentaire au milieu de `OR` et le commentaire en fin de requête.
 
 *Flag attendu* : Le flag `HZ-7XG4` est le code de session généré par le portail VPN une fois la connexion réussie. Il permet d'accéder aux ressources du faux portail.
 
@@ -113,13 +115,13 @@ Ce challenge sensibilise ainsi à la mauvaise validation des entrées utilisateu
 
 *Étapes pour résoudre le challenge :*
 + Ouvrir les DevTools dans Réseau, cliquer sur le bouton, et observer l’URL : `download.php?doc=rapport-2025-07-15.pdf`, cela confirme que le fichier est passé en clair dans le paramètre doc.
-+	Changer doc avec un autre nom PDF `test.pdf`et déduire que seule l’extension est vérifiée
-+	Lire le code source repérer le commentaire :
++ Changer doc avec un autre nom PDF `test.pdf`et déduire que seule l’extension est vérifiée
++ Lire le code source repérer le commentaire :
   ```html
-<!-- TODO: restreindre /priv/ -->
-```	Découvrir l’emplacement du répertoire protégé
-+ Trouver le chemin relatif `download.php?doc=../priv/` pour remonter dans l’arborescence.	
-+ Trouver dans le dossier l’archive `hx_srv_full_0712.tar.gz` 
+  <!-- TODO: restreindre /priv/ -->
+  ```	Découvrir l’emplacement du répertoire protégé
++ Trouver le chemin relatif `download.php?doc=../priv/` pour remonter dans l’arborescence.
++ Trouver dans le dossier l’archive `hx_srv_full_0712.tar.gz`
 + Décompresser, ouvrir les fichiers et trouver le fichier des patients.
 
 *Outils nécessaires :* Les outils nécessaires pour résoudre ce challenge sont un navigateur web, l'utilisation des DevTools pour explorer le code HTML et éventuellement un éditeur de texte pour consulter le contenu du fichier manifest JSON.
@@ -129,38 +131,7 @@ Ce challenge sensibilise ainsi à la mauvaise validation des entrées utilisateu
 - Le second indice indique que le code source de la page contient un commentaire développeur qui mentionne un dossier caché où se trouvent des archives.
 - Le troisième indice rappelle que le script de téléchargement ne vérifie que l’extension `.pdf`, donc il est possible de contourner cette restriction en utilisant un chemin relatif `../` et ainsi accéder à des fichiers en dehors du répertoire prévu.
 
-*Flag attendu :* Le flag attendu est le fichier se trouvant dans l'archive compressée, `patient_audit_0712.xlsx`. 
-
-Ce fichier contient les données volées par les attaquants et donc le joueur·euse à bien la preuve qu'ils ont été compromis. Le répertoire contient des informations sensibles, y compris un zip suspect `hx_dropper.zip` qui fera l'objet du prochain challenge.
-
-
-==== _Archives compromises_ : Web Path Traversal Bis <ch-3bis>
-Une fois connecté·e au portail malveillant, le joueur·euse voit un bouton "Télécharger le rapport du jour" qui pointe vers :
-```http
-https://vpn.horizonsante-support.com/download.php?doc=rapport-2025-07-15.pdf
-```
-En ouvrant le code source de la page, un commentaire se trouve dans le code HTML :
-```html
-<!-- ARCHIVE complète dispo : ../priv/ -->
-```
-Le script de téléchargement ne contrôle que l’extension `.pdf`.
-Il suffit donc de remplacer le nom dans l’URL par le chemin indiqué dans le commentaire pour récupérer `hx_srv_full_0712.tar.gz`, un zip confidentiel contenant la liste des dossiers patients volés.\
-Ce challenge montre qu’un simple oubli de filtrage de chemin `../` suffit à exposer des données.
-
-*Étapes pour résoudre le challenge :*
-+ Afficher le code source et repérer le commentaire "ARCHIVE complète dispo…".
-+ Copier le chemin relatif `../priv/` et modifier l'URL.
-+ Observer qu'il y a un fichier `hx_srv_full_0712.tar.gz` compressé
-+ Décompresser l'archive pour trouver le fichier `liste_patients_compromis.xlsx` qui contient les données volées par les attaquants.
-
-*Outils nécessaires* : Les outils nécessaires pour ce défi sont un navigateur web et les DevTools pour inspecter le code source de la page.
-
-*Indices graduels*
-- Le premier indice suggère de regarder le code source de la page, car les développeurs commentent parfois des chemins utiles.
-- Le deuxième indice indique que le commentaire mentionne un dossier privé et que l’URL de téléchargement accepte tout nom finissant par `.pdf`.
-- Le troisième indice rappelle que le chemin relatif `../` permet de remonter dans l’arborescence des fichiers, ce qui permet d’accéder à des fichiers en dehors du répertoire public.
-
-*Flag attendu :* Le flag attendu est le fichier se trouvant dans l'archive compressée, `patient_audit_0712.xlsx`. 
+*Flag attendu :* Le flag attendu est le fichier se trouvant dans l'archive compressée, `patient_audit_0712.xlsx`.
 
 Ce fichier contient les données volées par les attaquants et donc le joueur·euse à bien la preuve qu'ils ont été compromis. Le répertoire contient des informations sensibles, y compris un zip suspect `hx_dropper.zip` qui fera l'objet du prochain challenge.
 
@@ -183,7 +154,7 @@ Ce challenge montre l'importance de la cryptographie et de la gestion des mots d
 - Le second indice indique que le commentaire contient une empreinte SHA-1, ce qui signifie qu'il faut trouver le mot de passe qui correspond à cette empreinte.
 - Le troisième indice rappelle que les mots de passe ont une structure spécifique, ce qui peut aider à les générer. Il est suggéré de se concentrer sur les mots de passe de la forme `horizon<nombre>` où `<nombre>` varie de 0 à 99. Avec un script Python, on peut générer les mots de passe possibles et comparer leur empreinte SHA-1 avec celle du commentaire ou utiliser CyberChef pour générer les mots de passe et vérifier l'empreinte.
 
-*Flag attendu :* Le flag attendu est le mot de passe du zip, qui est `horizon42`. 
+*Flag attendu :* Le flag attendu est le mot de passe du zip, qui est `horizon42`.
 
 Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `hx_dropper.ps1`.
 
@@ -210,13 +181,13 @@ Ce challenge montre comment les attaquants camouflent leurs logiciels malveillan
 - Le deuxième indice indique que la chaîne Base64 est utilisée pour masquer l’URL du serveur C2. Il faut donc la décoder pour la révéler. Pour cela, on peut utiliser CyberChef ou un décodeur Base64 en ligne.
 - Le troisième indice rappelle que le résultat du décodage contiendra l’URL complète du C2 en clair.
 
-*Flag attendu :* Le flag de ce challenge est donc le serveur C2 `https://c2.hz-cloud.net/api` qui a été utilisé par les attaquants pour déployer le ransomware. 
+*Flag attendu :* Le flag de ce challenge est donc le serveur C2 `https://c2.hz-cloud.net/api` qui a été utilisé par les attaquants pour déployer le ransomware.
 
 Le joueur·euse sera envoyé sur le serveur pour la suite du défi.
 
 
 === _Chat KO_ : Exploitation Web (XSS) <ch-6>
-Sur la console du serveur C2, la page `/admin/chat.php` affiche un forum interne. Les messages postés par les utilisateurs sont restitués tels quels sans échapper les caractère. Un bot-admin lit la page en continu, si du JavaScript s’exécute dans son navigateur, son interface se bloque et le serveur passe automatiquement en mode "hors ligne". Le défi consiste à injecter un script XSS dans le champ pseudo pour faire planter le bot. À la première exécution, le serveur affiche alors le code `C2_OFFLINE`.\
+Sur la console du serveur C2, la page `/admin/chat.php` affiche un forum interne. Les messages postés postés sont échappés mais le champs Pseudo est restitué tels quels sans échapper les caractère. Un bot-admin lit la page en continu, si du JavaScript s’exécute dans son navigateur, son interface se bloque et le serveur passe automatiquement en mode "hors ligne". Le défi consiste à injecter un script XSS dans le champ pseudo pour faire planter le bot. À la première exécution, le serveur affiche alors le code `C2_OFFLINE`.\
 Ce challenge illustre la gravité d’une entrée utilisateur non échappée : une simple balise suffit à neutraliser un service entier.
 
 *Étapes pour résoudre le challenge :*
@@ -224,8 +195,8 @@ Ce challenge illustre la gravité d’une entrée utilisateur non échappée : u
 + Dans le champ Pseudo, taper d’abord un test : `<b>test</b>` et valider. Le mot test apparaît en gras, ce qui est une preuve que le HTML n’est pas échappé.
 + Remplacer par le payload JavaScript :
   ```html
-<script>document.body.innerHTML='C2 KO';</script>
-```
+  <script>document.body.innerHTML='C2 KO';</script>
+  ```
 + Dès que le bot recharge le chat (quelques secondes), le script s’exécute dans sa session et tout le DOM est remplacé par `C2 KO`.
 + Le serveur détecte l’erreur d’interface et renvoie dans la bannière de statut le message-code.
 
