@@ -42,7 +42,7 @@ Le plan d’exfiltration se déroule en cinq étapes ; chacun correspond à un "
   [Reconstituer `plans.zip.aes` à partir des requêtes DNS vers `*.fox.tunnel`, décoder Base36, déchiffrer avec la pass-phrase.],
 )
 
-=== _Hotspot Mirage : OSINT et Cryptographie_ <ch2-1>
+=== _Hotspot Mirage_ : OSINT et Cryptographie <ch2-1>
 Pour ce premier challenge, le joueur·euse doit se connecter au Wi-Fi de KeyWave Systems (KWS) pour accéder à leur intranet. Le mot de passe est partiellement lisible dans un prospectus trouvé dans sa chambre d'hôtel, mais il manque une partie du texte :
 ```css
 Welcome to our guests!  Wi-Fi code: KeyWave-**-VIP
@@ -69,7 +69,7 @@ Le joueur·euse doit donc retrouver le mot de passe complet en analysant les mé
 Le code permet d'avoir accès au Wi-Fi ainsi qu'à la page de connexion des partenaires.
 
 
-=== _Admin Bypass : Web Exploitation_ <ch2-2>
+=== _Admin Bypass_ : Web Exploitation<ch2-2>
 Le joueur·euse doit maintenant accéder à l'intranet de KeyWave Systems `https://intra.keywave.local/partners/login.php` pour voler les plans. Le formulaire de connexion comporte les champs e-mail et mot de passe. Un email de la responsable média se trouve sur le flyer. Il faudra l'utiliser pour ce challenge. Il doit contourner le filtre basique WAF (Web Application Firewall) sur la page de connexion des partenaires, qui refuse toute requête contenant le mot-clé exact `OR` (maj/min indifférent) ou la séquence `--`. Aucune requête préparée et le back-end exécute toujours :
 ```sql
 SELECT partner_id, session_token
@@ -91,7 +91,7 @@ Pour contourner le filtre, le joueur·euse doit utiliser une injection SQL pour 
 *Flag attendu* : `PART-7XG4`
 
 
-=== _Micro-Patch : Reverse Engineering_ <ch2-3>
+=== _Micro-Patch_ : Reverse Engineering <ch2-3>
 Le joueur·euse a maintenant le `session_token`, mais il doit effacer toute trace de sa connexion pour éviter d'être détecté par le SOC. Le micro-service `session_tap.exe` consigne chaque utilisation d’un `session_token` partenaire dans un fichier `audit.log`. Tant qu’il détecte la valeur `PART-7XG4` (celle récupérée dans le challenge 2), il écrit une ligne dans ce journal. Le joueur·euse doit modifier le binaire pour que la fonction `audit()` retourne toujours `0`, ce qui effacera toute trace de sa connexion.
 
 + Ouvrir `session_tap.exe` dans Ghidra.
@@ -109,7 +109,7 @@ Le joueur·euse a maintenant le `session_token`, mais il doit effacer toute trac
 *Flag attendu* : `patched_md5=7ab8c6de`
 
 
-=== _SecureNote Cipher : Cryptographie_ <ch2-4>
+=== _SecureNote Cipher_ : Cryptographie <ch2-4>
 Le joueur·euse a réussi à se connecter à l'intranet de KeyWave Systems, mais il doit maintenant accéder aux plans FIDO2. Ils sont stockés dans un fichier sécurisé `design_note.sec` dans le répertoire `/vault/`. Le fichier est chiffré avec un XOR répété de 3 octets.
 La structure du fichier est la suivante : un en-tête non chiffré qui est `KWSXORv1` (8 octets), puis le contenu chiffré commence immédiatement après l'en-tête. Le joueur·euse sait que le texte chiffré commence par le mot `TITLE:` (6 octets). Il s'agit d'une attaque de type "known plaintext" (texte clair connu) sur un chiffrement XOR.
 
@@ -128,7 +128,7 @@ La structure du fichier est la suivante : un en-tête non chiffré qui est `KWSX
 
 *Flag attendu* : `K3yW4v3-Q4-VIP-F1D0-M4st3rPl4n!`
 
-=== _DNS Drip : Forensic réseau_ <ch2-5>
+=== _DNS Drip_ : Forensique réseau <ch2-5>
 Le joueur·euse a maintenant la pass-phrase pour déchiffrer les plans, mais il doit d'abord les récupérer. Les plans FIDO2, contenus dans le fichier `plans.zip.aes`, ont été exfiltrés via un tunnel DNS. Le SOC a fourni un fichier PCAP, `exfil_dns.pcapng`, capturé sur leur Système de Détection d'Intrusion (IDS). Chaque requête DNS vers le domaine `*.fox.tunnel` transporte un bloc du fichier, encodé en Base36. Le joueur·euse doit donc reconstituer le fichier `plans.zip.aes` à partir de ces requêtes DNS capturées, décoder les blocs Base36, puis déchiffrer l'archive obtenue en utilisant la pass-phrase récupérée lors du défi précédent.
 
 + Ouvrir le PCAP dans Wireshark et filtrer `dns.qry.name contains .fox.tunnel`.

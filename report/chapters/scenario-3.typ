@@ -39,7 +39,7 @@ Le premier défi consiste à déverrouiller la porte de sa cellule en retrouvant
   [Extraction, avec zsteg, de la charge cachée en LSB dans `shuttle_blueprint.png` pour obtenir la pass-phrase.],
 )
 
-=== _HashLock : Cryptographie_ <ch3-1>
+=== _HashLock_ : Cryptographie <ch3-1>
 Le joueur·euse découvre un boîtier de sécurité sur la porte de sa cellule. Il contient un fichier `hatch.cfg` avec un hash SHA-1. Le but est de retrouver le code d’origine pour déverrouiller la porte.
 ```ini
 unlock_hash = 54b8bc82e430c3bd7a4b52f3c2537ef84c046c07
@@ -59,7 +59,7 @@ unlock_hash = 54b8bc82e430c3bd7a4b52f3c2537ef84c046c07
 *Flag attendu* : `Orion88`
 
 
-=== _Portail Tech :	Exploitation Web_ <ch3-2>
+=== _Portail Tech_ :	Exploitation Web <ch3-2>
 Le joueur·euse doit accéder au sas du couloir principal, qui est contrôlé par un portail React. Le front-end envoie une requête POST à l’API `http://172.30.0.5:8080/api/door` pour valider le badge du joueur·euse.
 Pour valider le badge, le front-end React envoie :
 ```http
@@ -111,7 +111,7 @@ En injectant la clé spéciale `__proto__`, le joueur·euse redéfinit la propri
 *Flag attendu* : `ACRN-42F9-TEK`
 
 
-=== _Drone Patch : Reverse Engineering_ <ch3-3>
+=== _Drone Patch_ : Reverse Engineering <ch3-3>
 Le joueur·euse doit maintenant passer le droïde de maintenance qui garde le pont C. Le droïde est contrôlé par un firmware `drn_guard.bin` qui ne laisse passer que les badges dont l'UID est marqué comme "friendly". Par chance, les développeurs ont laissé la chaîne ASCII `FRIENDLY_UID` dans le binaire, juste avant la fonction de comparaison d'UID. En localisant cette chaîne et en remplaçant la comparaison qui suit par un retour 0, le joueur·euse peut rendre le droïde aveugle à tous les badges, lui permettant ainsi de passer jusqu'au pont C sans être détecté.
 
 + Ouvrir `drn_guard.bin` dans Ghidra.
@@ -129,7 +129,7 @@ Le joueur·euse doit maintenant passer le droïde de maintenance qui garde le po
 *Flag attendu* : `KPR-7B9C`
 Ce jeton servira ensuite de mot de passe pour le terminal du sas dans le défi 4.
 
-=== _Service Secret: Enum système / Forensic_ <ch3-4>
+=== _Service Secret_ : Enum système / Forensic <ch3-4>
 Le joueur·euse doit maintenant ouvrir le sas principal du hangar C pour accéder à la navette de secours. Le sas est contrôlé par une unité systemd nommée `hangar-door.service`. En se connectant avec le jeton récupéré lors du défi précédent, le joueur·euse obtient un shell restreint `tech_guest`. Les développeurs ont commis l'erreur de laisser le fichier de service lisible par tous, avec la clé de déverrouillage stockée en clair dans la section Environment. Il suffit donc d'afficher le contenu du fichier de service pour récupérer la clé et commander l'ouverture du sas.
 
 + Lister les unités `systemd` `systemctl list-unit-files | grep hangar`.
@@ -150,7 +150,7 @@ Le joueur·euse doit maintenant ouvrir le sas principal du hangar C pour accéde
 
 *Flag attendu* : `HGR-42F9A8`
 
-=== _Plan Secret : Stéganographie_ <ch3-5>
+=== _Plan Secret_  : Stéganographie<ch3-5>
 Enfin, pour faire décoller la navette de secours, le joueur·euse doit entrer une pass-phrase secrète. Les ingénieurs ont caché cette phrase dans les plans techniques de la navette, stockés dans un fichier image `shuttle_blueprint.png`. Le fichier a un poids inhabituel (14 Mo), ce qui laisse penser qu'il contient des données cachées. En utilisant zsteg, le joueur·euse peut extraire les bits de poids faible (LSB) pour révéler la phrase secrète.
 
 + Lancer zsteg `shuttle_blueprint.png`.

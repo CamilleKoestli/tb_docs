@@ -40,7 +40,7 @@ Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’
   [Extraction du kill-switch dissimulé dans la radiographie `thorax_xray.png` via binwalk/steghide.],
 )
 
-=== _Mail Contagieux : OSINT et forensic d'email_ <ch1-1>
+=== _Mail Contagieux_ : OSINT et forensic d'email<ch1-1>
 Dans un premier temps, le joueur·euse doit analyser un e-mail de phishing qui a permis aux attaquants de pénétrer le réseau de l'hôpital. Cet e-mail contient une pièce jointe malveillante `planning_salle_op.xlsx` qui a été ouverte par un employé, déclenchant ainsi l'attaque.
 
 + Ouvrir `planning_salle_op.eml` dans l’IDE.
@@ -59,7 +59,7 @@ Dans un premier temps, le joueur·euse doit analyser un e-mail de phishing qui a
 Le sous-domaine sera la cible du défi 2.
 
 
-=== _Shadow VPN Portal :  Exploitation Web_ <ch1-2>
+=== _Shadow VPN Portal_ :  Exploitation Web<ch1-2>
 Le joueur·euse doit maintenant accéder à un faux portail VPN de l'hôpital `https://vpn.horizonsante-support.com/`, qui a été mis en place par les attaquants pour exfiltrer des données. Le faux portail VPN propose un bouton "Dernière sauvegarde" qui appelle :
 ```http
 https://vpn.horizonsante-support.com/repo/download.php?file=latest
@@ -87,7 +87,7 @@ Le joueur·euse devra ensuite explorer le code HTML pour trouver un commentaire 
 Une fois le fichier trouvé décompressé, il devient l’objet du défi 3.
 
 
-=== _Script d’infection : Reverse Engineering_ <ch1-3>
+=== _Script d’infection_ : Reverse Engineering <ch1-3>
 Une fois qu'il a téléchargé le fichier `hx_srv_full_0712.tar.gz`, le joueur·euse découvre un script PowerShell obfusqué nommé `hx_dropper.ps1`. Ce script est compacté : variables à un caractère, chaîne Base64 + XOR 0x20. Il est utilisé par les attaquants pour établir une connexion avec leur serveur de commande et contrôle (C2) et exfiltrer des données.
 
 + Repérer la chaîne Base64 dans le code.
@@ -105,7 +105,7 @@ Une fois qu'il a téléchargé le fichier `hx_srv_full_0712.tar.gz`, le joueur·
 Cette URL pointe vers la clé chiffrée du défi 4.
 
 
-=== _Coffre chiffré : Cryptographie_ <ch1-4>
+=== _Coffre chiffré_ : Cryptographie <ch1-4>
 Sur ce C2 se trouve `vault.cfg.enc`. Le joueur·euse doit maintenant déchiffrer le fichier de configuration chiffré `vault.cfg.enc` trouvé dans l'archive. Le fichier clair commence par `CFG=`. Le ransomware a utilisé un XOR de 6 octets pour chiffrer ce fichier. Le joueur·euse doit retrouver la clé de chiffrement en utilisant une attaque known-plaintext.
 
 + Deviner que `CFG= (hex 43 46 47 3D)` est le plaintext.
@@ -123,7 +123,7 @@ Sur ce C2 se trouve `vault.cfg.enc`. Le joueur·euse doit maintenant déchiffrer
 *Flag attendu* : `Aur0raVital@2025`\
 Le mot de passe permet d’ouvrir les logs du défi 5.
 
-=== _Radiographie piégée : Stéganographie_ <ch1-5>
+=== _Radiographie piégée_ : Stéganographie <ch1-5>
 Dans le dossier patient, le joueur·euse trouve une radiographie `thorax_xray.png` qui semble normale, mais qui est anormalement lourd. Le ransomware a dissimulé un kill-switch dans cette image pour désactiver son attaque. Les renseignements obtenus dans le défi 4 (mot de passe `Aur0raVital@2025`) devront être utilisés pour extraire ce message.
 
 + Télécharger `thorax_xray.png`.
