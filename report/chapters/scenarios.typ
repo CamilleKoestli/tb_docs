@@ -66,7 +66,7 @@ Cette progression permet au joueur·euse de vivre une investigation complète, d
 
 === _Mail Contagieux_ : OSINT et forensic email <ch-1>
 Ce premier défi montre au joueur·euse un l’e-mail de phishing qui serait l’origine de l’attaque. Il s’agit d’un message piégé, qui aurait été envoyé par le support d’Horizon Santé, avec en pièce jointe un fichier malveillant `planning_salle_op.xlsx`. Le but est d’analyser les en-têtes techniques de cet e-mail pour remonter à son véritable expéditeur et identifier le domaine frauduleux utilisé par les attaquants. \
-Ce challenge à pour objectif de sensibiliser aux signes d’un courriel d’hameçonnage.
+Ce challenge a pour objectif de sensibiliser aux signes d’un courriel d’hameçonnage.
 
 *Étapes pour résoudre le challenge :*
 + Ouvrir le fichier `planning_salle_op.eml` dans l’IDE.
@@ -216,7 +216,7 @@ Le joueur·euse sera envoyé sur le serveur pour la suite du défi.
 
 
 === _Chat KO_ : Exploitation Web (XSS) <ch-6>
-Sur la console du serveur C2, la page `/admin/chat.php` affiche un mini-forum interne. Les messages postés par les utilisateurs sont restitués tels quels sans échapper les caractère. Un bot-admin lit la page en continu, si du JavaScript s’exécute dans son navigateur, son interface se bloque et le serveur passe automatiquement en mode "hors ligne". Le défi consiste à injecter un script XSS dans le champ pseudo pour faire planter le bot. À la première exécution, le serveur affiche alors le code `C2_OFFLINE`.\
+Sur la console du serveur C2, la page `/admin/chat.php` affiche un forum interne. Les messages postés par les utilisateurs sont restitués tels quels sans échapper les caractère. Un bot-admin lit la page en continu, si du JavaScript s’exécute dans son navigateur, son interface se bloque et le serveur passe automatiquement en mode "hors ligne". Le défi consiste à injecter un script XSS dans le champ pseudo pour faire planter le bot. À la première exécution, le serveur affiche alors le code `C2_OFFLINE`.\
 Ce challenge illustre la gravité d’une entrée utilisateur non échappée : une simple balise suffit à neutraliser un service entier.
 
 *Étapes pour résoudre le challenge :*
@@ -242,8 +242,8 @@ Une fois le C2 hors ligne, le joueur·euse est envoyé sur le portail interne de
 
 
 === _Blocage ciblé_ : Défense et journalisation <ch-7>
-Maintenant que le serveur des attaquants est hors ligne, le joueur·euse doit identifier l’adresse IP de la machine de l’attaquant pour le bloquer. Le joueur·euse doit donc s'assurer qu'aucune connexion sortante ne continue d'envoyer des données. Un flux très bavard a été repéré : la même adresse IP externe a émis des milliers de requêtes vers le portail VPN de l’hôpital au cours du dernier quart d’heure (tentative d’exfiltration massive). Le joueur·euse doit donc trouver le fichier de log contenant ces requêtes, identifier l’IP la plus présente (c’est l’attaquant) et ajouter cette IP à la liste noire du pare-feu interne. Une fois l’IP bloquée, le joueur·euse recevra un message de confirmation `PATCH_OK` indiquant que le blocage a été effectué avec succès.\
-Ce challenge montre l'importance de la surveillance des logs et de la gestion des adresses IP pour prévenir les attaques.
+Maintenant que le serveur des attaquants est hors ligne, le joueur·euse doit identifier l’adresse IP de la machine de l’attaquant pour le bloquer. Le joueur·euse doit donc s'assurer qu'aucune connexion sortante ne continue d'envoyer des données. Un flux a été repéré : la même adresse IP externe a émis des milliers de requêtes vers le portail VPN de l’hôpital au cours du dernier quart d’heure (tentative d’exfiltration massive). Le joueur·euse doit donc trouver le fichier de log contenant ces requêtes, identifier l’IP la plus présente (c’est l’attaquant) et ajouter cette IP à la liste noire du pare-feu interne. Une fois l’IP bloquée, le joueur·euse recevra un message de confirmation `PATCH_OK` indiquant que le blocage a été effectué avec succès.\
+Ce challenge montre l'importance de la surveillance des logs et de la gestion des adresses IP suspectes pour prévenir les attaques.
 
 *Étapes pour résoudre le challenge :*
 + Depuis le portail IT interne `https://intra.horizonsante.com/it/`	, aller dans le menu de gauche "Outils SOC".

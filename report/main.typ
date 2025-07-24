@@ -31,6 +31,8 @@
 #import "template/_authentification.typ": *
 #_authentification(TBauthor)
 
+#include "chapters/remerciements.typ"
+
 /*
  Table of Content
 */

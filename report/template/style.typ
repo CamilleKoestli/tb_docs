@@ -10,7 +10,7 @@
   show heading.where(
     level: 1
   ): it => [
-    #pagebreak(weak: true, to: "odd")
+    #pagebreak(weak: true/*, to: "odd"*/)
     #v(2.5em)
     #it
     \

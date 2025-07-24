@@ -1,4 +1,3 @@
-
 = Introduction <introduction>
 
 == Sensibilisation à la sécurité informatique <sensibilisation-sécurité>
