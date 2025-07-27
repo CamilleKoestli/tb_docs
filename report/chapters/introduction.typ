@@ -15,6 +15,8 @@ Selon l’étude de Fortinet 2024, 58 % des incidents majeurs seraient directeme
 Face à ce manque, il est essentiel de former rapidement les jeunes mais aussi le grand public. La recherche montre l'efficacité des approches plus ludiques pour des apprentissages. Une revue conclue que les serious games sont un moyen efficace pour sensibiliser les utilisateur·trice·s dépourvu·e·s de bagage technique @ngCybersecuritySeriousGames2025.
 Les serious games sont une méthode reconnue pour permettre d'engager, de motiver et de favoriser cet apprentissage. Des travaux de recherche montrent qu’ils permettent de découvrir beaucoup de techniques et de notions (cryptographie, réseau, scripts, attaque Web) tout en offrant un environnement sans risque. L’utilisateur·trice peut expérimenter et apprendre de ses erreurs @hillComparingSeriousGames2020. C'est là que le pôle Y-Security de la HEIG-VD intervient et décide de se pencher sur les serious games pour sensibiliser et former le grand public à la cybersécurité.
 
+//TODO expliquer ce qu'est un serious game et en quoi c'est utile
+
 == Contexte <contexte>
 
 Depuis plus de vingt ans, la HEIG-VD est un acteur majeur de la cybersécurité en Suisse romande et en Europe. Le pôle Y-Security de la HEIG-VD est reconnu pour sa recherche appliquée, sa formation et son accompagnement dans le domaine de la sécurité informatique. Il regroupe une douzaine d'expert·e·s et un réseau industriel suisse et européen, ce qui en fait un véritable "écosystème" pour la formation et l'innovation en Suisse romande @YSecurityHEIGVD.
