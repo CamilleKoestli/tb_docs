@@ -188,7 +188,7 @@ Ce challenge montre l'importance de la cryptographie et de la gestion des mots d
 
 Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `hx_dropper.ps1`.
 
-===
+=== <ch-5>
 // _Script d’infection_ : Reverse Engineering <ch-5>
 // Le fichier `hx_dropper.ps1` est un script PowerShell. Ce script a servi à l’attaquant pour établir une connexion vers son serveur de commande et contrôle (C2) et déployer le ransomware. Cependant, il paraît brouillé, mais en réalité il contient juste une longue ligne du type :
 // ```powershell
@@ -216,7 +216,7 @@ Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fich
 // Le joueur·euse sera envoyé sur le serveur pour la suite du défi.
 
 
-=== 
+=== <ch-6>
 // _Chat KO_ : Exploitation Web (XSS) <ch-6>
 // Sur la console du serveur C2, la page `/admin/chat.php` affiche un forum interne. Les messages postés postés sont échappés mais le champs Pseudo est restitué tels quels sans échapper les caractère. Un bot-admin lit la page en continu, si du JavaScript s’exécute dans son navigateur, son interface se bloque et le serveur passe automatiquement en mode "hors ligne". Le défi consiste à injecter un script XSS dans le champ pseudo pour faire planter le bot. À la première exécution, le serveur affiche alors le code `C2_OFFLINE`.\
 // Ce challenge illustre la gravité d’une entrée utilisateur non échappée : une simple balise suffit à neutraliser un service entier.
