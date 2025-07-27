@@ -12,7 +12,7 @@
   [07 – 09 \ juillet 2025],
   [
     Étude des mécaniques des deux jeux, inventaire des technologies,
-    analyse critique, analyse de l’architecture "CyberGame".
+    analyse critique, analyse de l’architecture _Cybergame_.
   ],
 
   [2. Recherche et écriture du scénario],
@@ -30,10 +30,10 @@
     clarification des consignes.
   ],
 
-  [4. Intégration dans la plateforme "CyberGame"],
+  [4. Intégration dans la plateforme _Cybergame_],
   [04 – 09 \ septembre 2025],
   [
-    Adaptation des contenus et déploiement au format "CyberGame".
+    Adaptation des contenus et déploiement au format _Cybergame_.
   ],
 
   [5. Tests et validation],
