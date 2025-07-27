@@ -30,7 +30,7 @@
     #table(
       stroke: none,
       columns: (50%, 50%),
-      [*Étudiant*], [*#TBauthor*],
+      [*Étudiante*], [*#TBauthor*],
       [*Enseignant responsable*], [#TBsupervisor],
       //[*Entreprise mandante*], [
       //  #TBindustryContact \

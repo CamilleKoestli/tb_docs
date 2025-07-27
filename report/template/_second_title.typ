@@ -7,7 +7,7 @@
     #TBdpt\
     #TBfiliere\
     #TBorient\
-    Étudiant : #TBauthor\
+    Étudiante : #TBauthor\
     Enseignant responsable : #TBsupervisor\
   ]
 
@@ -41,7 +41,7 @@
     columns: (40%, 30%, 30%),
     row-gutter: 1em,
     align: bottom,
-    [Étudiant :], [Date et lieu :], [Signature :],
+    [Étudiante :], [Date et lieu :], [Signature :],
     [#TBauthor], [#hr_dotted()], [#hr_dotted()]
   )
   v(2%)

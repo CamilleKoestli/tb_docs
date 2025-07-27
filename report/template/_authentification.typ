@@ -2,7 +2,7 @@
 #set par(leading: 0.55em, spacing: 0.55em, justify: true)
 = Authentification
 
-Le soussigné, #TBauthor, atteste par la présente avoir réalisé ce travail et n’avoir utilisé aucune autre source que celles expressément mentionnées
+La soussignée, #TBauthor, atteste par la présente avoir réalisé ce travail et n’avoir utilisé aucune autre source que celles expressément mentionnées
 
 #v(10%)
 

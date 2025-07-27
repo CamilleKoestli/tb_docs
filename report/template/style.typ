@@ -75,7 +75,7 @@
   )
 
   // LaTeX look and feel :)
-  set text(font: "New Computer Modern")
+  set text(font: "Libertinus Serif")
   set par(justify: true)
   show heading: set block(above: 1.4em, below: 1em)
 
