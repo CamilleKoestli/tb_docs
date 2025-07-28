@@ -25,14 +25,14 @@ Enfin, un dernier point a été soulevé concernant le fait qu'il y avait trop d
   [Analyser les en-têtes d’un e-mail de phishing pour identifier le domaine frauduleux utilisé par l’attaquant.],
 
   [2],
-  [#link(<ch-2>)[Portail VPN Fantôme]],
+  [#link(<ch-2>)[Portail Fantôme]],
   [Exploitation Web (SQL)],
-  [Contourner un formulaire de connexion malgré un WAF basique pour accéder au faux VPN des pirates.],
+  [Contourner un formulaire de connexion malgré un WAF basique pour accéder au faux site des pirates.],
 
   [3],
-  [#link(<ch-3>)[Archives compromises]],
-  [Web Path Traversal],
-  [Exploiter un paramètre d’URL mal filtré pour remonter dans l’arborescence et récupérer l’archive volée.],
+  [#link(<ch-3>)[Partage Oublié]],
+  [Contrôle d’accès],
+  [Explorer un dépôt mal configuré pour accéder à l’archive confidentielle.],
 
   [4],
   [#link(<ch-4>)[Clé cachée dans les commentaires]],
@@ -40,14 +40,15 @@ Enfin, un dernier point a été soulevé concernant le fait qu'il y avait trop d
   [Trouver un SHA-1 dans le commentaire ZIP, brute-forcer un mot de passe.],
 
   [5],
-  [#link(<ch-5>)[Script d’infection]],
-  [Reverse Engineering],
-  [Décoder une chaîne Base64 dans un script PowerShell pour révéler l’URL du serveur C2.],
+  [#link(<ch-5>)[Script Mystère]],
+  [Reverse engineering],
+  [Décoder des chaînes Base64 cachées dans `backup_sync.py` afin de révéler les identifiants SSH d'un user.],
 
   [6],
-  [#link(<ch-6>)[Chat KO]],
-  [Exploitation Web (XSS)],
-  [Injecter un script XSS dans le chat admin du C2 pour bloquer le bot et mettre le serveur hors ligne.],
+  [#link(<ch-6>)[Cookie Rançon]],
+  [XSS et détournement de session],
+  [Injecter du JavaScript dans une demande de rançon pour voler le cookie "admin" du bot et supprimer les fichiers volés.],
+
 
   [7],
   [#link(<ch-7>)[Blocage ciblé]],
@@ -56,14 +57,16 @@ Enfin, un dernier point a été soulevé concernant le fait qu'il y avait trop d
 )
 
 
-== Scénario définitif : Blackout dans le Centre Hospitalier Horizon Santé <scénario-définitif>
-Le scénario définitif retenu est l'histoire 1, intitulé "Blackout dans le Centre Hospitalier Horizon Santé", et il combine les challenges des scénarios 1 et 2. Ce scénario met en scène une attaque de ransomware sur un hôpital, qui entraîne un blackout des systèmes informatiques et des services critiques. Les joueur·euse·s devront résoudre une série de défis techniques et stratégiques pour restaurer les systèmes, protéger les données sensibles et assurer la continuité des soins aux patient·e·s.
+== Scénario définitif : Blackout dans le _Centre Hospitalier Horizon Santé_ <scénario-définitif>
+Le scénario définitif retenu est l'histoire 1, intitulé "Blackout dans le Centre Hospitalier Horizon Santé", et il combine les challenges des scénarios 1 et 2. Ce scénario met en scène une attaque de ransomware sur un hôpital, qui entraîne un blackout des systèmes informatiques et des services critiques. Les joueur·euse·s devront résoudre une série de défis techniques et stratégiques en s'infiltrant dans le site des attaquants pour supprimer les dossiers sensibles récoltés et enfin sécuriser les installations de l'hôpital.
 
-//TODO a refaire
-Le joueur·euse incarne un membre de l'équipe de cybersécurité de l'hôpital, qui doit faire face à une attaque de ransomware. Le scénario commence par une enquête sur un e-mail de phishing qui a permis aux attaquants de pénétrer le réseau de l'hôpital. Une fois le domaine falsifié identifié, le joueur·euse doit réussir à infiltrer un faux portail VPN mis en place par les attaquants pour exfiltrer des données.\
-En explorant ce portail, le joueur·euse découvre que les pirates ont déjà volé des archives contenant des données patients sensibles. L'analyse de ces fichiers révèle la présence d'un script malveillant obfusqué qui a servi à établir la connexion avec le serveur de commande et contrôle des attaquants.\
-Après avoir décodé ce script et identifié l'infrastructure C2, le joueur·euse doit neutraliser le serveur distant en exploitant une faille de sécurité. Pour terminer, il doit réaliser une analyse des logs du réseau de l'hôpital pour identifier l'adresse IP source de l'attaque et la bloquer définitivement dans le pare-feu, pour empêcher toute nouvelle tentative d'exfiltration.\
-Cette progression permet au joueur·euse de vivre une investigation complète, depuis la détection initiale jusqu'à la neutralisation de la menace, en passant par l'analyse forensique et l'exploitation de vulnérabilités.
+Le joueur·euse incarne un membre de l'équipe de sécurité qui doit contenir une cyber-attaque qui bloque le _Centre Hospitalier Horizon Santé_.
+Après avoir retrouvé le courriel de phishing à l’origine de l'attaque (Mail Contagieux, ch-1), il découvre le domaine frauduleux et se lance dans l’exploration du faux portail exploité par les assaillants (Portail Fantôme, ch-2). Pour réussir à y pénétrer, il réalise une injection SQL pour ouvrir une première session, mais seulement avec des droits limités : assez pour naviguer, mais pas assez pour supprimer des éléments présents sur les serveurs.\
+Sur ce site, il découvre un "Dépôt sécurisé" mal protégé (Partage Oublié, ch-3) qui révèle une archive patient chiffrée. En inspectant les métadonnées du fichier ZIP, le joueur·euse déchiffre le mot de passe grâce à une empreinte SHA-1 et un peu de bruteforce (Clé cachée dans les commentaires, ch-4). L’archive libérée contient un script d’automatisation des sauvegardes : après un rapide reverse engineering, des identifiants SSH privilégiés tombent enfin dans ses mains (Script Mystère, ch-5).\
+Ces nouveaux accès ne suffisent toujours pas : la console interne des pirates reste verrouillée derrière une session administrateur. Pour l’obtenir, il faudra tendre un piège XSS à un bot de rançon qui consulte chaque note déposée. Une balise `<script>` postée dans le formulaire permet de capturer le cookie "admin" et de le ré-injecter dans le navigateur (Cookie Rançon, ch-6). Le bouton « Delete All » peut enfin être cliqué, ce qui va permettre de supprimer tous les fichiers chiffrés et empêchant ainsi les attaquants de poursuivre leur ransomware.\
+Enfin, pour s’assurer que l’attaquant ne puisse plus revenir, le joueur·euse devra analyser les logs VPN, repérer l’IP qui tente d’exfiltrer massivement des données et l’inscrire dans la liste noire du pare-feu (Blocage ciblé, ch-7). Le message final confirme le blocage, les systèmes critiques redémarrent, l’hôpital retrouve la maîtrise de son SI et l’incident est officiellement terminé.
+
+En parcourant ces sept défis à difficulté progressive, le·la participant·e passe en revue tout le cycle d’une réponse à incident : OSINT, exploitation Web, contrôle d’accès, cryptanalyse, reverse engineering, escalade de privilèges via XSS, et opérations de défense. Chaque étape montre une bonne pratique de cybersécurité à mettre en œuvre au quotidien pour protéger les établissements de santé contre les ransomwares.
 
 Il est important de noter que les challenges pourront être adaptés en fonction des compétences des joueur·e·s et de leur niveau d'expérience lors de l'implémentation du code. Il s'agit que d'une proposition de structure et de contenu pour le scénario. Les défis peuvent être modifiés ou ajustés pour mieux correspondre aux objectifs pédagogiques et aux compétences visées.
 
@@ -89,8 +92,8 @@ Ce challenge a pour objectif de sensibiliser aux signes d’un courriel d’hame
 Une fois le sous-domaine identifié, le joueur·euse pourra passer au défi suivant qui sera la cible pour le challenge 2.
 
 
-===_Portail VPN Fantôme_ : Exploitation Web (SQL) <ch-2>
-Le joueur·euse a identifié le domaine frauduleux `horizonsante-support.com` et découvre qu’il héberge un faux portail VPN de l’hôpital `https://vpn.horizonsante-support.com`. Ce portail a été mis en place par les attaquants pour exfiltrer des données sous la forme d'un site légitime. Pour accéder à l’interface et progresser, il faut contourner le formulaire de connexion. Un pare-feu (WAF) a été mis en place et bloque les injections SQL évidentes, c'est-à-dire qu'il refuse par exemple les mots-clés `OR` et les commentaire `--`. Le défi consiste à exploiter une injection SQL malgré ces restrictions, afin de contourner l’authentification et d’accéder au portail des attaquants. Pour passer le contrôle de format du champ email, le joueur doit fournir une adresse e-mail valide et réaliste d’un employé de l’hôpital. Étant donné que le portail factice est conçu pour piéger les employés, il attend une adresse de l’hôpital Horizon Santé (domaine `@horizonsante.com`). Par exemple, une adresse au format `prenom.nom@horizonsante.com` correspond au schéma utilisé par de nombreuses organisations et semble crédible.\
+=== _Portail Fantôme_ : Exploitation Web (SQL) <ch-2>
+Le joueur·euse a identifié le domaine frauduleux `horizonsante-support.com`. Ce sous-domaine a été mis en place par les attaquants pour exfiltrer des données sous la forme d'un site légitime. Pour accéder à l’interface et progresser, il faut contourner le formulaire de connexion. Un pare-feu (WAF) a été mis en place et bloque les injections SQL évidentes, c'est-à-dire qu'il refuse par exemple les mots-clés `OR` et les commentaire `--`. Le défi consiste à exploiter une injection SQL malgré ces restrictions, afin de contourner l’authentification et d’accéder au portail des attaquants. Pour passer le contrôle de format du champ email, le joueur doit fournir une adresse e-mail valide et réaliste d’un employé de l’hôpital. Étant donné que le portail factice est conçu pour piéger les employés, il attend une adresse de l’hôpital Horizon Santé (domaine `@horizonsante.com`). Par exemple, une adresse au format `prenom.nom@horizonsante.com` correspond au schéma utilisé par de nombreuses organisations et semble crédible.\
 Ce challenge sensibilise aux failles d’injection et montre qu’une protection insuffisante peut être contournée par des techniques simples.
 
 *Étapes pour résoudre le challenge :*
@@ -105,66 +108,30 @@ Ce challenge sensibilise aux failles d’injection et montre qu’une protection
 - Le second indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour les commentaires.
 - Le troisième indice suggère de combiner l’astuce du commentaire au milieu de `OR` et le commentaire en fin de requête.
 
-*Flag attendu* : Le flag `HZ-7XG4` est le code de session généré par le portail VPN une fois la connexion réussie. Il permet d'accéder aux ressources du faux portail.
+*Flag attendu* : Le flag `co_<SESSION_ID>` montre que la connexion au site a bien été établie.
 
-Le joueur·euse peut maintenant accéder au faux portail VPN des attaquants, où il découvrira un bouton "Télécharger le rapport du jour" qui de télécharger le rapport du jour. Ce sera le point de départ du défi suivant.
+Le joueur·euse peut maintenant accéder au site des attaquants
 
 
-=== Partage Oublié : Mauvaise configuration d’accès <ch-3>
+=== _Partage Oublié_ : Mauvaise configuration d’accès <ch-3>
+Sur le portail, un lien "Dépôt sécurisé" mène à `https://files.horizonsante-support.com/?dir=/`. À cause d’un contrôle d’accès mal configuré (absence de filtre sur le chemin), n’importe quel utilisateur en "lecture seule" peut parcourir l’arbre et récupérer des documents confidentiels.\
+Ce challenge permet de montrer au joueur·euse l’importance de la sécurisation des accès aux ressources sensibles et de la validation des paramètres d’URL. Il sensibilise aux risques liés à une mauvaise configuration des droits d’accès et à l’absence de filtrage sur les chemins, qui peuvent permettre à un attaquant de parcourir l’arborescence et d’accéder à des fichiers confidentiels sans autorisation.
 
-Compétence travaillée : contrôle d’accès mal configuré, découverte d’URL
-Description du challenge
+*Étapes pour résoudre le challenge :*
++ Depuis le portail Fantôme, ouvrir l’onglet Ressources, puis "Dépôt sécurisé".
++ Modifier l’URL pour lister la racine (`/?dir=/`).
++ Descendre jusqu’à /archives/audit/2025/ et télécharger `patient_audit_0712.zip`.
 
-Le faux portail VPN comporte un bouton « Mes documents ».
-Pour les comptes de rôle reader, cette page ne montre qu’un seul PDF du jour.
-Mais l’administrateur des pirates a laissé le répertoire /files/archives/ entièrement listable sur le serveur : aucune authentification n’est exigée si l’on connaît l’URL exacte.
+*Outils nécessaires* : les outils pour ce challenge sont un navigateur ou un outil de requête (curl).
 
-L’objectif est de profiter de cette exposition directe — index Apache activé, pas de fichier index.html — pour découvrir et télécharger l’archive hx_srv_full_0712.tar.gz qui contient les données patients volées.
+*Indices graduels* :
+- Le premier indice permet de montrer au joueur·euse que l'URL contient un paramètre `dir=` et qu'il faut essayer d'aller à la racine.
+- Le deuxième indice suggère d’explorer les sous-dossiers à la racine, en particulier ceux qui ressemblent à des archives ou des sauvegardes. Il faut chercher un dossier nommé `archives` puis descendre dans les sous-dossiers par année et mois pour trouver le fichier d’audit.
+- Le troisième indice précise que le fichier ZIP d’audit est daté de juillet, ce qui correspond au nom `patient_audit_0712.zip`. Il faut donc chercher dans les sous-dossiers de l’année 2025, puis dans le dossier du mois 07 (juillet), pour trouver le fichier à télécharger.
 
-    Ce défi sensibilise à l’impact d’un simple répertoire web mal protégé : pas de vulnérabilité de code, seulement un oubli de configuration (« directory listing »).
+*Flag attendu* : Le flag `patient_audit_0712.zip` est un fichier zip qui contient potentiellement tous les dossiers sur les patients ainsi que d'autres éléments.
 
-Étapes pour résoudre le challenge
-
-    Depuis la page « Mes documents », ouvrir les DevTools → onglet Network.
-
-    Observer que le PDF vient de l’URL
-
-https://vpn.horizonsante-support.com/files/reports/rapport-2025-07-15.pdf
-
-Supprimer rapport-2025-07-15.pdf dans la barre d’adresse et valider l’URL répertoire
-
-https://vpn.horizonsante-support.com/files/reports/
-
-→ un index of s’affiche ; on en déduit que le serveur liste les dossiers parents.
-
-Remonter d’un niveau :
-
-    https://vpn.horizonsante-support.com/files/
-
-    Le dossier archives apparaît.
-
-    Cliquer sur archives puis télécharger hx_srv_full_0712.tar.gz.
-
-    Décompresser l’archive ; trouver patient_audit_0712.xlsx (preuve de la fuite) et hx_dropper.zip pour le challenge suivant.
-
-Outils nécessaires
-
-    Navigateur web (DevTools pour voir l’URL)
-
-    Outil de décompression .tar.gz (7-Zip, tar xzf, …)
-
-Indices graduels
-
-    Indice 1 : Le lien « Mes documents » pointe vers /files/reports/…. Essaie de retirer le nom du fichier pour voir le répertoire.
-
-    Indice 2 : Si l’index Apache est visible, les dossiers parents le sont souvent aussi. Remonte d’un niveau dans l’URL.
-
-    Indice 3 : Le dossier archives contient l’archive hx_srv_full_0712.tar.gz ; télécharge-la et décompresse-la.
-
-FLAG attendu : patient_audit_0712.zip
-
-(Présence de ce tableur dans l’archive prouve que l’accès non protégé a été exploité avec succès.)
-
+Ce zip fera l'objet du prochain challenge.
 
 === _Clé cachée dans les commentaires_ : Cryptographie et métadonnées <ch-4>
 Le joueur·euse a maintenant accès à l'archive `patient_audit_0712.zip` mais le problème est qu'il est verrouillé. Le joueur·euse doit trouver le mot de passe pour déverrouiller ce zip. En inspectant les métadonnées du ZIP, le joueur·euse découvre un commentaire contenant seulement une empreinte SHA-1 : `f7fde1c3f044a2c3002e63e1b6c3f432b43936d0`\
@@ -172,7 +139,7 @@ Les experts Blue Team ont remarqué que les pirates utilisent toujours un mot de
 Ce challenge montre l'importance de la cryptographie et de la gestion des mots de passe, ainsi que la nécessité de vérifier les métadonnées des fichiers.
 
 *Étapes pour résoudre le challenge :*
-+ Lister les métadonnées du zip avec `zipinfo hx_dropper.zip` ou sur Windows en utilisant l'explorateur de fichiers.
++ Lister les métadonnées du zip avec `zipinfo patient_audit_0712.zip` ou sur Windows en utilisant l'explorateur de fichiers.
 + Trouver le commentaire contenant l'empreinte SHA-1
 + Utiliser un script Python pour générer les mots de passe possibles de la forme `horizon<nombre>` et vérifier si l'un d'eux correspond à l'empreinte SHA-1 ou utiliser CyberChef pour générer les mots de passe et vérifier l'empreinte.
 + Une fois le mot de passe trouvé, déverrouiller le zip.
@@ -188,63 +155,55 @@ Ce challenge montre l'importance de la cryptographie et de la gestion des mots d
 
 Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `hx_dropper.ps1`.
 
-=== <ch-5>
-// _Script d’infection_ : Reverse Engineering <ch-5>
-// Le fichier `hx_dropper.ps1` est un script PowerShell. Ce script a servi à l’attaquant pour établir une connexion vers son serveur de commande et contrôle (C2) et déployer le ransomware. Cependant, il paraît brouillé, mais en réalité il contient juste une longue ligne du type :
-// ```powershell
-// $payload = "SQBFAE0ARAB...=="
-// [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($payload))
-// ```
-// Le joueur doit copier la chaîne Base64, la décoder, et lire l’URL. Il s'agit d'un challenge de dé-obfuscation pour extraire l'URL du serveur C2 utilisé par les attaquants. \
-// Ce challenge montre comment les attaquants camouflent leurs logiciels malveillants et comment analyser un code malveillant pour y trouver des indices.
+=== _Script Mystère_ : Reverse Engineering <ch-5> 
+Dans l’archive déchiffrée (`patient_audit_0712.zip`) se trouve `tools/backup_sync.py`.
+Les pirates y ont laissé un compte SSH à privilèges "support-user" mais l’ont caché par une simple concaténation de caractères. Le but est de reconstituer le login et le mot de passe clair.\
+Ce challenge permet de sensibiliser à l'importance de la sécurité des scripts et de la nécessité de vérifier les scripts avant de les exécuter. Il montre également comment les attaquants peuvent masquer des informations sensibles dans des scripts apparemment innocents.
 
-// *Étapes pour résoudre le challenge :*
-// + Ouvrir `hx_dropper.ps1` dans n’importe quel éditeur.
-// + Repérer la chaîne Base64 (se termine par `==`).
-// + Coller la chaîne dans CyberChef : opération "From Base64".
-// + Lire la sortie : le texte affiche `https://c2.hz-cloud.net/api`.
+*Étapes pour résoudre le challenge :*
++ Ouvrir le fichier `backup_sync.py` dans l'IDE.
++ Identifier les lignes qui contiennent des chaînes de caractères encodées en Base64.
++ Décoder les chaînes Base64 pour obtenir le login et le mot de passe.
++ Concaténer les parties pour reconstituer le login et le mot de passe.
 
-// *Outils nécessaires* : Pour ce challenge, le joueur·euse peut utiliser CyberChef ou tout décodeur Base64 en ligne.
+*Outils nécessaires :* Un éditeur de texte/IDE pour lire le script, un outil de décodage Base64 (comme CyberChef ou un script Python).
 
-// *Indices graduels*
-// - Le premier indice suggère de se concentrer sur les lignes qui se terminent par `=` ou `==`, car elles sont souvent du Base64.
-// - Le deuxième indice indique que la chaîne Base64 est utilisée pour masquer l’URL du serveur C2. Il faut donc la décoder pour la révéler. Pour cela, on peut utiliser CyberChef ou un décodeur Base64 en ligne.
-// - Le troisième indice rappelle que le résultat du décodage contiendra l’URL complète du C2 en clair.
+*Indices graduels :*
+- Le premier indice rappelle que le script contient des chaînes de caractères encodées en Base64, ce qui signifie qu'il faut les décoder pour obtenir les informations cachées.
+- Le second indice indique que les chaînes sont concaténées, ce qui signifie qu'il faut les assembler pour obtenir le login et le mot de passe complets.
+- Le troisième indice suggère d'utiliser un outil de décodage Base64 pour faciliter le processus. Il est également suggéré de vérifier les commentaires du script, car ils peuvent contenir des indices sur la manière dont les chaînes sont concaténées.
 
-// *Flag attendu :* Le flag de ce challenge est donc le serveur C2 `https://c2.hz-cloud.net/api` qui a été utilisé par les attaquants pour déployer le ransomware.
+*Flag attendu :* Le flag attendu le mot de passe du compte SSH, qui est `p@ssw0rd_V3rY_B@d`.
+Une fois connecté au compte SSH, le joueur·euse obtient des droits supplémentaires et peut accéder à la plateforme des attaquants.
 
-// Le joueur·euse sera envoyé sur le serveur pour la suite du défi.
+=== _Cookie Rançon_ : Mauvaise gestion des sessions <ch-6>
+Le joueur·euse doit intercepter le cookie de session "admin" utilisé par un bot qui consulte automatiquement chaque demande de rançon. Pour cela, il doit exploiter une faille XSS afin de voler ce cookie lorsque le bot visite la page. Ensuite, il devra injecter ce cookie dans son propre navigateur pour obtenir les droits administrateur et ainsi accéder à la fonctionnalité de suppression, ce qui lui permettra de supprimer définitivement les fichiers sur le serveur des attaquants.\
+Ce challenge montre l'importance de la gestion des sessions et de la sécurité des cookies. Il sensibilise aux risques liés à la manipulation des cookies de session et à la nécessité de sécuriser les sessions utilisateur.
+
+*Étapes pour résoudre le challenge :*
++ Tester l'injection XSS dans le champ Message : `<script>alert(1)</script>`.
++ Exfiltrer le cookie de session "admin" en utilisant une injection XSS dans le champ Message du chat : `<script>fetch('/collect?c='+encodeURIComponent(document.cookie))</script>` et attendre que le bot ouvre la demande.
++ Récupérer le cookie volé `admin_session=<COOKIE_VALUE>`
++ Ouvrir les outils de développement du navigateur, aller dans l'onglet Application, puis dans la section Cookies.
++ Coller le cookie volé dans le champ de saisie du cookie de session.
++ Une fois le cookie injecté, recharger la page pour obtenir les droits administrateur et supprimer les fichiers.
++ Le serveur affiche un message de confirmation `ALL_FILES_DELETED` indiquant que tous les fichiers ont été supprimés.
+
+*Outils nécessaires :* Un navigateur web avec les outils de développement pour intercepter et manipuler les cookies, ainsi qu'un éditeur de texte pour écrire le script XSS.
+
+*Indices graduels :*
+- Le premier indice expliquer que les balises HTML ne sont pas échappées dans le champ Message, ce qui permet d'injecter du code JavaScript.
+- Le deuxième indice indique que le bot ouvre automatiquement les demandes de rançon, ce qui signifie que le joueur·euse peut exploiter cette fonctionnalité pour voler le cookie de session.
+- Le troisième indice rappelle que le cookie de session "admin" est nécessaire pour accéder aux fonctionnalités administratives du portail. Il est donc crucial de le voler pour pouvoir supprimer les fichiers.
 
 
-=== <ch-6>
-// _Chat KO_ : Exploitation Web (XSS) <ch-6>
-// Sur la console du serveur C2, la page `/admin/chat.php` affiche un forum interne. Les messages postés postés sont échappés mais le champs Pseudo est restitué tels quels sans échapper les caractère. Un bot-admin lit la page en continu, si du JavaScript s’exécute dans son navigateur, son interface se bloque et le serveur passe automatiquement en mode "hors ligne". Le défi consiste à injecter un script XSS dans le champ pseudo pour faire planter le bot. À la première exécution, le serveur affiche alors le code `C2_OFFLINE`.\
-// Ce challenge illustre la gravité d’une entrée utilisateur non échappée : une simple balise suffit à neutraliser un service entier.
+*Flag attendu* : la réponse du serveur `ALL_FILES_DELETED`, ce qui montre au joueur·euse que tous les fichiers ont été supprimés avec succès. 
 
-// *Étapes pour résoudre le challenge :*
-// + Aller à la page : `https://c2.hz-cloud.net/admin/chat.php`.
-// + Dans le champ Pseudo, taper d’abord un test : `<b>test</b>` et valider. Le mot test apparaît en gras, ce qui est une preuve que le HTML n’est pas échappé.
-// + Remplacer par le payload JavaScript :
-//   ```html
-//   <script>document.body.innerHTML='C2 KO';</script>
-//   ```
-// + Dès que le bot recharge le chat (quelques secondes), le script s’exécute dans sa session et tout le DOM est remplacé par `C2 KO`.
-// + Le serveur détecte l’erreur d’interface et renvoie dans la bannière de statut le message-code.
-
-// *Outils nécessaires* : Ici, seul le navigateur est nécessaire.
-
-// *Indices graduels*
-// - Le premier indice rappelle que le champ Pseudo affiche le texte sans l’échapper, donc il est possible d’y insérer du HTML.
-// - Le second indice indique que si le HTML passe, un `<script>…</script>` s’exécutera aussi. Cela signifie que le joueur·euse peut injecter du JavaScript dans le champ Pseudo.
-// - Le troisième indice suggère de remplacer le contenu de la page par `document.body.innerHTML=` pour faire planter la console. Cela permet de neutraliser le bot en remplaçant tout le contenu de la page par un message d’erreur.
-
-// *Flag attendu* : Le flag est donc le code `C2_OFFLINE` qui est renvoyé par le serveur pour indiquer que le C2 est hors ligne.
-
-// Une fois le C2 hors ligne, le joueur·euse est envoyé sur le portail interne de l'hôpital pour le challenge suivant et ainsi bloquer l'attaquant.
+Une fois les fichiers supprimés, le joueur·euse peut passer au défi suivant pour bloquer l'attaquant.
 
 
 === _Blocage ciblé_ : Défense et journalisation <ch-7>
-Maintenant que les fichiers sont supprimés du côté des attaquants, le joueur·euse doit identifier l’adresse IP de la machine de l’attaquant pour le bloquer. Le joueur·euse doit donc s'assurer qu'aucune connexion sortante ne continue d'envoyer des données. Un flux a été repéré : la même adresse IP externe a émis des milliers de requêtes vers le portail VPN de l’hôpital au cours du dernier quart d’heure (tentative d’exfiltration massive). Le joueur·euse doit donc trouver le fichier de log contenant ces requêtes, identifier l’IP la plus présente (c’est l’attaquant) et ajouter cette IP à la liste noire du pare-feu interne. Une fois l’IP bloquée, le joueur·euse recevra un message de confirmation `PATCH_OK` indiquant que le blocage a été effectué avec succès.\
+Maintenant que les fichiers sont supprimés du côté des attaquants, le joueur·euse doit identifier l’adresse IP de la machine de l’attaquant pour le bloquer. Le joueur·euse doit donc s'assurer qu'aucune connexion sortante ne continue d'envoyer des données. Un flux a été repéré : la même adresse IP externe a émis des milliers de requêtes vers le portail VPN de l’hôpital au cours du dernier quart d’heure (tentative d’exfiltration massive). Le joueur·euse doit donc trouver le fichier de log contenant ces requêtes, identifier l’IP la plus présente (c’est l’attaquant) et ajouter cette IP à la liste noire du pare-feu interne. Une fois l’IP bloquée, le joueur·euse recevra un message de confirmation `BLK_185-225-123-77_OK` indiquant que le blocage a été effectué avec succès.\
 Ce challenge montre l'importance de la surveillance des logs et de la gestion des adresses IP suspectes pour prévenir les attaques.
 
 *Étapes pour résoudre le challenge :*
@@ -266,22 +225,3 @@ Ce challenge montre l'importance de la surveillance des logs et de la gestion de
 *Flag attendu :* Le flag attendu est le message `BLK_185-225-123-77_OK` qui confirme que l’adresse IP de l’attaquant a été bloquée avec succès. Cela permet de sécuriser le réseau et d'empêcher toute nouvelle tentative d'exfiltration de données.
 
 Le joueur·euse a réussi à bloquer l'attaquant et à sécuriser le réseau de l'hôpital. La deuxième vague n'aura donc pas lieu et le joueur·euse reçoit pour conclure l'aventure.
-
-
-
-
-    Dans un premier temps, le joueur analyse un e-mail de phishing afin d’identifier un sous-domaine. 
-    Pas forcément un sous-domaine ? Comme tu veux, mais oui guessing de sous-domain why not !
-    Une fois le sous-domaine trouvé, il doit s’y infiltrer via une injection SQL.
-    Sur une plateforme trouvée, il doit se loguer sur une plateforme d'accès à des fichiers. Par contre fait attention à ce que le user ne puisse pas effectuer d'actions sur la DB autre que accéder à la plateforme en mode "lecteur". Le problème d'une injection SQL à cette étape est que c'est une vuln qui ouvre beaucoup d'attaques, donc un peu trop ouverte peut être si tôt dans le challenge. Le but ici est d'accéder à la plateforme avec des droits simples.
-    Une fois à l’intérieur, il modifie les droits d’accès pour obtenir l’accès aux dossiers volés.
-    Il me semble qu'on avait parlé plus de mauvais accès configuré, ce sera plus simple pour toi. Modifier les accès devient technique. Comme tu veux. Il a accès à rien d'autre.
-    Il identifie ensuite le bon dossier et doit le déchiffrer pour vérifier qu’il contient bien les informations des patients.
-    Exact.
-    Ensuite, il modifie les cookies pour pouvoir supprimer le dossier.
-    Non il se login avec un compte volé avec des droits supplémentaire à ceux récupéré lors de injection SQL. Peu importe la manière mais je mettrais soit à l'intérieur du dossier déchiffré des login SSH obfusqué (D'où le reverse?) qui permettent peut être de se connecter, ou un vol de cookie via un formulaire de rançon ?
-    Dans tous les cas, il vole le cookie avec des droits++. 
-    Tu peux peut être faire ça en deux étapes ? Sinon il y a que 6 challenges et ça fait court. (Dont des très simples)
-    Enfin, il sécurise le réseau de l’hôpital en inscrivant l’adresse IP de l’attaquant dans le pare-feu.
-    Ok
-
