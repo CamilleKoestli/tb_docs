@@ -78,7 +78,7 @@ Ce challenge a pour objectif de sensibiliser aux signes d’un courriel d’hame
 + Ouvrir le fichier `planning_salle_op.eml` dans l’IDE.
 + Examiner les lignes commençant par `Received:` (du bas vers le haut) afin de trouver l’adresse IP d’origine de l’envoi. Repérer également l’en-tête `Return-Path:` qui contient le domaine de l’expéditeur.
 + Identifier dans la première ligne `Received:` l’IP source et dans le `Return-Path` le nom de domaine utilisé par l’expéditeur.
-+ Effectuer une recherche `WHOIS` sur ce nom de domaine pour vérifier s’il est légitime ou s’il s’agit d’un domaine malveillant créé pour l’attaque.
++ Effectuer une recherche WHOIS sur ce nom de domaine pour vérifier s’il est légitime ou s’il s’agit d’un domaine malveillant créé pour l’attaque.
 
 *Outils nécessaires :* Les outils nécessaires pour ce défi sont un éditeur de texte/IDE pour afficher les en-têtes de l’e-mail, et un service WHOIS/OSINT en ligne pour vérifier le domaine.
 
