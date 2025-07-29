@@ -25,7 +25,7 @@ Le fichier `popup.html` présente la pop-up d'introduction et d'indices. Tous le
 
 // La logique JavaScript locale gère les interactions spécifiques à chaque challenge. Le code est souvent intégré directement dans la page HTML et se limite à quelques lignes pour gérer des éléments comme un accordéon, la modification dynamique du DOM ou la capture de l'événement Submit. Pour les challenges nécessitant plus de code (comme l'IDE Python), un module JavaScript dédié est placé dans le répertoire /js.
 
-Le système de validation assure la communication avec le back-end. La majorité des pages envoient une requête fetch POST vers `/api/checkAnswer` (ou vers `/db/`... pour le challenge d'injection SQL). Le corps de la requête au format JSON contient les champs `challengeId` et `answer`. En retour, le serveur renvoie une réponse indiquant `success:true` avec l'URL du challenge suivant.
+Le système de validation assure la communication avec le back-end. La majorité des pages envoient une requête fetch POST vers `/api/checkAnswer` (ou vers `/db/...` pour le challenge d'injection SQL). Le corps de la requête au format JSON contient les champs `challengeId` et `answer`. En retour, le serveur renvoie une réponse indiquant `success:true` avec l'URL du challenge suivant.
 
 ==== Flux type côté client
 Lorsque le joueur arrive sur une page de challenge, une pop-up s'ouvre automatiquement pour montrer le contexte du défi et expliquer l'objectif.

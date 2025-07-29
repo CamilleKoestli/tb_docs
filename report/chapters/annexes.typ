@@ -564,7 +564,7 @@ insert into posts (ID,img,nameLastname,datepost) value (8,"./img/resto2.jpg","zi
 
 #pagebreak()
 
-== Présentation des challenges (ancienne version) <présentation>
+== Présentation des challenges (ancienne version des défis) <présentation>
 #image("../../annexe/présentation_challenges (1)/présentation_challenges-1.svg", width: 95%)
 #image("../../annexe/présentation_challenges (1)/présentation_challenges-2.svg", width: 95%)
 #image("../../annexe/présentation_challenges (1)/présentation_challenges-3.svg", width: 95%)
