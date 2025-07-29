@@ -1,4 +1,5 @@
 = Architecture de la plateforme _CyberGame_ <architecture>
+Il est important de souligner qu'il s'agit d'une analyse de la plateforme de 2020 avant sa restructuration qui a eu lieu en 2025. Cette analyse porte donc sur l’état initial du site, avant l’ajout de nouvelles fonctionnalités, la refonte du design ou l’amélioration de l’expérience utilisateur. Les points relevés concernent la version originale, ce qui permet d’identifier précisément les axes d’amélioration et de mesurer l’impact des futures évolutions.
 
 == Présentation générale <presentation>
 Le site web est une plateforme pédagogique créée par le pôle Y-Sécurity de la HEIG-VD. Il a pour objectif d'introduire au ethical hacking et propose actuellement deux scénarios interactifs. La plateforme est donc conçue avec une page d'accueil @InitiationAuEthical qui présente le cadre général. Le premier jeu "Shana a disparu" @ShanaDisparuRetrouvela ainsi qu'un autre scénario "Sauve la Terre de l'arme galactique" @SauveTerreLarme se trouvent sur la plateforme. Pour aider les joueur·euse·euse·s à avancer dans les différents challenges, une boîte à outils et un petit IDE Python ont été développés @InitiationAuEthical.
@@ -115,9 +116,18 @@ Le participant·e découvre, étape après étape, comment procède un professio
 
 Parmi les forces de la plateforme, les enquêtes sont construites afin de suivre une progression graduelle. Chaque épreuve ré-exploite la précédente et favorise un apprentissage. La narration permet de maintenir le joueur·euse motivé·e mais le garde dans une optique d'apprentissage. \
 En effet, la boîte à outils intégrée, qui contient les fiches pratiques, évite aux débutant·e·s de devoir faire trop de recherches et ainsi leur permet de se focaliser sur le jeu. \
-De plus, grâce à un mini IDE Python et un terminal intégré, le joueur·euse n'a rien besoin d'installer sur sa machine. L'expérience se déroule entièrement sur le navigateur ce qui abaisse la barrière d’entrée, et la variété des techniques abordées offrant un panorama cohérent de la sécurité offensive.
+De plus, grâce à un mini IDE Python et un terminal intégré, comme le montre la @ide-img et @terminal-img, le joueur·euse n'a rien besoin d'installer sur sa machine. L'expérience se déroule entièrement sur le navigateur ce qui abaisse la barrière d’entrée, et la variété des techniques abordées offrant un panorama cohérent de la sécurité offensive.
+#figure(
+  image("imgs/ide-interface.png"),
+  caption: [IDE présent sur la plateforme],
+)<ide-img>
+#figure(
+  image("imgs/terminal-interface.png"),
+  caption: [Terminal présent sur la plateforme],
+)<terminal-img>
 
-Cependant, quelques points mériteraient des améliorations. D’abord, le champ dans lequel le joueur·euse doit saisir sa réponse ne précise pas toujours le format exigé ; lorsque la consigne n’affiche qu’un mot mis en gras, qui représente la réponse attendue, l’information passe facilement inaperçue et l’utilisateur·trice ignore s’il doit entrer un mot-clé, une URL complète, un hash ou une date. Le joueur·euse peut avoir du mal à comprendre ce qu'il doit mettre, ce qui peut entraîner de la frustration. Il serait judicieux, par exemple de mettre dans l'indice, le format attendu avec un exemple, ou encore avant les début des challenges, montrer des exemples de formats attendus. \
+Cependant, quelques points mériteraient des améliorations. D’abord, la police d'écriture utilisée, elle permet de créer une certaine ambiance mais elle est peu lisible, ce qui peut gêner la compréhension et la lecture des consignes. Un autre élément d'amélioration aurait été de réaliser un changement de curseur sur les éléments cliquables (par exemple, en utilisant `cursor: pointer` en CSS) pour permettre au joueur·euse d’identifier les zones interactives. Actuellement, certains éléments interactifs ne sont pas mis en valeur, ce qui peut rendre la navigation moins intuitive. La gestion de la fenêtre du jeu pourrait être optimisée, par exemple après la fermeture d’une pop-up, le joueur·euse se retrouve parfois avec un fond noir sans indication, ce qui peut désorienter. Il serait utile d’ajouter des repères visuels ou des messages d’aide pour guider l’utilisateur·trice dans la progression, et de mieux intégrer la boîte à outils dès la page d’accueil pour que chacun·e sache où trouver les ressources. Le design du site présente parfois des problèmes d’affichage selon la taille de la fenêtre du navigateur, comme le chevauchement d’éléments.
+Le champ dans lequel le joueur·euse doit saisir sa réponse ne précise pas toujours le format exigé ; lorsque la consigne n’affiche qu’un mot mis en gras, qui représente la réponse attendue, l’information passe facilement inaperçue et l’utilisateur·trice ignore s’il doit entrer un mot-clé, une URL complète, un hash ou une date. Le joueur·euse peut avoir du mal à comprendre ce qu'il doit mettre, ce qui peut entraîner de la frustration. Il serait judicieux, par exemple de mettre dans l'indice, le format attendu avec un exemple, ou encore avant les début des challenges, montrer des exemples de formats attendus. \
 Ensuite, pour la validation de l'étape, il faut impérativement entrer une réponse valide dans le champ "Réponse" malgré que l'interface visuelle du jeu change.
 #figure(
   image("imgs/bug-interface1.png"),
@@ -132,19 +142,6 @@ Ensuite, pour la validation de l'étape, il faut impérativement entrer une rép
 Dans la @bug-interface1-imgs, nous pouvons voir que le joueur·euse à bien réussi à trouver la réponse du challenge. Cependant, comme le montre la @bug-interface2-imgs, l'interface de travail ne change pas. Le joueur·euse peut ne pas comprendre ce qu'il doit faire et peut rester bloquer car il ne sait pas ce qui est attendu de lui. \
 Le passage d’un challenge au suivant manque parfois de fiabilité : la pop-up explicative ne s’ouvre pas systématiquement et la barre de progression reste figée. Le participant·e doit donc cliquer sur l'étape suivante pour accéder à la consigne du challenge suivant ainsi que le nouvel interface de travail. \
 Enfin, les indices actuels fournissent, dans un premier temps, un bon point de départ. Cependant, cela peut se révéler insuffisant pour les joueur·euse·s débutant·e·s. La mise en place d'aides graduelles pourraient limiter le risque d'abandon tout en gardant le défi intéressant.
-
-// TODO
-// j'ai aussi d'autres points relou comme proposition d'ajout ou de complément
-// de ce qui est déjà écrit
-// - police de caractère a une ambiance sympa mais peu lisible
-// - gestion de la fenêtre du jeu un peu mal géré (on scroll
-// et on a juste le fond noir). 
-// - pas de changement de type de curseur sur les éléments cliquables (en css cursor:pointer je crois)
-// (notamment les ronds pour switcher de challenges, du coup on sait pas immédiatement que c'est cliquable)
-// - une fois la popup de texte fermée ya un fond noir et on est paumé
-// - si on est paumé, on a pas eu linfo des outils -> 
-//   pas de mention des outils dans la page d'accueil (de shana en tous cas)
-// - design général peu soigné (input par dessus menu,
 
 
 // TODO == Analyse de la sécurité <analyse-sécurité>
