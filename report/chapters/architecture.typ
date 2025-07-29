@@ -5,13 +5,41 @@ Le site web est une plateforme pédagogique créée par le pôle Y-Sécurity de 
 
 == Architecture technique <architecture-technique>
 
-=== Front-end <front-end>
 La plateforme est hébergée sur un serveur web, accessible via un nom de domaine `heig-vd.ch` avec le sous-domaine `shana`. Le site utilise des technologies web standards telles que HTML, CSS et JavaScript pour l'interface utilisateur.
 
-=== Cartographie automatique <cartographie-automatique>
-// TODO pourquoi elle est automatique et préciser que c'est pour Shana
+=== Front-end <front-end>
 
-La cartographie automatique de la plateforme est réalisée à l'aide d'un tableau qui répertorie les différents challenges, les techniques ciblées et les intentions pédagogiques. Chaque ligne du tableau correspond à un challenge spécifique, avec des informations sur le dossier ou le fichier de lancement, la technique ciblée et l'intention pédagogique. Cela permet de visualiser rapidement la structure des jeux et les compétences que chaque challenge vise à développer.
+La structure du front-end montre que chaque épreuve est développée comme un mini-site indépendant dans son propre dossier. Cela permet d'obtenir ainsi une architecture claire et modulaire qui facilite la maintenance et l’ajout de nouveaux niveaux.
+Chaque challenge suit une structure composée de plusieurs éléments, chacun avec un rôle spécifique dans l'expérience pédagogique.
+
+Le dossier racine du challenge (par exemple `01_windows_login/`, `07_url_modification/`, ...) contient toutes les ressources spécifiques à l'épreuve.
+
+Le fichier HTML de lancement (comme `windows_login.html` ou `gallery1.html`, ...) représente la partie interactive visible par le joueur. Ce fichier charge systématiquement plusieurs ressources : une feuille de style locale située dans `css/style.css`, jQuery version 1.7.1 accompagné parfois d'un script global stocké dans `/js`, ainsi que le header commun comprenant le logo, le compteur de progression et le bouton "Retour". Un élément `div.popup-trigger` est toujours présent pour déclencher l'affichage de la pop-up d'aide.
+
+Le sous-dossier `css/` contient les styles spécifiques au challenge. La feuille de style définit l'apparence visuelle (police, arrière-plan, couleurs).
+
+Le sous-dossier `img/` stocke les ressources visuelles nécessaires comme les illustrations, les captures d'écran et les images de fond. Par exemple, `background_history.png` sert uniquement visuel du niveau "Browser History".
+
+Le fichier `popup.html` présente la pop-up d'introduction et d'indices. Tous les challenges utilisent la même structure, c'est-à-dire un titre, le contexte de l'épreuve, un rappel du format de réponse attendu et un bouton "Commencer" pour lancer le défi. En dessous, se trouve aussi le bouton "Indice" qui permet d'obtenir l'indice pour résoudre le challenge.
+
+// La logique JavaScript locale gère les interactions spécifiques à chaque challenge. Le code est souvent intégré directement dans la page HTML et se limite à quelques lignes pour gérer des éléments comme un accordéon, la modification dynamique du DOM ou la capture de l'événement Submit. Pour les challenges nécessitant plus de code (comme l'IDE Python), un module JavaScript dédié est placé dans le répertoire /js.
+
+Le système de validation assure la communication avec le back-end. La majorité des pages envoient une requête fetch POST vers `/api/checkAnswer` (ou vers `/db/`... pour le challenge d'injection SQL). Le corps de la requête au format JSON contient les champs `challengeId` et `answer`. En retour, le serveur renvoie une réponse indiquant `success:true` avec l'URL du challenge suivant.
+
+==== Flux type côté client
+Lorsque le joueur arrive sur une page de challenge, une pop-up s'ouvre automatiquement pour montrer le contexte du défi et expliquer l'objectif.
+
+Le joueur·euse peut ensuite interagir avec la page selon ce qui lui est demandé : cela peut impliquer de fouiller dans l'historique du navigateur, d'inspecter le DOM pour trouver des éléments cachés, de modifier la valeur d'un cookie, ...
+
+Quand le joueur·euse pense avoir trouvé la solution, il propose sa réponse dans un champ de saisie sur la page. Cette proposition déclenche un appel vers l'API du serveur pour valider la réponse.
+
+Si la réponse est correcte, le back-end va réaliser la mise à jour de la progression du joueur·euse dans la base MongoDB et renvoie l'URL du challenge suivant. Côté front-end, le pop-up de félicitations se ferme automatiquement et le prochain onglet devient accessible dans la barre, ce qui permet au joueur·euse de continuer son parcours.
+
+=== Cartographie des challenges <cartographie>
+
+La cartographie des challenges (Annexe@annex-config-json) de la plateforme est réalisée à l'aide d'un tableau JSON qui répertorie les différents challenges, les techniques ciblées et les intentions pédagogiques. Chaque ligne du tableau correspond à un challenge spécifique, avec des informations sur le dossier ou le fichier de lancement, la technique ciblée et l'intention pédagogique. Cela permet de visualiser rapidement la structure des jeux et les compétences que chaque challenge vise à développer.
+
+Ce fichier permet d'avoir une vue d'ensemble sur les challenges, c'est-à-dire combien d'épreuves il y a , dans quel ordre et où se trouve le fichier de lancement de chacun. De plus, ce fichier permet un contrôle d'intégrité. Si la plateforme ne se charge pas, il est facile de vérifier si le lien dans le JSON pointe vers un fichier existant. Pour chaque challenge, on peut tout de suite ouvrir les bons fichiers (HTML / JS / CSS) et identifier la vulnérabilité simulée sans chercher. Enfin, si l'équipe ajoute un nouveau challenge, il suffira d'actualiser le JSON.
 
 #table(
   columns: (auto, 2fr, 2fr, 2fr),
@@ -24,12 +52,10 @@ La cartographie automatique de la plateforme est réalisée à l'aide d'un table
   [`01_windows_login/windows_login.html`],
   [OSINT + mot de passe à partir des réseaux sociaux],
   [Montrer l’impact de l'exploitation des données personnelles publiquement accessibles],
-
   [2],
   [`02_browser_history/browser_history.html`],
   [Lecture d’historique],
   [Comprendre la collecte de preuves côté client],
-
   [3], [`03_same_color_text/index-01.html`], [Texte blanc-sur-blanc], [Chercher du contenu caché dans le DOM],
   [4], [`04_html_comment/comment.html`], [Commentaires HTML], [Repérage d’indices dans la source],
   [5], [`05_admin_cookie/index.html`], [Manipulation de cookie], [Bypass d’autorisation client-side],
@@ -40,12 +66,30 @@ La cartographie automatique de la plateforme est réalisée à l'aide d'un table
   [10], [*10_outro*], [-], [Clôture et teasing final],
 )
 
-// Mapping JSON de niveau 1.
-
 La même logique est appliquée au scénario "Sauve la Terre de l'arme galactique" @galacgame, avec des défis similaires mais adaptés à un univers de science-fiction.
 
-// TODO === Back-end
+=== Back-end
+La couche serveur repose sur une architecture composée de Node.js, MongoDB et MySQL, le tout orchestré par Docker. Cette infrastructure comprend plusieurs éléments techniques avec des objectifs pédagogiques.
 
+L'environnement Docker Compose déploie un service back-end basé sur Node 14, accompagné d'instances MongoDB et MySQL, ainsi que trois petits conteneurs docker-ssh servant de cibles d'attaque. Cette approche permet d'isoler chaque composant et de créer un environnement de test sécurisé pour les exercices d'injection SQL.
+
+L'API Express, écrit dans le fichier `index.js` (Annexe@index.js), intègre les middlewares essentiels comme CORS, body-parser, cookie-parser et JWT pour la gestion des sessions. Elle montre plusieurs endpoints REST tels que `/db`, `/db/search`, `/user` et `/stats`. /*Le point critique réside dans l'utilisation d'un pool MySQL avec des requêtes non sécurisées du type `SELECT * FROM users where ID = '` + `req.body.user` + `'`, illustrant directement l'impact des vulnérabilités d'injection SQL dans le cadre du challenge 08.*/
+
+Les modèles Mongoose, définis dans `db.js` (Annexe@db.js), gèrent trois collections principales : `Flag`, `User` et `Visitor`. Le système d'initialisation automatique calcule un hash SHA-3 256 pour chaque flag déclaré dans les variables d'environnement `CHALL_FLAGS_2020` et `CHALL_FLAGS_2021`, puis l'insère en base s'il n'existe pas déjà. Cette approche assure une gestion persistante des comptes utilisateurs et du système de score sans exposer les réponses en clair.
+
+Enfin, la base MySQL est initialisée via le script `init.sql` (Annexe@init.sql)  avec une table `users` contenant les champs `ID` et `pass` (mots de passe stockés en clair), ainsi qu'une table posts pour les fonctionnalités de recherche et de like. Cette base est volontairement dépourvue de protections (pas d'index, pas de contraintes) pour servir de cible d'apprentissage dans les exercices d'injection de code.
+
+==== Séquence de validation d’un challenge
+
+Lorsque le joueur soumet une réponse, le front-end envoie une requête POST vers l'endpoint `/db` ou `/db/search`. L'API Node reçoit cette requête et exécute directement la requête MySQL sans échappement des caractères. Si la requête retourne au moins une ligne de résultat, la réponse est correcte.
+
+Le back-end procède alors à la mise à jour des données en modifiant les champs `Flag` et `User.flagged` dans la base MongoDB. Une fois cette mise à jour effectuée, le serveur renvoie une réponse `HTTP 200` avec soit le flag, soit l'URL qui mène à la prochaine étape du challenge.
+
+Côté front-end, la réception de cette réponse positive déclenche l'affichage d'une pop-up de félicitations et déverrouille automatiquement l'accès à la page suivante, conformément à la configuration définie dans le fichier de mapping JSON (Annexe@annex-config-json) gère la progression entre les différents challenges.
+
+==== Pourquoi utiliser deux SGBD ?
+
+Les deux DB présentent dans l'architecture du code ont des objectifs bien distincts. MongoDB stocke les données « sérieuses » (profils, progression). Alors que MySql n’est utile que pour le challenge 08 : on isole ainsi la faille sans risquer d’altérer les vrais enregistrements Mongo si un étudiant·e pousse l’exploit plus loin.
 
 == Mécanisme de jeu <mécanisme-de-jeu>
 

@@ -28,7 +28,7 @@
 
 #pagebreak()
 
-== index.js <index.js>
+== API Express (index.js) <index.js>
 ```js
 require('dotenv/config');
 const cors = require('cors');
@@ -456,7 +456,7 @@ db.init().then(() =>
 ```
 #pagebreak()
 
-== db.js <ds.js> 
+== Modèles Mongoose (db.js) <db.js>
 ```js
 const mongoose = require('mongoose');
 const assert = require('assert');
@@ -518,7 +518,7 @@ exports.models = {flag: Flag, user: User, visitor:Visitor};
 
 #pagebreak()
 
-== init.sql <init.sql>
+== Base MySQL (init.sql) <init.sql>
 ```sql
 drop database IF EXISTS dday;
 
