@@ -11,7 +11,6 @@
 #show "no date": "sans date"
 #show "Accessed": "Consulté le"
 
-
 /*
  Includes
 */
@@ -87,3 +86,31 @@
 #include "chapters/outils.typ"
 
 #include "chapters/journal-de-travail.typ"
+
+
+/* — Mode Annexes : niveau 1 (titre "Annexes") sans numéro,
+   niveau 2 : "Annexe‑A", "Annexe‑B", ... — */
+#let appendix(body) = {
+  counter(heading).update(0)
+
+  // Niveau 1 : "Annexes" sans numérotation
+  show heading.where(level: 1): set heading(numbering: none, supplement: none)
+
+  // Niveau 2 : "Annexe A"
+  show heading.where(level: 2): set heading(
+    numbering: "A",
+    supplement: [Annexe-]   // ← pas de tiret
+  )
+
+  body
+}
+
+#show: appendix
+
+#outline(
+  target: heading.where(level: 2, supplement: [Annexe-]),
+  title: [Annexes]
+)
+#pagebreak()
+
+#include "chapters/annexes.typ"

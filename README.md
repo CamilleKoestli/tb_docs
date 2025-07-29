@@ -7,6 +7,7 @@
 1. [**Le rapport intermédiaire**](report/rapport-final-tb.pdf) TODO
 1. [**Le rapport final**](report/rapport-final-tb.pdf) TODO
 1. [Cahier des charges (cdc)](./preparation/cdc.md)
+1. [Présentation des challenges](./annexe/présentation_challenges.pdf)
 
 ## Implémentation
 

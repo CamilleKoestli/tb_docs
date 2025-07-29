@@ -1,0 +1,22 @@
+{
+    "platforms": [
+        {"image": "ground0", "x": 100, "y": 60, "idChall": "chall0", "urlChall":  ""},
+        {"image": "ground1", "x": 200, "y": 60, "idChall": "chall1", "urlChall":  "./challenges/01_windows_login/windows_login.html"},
+        {"image": "ground2", "x":300, "y": 60, "idChall": "chall2", "urlChall":  "./challenges/02_browser_history/browser_history.html"},
+        {"image": "ground3", "x": 400, "y": 60, "idChall": "chall3", "urlChall":  "./challenges/03_same_color_text/index-01.html"},
+        {"image": "ground4", "x": 500, "y": 60, "idChall": "chall4", "urlChall":  "./challenges/04_html_comment/comment.html"},
+        {"image": "ground5", "x": 600, "y": 60, "idChall": "chall5", "urlChall":  "./challenges/05_admin_cookie/index.html"},
+        {"image": "ground6", "x": 700, "y": 60, "idChall": "chall6", "urlChall":  "./challenges/06_caesar_cipher/cesar_data.html"},
+        {"image": "ground7", "x": 800, "y": 60, "idChall": "chall7", "urlChall":  "./challenges/07_url_modification/gallery1.html"},
+        {"image": "ground8", "x": 900, "y": 60, "idChall": "chall8", "urlChall":  "./challenges/08_SQL_injection/sql_injection.html"},
+        {"image": "ground9", "x": 1000, "y": 60, "idChall": "chall9", "urlChall":  "./challenges/09_image_forensic/index.html"},
+        {"image": "ground10", "x": 1100, "y": 60, "idChall": "chall10", "urlChall":  ""}
+    ],
+    "roads": [
+        {"image":  "road", "x": 115, "y":  70}
+    ],
+    "invisible_grounds": [
+        {"image":  "inv1", "x": 1, "y":  70}
+    ],
+    "hero": {"x": 100, "y": 50}
+}
