@@ -16,7 +16,7 @@
     \
   ]
 
-  // TODO find a way to apply this only to the main outline not the figures and the tables one
+  // TD find a way to apply this only to the main outline not the figures and the tables one
   show outline.entry.where(
     level: 1
   ): it => {

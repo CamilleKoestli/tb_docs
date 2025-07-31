@@ -1,4 +1,5 @@
 = Introduction <introduction>
+Ce chapitre présente le contexte de ce travail de Bachelor et met en avant l'importance de la sensibilisation à la sécurité informatique et les défis actuels face à la cybercriminalité. Il montre aussi l'importance de la formation grâce à des outils ludiques. De plus, il explique le rôle du pôle Y-Security de la HEIG-VD dans la formation et l'innovation en matière de cybersécurité, ainsi que la problématique à laquelle ce travail à pour objectif de répondre.
 
 == Sensibilisation à la sécurité informatique <sensibilisation-sécurité>
 De nos jours, la digitalisation croissante de notre quotidien, que ce soit au niveau administratif, paiements, télé-travail, ... expose les utilisateur·trice·s à de nombreux risques en matière de sécurité informatique. Dans l'article de _The Digital Decade_ les Européen·ne·s sont de plus en plus préoccupé·e·s par la sécurité de leurs données personnelles et de leur vie privée en ligne et 79% estiment  que "l'amélioration de la cybersécurité et de la protection des données [...]" est indispensable pour pouvoir profiter sans souci des services numériques @europeancommission.directorategeneralforcommunicationsnetworkscontentandtechnology.DigitalDecade2024.\
@@ -12,10 +13,8 @@ Le rapport mondial ISC2 2024 confirme cette augmentation : 67 % des organisation
 
 Selon l’étude de Fortinet 2024, 58 % des incidents majeurs seraient directement liés à un manque de savoir-faire technique ou de formation du personnel @fortinet2024CybersecuritySkills2024.
 
-Face à ce manque, il est essentiel de former rapidement les jeunes mais aussi le grand public. La recherche montre l'efficacité des approches plus ludiques pour des apprentissages. Une revue conclue que les serious games sont un moyen efficace pour sensibiliser les utilisateur·trice·s dépourvu·e·s de bagage technique @ngCybersecuritySeriousGames2025.
+Face à ce manque, il est essentiel de former rapidement les jeunes mais aussi le grand public. La recherche montre l'efficacité des approches plus ludiques pour des apprentissages. Une approche intéressante est l'utilisation de serious games en lien avec la cybersécurité. Ce sont des jeux conçus pour sensibiliser et former les utilisateur·trice·s à la cybersécurité @hillComparingSeriousGames2020. Ces jeux permettent d'apprendre de manière interactive et motivante, tout en simulant des situations réelles de cybersécurité. Une revue conclue même que les serious games sont un moyen efficace pour sensibiliser les utilisateur·trice·s dépourvu·e·s de bagage technique @ngCybersecuritySeriousGames2025.
 Les serious games sont une méthode reconnue pour permettre d'engager, de motiver et de favoriser cet apprentissage. Des travaux de recherche montrent qu’ils permettent de découvrir beaucoup de techniques et de notions (cryptographie, réseau, scripts, attaque Web) tout en offrant un environnement sans risque. L’utilisateur·trice peut expérimenter et apprendre de ses erreurs @hillComparingSeriousGames2020. C'est là que le pôle Y-Security de la HEIG-VD intervient et décide de se pencher sur les serious games pour sensibiliser et former le grand public à la cybersécurité.
-
-//TODO expliquer ce qu'est un serious game et en quoi c'est utile
 
 == Contexte <contexte>
 
