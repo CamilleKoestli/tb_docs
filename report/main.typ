@@ -24,15 +24,14 @@
 */
 #import "template/_title.typ": *
 #_title(TBtitle, TBsubtitle, TBacademicYears, TBdpt, TBfiliere, TBorient, TBauthor, TBsupervisor, TBindustryContact, TBindustryName, TBindustryAddress, confidential)
-//TODO a enlever une fois résumé publiable écrit
-//#import "template/_second_title.typ": *
-//#_second_title(TBtitle, TBacademicYears, TBdpt, TBfiliere, TBorient, TBauthor, TBsupervisor, TBindustryName, TBresumePubliable)
+#import "template/_second_title.typ": *
+#_second_title(TBtitle, TBacademicYears, TBdpt, TBfiliere, TBorient, TBauthor, TBsupervisor, TBindustryName, TBresumePubliable)
 #include "template/_preambule.typ"
 #import "template/_authentification.typ": *
 #_authentification(TBauthor)
 
-//TODO
-// #include "chapters/remerciements.typ"
+
+#include "chapters/remerciements.typ"
 
 /*
  Table of Content
@@ -60,15 +59,13 @@
 
 #include "chapters/scenarios.typ"
 
-// TODO
+#include "chapters/challenges.typ"
 
-// #include "chapters/challenges.typ"
+#include "chapters/implementation.typ"
 
-// #include "chapters/implementation.typ"
+#include "chapters/tests.typ"
 
-// #include "chapters/tests.typ"
-
-// #include "chapters/conclusion.typ"
+#include "chapters/conclusion.typ"
 
 // Remove numbering after content
 #set heading(numbering: none)

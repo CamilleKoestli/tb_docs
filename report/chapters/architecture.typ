@@ -145,5 +145,6 @@ Le passage d’un challenge au suivant manque parfois de fiabilité : la pop-up 
 Enfin, les indices actuels fournissent, dans un premier temps, un bon point de départ. Cependant, cela peut se révéler insuffisant pour les joueur·euse·s débutant·e·s. La mise en place d'aides graduelles pourraient limiter le risque d'abandon tout en gardant le défi intéressant.
 
 
-// TODO == Analyse de la sécurité <analyse-sécurité>
+// TODO 
+== Analyse de la sécurité <analyse-sécurité>
 
