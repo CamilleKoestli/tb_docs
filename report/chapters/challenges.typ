@@ -23,7 +23,14 @@ Chaque minute compte, l’avenir des patient·e·s est entre vos mains._"
 #pagebreak()
 #include "challenge-7.typ"
 
-Une fois à la fin du challenge 7, le joueur·euse aura acquis une petite compréhension des enjeux de la cybersécurité dans un environnement hospitalier.
+Une fois à la fin du challenge 7, un dernier message apparaît pour conclure l'aventure :
+
+"_Mission accomplie !
+Vous avez supprimé les fichiers sensibles chiffrés récupérés par les attaquants et bloqué toute tentative d’exfiltration de données. Les systèmes critiques redémarrent progressivement, les opérations en cours peuvent se poursuivre et les patients sont hors de danger.
+L’équipe technique a déjà enclenché le plan de remédiation complet, renforcé les défenses réseau et sécurisé les accès sensibles. Les preuves collectées au fil de votre enquête ont été transmises aux autorités pour enclencher les poursuites judiciaires.
+Grâce à votre réactivité et vos compétences, le Centre Hospitalier Horizon Santé a retrouvé le contrôle de son système d’information… et un drame a été évité de justesse._"
+
+Le joueur·euse acquière une petite compréhension des enjeux de la cybersécurité dans un environnement hospitalier. Ces challenges permettent de montrer l’importance de la détection rapide des menaces, de l’analyse technique des incidents, de la maîtrise des techniques d’intrusion comme des mesures de défense. Ce scénario permet également d’illustrer comment une attaque informatique peut avoir des conséquences directes sur la possibilité de réaliser des soins et la sécurité des personnes, et pourquoi la cybersécurité est aussi un élément crucial pour les infrastructures de santé.
 
 
 #pagebreak()
