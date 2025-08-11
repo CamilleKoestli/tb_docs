@@ -16,7 +16,9 @@ Enfin, un dernier point a été soulevé concernant le fait qu'il y avait trop d
 
 
 == Scénario définitif : Blackout dans le _Centre Hospitalier Horizon Santé_ <scénario-définitif>
-Le scénario définitif retenu est l'histoire 1, intitulé "Blackout dans le _Centre Hospitalier Horizon Santé_", et il combine les challenges des scénarios 1 et 2. Ce scénario met en scène une attaque de ransomware dans un hôpital, qui entraîne un blackout des systèmes informatiques et des services critiques. Les joueur·euse·s devront résoudre une série de défis techniques et stratégiques en s'infiltrant dans le site des attaquants pour supprimer les dossiers sensibles récoltés et enfin sécuriser les installations de l'hôpital.
+Le scénario définitif retenu est l'histoire 1, intitulé "Blackout dans le _Centre Hospitalier Horizon Santé_", et il combine les challenges des scénarios 1 et 2 ainsi que de nouveaux défis adaptés afin de suivre une évolution cohérente d'une attaque par ransomware. Cette histoire s'inspire de fait réelle qui pourrait arriver dans un hôpital et des étapes simplifiées qu'une équipe de cybersécurité devrait réaliser afin de récupérer les données et de sécuriser l’infrastructure hospitalière.
+
+Ce scénario met en scène une attaque de rançongiciel dans un hôpital, qui entraîne un blackout des systèmes informatiques et des services critiques. Les joueur·euse·s devront résoudre une série de défis techniques et stratégiques en s'infiltrant dans le site des attaquants pour supprimer les dossiers sensibles récoltés et enfin sécuriser les installations de l'hôpital.
 
 Le joueur·euse incarne un membre de l'équipe de sécurité qui doit contenir une cyber-attaque qui bloque le _Centre Hospitalier Horizon Santé_.
 Après avoir retrouvé le courriel de phishing à l’origine de l'attaque (#link(<ch-1>)[_Challenge 1 Mail Contagieux_]), il découvre le domaine frauduleux et se lance dans l’exploration du faux portail exploité par les assaillants (#link(<ch-2>)[_Challenge 2 Portail Frauduleux_]). Pour réussir à y pénétrer, il réalise une injection SQL pour ouvrir une première session, mais seulement avec des droits limités : assez pour naviguer, mais pas assez pour supprimer des éléments présents sur les serveurs.\
@@ -116,33 +118,33 @@ Le joueur·euse peut maintenant accéder au site des attaquants.
 
 
 === _Partage Oublié_ : Mauvaise configuration d’accès <ch-3>
-Sur le portail, un lien "Dépôt sécurisé" mène à `https://files.horizonsante-support.com/?dir=/`. À cause d’un contrôle d’accès mal configuré (absence de filtre sur le chemin), n’importe quel utilisateur en "lecture seule" peut parcourir l’arbre et récupérer des documents confidentiels.\
+Sur le portail, un lien "Dépôt sécurisé" mène à `https://files.horizonsante-support.com/?dir=/`. À cause d’un contrôle d’accès mal configuré (absence de filtre sur le chemin), n’importe quel·le utilisateur·trice en "lecture seule" peut parcourir l’arbre et récupérer des documents confidentiels.\
 Ce challenge permet de montrer au joueur·euse l’importance de la sécurisation des accès aux ressources sensibles et de la validation des paramètres d’URL. Il sensibilise aux risques liés à une mauvaise configuration des droits d’accès et à l’absence de filtrage sur les chemins, qui peuvent permettre à un attaquant de parcourir l’arborescence et d’accéder à des fichiers confidentiels sans autorisation.
 
 *Étapes pour résoudre le challenge :*
 + Depuis le portail frauduleux, ouvrir l’onglet Ressources, puis "Dépôt sécurisé".
 + Modifier l’URL pour lister la racine (`/?dir=/`).
-+ Descendre jusqu’à `/archives/audit/2025/` et télécharger `patient_audit_0712.zip`.
++ Descendre jusqu’à `/archives/audit/2025/` et télécharger `patient_audit_1207.zip`.
 
 *Outils nécessaires* : Les outils pour ce challenge sont un navigateur ou un outil de requête (curl).
 
 *Indices graduels* :
 - Le premier indice permet de montrer au joueur·euse que l'URL contient un paramètre `dir=` et qu'il faut essayer d'aller à la racine.
 - Le deuxième indice suggère d’explorer les sous-dossiers à la racine, en particulier ceux qui ressemblent à des archives ou des sauvegardes. Il faut chercher un dossier nommé `archives` puis descendre dans les sous-dossiers par année et mois pour trouver le fichier d’audit.
-- Le troisième indice précise que le fichier ZIP d’audit est daté de juillet, ce qui correspond au nom `patient_audit_0712.zip`. Il faut donc chercher dans les sous-dossiers de l’année 2025, puis dans le dossier du mois 07 (juillet), pour trouver le fichier à télécharger.
+- Le troisième indice précise que le fichier ZIP d’audit est daté de juillet, ce qui correspond au nom `patient_audit_1207.zip`. Il faut donc chercher dans les sous-dossiers de l’année 2025, puis dans le dossier du mois 07 (juillet), pour trouver le fichier à télécharger.
 
-*Flag attendu* : Le flag `patient_audit_0712.zip` est un fichier zip qui contient potentiellement tous les dossiers sur les patients ainsi que d'autres éléments.
+*Flag attendu* : Le flag `patient_audit_1207.zip` est un fichier zip qui contient potentiellement tous les dossiers sur les patients ainsi que d'autres éléments.
 
 Ce zip fera l'objet du prochain challenge.
 
 === _Clé cachée dans les commentaires_ : Cryptographie et métadonnées <ch-4>
-Le joueur·euse a maintenant accès à l'archive `patient_audit_0712.zip` mais le problème est qu'il est verrouillé. Le joueur·euse doit trouver le mot de passe pour déverrouiller ce zip. En inspectant les métadonnées du ZIP, le joueur·euse découvre un commentaire contenant seulement une empreinte SHA-1 : `f7fde1c3f044a2c3002e63e1b6c3f432b43936d0`.\
+Le joueur·euse a maintenant accès à l'archive `patient_audit_1207.zip` mais le problème est qu'il est verrouillé. Le joueur·euse doit trouver le mot de passe pour déverrouiller ce zip. En inspectant les métadonnées du ZIP, le joueur·euse découvre un commentaire contenant seulement une empreinte SHA-1 : `f7fde1c3f044a2c3002e63e1b6c3f432b43936d0`.\
 Première solution: utiliser un site comme CrackStation pour trouver le mot de passe correspondant à cette empreinte SHA-1.\
 Deuxième solution : Les experts Blue Team ont remarqué que les pirates utilisent toujours un mot de passe de la forme : `horizon<nombre>` où `<nombre>` varie de 0 à 99 (par exemple horizon1).\
 Ce challenge montre l'importance de la cryptographie et de la gestion des mots de passe, ainsi que la nécessité de vérifier les métadonnées des fichiers.
 
 *Étapes pour résoudre le challenge :*
-+ Lister les métadonnées du zip avec `zipinfo patient_audit_0712.zip` ou sur Windows en utilisant l'explorateur de fichiers.
++ Lister les métadonnées du zip avec `zipinfo patient_audit_1207.zip` ou sur Windows en utilisant l'explorateur de fichiers.
 + Trouver le commentaire contenant l'empreinte SHA-1
 + Aller sur le site CrackStation ou utiliser un script Python pour générer les mots de passe possibles de la forme `horizon<nombre>` et vérifier si l'un d'eux correspond à l'empreinte SHA-1 ou utiliser CyberChef pour générer les mots de passe et vérifier l'empreinte.
 + Une fois le mot de passe trouvé, déverrouiller le zip.
@@ -159,7 +161,7 @@ Ce challenge montre l'importance de la cryptographie et de la gestion des mots d
 Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `hx_dropper.ps1`.
 
 === _Script Mystère_ : Reverse Engineering <ch-5> 
-Dans l’archive déchiffrée (`patient_audit_0712.zip`) se trouve `tools/backup_sync.py`.
+Dans l’archive déchiffrée (`patient_audit_1207.zip`) se trouve `tools/backup_sync.py`.
 Les pirates y ont laissé un compte SSH à privilèges "support-user" mais l’ont caché par une simple concaténation de caractères. Le but est de reconstituer le login et le mot de passe clair.\
 Ce challenge permet de sensibiliser à l'importance de la sécurité des scripts et de la nécessité de vérifier les scripts avant de les exécuter. Il montre également comment les attaquants peuvent masquer des informations sensibles dans des scripts apparemment innocents.
 
