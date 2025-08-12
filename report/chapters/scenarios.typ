@@ -112,7 +112,7 @@ Ce challenge sensibilise aux failles d’injection et montre qu’une protection
 - Le second indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour les commentaires.
 - Le troisième indice suggère de combiner l’astuce du commentaire au milieu de `OR` et le commentaire en fin de requête.
 
-*Flag attendu* : Le flag `co_<SESSION_ID>` montre que la connexion au site a bien été établie.
+*Flag attendu* : Le flag `co_S3ss10n4Cc3s5` montre que la connexion au site a bien été établie.
 
 Le joueur·euse peut maintenant accéder au site des attaquants.
 
