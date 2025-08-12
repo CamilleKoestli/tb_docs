@@ -8,6 +8,6 @@ La consigne suivante est donnée aux joueur·euses :
 
 Voici les indices disponibles pour les utilisateur·trice·s :
 
-- Indice 1 : "_Utilise une adresse e-mail au format crédible, par exemple `prenom.nom@horizonsante.com`, que vous pouvez retrouver dans le challenge précédant._"
+- Indice 1 : "_Utilise une adresse e-mail au format crédible, par exemple `prenom.nom@horizonsante.com`, que tu peux retrouver dans le challenge précédant._"
 - Indice 2 : "_Le WAF bloque `OR` et les commentaires `--`, mais il existe d’autres syntaxes pour ces opérations._"
 - Indice 3 : "_Essaie de couper le mot-clé `OR` avec un commentaire `/**/` et termine par un commentaire `#`._"
