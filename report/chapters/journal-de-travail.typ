@@ -18,5 +18,9 @@
     [25.07.2025], [Présentation des challenges \ Modification du scénario], [0], [0], [0], [8],
     [28.07.2025 \
     30.07.2025], [Reprise et réécriture des challenges\ Recherches\ Écriture plus complète du rapport], [6], [0], [18], [0],
-    
+    [31.07.2025], [Rendu intermédiaire \ Architecture de la plateforme], [0], [0], [8], [0],
+    [01.08.2025], [Architecture de la plateforme \ Écriture des consignes et des indices reçus par les participants], [2], [0], [6], [0],
+    [11.08.2025 \
+    15.08.2025], [Implémentation de la structure du scénario \ Correction rapport], [0], [36], [4], [0],
+
   )
