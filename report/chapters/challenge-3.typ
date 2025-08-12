@@ -10,4 +10,4 @@ Le joueur·euse dispose des éléments suivants pour l'aider :
 
 - Indice 1 : "_Le paramètre `dir=` dans l’URL permet de contrôler l’emplacement affiché._"
 - Indice 2 : "_Cherche un dossier archives, puis descends dans les sous-dossiers par année et mois._"
-- Indice 3 : "_Le fichier visé porte un nom en fonction de la date (01 = janvier, 02 = février, etc.)._"
+- Indice 3 : "_Le fichier visé porte un nom en fonction de la date de l'attaque (01 = janvier, 02 = février, etc.)._"

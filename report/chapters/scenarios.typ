@@ -15,7 +15,7 @@ Les histoires 1 et 2 ont été jugées pertinentes et intéressantes et les expe
 Enfin, un dernier point a été soulevé concernant le fait qu'il y avait trop de défis offline, c'est-à-dire sans interaction en temps réel avec le système. Il sera donc nécessaire d'y ajouter un défi technique, comme un bot, et donc de revoir la structure des défis pour les rendre plus accessibles et interactifs.
 
 
-== Scénario définitif : Blackout dans le _Centre Hospitalier Horizon Santé_ <scénario-définitif>
+== Scénario définitif : _Blackout dans le Centre Hospitalier Horizon Santé_ <scénario-définitif>
 Le scénario définitif retenu est l'histoire 1, intitulé "Blackout dans le _Centre Hospitalier Horizon Santé_", et il combine les challenges des scénarios 1 et 2 ainsi que de nouveaux défis adaptés afin de suivre une évolution cohérente d'une attaque par ransomware. Cette histoire s'inspire de fait réelle qui pourrait arriver dans un hôpital et des étapes simplifiées qu'une équipe de cybersécurité devrait réaliser afin de récupérer les données et de sécuriser l’infrastructure hospitalière.
 
 Ce scénario met en scène une attaque de rançongiciel dans un hôpital, qui entraîne un blackout des systèmes informatiques et des services critiques. Les joueur·euse·s devront résoudre une série de défis techniques et stratégiques en s'infiltrant dans le site des attaquants pour supprimer les dossiers sensibles récoltés et enfin sécuriser les installations de l'hôpital.
