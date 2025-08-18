@@ -51,7 +51,7 @@ Ce fichier permet d'avoir une vue d'ensemble sur les challenges, c'est-à-dire c
   [0], [*0_Intro* (pas de challenge)], [-], [Mise en contexte],
   [1],
   [`01_windows_login/windows_login.html`],
-  [OSINT + mot de passe à partir des réseaux sociaux],
+  [OSINT et mot de passe à partir des réseaux sociaux],
   [Montrer l’impact de l'exploitation des données personnelles publiquement accessibles],
   [2],
   [`02_browser_history/browser_history.html`],
