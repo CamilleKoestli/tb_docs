@@ -11,4 +11,4 @@
 
 ## Implémentation
 
-L'implémentation se fait sur un repository séparé sur [GitHub : tb_project](https://github.com/CamilleKoestli/tb_project). TODO
+L'implémentation se fait sur un repository séparé sur [GitHub : digitalday2020](https://github.com/CamilleKoestli/digitalday2020). TODO
