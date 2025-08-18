@@ -1,0 +1,120 @@
+services:
+  # Traefik reverse proxy
+  traefik:
+    image: "traefik:v2.10"
+    restart: always
+    command:
+      - "--api.dashboard=false"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      # Global redirection to https
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.websecure.address=:443"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+  # Flagger + main backend
+  backend:
+    build: .
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+      WAIT_HOSTS: mysql:3306, mongo:27017
+    restart: always
+    volumes:
+      - "./:/app"
+      - "/app/node_modules"
+    labels:
+      # Expose the container in the traefik web UI
+      - "traefik.enable=true"
+      # Match rule to forward backend service
+      - "traefik.http.routers.backend.rule=${HOST_RULE} && PathPrefix(`/backend`)"
+      - "traefik.http.routers.backend.middlewares=backend-stripprefix"
+      - "traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/backend"
+      - "traefik.http.routers.backend.priority=100"
+      # Enable TLS
+      - "traefik.http.routers.backend.tls=true"
+      # Bound port for backend service
+      - "traefik.http.services.backend.loadbalancer.server.port=${PORT}"
+  # frontend
+  frontend:
+    build:
+      context: ../DigitalDay_APP
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - "../DigitalDay_APP:/DigitalDay_APP"
+
+    labels:
+      # Expose the container in the traefik web UI
+      - "traefik.enable=true"
+      # Match rule to forward frontend service
+      - "traefik.http.routers.frontend.rule=${HOST_RULE}"
+      - "traefik.http.routers.frontend.priority=10"
+      # Enable TLS
+      - "traefik.http.routers.frontend.tls=true"
+      # Bound port for frontend service
+      - "traefik.http.services.frontend.loadbalancer.server.port=${PORT_FRONT}"
+  # webssh
+  webssh:
+    build:
+      context: .
+      dockerfile: Dockerfile_ssh
+    restart: always
+    labels:
+      # Expose the container in the traefik web UI
+      - "traefik.enable=true"
+      # Match rule to forward ssh service
+      - "traefik.http.routers.webssh.rule=${HOST_RULE} && (PathPrefix(`/ssh`) || PathPrefix(`/static`))"
+      - "traefik.http.routers.webssh.middlewares=webssh-stripprefix"
+      - "traefik.http.middlewares.webssh-stripprefix.stripprefix.prefixes=/ssh"
+      - "traefik.http.routers.webssh.priority=110"
+      # Enable TLS
+      - "traefik.http.routers.webssh.tls=true"
+      # Bound port for frontend service
+      - "traefik.http.services.webssh.loadbalancer.server.port=${PORT_SSH}"
+  # SSH container
+  sshmachine:
+    build:
+      context: ../docker-ssh
+      dockerfile: Dockerfile
+    restart: always
+  # SSH container forensic 2021
+  sshmachine-galactic-forensic:
+    build:
+      context: ../docker-ssh-galactic-forensic
+      dockerfile: Dockerfile
+    restart: always
+  # SSH container for whois
+  sshmachine-whois:
+    build:
+      context: ../docker-ssh-whois
+      dockerfile: Dockerfile
+    restart: always
+  # Backend DB
+  mongo:
+    image: mongo:4.4.1
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+# Uncomment to connect to db with MongoDBCompass
+#    ports:
+#      - 42069:27017
+    volumes:
+      - "./mongo/:/data/db/"
+  # exposed MySQL server
+  mysql:
+    image: mysql:5
+    restart: always
+    environment:
+      MYSQL_DATABASE: dday
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASS}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT}
+      MYSQL_ROOT_HOST: mysql
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
