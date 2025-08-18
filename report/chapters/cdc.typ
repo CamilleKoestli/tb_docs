@@ -51,7 +51,7 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
 - Développer le nouveau serious game :
   - Il doit être intégré dans la plateforme _Cybergame_ existante, tant sur la forme, que sur le contenu des technologies utilisées.
   - Inclure le scénario complet, les étapes du jeu, les mécaniques interactives, ainsi que les apports techniques et pédagogiques nécessaires.
-  - Gérer les parties back-end nécessaires.
+  - Gérer les parties backend nécessaires.
   - Garantir la sécurité de l’infrastructure et du contenu.
 - Réaliser des tests utilisateur·trice·s et appliquer les correctifs nécessaires pour assurer une expérience optimale.
 

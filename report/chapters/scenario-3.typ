@@ -60,8 +60,8 @@ unlock_hash = 54b8bc82e430c3bd7a4b52f3c2537ef84c046c07
 
 
 === _Portail Tech_ :	Exploitation Web <ch3-2>
-Le joueur·euse doit accéder au sas du couloir principal, qui est contrôlé par un portail React. Le front-end envoie une requête POST à l’API `http://172.30.0.5:8080/api/door` pour valider le badge du joueur·euse.
-Pour valider le badge, le front-end React envoie :
+Le joueur·euse doit accéder au sas du couloir principal, qui est contrôlé par un portail React. Le frontend envoie une requête POST à l’API `http://172.30.0.5:8080/api/door` pour valider le badge du joueur·euse.
+Pour valider le badge, le frontend React envoie :
 ```http
 POST /api/door
 Content-Type: application/json
@@ -71,7 +71,7 @@ Content-Type: application/json
   "payload": {}
 }
 ```
-Le back-end `Node.js` assemble ensuite :
+Le backend `Node.js` assemble ensuite :
 ```js
 const cfg = _.merge(
   { role: "guest" },
@@ -104,7 +104,7 @@ En injectant la clé spéciale `__proto__`, le joueur·euse redéfinit la propri
 *Outils nécessaires* : Navigateur et DevTools.
 
 *Indices graduels*
-- Indice 1 : Le code front-end inclut lodash, cherche où `_.merge` est appelé avec `req.body.payload`.
+- Indice 1 : Le code frontend inclut lodash, cherche où `_.merge` est appelé avec `req.body.payload`.
 - Indice 2 : Dans JavaScript, la clé magique `__proto__` peut injecter des propriétés dans tous les objets créés ensuite.
 - Indice 3 : Si tu ajoutes `__proto__: {"role":"tech"}` dans la payload, la condition `cfg.role === "tech"` devient vraie.
 
