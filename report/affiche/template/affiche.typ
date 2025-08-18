@@ -39,7 +39,7 @@
     columns: (50%, 50%), 
     align: (left, right),
     image("images/logo_heig-vd-2020.svg", width: 30%),
-    text(size: 24pt, [
+    text(size: 20pt, [
       *Travail de Bachelor #datetime.today().display("[year]")* \
       *Filière #filiere_short* \
       *Orientation #orientation* \
@@ -49,7 +49,7 @@
   v(7%)
 
   // Title
-  align(center, par(justify: false, text(size: 54pt)[*#title*]))
+  align(center, par(justify: false, text(size: 42pt)[*#title*]))
 
   v(4%)
 
