@@ -142,6 +142,38 @@ const VALID_YEARS = ["2020", "2021", "2025"];
 <!-- ... -->
       <a href="./blackoutgame.html" class="btn btn-white btn-outline-white px-3 py-3 long-txt-button col-2 ml-xl-5"> Blackout<span class="ion-arrow-right-c"></span></a>
 <!-- ... -->
+<!-- ... -->
+<section class="section bg-light element-animate" id="game3">
+    <div class="container introhacking">
+        <div class="row justify-content-center align-items-center mb-5">
+            <h2 class="">Blackout de le Centre Hospitalier Horizon Santé</h2>
+        </div>
+        <div class="row align-items-center mb-5">
+            <div class="col-md-7 pr-md-5 mb-5">
+                <div class="block-41">
+                    <div class="block-41-text">
+                        <p>
+                            Le Centre Hospitalier Horizon Santé a été victime d'une cyberattaque majeure, mettant en péril la sécurité des données de ses patients. 
+                        </p>
+                        <p>
+                            En tant qu'expert en cybersécurité, ta mission de réussir à infiltrer le domaine des attaquants, supprimer les données volées et bloquer les attaquants.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <!-- TODO CHANGE VIDEO LINK-->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="https://www.youtube.com/embed/jgkrl94bnvw" allowfullscreen></iframe>
+                </div>
+                <br>
+                <a href="./blackoutgame.html" class="btn btn-white btn-outline-white px-3 py-3 long-txt-button">Accéder aux
+                    défis ! <span class="ion-arrow-right-c"></span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ... -->
 ```
 
 ajout des flags dans .env et .env.prod pour être stocké dans la db mongo
