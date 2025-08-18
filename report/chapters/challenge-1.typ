@@ -22,12 +22,3 @@ Voici le message que va recevoir le joueur·euse pour introduire le challenge :
 *Flag attendu :* Le flag serait donc le nom de domaine frauduleux utilisé par l'attaquant `horizonsante-support.com`.
 
 Une fois le sous-domaine identifié, le joueur·euse pourra passer au défi suivant qui sera la cible pour le challenge 2.
-
-
-
-L'objectif de ce challenge a pour but de réaliser une analyse approfondie d'un email suspect. Il vise à comprendre les différents champs, comme les en-têtes, qui le composent afin de remonter jusqu'à son véritable expéditeur. Ce challenge consiste à sensibiliser le participant·e à la sécurité des emails. Il s'agit d'un email contenant une pièce jointe vers un site web malveillant, incitant l'utilisateur à cliquer dessus. Le but est de démontrer les risques liés aux emails non sécurisés et d'apprendre à identifier les signes d'une tentative de phishing.
-
-
-
-Le joueur doit ouvrir le mail suspect `planning_salle_op.eml`(annexe) reçu par l'employé.
-
