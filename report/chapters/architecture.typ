@@ -71,6 +71,7 @@ Enfin, les indices actuels fournissent, dans un premier temps, un bon point de d
 
 
 //TODO ajouter schéma et l'expliquer
+//TODO a relire et compléter
 == Architecture technique <architecture-technique>
 
 La plateforme est hébergée sur un serveur web, accessible via un nom de domaine `heig-vd.ch` avec le sous-domaine `shana`. Le site utilise des technologies web standards telles que HTML, CSS et JavaScript pour l'interface utilisateur.

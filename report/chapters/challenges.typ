@@ -2,8 +2,6 @@
 // fil rouge à revoir
 
 = Scénario définitif et liste des challenges détaillés <scenario-challenges>
-_Blackout dans le Centre Hospitalier Horizon Santé_ 
-
 Ce chapitre présente les différents challenges du scénario retenu, chacun visant à sensibiliser les participant·e·s à des aspects spécifiques de la sécurité informatique. Chaque challenge suit l'intrigue et est écrit pour être interactif et éducatif. Cela permet aux participant·e·s d'apprendre en pratiquant. \
 Chacun des challenges est expliqué plus en détail sur l'implémentation, ce qui est attendu du joueur avec les consignes, les indices et les solutions attendues.
 
@@ -82,6 +80,12 @@ Chaque minute compte, l’avenir des patient·e·s est entre vos mains._"
   [-],
   [Message de fin et conclusion du scénario.],
 )
+
+== Stratégie de complexités des challenges <complexité-challenges>
+//TODO a compléter
+Il s'agit donc d'une stratégie de complexité croissante, où chaque challenge est conçu pour être accessible à un large public, tout en offrant des défis intéressants pour les utilisateur·trice·s plus expérimenté·e·s.
+
+Pour réaliser la consigne et les indices, la stratégie utilisée est que pour un joueur·euse de niveau avancé·e·s, il doit pouvoir le résoudre sans utiliser les indices, voire seulement le premier. Pour les participant·e·s débutant·e·s, il doit pouvoir le résoudre en utilisant les indices graduels. 
 
 #pagebreak()
 #include "challenge-1.typ"
