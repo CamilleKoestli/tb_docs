@@ -2,7 +2,7 @@
 
 == Front-end <implementation-frontend>
 
-chall1 : Création d'une interface email pour le challenge 1 avec possibilité de voir en détails les informations des mails
+chall1 : Création d'une interface email pour le challenge 1 avec possibilité de voir en détails les informations des mails + création d'un faux domaine `horizonsante-support.com` pour afin de pouvoir réaliser la commande whois depuis un terminal externe.
 
 chall2 : Création d'une interface pour le challenge 2 permettant de simuler une attaque par injection SQL avec information sur un WAF basique
 
