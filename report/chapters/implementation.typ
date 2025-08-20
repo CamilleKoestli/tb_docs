@@ -153,7 +153,7 @@ const VALID_YEARS = ["2020", "2021", "2025"];
                 <div class="block-41">
                     <div class="block-41-text">
                         <p>
-                            Le Centre Hospitalier Horizon Santé a été victime d'une cyberattaque majeure, mettant en péril la sécurité des données de ses patients. 
+                            Le Centre Hospitalier Horizon Santé a été victime d'une cyberattaque majeure, mettant en péril la sécurité des données de ses patients.
                         </p>
                         <p>
                             En tant qu'expert en cybersécurité, ta mission de réussir à infiltrer le domaine des attaquants, supprimer les données volées et bloquer les attaquants.
@@ -179,6 +179,7 @@ const VALID_YEARS = ["2020", "2021", "2025"];
 ajout des flags dans .env et .env.prod pour être stocké dans la db mongo
 ```env
 #...
-CHALL_FLAGS_2025="chall1=horizonsante-support.com;chall2=co_S3ss10n4Cc3s5;chall3=patient_audit_1207.zip;chall4=horizon42;
-chall5=p@ssw0rd_V3rY_B@d;chall6=ALL_FILES_DELETED;chall7=BLK_185-225-123-77_OK"
+CHALL_FLAGS_2025="chall1=horizonsante-support.com;chall2=co_S3ss10n4Cc3s5;chall3=patient_audit_07-12.zip;
+chall4=horizon42;chall5=/admin/monitoring/bot_communication_panel_v2;
+chall6=ALL_FILES_DELETED;chall7=BLK_185-225-123-77_OK"
 ```

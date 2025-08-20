@@ -1,15 +1,15 @@
 == Challenge 4 _Clé cachée dans les commentaires_ : Cryptographie et métadonnées <ch-4>
 
-Le joueur·euse a maintenant accès à l'archive `patient_audit_1207.zip` mais le problème est qu'il est verrouillé. Le joueur·euse doit trouver le mot de passe pour déverrouiller ce zip. En inspectant les métadonnées du ZIP, le joueur·euse découvre un commentaire contenant seulement une empreinte SHA-1 : `f7fde1c3f044a2c3002e63e1b6c3f432b43936d0`.\
+Le joueur·euse a maintenant accès à l'archive `patient_audit_07-12.zip` mais le problème est qu'il est verrouillé. Le joueur·euse doit trouver le mot de passe pour déverrouiller ce zip. En inspectant les métadonnées du ZIP, le joueur·euse découvre un commentaire contenant seulement une empreinte SHA-1 : `f7fde1c3f044a2c3002e63e1b6c3f432b43936d0`.\
 Première solution: utiliser un site comme CrackStation pour trouver le mot de passe correspondant à cette empreinte SHA-1.\
 Deuxième solution : Les experts Blue Team ont remarqué que les pirates utilisent toujours un mot de passe de la forme : `horizon<nombre>` où `<nombre>` varie de 0 à 99 (par exemple horizon1).\
 Ce challenge montre l'importance de la cryptographie et de la gestion des mots de passe, ainsi que la nécessité de vérifier les métadonnées des fichiers.
 
 Le participant·e obtient le message suivant pour débuter le challenge :
-"_Vous avez réussi à accéder à l'archive `patient_audit_1207.zip`. En l'analysant, vous remarquez qu'elle contient des fichiers de sauvegarde, qui pourraient être utiles pour votre enquête. Cependant, le dossier est protégé par un mot de passe. Essayez d'analyser le fichier pour découvrir des informations pour trouver le mot de passe qui vous permettra de l'extraire. Les experts Blue Team ont remarqué que la structure des mots de passe des pirates suit un schéma particulier : `*horizon<nombre>*`._"
+"_Vous avez réussi à accéder à l'archive `patient_audit_07-12.zip`. En l'analysant, vous remarquez qu'elle contient des fichiers de sauvegarde, qui pourraient être utiles pour votre enquête. Cependant, le dossier est protégé par un mot de passe. Essayez d'analyser le fichier pour découvrir des informations pour trouver le mot de passe qui vous permettra de l'extraire. Les experts Blue Team ont remarqué que la structure des mots de passe des pirates suit un schéma particulier : `*horizon<nombre>*`._"
 
 *Étapes pour résoudre le challenge :*
-+ Lister les métadonnées du zip avec `zipinfo patient_audit_1207.zip` ou sur Windows en utilisant l'explorateur de fichiers.
++ Lister les métadonnées du zip avec `zipinfo patient_audit_07-12.zip` ou sur Windows en utilisant l'explorateur de fichiers.
 + Trouver le commentaire contenant l'empreinte SHA-1
 + Aller sur le site CrackStation ou utiliser un script Python pour générer les mots de passe possibles de la forme `horizon<nombre>` et vérifier si l'un d'eux correspond à l'empreinte SHA-1 ou utiliser CyberChef pour générer les mots de passe et vérifier l'empreinte.
 + Une fois le mot de passe trouvé, déverrouiller le zip.
