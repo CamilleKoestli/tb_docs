@@ -22,7 +22,8 @@ Cette nouvelle histoire s’adressera donc à des participant·e·s ayant résol
 Comment créer une nouvelle histoire immersive et prenante qui intègre plusieurs techniques d’ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ?
 
 === Solutions existantes <solutions-existantes>
-A ce jour, seul le projet "Shana a disparu" a été développé par la HEIG-VD qui a pour objectif d'initier et de sensibiliser à la cybersécurité grâce à des énigmes progressives intégrées dans une narration interactive et qui a connu un certain succès. Un autre scénario "Sauve la Terre de l'arme galactique", avec des challenges plutôt similaires, a été mis en place en 2021 mais a remporté beaucoup moins de succès. Ce projet s'appuie sur des techniques de base comme l'inspection de sites web, l'analyse de métadonnées, ...
+// TODO Répétition à enlever ?
+// A ce jour, seul le projet "Shana a disparu" a été développé par la HEIG-VD qui a pour objectif d'initier et de sensibiliser à la cybersécurité grâce à des énigmes progressives intégrées dans une narration interactive et qui a connu un certain succès. Un autre scénario "Sauve la Terre de l'arme galactique", avec des challenges plutôt similaires, a été mis en place en 2021 mais a remporté beaucoup moins de succès. Ce projet s'appuie sur des techniques de base comme l'inspection de sites web, l'analyse de métadonnées, ...
 
 Il existe aussi d'autres solutions similaires dans le domaine de l'ethical hacking, mais plutôt sous la forme de Capture The Flag (CTF) comme "Root Me", "Hack the Box", "TryHackMe", ...; des cyber-ranges qui sont plutôt destinés à des expert·e·s en cybersécurité ; ou encore des formations en ligne comme "SoSafe" qui proposent des cours et des exercices pratiques sur la cybersécurité sans forcément intégrer d'histoire narrative et immersive.
 
@@ -67,39 +68,10 @@ Les livrables seront les suivants :
   - Les tests utilisateur·trice·s réalisés : méthodologie, résultats, retours collectés, et correctifs appliqués.
 
 === Planification <planification>
-Le travail se déroule entre le 7 juillet et le 8 octobre 2025, pour un total de 450h :
+Le travail se déroule entre le 7 juillet et le 10 octobre 2025, pour un total de 450h :
 - Du 7 juillet au 15 septembre : travail à temps plein (~45h/semaine).
-- Du 16 septembre au 8 octobre : travail à temps partiel (~12–13h/semaine).
-Le rendu intermédiaire est prévu pour la date du 31 juillet 2025, le rendu final est fixé au 8 octobre 2025, enfin, la défense devra être fixée après le 13 février 2026.
-
-=== Décomposition des tâches <décomposition-tâches>
-+ Analyse du scénario existant : _07.07.2025 – 09.07.2025_
-  - Étudier les mécaniques de jeu et les défis utilisés dans "Shana a disparu".
-  - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
-  - Évaluer les points positifs et les points à améliorer du scénario actuel.
-  - Étudier l’architecture de la plateforme _Cybergame_
-+ Recherche et écriture du scénario	: _10.07.2025 – 23.07.2025_
-  - S’inspirer de CTF, serious games et projets similaires pour la structure et le contenu des défis.
-  - Identifier les outils et environnements de développement.
-  - Identifier les bonnes méthodes pédagogiques adaptées à la sensibilisation à la cybersécurité à travers un jeu interactif.
-  - Élaborer plusieurs scénarios, puis détailler celui qui a été retenu.
-+ Conception et développement des challenges	: _24.07.2025 – 03.09.2025_
-  - Définir les thématiques techniques abordées et les attaques à réaliser (XSS, reverse engineering, stéganographie, ...).
-  - Concevoir entre 5 et 10 challenges.
-  - Développer les services ou environnements nécessaires.
-  - Ajouter un bot interactif pour simuler certaines interactions ou attaques.
-  - S’assurer de la clarté des consignes et de la logique de chaque challenge.
-+ Intégration dans la plateforme _Cybergame_ :	_04.09.2025 – 09.09.2025_
-  - Adapter les contenus au format de _Cybergame_.
-+ Tests et validation :	_10.09.2025 – 19.09.2025_
-  - Réaliser des tests unitaires pour chaque challenge.
-  - Réaliser des tests utilisateur·trice·s et faire tester les défis par d’autres personnes pour ajuster la difficulté.
-  - Corriger les éventuels bugs ou incohérences.
-+ Documentation technique et pédagogique :	_20.09.2025 – 08.10.2025_
-  - Documenter chaque challenge : objectif, compétences visées, indices, solutions, pièges courants.
-  - Rédiger la documentation du scénario.
-  - Décrire les choix techniques et les modifications apportées à la plateforme.
-  - Documenter les tests.
+- Du 16 septembre au 10 octobre : travail à temps partiel (~12–13h/semaine).
+Le rendu intermédiaire est prévu pour la date du 31 juillet 2025, le rendu final est fixé au 10 octobre 2025, enfin, la défense devra être fixée après le 13 février 2026.
 
 
 // TODO : expliquer ce qu'est un serious game, ctf et cyber range ?

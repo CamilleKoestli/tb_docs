@@ -73,6 +73,7 @@
 /*
  Tables
 */
+#include "chapters/glossaire.typ"
 #include "template/_bibliography.typ"
 #include "template/_figures.typ"
 #include "template/_tables.typ"

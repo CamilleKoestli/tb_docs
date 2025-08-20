@@ -10,7 +10,7 @@
 #let TByear = "2025"
 #let TBacademicYears = "2025-26"
 
-#let TBdpt = "Département des Technologie de l'information et de la communication (TIC)"
+#let TBdpt = "Département des Technologies de l'information et de la communication (TIC)"
 #let TBfiliere = "Informatique et systèmes de communication"
 #let TBorient = "Sécurité informatique"
 

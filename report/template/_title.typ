@@ -5,8 +5,8 @@
     #colbreak()
     #par(justify: false)[#align(right, [
       #TBdpt
-      #TBfiliere
-      #TBorient
+      \ #TBfiliere
+      \ #TBorient
     ])]
   ])
   
