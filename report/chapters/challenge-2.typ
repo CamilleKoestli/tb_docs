@@ -4,7 +4,7 @@ Le joueur·euse a identifié le domaine frauduleux `horizonsante-support.com`. C
 Ce challenge sensibilise aux failles d’injection et montre qu’une protection insuffisante peut être contournée par des techniques simples.
 
 La consigne suivante est donnée aux joueur·euses :
-"_Vous avez identifié le domaine pirate hébergeant un faux portail. C’est ici que les données volées sont exfiltrées et ressemble à l'interface d'un site légitime pour éviter d'attirer trop rapidement les soupçons. Connectez-vous au portail en utilisant une adresse e-mail valide du domaine `@horizonsante-support.com`. Un WAF basique protège la connexion, mais il est mal configuré. Une fois connecté·e, l'information *`co_<SESSION_ID>`* vous sera accessible._"
+"_Vous avez identifié le domaine pirate hébergeant un faux portail. C’est ici que les données volées sont exfiltrées et ressemble à l'interface d'un site légitime pour éviter d'attirer trop rapidement les soupçons. Connectez-vous au portail. Un WAF basique protège la connexion, mais il est mal configuré. Une fois connecté·e, l'information *`co_<SESSION_ID>`* vous sera accessible._"
 
 *Étapes pour résoudre le challenge :*
 + Utiliser une adresse e-mail valide, `h4ck3r_team@horizonsante-support.com`, qu'il se trouve dans le challenge précédant et compléter dans le champ `Email` pour passer le contrôle de format.
@@ -14,7 +14,7 @@ La consigne suivante est donnée aux joueur·euses :
 *Outils nécessaires :* Un navigateur web (avec éventuellement les outils de développement pour observer les requêtes) suffit pour ce défi. Aucune extension spécifique n’est requise, juste la saisie de la charge malveillante dans le formulaire.
 
 *Indices graduels :*
-- Le premier indice rappelle qu’il faut utiliser une adresse e-mail valide pour passer le contrôle de format. Il est suggéré de récupérer l'adresse email utilisée par les attaquants dans le challenge précédant. "_Retrouver l'adresse email utilisée par les attaquants dans le challenge précédent._"
+- Le premier indice rappelle qu’il faut utiliser une adresse e-mail valide pour passer le contrôle de format. Il est suggéré de récupérer l'adresse email utilisée par les attaquants dans le challenge précédant. "_Retrouver l'adresse email utilisée par les attaquants dans le challenge précédent avec comme fin `@horizonsante-support.com`_"
 - Le second indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour les commentaires. "_Le WAF bloque `OR` et les commentaires `--`, mais il existe d’autres syntaxes pour ces opérations._"
 - Le troisième indice suggère de combiner l’astuce du commentaire au milieu de `OR` et le commentaire en fin de requête. "_Essaie de couper le mot-clé `OR` avec un commentaire `/**/` et termine par un commentaire `#`._"
 

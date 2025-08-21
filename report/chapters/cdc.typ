@@ -1,30 +1,21 @@
 = Cahier des charges <cahier-des-charges>
 == Contexte <contexte>
-_Cybergame_ est une plateforme de serious game développée initialement par le pôle Y-Security de la HEIG-VD.
-Le pôle Y-Security est reconnu comme un acteur majeur de la cybersécurité en Suisse romande. Il a pour mission de former, sensibiliser et accompagner différents publics autour des enjeux de sécurité informatique, grâce à la recherche appliquée, la formation et la mise en place d’outils innovants.
+_CyberGame_ est une plateforme de serious game développée initialement par le pôle Y-Security de la HEIG-VD. Le pôle Y-Security est reconnu comme un acteur majeur en cybersécurité en Suisse romande. Il a pour mission de former, sensibiliser et accompagner différents publics autour des enjeux de sécurité informatique, grâce à la recherche appliquée, la formation et la mise en place d’outils innovants.
 
-La plateforme _Cybergame_ vise à rendre l’apprentissage de la cybersécurité ludique et accessible à tou·te·s, à travers des scénarios interactifs et progressifs.
-Le jeu "Shana a disparu" est un exemple phare : il propose une initiation au ethical hacking, combinant narration immersive et challenges techniques pour faire découvrir les bases de la cybersécurité.
+La plateforme CyberGame vise à rendre l’apprentissage de la cybersécurité ludique et accessible à tous, à travers des scénarios interactifs et progressifs. Le jeu « Shana a disparu » est un exemple phare : il propose une initiation au ethical hacking, combinant narration immersive et challenges techniques pour faire découvrir les bases de la cybersécurité.
 
-Le jeu a eu un grand succès, ce qui fait que de nombreuses personnes l’ont déjà terminé. Ce projet vise donc à développer une extension du scénario existant ou à créer un tout autre scénario. Le but est d’intégrer de nouveaux défis de niveau plus avancé, tout en gardant cette idée d’approche narrative immersive qui a fait l’intérêt du projet.
-
-Cette nouvelle histoire s’adressera donc à des participant·e·s ayant quelques connaissances de base en sécurité informatique.
+Ce jeu a rencontré un grand succès auprès d’un large public.
 
 === Problématique <problématique>
-Le succès de "Shana a disparu" , créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, "Galac game", a été mis en place en 2021 mais a remporté un succès plus faible.
+Le succès de "Shana a disparu", créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, Galac game, a été mis en place en 2021 mais a remporté un plus faible succès.
 
-Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande, notamment en proposant une histoire qui, techniquement, amène le participant·e à un plus haut niveau de compétences.
+Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant à un plus haut niveau de compétences.
 
 L’objectif est donc d’intégrer des défis techniquement plus avancés, tout en conservant l’approche narrative immersive qui fait l’intérêt et l’originalité du "serious game".
 
 Cette nouvelle histoire s’adressera donc à des participant·e·s ayant résolu le premier niveau scénario (Shana) ou ayant quelques connaissances de base en sécurité informatique.
 
-Comment créer une nouvelle histoire immersive et prenante qui intègre plusieurs techniques d’ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ?
-
 === Solutions existantes <solutions-existantes>
-// TODO Répétition à enlever ?
-// A ce jour, seul le projet "Shana a disparu" a été développé par la HEIG-VD qui a pour objectif d'initier et de sensibiliser à la cybersécurité grâce à des énigmes progressives intégrées dans une narration interactive et qui a connu un certain succès. Un autre scénario "Sauve la Terre de l'arme galactique", avec des challenges plutôt similaires, a été mis en place en 2021 mais a remporté beaucoup moins de succès. Ce projet s'appuie sur des techniques de base comme l'inspection de sites web, l'analyse de métadonnées, ...
-
 Il existe aussi d'autres solutions similaires dans le domaine de l'ethical hacking, mais plutôt sous la forme de Capture The Flag (CTF) comme "Root Me", "Hack the Box", "TryHackMe", ...; des cyber-ranges qui sont plutôt destinés à des expert·e·s en cybersécurité ; ou encore des formations en ligne comme "SoSafe" qui proposent des cours et des exercices pratiques sur la cybersécurité sans forcément intégrer d'histoire narrative et immersive.
 
 Ces solutions montrent une augmentation de l'intérêt général pour la cybersécurité. Elles utilisent des approches ludiques mais peu combinent une narration et une progression techniques comme le fait "Shana a disparu".
@@ -74,4 +65,3 @@ Le travail se déroule entre le 7 juillet et le 10 octobre 2025, pour un total d
 Le rendu intermédiaire est prévu pour la date du 31 juillet 2025, le rendu final est fixé au 10 octobre 2025, enfin, la défense devra être fixée après le 13 février 2026.
 
 
-// TODO : expliquer ce qu'est un serious game, ctf et cyber range ?
