@@ -13,7 +13,7 @@ Pour ce faire, le participant·e reçoit le message suivant :
 + Ouvrir les outils de développement du navigateur, aller dans l'onglet Application, puis dans la section Cookies.
 + Coller le cookie volé dans le champ de saisie du cookie de session.
 + Une fois le cookie injecté, le joueur·euse est renvoyé sur la page avec les fichiers sensibles pour les supprimer.
-+ Le serveur affiche un message de confirmation `ALL_FILES_DELETED` indiquant que tous les fichiers ont été supprimés.
++ Le serveur affiche un message de confirmation `all_files_deleted` indiquant que tous les fichiers ont été supprimés.
 
 *Outils nécessaires :* Un navigateur web avec les outils de développement pour intercepter et manipuler les cookies, ainsi qu'un éditeur de texte pour écrire le script XSS.
 

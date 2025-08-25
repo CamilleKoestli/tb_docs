@@ -21,6 +21,11 @@
     [31.07.2025], [Rendu intermédiaire \ Architecture de la plateforme], [0], [0], [8], [0],
     [01.08.2025], [Architecture de la plateforme \ Écriture des consignes et des indices reçus par les participants], [2], [0], [6], [0],
     [11.08.2025 \
-    15.08.2025], [Implémentation de la structure du scénario \ Correction rapport], [0], [36], [4], [0],
+    15.08.2025], [Implémentation de la structure du scénario \ Correction rapport], [0], [37], [3], [0],
+    [18.08.2025 \
+    22.08.2025], [Implémentation challenges 0, 1, 2, 3 et 4 \ Tests utilisateurs rapides \ Changement organisation des challenges], [0], [35], [5], [0],
+    [25.08.2025], [Discussion avec l'enseignant responsable \ ], [0], [], [], [0],
+    [26.08.2025 \
+    30.08.2025], [], [0], [], [], [0],
 
   )

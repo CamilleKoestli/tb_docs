@@ -9,7 +9,7 @@ Le participant·e obtient le message suivant pour débuter le challenge :
 "_Vous avez réussi à accéder à l'archive `patient_audit_07-12.zip`. En l'analysant, vous remarquez qu'elle contient des fichiers de sauvegarde, qui pourraient être utiles pour votre enquête. Cependant, le dossier est protégé par un mot de passe. Essayez d'analyser le fichier pour découvrir des informations pour trouver le mot de passe qui vous permettra de l'extraire. Les experts Blue Team ont remarqué que la structure des mots de passe des pirates suit un schéma particulier : `*horizon<nombre>*`._"
 
 *Étapes pour résoudre le challenge :*
-+ Lister les métadonnées du zip avec `zipinfo patient_audit_07-12.zip` ou sur Windows en utilisant l'explorateur de fichiers.
++ Lister les métadonnées du zip avec `zipinfo -z patient_audit_07-12.zip` ou sur Windows en utilisant l'explorateur de fichiers.
 + Trouver le commentaire contenant l'empreinte SHA-1
 + Aller sur le site CrackStation ou utiliser un script Python pour générer les mots de passe possibles de la forme `horizon<nombre>` et vérifier si l'un d'eux correspond à l'empreinte SHA-1 ou utiliser CyberChef pour générer les mots de passe et vérifier l'empreinte.
 + Une fois le mot de passe trouvé, déverrouiller le zip.
@@ -23,4 +23,4 @@ Le participant·e obtient le message suivant pour débuter le challenge :
 
 *Flag attendu :* Le flag attendu est le mot de passe du zip, qui est `horizon42`.
 
-Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `hx_dropper.ps1`.
+Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `monitor_check_wip.py`.

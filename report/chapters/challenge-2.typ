@@ -7,7 +7,7 @@ La consigne suivante est donnée aux joueur·euses :
 "_Vous avez identifié le domaine pirate hébergeant un faux portail. C’est ici que les données volées sont exfiltrées et ressemble à l'interface d'un site légitime pour éviter d'attirer trop rapidement les soupçons. Connectez-vous au portail. Un WAF basique protège la connexion, mais il est mal configuré. Une fois connecté·e, l'information *`co_<SESSION_ID>`* vous sera accessible._"
 
 *Étapes pour résoudre le challenge :*
-+ Utiliser une adresse e-mail valide, `h4ck3r_team@horizonsante-support.com`, qu'il se trouve dans le challenge précédant et compléter dans le champ `Email` pour passer le contrôle de format.
++ Utiliser une adresse e-mail valide, `support@horizonsante-support.com`, qu'il se trouve dans le challenge précédant et compléter dans le champ `Email` pour passer le contrôle de format.
 + Dans le champ `Mot de passe`, réaliser une injection SQL. Cependant, le WAF empêche d'utiliser `' OR 1=1` ou `--`. Il faut faudra donc la modifier un peu pour le contourner avec le mot de passe : `' O/**/R 1=1 #`.
 + Valider le formulaire. Une fois la connexion établie, un code de session apparaît.
 
