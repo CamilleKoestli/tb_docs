@@ -9,7 +9,7 @@ Le message suivant s'affiche :
 *Étapes pour résoudre le challenge :*
 + Depuis le portail IT interne `https://intra.horizonsante.com/it/`	, aller dans le menu de gauche "Outils SOC".
 + Cliquer sur "Logs & Diagnostics", puis sur "VPN Access" , ce qui fait apparaître une liste de fichiers.
-+ Ouvrir le fichier log le plus récent `vpn_access_2025-07-17.log` dans un éditeur de texte. Chaque ligne commence par l’IP source.
++ Ouvrir le fichier log le plus récent `vpn_access_2025-07-12.log` dans un éditeur de texte. Chaque ligne commence par l’IP source.
 + Repérer l’adresse IP qui apparaît le plus souvent `185.225.123.77`	qui est donc la machine de l’attaquant.
 + Dans le menu de gauche, cliquer sur "Pare-feu", puis sur "Liste noire".
 + Dans un formulaire, entrer l’adresse IP `185.225.123.77`.
