@@ -1,50 +1,10 @@
-= Implémentation <implementation>
+= Implémentation des challenges <implementation>
 
-== Front-end <implementation-frontend>
+#include "frontend.typ"
+#pagebreak()
 
-chall1 : Création d'une interface email pour le challenge 1 avec possibilité de voir en détails les informations des mails + création d'un faux domaine `horizonsante-support.com` pour afin de pouvoir réaliser la commande whois depuis un terminal externe.
-
-chall2 : Création d'une interface pour le challenge 2 permettant de simuler une attaque par injection SQL avec information sur un WAF basique
-
-== Back-end <implementation-backend>
-
-chall1 : utilisation de ssh-whois pour récupérer les informations sur l'expéditeur des emails
-
-chall2 : création d'un API rest dans index.js /backend/2025/session-flag/2 afin d'éviter de stocker les flags en dur dans le code.
-
-```js
-// Get flag for specific challenge
-app.get("/:year/session-flag/:chall", (req, res) => {
-  const { year, chall } = req.params;
-
-  if (!VALID_YEARS.includes(year)) {
-    return res.status(404).json({ error: "Invalid year" });
-  }
-
-  const flagsString = process.env[`CHALL_FLAGS_${year}`];
-  if (!flagsString) {
-    return res.status(404).json({ error: "No flags found" });
-  }
-
-  const targetFlag = flagsString
-    .split(";")
-    .find((flag) => flag.startsWith(`chall${chall}=`));
-  if (!targetFlag) {
-    return res.status(404).json({ error: "Flag not found" });
-  }
-
-  return res.json({ flag: targetFlag.split("=")[1] });
-});
-```
-Ensuite , utilisation de db mysql pour stocker des utilisateurs et leur mot de passe pour le challenge 2. Le mot de passe est stocké dans la base de données et vérifié lors de la connexion -> pour éviter de stocker les utilisateurs directement dans le code
-```sql
-insert into users value ("admin@horizonsante.com", "ADMIN1234.");
-insert into users value ("test@horizonsante.com", "T3st@H0riz0n");
-insert into users value ("support@horizonsante.com", "SUPPORT1234.");
-insert into users value ("robin.biro@horizonsante.com", "Horizon09876");
-insert into users value ("charlie.brown@horizonsante.com", "pifPAFpouf");
-insert into users value ("alice.durand@horizonsante.com", "Blackout_Horizon.");
-```
+#include "backend.typ"
+#pagebreak()
 
 == Intégration sur le site web <integration-site-web>
 Modification de db.js pour intégrer les challenges dans le site web existant. Ajout des routes pour chaque challenge et création de la page d'accueil avec la liste des challenges.
@@ -183,3 +143,4 @@ CHALL_FLAGS_2025="chall1=horizonsante-support.com;chall2=co_S3ss10n4Cc3s5;chall3
 chall4=horizon42;chall5=/admin/monitoring/bot_communication_panel_v2;
 chall6=ALL_FILES_DELETED;chall7=BLK_185-225-123-77_OK"
 ```
+
