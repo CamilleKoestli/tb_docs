@@ -36,6 +36,7 @@ Pour éviter de placer les réponses dans le frontend, les flags 2025 sont décl
 === Ajout du mini-site de jeu "Blackout"
 Comme pour les anciens scénarios (chaque challenge = mini-site dans son dossier), Blackout introduit une page de jeu dédiée (`blackoutgame.html`) et un script de contrôle (`blackoutmain.js`). Cette approche permet d’orchestrer l’UI du scénario (iframe principale, champ de réponse, pop-ups d’aide/indices) sans impacter les autres jeux.
 
+==== `blackoutgame.html`
 Le fichier HTML charge le thème, les scripts communs, les pop-ups par challenge (0 à 8) et l’iframe qui héberge l’écran actif. On y retrouve également le champ de validation (réponse) et les includes HTML (header, popups) pour conserver la même UX que les autres scénarios.
 
 ```html
@@ -103,6 +104,24 @@ Le fichier HTML charge le thème, les scripts communs, les pop-ups par challenge
 
 <script src="https://www.google.com/recaptcha/api.js"></script>
 ```
+
+==== `blackoutmain.js`
+
+Le fichier `blackoutmain.js` (annexe@blackoutmain.js) constitue le cœur du moteur du scénario Blackout 2025. Développé avec le framework Phaser, il orchestre l’affichage du niveau, le déplacement du personnage, l’interaction avec les plateformes représentant les différents challenges, ainsi que la communication avec le backend pour la validation des étapes.
+
+Dès l’initialisation, le script charge les éléments visuels nécessaires : le fond, les textures des plateformes, le héros, ainsi que les données décrivant la disposition des plateformes dans le fichier `level01Blackout.json`. Le héros est représenté comme un sprite animé pouvant se déplacer horizontalement et s’orienter automatiquement vers la gauche ou la droite selon la direction.
+
+Chaque plateforme est associée à un challenge et rendue cliquable. Lorsqu’une plateforme est sélectionnée, le personnage se déplace automatiquement jusqu’à elle. Si le challenge est accessible, une popup s’ouvre pour présenter les consignes et permettre de lancer l’interface spécifique. Cette interface est affichée dans une iframe intégrée à la page principale.
+
+La progression est gérée grâce à un système de cookies : `bk2025_xH92f_curr` enregistre l’étape en cours et `bk2025_mP81x_all` mémorise l’ensemble des challenges débloqués.
+
+Lorsqu’un joueur saisit un flag dans le champ de réponse et le valide, le script envoie une requête POST au backend sur la route `/backend/2025/flag`. Le serveur vérifie la validité du flag et renvoie un code HTTP : `200` pour une réussite, ce qui débloque la plateforme suivante et affiche un message de félicitations, `401` si le flag est incorrect, avec un message d’encouragement, `404` en cas d’erreur de challenge. \
+Cette logique garantit que la progression se fait de manière linéaire et que les étapes ne sont pas contournables. Les plateformes déjà résolues changent d’apparence (zone verte) pour offrir un retour visuel immédiat.
+
+Le moteur intègre également des cas spécifiques, comme pour le Challenge 3, où un paramètre `?dir=` permet de simuler la navigation dans des dossiers via un mapping prédéfini entre les chemins et des pages HTML distinctes. 
+
+Enfin, `blackoutmain.js` prend en charge la compatibilité et l’expérience utilisateur : il vérifie le type de navigateur et alerte si le jeu est lancé sur un appareil mobile ou un navigateur non supporté, afin de garantir la meilleure expérience possible.
+
 
 === Raccordement dans la page d’accueil, routage et configuration des flags `.env` / `.env.prod`
 

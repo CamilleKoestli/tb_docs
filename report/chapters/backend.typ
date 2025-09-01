@@ -35,7 +35,7 @@ app.get("/:year/getFlag/:chall", (req, res) => {
   return res.json({ flag: targetFlag.split("=")[1] });
 });
 ```
-Ce code définit une route de type` /:year/getFlag/:chall`. Lorsqu’un joueur·euse tente de valider un challenge, l’application appelle cette API en lui passant l’année (par exemple 2025) et le numéro du challenge. La route vérifie d’abord que l’année demandée est valide. Ensuite, elle va chercher dans les variables d’environnement la liste des flags définis pour cette année.\
+Ce code définit une route `/:year/getFlag/:chall`. Lorsqu’un joueur·euse tente de valider un challenge, l’application appelle cette API en lui passant l’année (par exemple 2025) et le numéro du challenge. La route vérifie d’abord que l’année demandée est valide. Ensuite, elle va chercher dans les variables d’environnement la liste des flags définis pour cette année.\
 Chaque flag est stocké sous la forme `challX=FLAG_X`, séparés par des points-virgules. La fonction cherche alors le flag correspondant au challenge demandé et le renvoie au format JSON. Ce mécanisme permet de garder une flexibilité : les flags sont définis côté serveur dans des variables d’environnement et ne sont jamais visibles en clair dans le code source.
 
 
