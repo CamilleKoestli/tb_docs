@@ -1,5 +1,6 @@
 == Challenge 2 _Portail Frauduleux_ : Exploitation Web (SQL) <ch-2>
 
+=== Description
 Le joueur·euse a identifié le domaine frauduleux `horizonsante-support.com`. Ce sous-domaine a été mis en place par les attaquants pour exfiltrer des données sous la forme d'un site légitime et éviter d'attirer trop rapidement les soupçons. Pour accéder à l’interface et progresser, il faut contourner le formulaire de connexion. Un pare-feu (WAF) a été mis en place et bloque les injections SQL évidentes, c'est-à-dire qu'il refuse par exemple les mots-clés `OR` et les commentaire `--`. Le défi consiste à exploiter une injection SQL malgré ces restrictions, afin de contourner l’authentification et d’accéder au portail des attaquants. Pour passer le contrôle de format du champ email, le joueur doit fournir une adresse e-mail et dans le champ mot de passe y réaliser l'injection. \
 Ce challenge sensibilise aux failles d’injection et montre qu’une protection insuffisante peut être contournée par des techniques simples.
 
@@ -21,3 +22,6 @@ La consigne suivante est donnée aux joueur·euses :
 *Flag attendu* : Le flag `co_S3ss10n4Cc3s5` montre que la connexion au site a bien été établie.
 
 Le joueur·euse peut maintenant accéder au site des attaquants.
+
+=== Tools
+//TODO

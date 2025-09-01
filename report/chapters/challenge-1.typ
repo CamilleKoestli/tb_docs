@@ -1,5 +1,6 @@
 == Challenge 1 _Mail Contagieux_ : OSINT et forensic email<ch-1>
 
+=== Description
 Ce premier défi montre au joueur·euse un l’e-mail de phishing qui serait l’origine de l’attaque. Il s’agit d’un message piégé, qui aurait été envoyé par le support d’Horizon Santé, avec en pièce jointe un fichier malveillant `planning_salle_op.xlsx`. Le but est d’analyser les en-têtes techniques de cet e-mail pour remonter à son véritable expéditeur et identifier le domaine frauduleux utilisé par les attaquants. \
 Ce challenge a pour objectif de sensibiliser aux signes d’un courriel d’hameçonnage.
 
@@ -22,3 +23,6 @@ Voici le message que va recevoir le joueur·euse pour introduire le challenge :
 *Flag attendu :* Le flag serait donc le nom de domaine frauduleux utilisé par l'attaquant `horizonsante-support.com`.
 
 Une fois le sous-domaine identifié, le joueur·euse pourra passer au défi suivant qui sera la cible pour le challenge 2.
+
+=== Tools
+//TODO

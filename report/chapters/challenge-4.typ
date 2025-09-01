@@ -1,5 +1,6 @@
 == Challenge 4 _Clé cachée dans les commentaires_ : Cryptographie et métadonnées <ch-4>
 
+=== Description
 Le joueur·euse a maintenant accès à l'archive `patient_audit_07-12.zip` mais le problème est qu'il est verrouillé. Le joueur·euse doit trouver le mot de passe pour déverrouiller ce zip. En inspectant les métadonnées du ZIP, le joueur·euse découvre un commentaire contenant seulement une empreinte SHA-1 : `f7fde1c3f044a2c3002e63e1b6c3f432b43936d0`.\
 Première solution: utiliser un site comme CrackStation pour trouver le mot de passe correspondant à cette empreinte SHA-1.\
 Deuxième solution : Les experts Blue Team ont remarqué que les pirates utilisent toujours un mot de passe de la forme : `horizon<nombre>` où `<nombre>` varie de 0 à 99 (par exemple horizon1).\
@@ -24,3 +25,6 @@ Le participant·e obtient le message suivant pour débuter le challenge :
 *Flag attendu :* Le flag attendu est le mot de passe du zip, qui est `horizon42`.
 
 Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `monitor_check_wip.py`.
+
+===  Tools
+//TODO

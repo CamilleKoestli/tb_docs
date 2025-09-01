@@ -1,5 +1,6 @@
 == Challenge 7 _Blocage ciblé_ : Défense et journalisation <ch-7>
 
+=== Description
 Maintenant que les fichiers sont supprimés du côté des attaquants, le joueur·euse doit identifier l’adresse IP de la machine de l’attaquant pour le bloquer. Le joueur·euse doit donc s'assurer qu'aucune connexion sortante ne continue d'envoyer des données. Un flux a été repéré : la même adresse IP externe a émis des milliers de requêtes vers le portail VPN de l’hôpital au cours du dernier quart d’heure (tentative d’exfiltration massive). Le joueur·euse doit donc trouver le fichier de log contenant ces requêtes, identifier l’IP la plus présente (c’est l’attaquant) et ajouter cette IP à la liste noire du pare-feu interne. Une fois l’IP bloquée, le joueur·euse recevra un message de confirmation `blk_185-225-123-77_ok` indiquant que le blocage a été effectué avec succès.\
 Ce challenge montre l'importance de la surveillance des logs et de la gestion des adresses IP suspectes pour prévenir les attaques.
 
@@ -23,3 +24,6 @@ Le message suivant s'affiche :
 - Le troisième indice suggère de bloquer l’IP trouvée dans le pare-feu. "_Bloquez l’IP trouvée via le formulaire de la "Liste noire"._"
 
 *Flag attendu :* Le flag attendu est le message `blk_185-225-123-77_ok` qui confirme que l’adresse IP de l’attaquant a été bloquée avec succès. Cela permet de sécuriser le réseau et d'empêcher toute nouvelle tentative d'exfiltration de données.
+
+=== Tools
+//TODO

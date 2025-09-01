@@ -1,6 +1,6 @@
 == Challenge 3 _Partage Oublié_ : Mauvaise configuration d’accès <ch-3>
 
-=== _Partage Oublié_
+=== Description
 Sur le portail, un onglet "Gestion des fichiers" mène à `?dir=/shared/`. À cause d'une faille de contrôle d'accès au niveau fichiers (absence de validation sur le paramètre de chemin), n'importe quel·le utilisateur·trice connecté·e peut modifier le paramètre d'URL pour parcourir l'arborescence complète et accéder à des documents confidentiels dans d'autres répertoires\.
 Ce challenge permet de montrer au joueur·euse l'importance de la validation des paramètres d'URL et du contrôle d'accès aux ressources sensibles. Il sensibilise aux vulnérabilités de type Directory Traversal qui permettent à un attaquant de contourner les restrictions d'accès aux fichiers en manipulant les paramètres de chemin, sans réaliser d'escalade de privilèges.
 
@@ -23,3 +23,6 @@ Le joueur·euse reçoit le message suivant pour introduire le challenge :
 *Flag attendu* : Le flag `patient_audit_07-12.zip` est un fichier zip qui contient potentiellement tous les dossiers sur les patients ainsi que d'autres éléments.
 
 Ce zip fera l'objet du prochain challenge.
+
+=== Tools
+//TODO
