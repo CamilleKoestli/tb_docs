@@ -7,9 +7,17 @@
 #pagebreak()
 
 == Intégration sur le site web <integration-site-web>
-Modification de db.js pour intégrer les challenges dans le site web existant. Ajout des routes pour chaque challenge et création de la page d'accueil avec la liste des challenges.
 
-db.js
+L’intégration des nouveaux challenges "Blackout" dans la plateforme existante s’est faite en trois parties :
+
++ Initialisation des flags et extension du modèle de données
++ Ajout d’un nouveau « mini-site » de jeu (fichiers blackoutgame.html et blackoutmain.js)
++ Raccordement à l’expérience globale (lien depuis `index.html`, pop-ups d’intro avec les indices et configuration `.env`).\ Ces ajouts s’alignent sur l’architecture en place : un frontend statique routé par Traefik, un backend Express, et des données persistées (MongoDB et MySQL) déjà utilisées par les scénarios 2020/2021.
+
+=== Initialisation des flags côté serveur
+
+Pour éviter de placer les réponses dans le frontend, les flags 2025 sont déclarés dans les variables d’environnement et insérés au démarrage dans MongoDB au format SHA3-256, comme les scénarios 2020/2021. Le fragment suivant, ajouté à `db.js`, parcourt `CHALL_FLAGS_2025`, découpe chaque entrée `challX=VAL`, calcule le hash, puis crée le document Flag s’il n’existe pas
+
 ```js
 /* ... */
 // Support for 2025 challenges
@@ -25,9 +33,11 @@ db.js
     }
 ```
 
-création de blackoutmain.js
+=== Ajout du mini-site de jeu "Blackout"
+Comme pour les anciens scénarios (chaque challenge = mini-site dans son dossier), Blackout introduit une page de jeu dédiée (`blackoutgame.html`) et un script de contrôle (`blackoutmain.js`). Cette approche permet d’orchestrer l’UI du scénario (iframe principale, champ de réponse, pop-ups d’aide/indices) sans impacter les autres jeux.
 
-création de blackoutgame.html
+Le fichier HTML charge le thème, les scripts communs, les pop-ups par challenge (0 à 8) et l’iframe qui héberge l’écran actif. On y retrouve également le champ de validation (réponse) et les includes HTML (header, popups) pour conserver la même UX que les autres scénarios.
+
 ```html
 <!doctype html>
 <head>
@@ -94,7 +104,13 @@ création de blackoutgame.html
 <script src="https://www.google.com/recaptcha/api.js"></script>
 ```
 
-ajout information dans index.html
+=== Raccordement dans la page d’accueil, routage et configuration des flags `.env` / `.env.prod`
+
+Pour exposer le nouveau scénario dans l’UI globale, index.html reçoit une déclaration de l’année dans la constante `VALID_YEARS`, pour que la logique cliente supporte 2025 (au même titre que 2020/2021) et un bloc de présentation (texte + vidéo) et un bouton d’accès à `blackoutgame.html`.
+
+Cette intégration conserve le parcours utilisateur habituel : découverte, teaser, puis accès aux défis.
+
+
 ```html
 <!-- ... -->
 
@@ -136,11 +152,15 @@ const VALID_YEARS = ["2020", "2021", "2025"];
 <!-- ... -->
 ```
 
-ajout des flags dans .env et .env.prod pour être stocké dans la db mongo
+Cette page – comme tout le frontend – est servie via Traefik (terminaison TLS, StripPrefix pour /backend et /ssh), ce qui permet au client d’appeler /backend/... et d’intégrer des iframes /ssh?... sans connaître la topologie interne. C’est ce même schéma qui rend « Blackout » plug-and-play au sein du site.
+
+Enfin, les flags sont définis côté serveur, dans `.env` et `.env.prod`. Lors du boot, `db.js` se charge de les hacher et de les insérer si besoin. Le format clé-valeur séparé par ; reste identique. 
 ```env
 #...
-CHALL_FLAGS_2025="chall1=horizonsante-support.com;chall2=co_S3ss10n4Cc3s5;chall3=patient_audit_07-12.zip;
+CHALL_FLAGS_2025="chall1=horizonsante-support.com;
+chall2=co_s3ss10n4cc3s5;chall3=patient_audit_07-12.zip;
 chall4=horizon42;chall5=/admin/monitoring/bot_communication_panel_v2;
-chall6=ALL_FILES_DELETED;chall7=BLK_185-225-123-77_OK"
+chall6=all_files_deleted;chall7=blk_185-225-123-77_ok"
 ```
+Les bénéfices d'avoir des flags côté serveur sont qu'aucun secret/flag n’apparaît dans le code client. De plus, cela permet une gestion centralisée et versionnée par année, ainsi qu'une facilité d’opération (rotation, ajout/suppression sans rebuild du frontend).
 
