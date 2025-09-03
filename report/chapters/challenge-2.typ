@@ -8,16 +8,17 @@ La consigne suivante est donnée aux joueur·euses :
 "_Vous avez identifié le domaine pirate hébergeant un faux portail. C’est ici que les données volées sont exfiltrées et ressemble à l'interface d'un site légitime pour éviter d'attirer trop rapidement les soupçons. Connectez-vous au portail. Un WAF basique protège la connexion, mais il est mal configuré. Une fois connecté·e, l'information *`co_<SESSION_ID>`* vous sera accessible._"
 
 *Étapes pour résoudre le challenge :*
-+ Ecrire n'importe quelle adresse mail mais valide pour passer le contrôle de format.
-+ Dans le champ `Mot de passe`, réaliser une injection SQL. Cependant, le WAF empêche d'utiliser `' OR 1=1` ou `--`. Il faut faudra donc la modifier un peu pour le contourner avec le mot de passe : `' O/**/R 1=1 #`.
++ Utiliser une adresse e-mail valide, `support@horizonsante-support.com` , qu’il se trouve dans le challenge précédant et compléter dans le champ Email pour passer le contrôle du mail dans la base de données.
++ Dans le champ `Mot de passe`, réaliser une injection SQL. Cependant, le WAF empêche d'utiliser `' OR 1=1` ou `--`. Il faut faudra donc la modifier un peu pour le contourner avec le mot de passe : `' || 1=1 #`.
 + Valider le formulaire. Une fois la connexion établie, un code de session apparaît.
 
 *Outils nécessaires :* Un navigateur web (avec éventuellement les outils de développement pour observer les requêtes) suffit pour ce défi. Aucune extension spécifique n’est requise, juste la saisie de la charge malveillante dans le formulaire.
 
 *Indices graduels :*
-- Le premier indice rappelle qu’il faut utiliser n'importe quelle adresse e-mail pour passer le contrôle de format et qu'il faut surtout se concentrer sur le mot de passe pour réaliser l'injection "_Le champ email accepte n'importe quelle valeur. Concentrez-vous sur le champ mot de passe pour exploiter la faille._"
-- Le second indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour les commentaires. "_Le WAF bloque `OR` et les commentaires `--`, mais il existe d’autres syntaxes pour ces opérations, surtout pour les commentaires..._"
-- Le troisième indice suggère de combiner l’astuce du commentaire au milieu de `OR` et le commentaire en fin de requête. "_Essaie de couper le mot-clé `OR` avec un commentaire `/**/` et termine par un commentaire `#`._"
+- Le premier indice rappelle qu’il faut utiliser une adresse e-mail valide pour contourner le contrôle du mail invalide. Il est suggéré de récupérer l’adresse email utilisée par les attaquants dans le challenge précédent. "_Retrouver l’adresse email utilisée par les attaquants dans le challenge précédent avec comme fin `@horizonsante-support.com`_"
+- Le second indice suggère que la vulnérabilité ne se trouve pas dans le champ email et donc que l'injection doit se faire dans le mot de passe. "_L’adresse e-mail doit seulement être correcte pour passer la vérification. La véritable vulnérabilité se cache dans le champ mot de passe._"
+- Le troisième indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour ces éléments. "_Le WAF bloque `OR` et les commentaires `--`, mais il existe d’autres syntaxes pour ces opérations..._"
+
 
 *Flag attendu* : Le flag `co_S3ss10n4Cc3s5` montre que la connexion au site a bien été établie.
 

@@ -9,7 +9,7 @@ Pour ce faire, le participant·e reçoit le message suivant :
 
 *Étapes pour résoudre le challenge :*
 + Tester l'injection XSS dans le champ Message : `<script>alert(1)</script>`.
-+ Exfiltrer le cookie de session "admin" en utilisant une injection XSS dans le champ Message du chat via la payload : `<script>fetch('/steal?cookie='+document.cookie)</script>` et attendre que le bot ouvre la demande.
++ Exfiltrer le cookie de session "admin" en utilisant une injection XSS dans le champ Message du chat via la payload : `<script>fetch('/?cookie='+document.cookie)</script>` et attendre que le bot ouvre la demande.
 + Récupérer le cookie volé `admin_session=<COOKIE_VALUE>`
 + Ouvrir les outils de développement du navigateur, aller dans l'onglet Application, puis dans la section Cookies.
 + Coller le cookie volé dans le champ de saisie du cookie de session.
