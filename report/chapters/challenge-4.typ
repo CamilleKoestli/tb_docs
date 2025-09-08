@@ -1,4 +1,4 @@
-== Challenge 4 _Clé cachée dans les commentaires_ : Cryptographie et métadonnées <ch-4>
+== Challenge 4 _Clé cachée_ : Cryptographie et métadonnées <ch-4>
 
 === Description
 Le joueur·euse a maintenant accès à l'archive `patient_audit_07-12.zip` mais le problème est qu'il est verrouillé. Le joueur·euse doit trouver le mot de passe pour déverrouiller ce zip. En inspectant les métadonnées du ZIP, le joueur·euse découvre un commentaire contenant seulement une empreinte SHA-1 : `f7fde1c3f044a2c3002e63e1b6c3f432b43936d0`.\
@@ -19,7 +19,7 @@ Le participant·e obtient le message suivant pour débuter le challenge :
 
 *Indices graduels :*
 - Le premier indice suggère de regarder les métadonnées du zip, car elles peuvent contenir des informations utiles. "_Utilise `zipinfo` ou un explorateur de fichiers pour lire les métadonnées._"
-- Le second indice indique que le commentaire contient une empreinte SHA-1, ce qui signifie qu'il faut trouver le mot de passe qui correspond à cette empreinte. "_Le commentaire qui contient le mot de passe est une empreinte SHA-1._"
+- Le second indice indique que le hash se trouve dans les commentaires et que l'empreinte est un SHA-1, ce qui signifie qu'il faut trouver le mot de passe qui correspond à cette empreinte. "_Grâce à une commande `zipinfo`, regarde les commentaires. Le commentaire qui contient le mot de passe est une empreinte SHA-1._"
 - Le troisième indice rappelle que les mots de passe ont une structure spécifique, ce qui peut aider à les générer. Le joueur·euse peut se rendre sur CrackStation pour y entrer le hash ou il peut créer un script Python pour générer les mots de passe de la forme `horizon<nombre>` où `<nombre>` varie de 0 à 99. Il peut ensuite comparer leur empreinte SHA-1 avec celle du commentaire ou utiliser CyberChef pour générer les mots de passe et vérifier l'empreinte. "_Le mot de passe est de la forme `horizon<nombre>` (0 à 99), compare l'empreinte SHA-1 avec les mots de passe potentiels grâce à un petit script Python ou bien un outil comme CyberChef._"
 
 *Flag attendu :* Le flag attendu est le mot de passe du zip, qui est `horizon42`.
