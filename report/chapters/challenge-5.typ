@@ -27,3 +27,18 @@ Une fois cette page découverte, le joueur·euse pourra s'y rendre pour exploite
 
 === Tools
 //TODO
+
+Ajout d'informations sur le reverse engineering
+Qu'est-ce que le reverse engineering et la Base64 ?
+
+Ajout d'informations sur les routes les liens les urls et endpoints
+C’est quoi la différence ?
+Exemples rapides
+  Lien HTML (navigateur)
+  Route côté serveur (Express / Node)
+  Route côté front (ex. SPA React Router)
+  Endpoint d’API (quelle méthode ?)
+Chemins : absolus vs relatifs
+Paramètres & query
+
+Ajout d'informations le code python avec l'écriture de code

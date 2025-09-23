@@ -26,6 +26,19 @@
     22.08.2025], [Implémentation challenges 0, 1, 2, 3 et 4 \ Tests utilisateurs rapides \ Changement organisation des challenges], [0], [35], [5], [0],
     [25.08.2025], [Discussion avec l'enseignant responsable \ ], [0], [], [], [0],
     [26.08.2025 \
-    30.08.2025], [], [0], [], [], [0],
+    30.08.2025], [Implémentation des challenges 5, 7 \ Rédaction et corrections rapport], [0], [30], [10], [0],
+    [01.09.2025 \
+    05.09.2025], [Amélioration backend \ Implémentation challenge 6 \ Tools \ Tests utilisateurs rapides \ Rédaction et corrections rapport], [0], [35], [5], [0],
+    [08.09.2025 \
+    12.09.2025], [Tools \ Implémentation challenge 6 \ Tests utilisateurs complets \ Tests unitaires], [0], [38], [2], [0],
+    [15.09.2025 \
+    17.09.2025], [], [0], [0], [0], [0],
+    [22.09.2025 \
+    24.09.2025], [], [0], [0], [0], [0],
+    [29.09.2025 \
+    01.10.2025], [], [0], [0], [0], [0],
+    [06.10.2025 \
+    08.10.2025], [], [0], [0], [0], [0],
+
 
   )

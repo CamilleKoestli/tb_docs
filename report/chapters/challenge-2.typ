@@ -25,4 +25,12 @@ La consigne suivante est donnée aux joueur·euses :
 Le joueur·euse peut maintenant accéder au site des attaquants.
 
 === Tools
-//TODO
+Pour ce challenge, une base déjà présente de ce qu'est une injection SQL était déjà présente sur la plateforme. Je l'ai donc enrichie pour l'adapter au niveau de difficulté du challenge.
+
+J’y explique d’abord ce qu’est une injection SQL et comment elle permet de manipuler une requête mal protégée afin d’accéder à des informations sensibles. Ensuite, je montre un exemple concret d’injection (' OR 1=1 --) qui illustre comment un attaquant peut rendre une condition toujours vraie et ainsi contourner l’authentification, afin de permettre au joueur·euse de mieux comprendre la vulnérabilité et le fonctionnement de cette technique.
+
+J’ai aussi ajouté une section sur les différentes variantes d’écriture possibles (par exemple écrire OR sous plusieurs formes ou utiliser différents types de commentaires). Cette partie est importante, car dans le challenge un WAF est présent et bloque les tentatives les plus évidentes. Le joueur·euse doit donc comprendre qu’il existe plusieurs syntaxes en SQL, ce qui lui permet de contourner la protection.
+
+Enfin, j’ai introduit la notion de WAF pour que le joueur·euse comprenne pourquoi certaines injections ne fonctionnent pas et pourquoi il doit en tester d’autres.
+
+Cet outil est utile, car il apporte un cadre théorique clair : il prépare le joueur·euse à raisonner comme un attaquant, à tester plusieurs possibilités et à comprendre pourquoi une injection simple peut échouer. 

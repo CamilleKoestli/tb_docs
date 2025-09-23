@@ -27,4 +27,24 @@ Le participant·e obtient le message suivant pour débuter le challenge :
 Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `monitor_check_wip.py`.
 
 ===  Tools
-//TODO
+Dans un premier temps, il est important de comprendre le fonctionnement de zipinfo, afin d'obtenir des informations détaillées sur le contenu d’une archive ZIP. J’ai choisi de l’inclure car, dans ce challenge, les joueur·euse·s doivent analyser une archive pour identifier des éléments dissimulés. Comprendre les différentes options de zipinfo les aide à lister les fichiers, examiner leurs métadonnées (tailles, dates, taux de compression) et surtout de consulter les commentaires cachés dans l’archive. Cet outil donne donc les bases pour manipuler efficacement les fichiers ZIP sans devoir tester les commandes à l’aveugle.
+
+Le second outil présente la notion de hash, une empreinte numérique unique générée à partir d’un mot ou d’un fichier. J’y explique pourquoi les mots de passe sont stockés sous forme de hash dans les systèmes, et pourquoi on ne peut pas “dé-hasher” pour retrouver directement le mot d’origine. J’ai également inclus un exemple concret en Python pour montrer comment générer différents types de hash (MD5, SHA-1, SHA-256). Cet outil est utile car, dans le challenge, les joueur·euse·s sont confronté·e·s à un mot de passe protégé par un hash : comprendre ce concept leur permet de savoir comment l’aborder, soit en le comparant à une base de données de hash connus, soit en le soumettant à des outils de cassage de mot de passe.
+
+En résumé, ces deux outils apportent les notions techniques nécessaires pour progresser dans le challenge :
+
+zipinfo pour explorer et analyser l’archive ZIP,
+
+hash pour comprendre la manière dont les mots de passe sont protégés et comment ils peuvent être traités.
+
+Ils complètent ainsi l’aspect pratique du challenge et évitent que les joueur·euse·s soient bloqué·e·s par manque de connaissances théoriques.
+
+Ajout d'injormations sur les hashs et les fonctions de hachage
+Hash
+Pourquoi c’est utile ?
+Exemple en Python
+
+Ajout d'informations sur les métadonnées
+L'outil zipinfo
+
+Ajout d'informations le code python avec l'écriture de code

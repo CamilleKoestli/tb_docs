@@ -27,3 +27,7 @@ Le message suivant s'affiche :
 
 === Tools
 //TODO
+
+Ajout d'informations sur les logs
+Logs
+Qu'est-ce qu'une adresse IP ?
