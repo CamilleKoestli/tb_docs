@@ -13,15 +13,18 @@ Dans le challenge 3, l’objectif est de mettre en avant la navigation dans des 
 #figure(image("imgs/chall3'''.png", width: 80%), caption: [Exploration des dossiers jusqu'au dossier `/archives/2025`, challenge 3])<chall3.3>
 
 === Challenge 4
-Le challenge 4 introduit un environnement Python directement intégré dans le navigateur grâce à Pyodide. Cette technologie permet d’exécuter du code Python sans rien installer, en offrant un terminal interactif. L’interface met en parallèle le fichier suspect et le terminal, de sorte que le joueur·euse puisse expérimenter des commandes comme `zipinfo`. #figure(image("imgs/chall4''.png"), caption: [IDE python pour analyser le fichier et terminal afin de pouvoir réaliser un `zipinfo`, challenge 4])<chall4>
+Le challenge 4 introduit un environnement Python directement intégré dans le navigateur grâce à Pyodide. Cette technologie permet d’exécuter du code Python sans rien installer, en offrant un terminal interactif. 
+#figure(image("imgs/chall4.png"), caption: [IDE Python pour analyser le fichier et terminal afin de pouvoir réaliser un `zipinfo`, challenge 4])<chall4>
+Au niveau du terminal, il est possible de changer entre un terminal Linux classique afin que le joueur·euse puisse exécuter la commande système `zipinfo` et un terminal Python pour exécuter des scripts Python. #figure(image("imgs/chall4'.png"), caption: [Terminaux disponibles pour le challenge, challenge 4])<chall4>
+
 
 === Challenge 5
 Le challenge 5 garde l’IDE Python embarqué, mais cette fois pour pousser le joueur·euse à écrire un peu de code et analyser un script. Il s’agit de décoder des informations cachées dans un fichier et de reconstituer une URL que les attaquants sont susceptibles d’utiliser. Le terminal et l’IDE sont au cœur de l’interface, de manière à donner l’impression de travailler dans un véritable environnement d’analyse, tout en restant guidé par les consignes du scénario.
-#figure(image("imgs/chall5.png"), caption: [IDE python pour analyser le fichier et réaliser du code pour identifer la page, challenge 5])<chall5>
+#figure(image("imgs/chall5.png"), caption: [IDE Python pour analyser le fichier et réaliser du code pour identifer la page, challenge 5])<chall5>
 
 === Challenge 6
 
-Le challenge 6 propose une interface avec un chatbot interactif. Il permet au joueur·euse de tester différentes commandes, comme `help`, mais contient aussi des vulnérabilités de sécurité qu'il va devoir exploiter. L’idée était de rendre l’expérience plus ludique et interactive, tout en introduisant des notions liées aux failles XSS et à la compromission de sessions. Le chatbot devient donc à la fois un outil d’aide et une cible d’attaque. #figure(image("imgs/chall6.png", width: 80%), caption: [Interface du chatbot, challenge 6])<chall6>
+Le challenge 6 propose une interface avec un chatbot interactif. Il permet au joueur·euse de tester différentes commandes, comme `help`, mais contient aussi des vulnérabilités de sécurité qu'il va devoir exploiter. L’idée était de rendre l’expérience plus ludique et interactive, tout en introduisant des notions liées aux failles XSS et à la compromission de sessions. Le chatbot devient donc à la fois un outil d’aide et une cible d’attaque. #figure(image("imgs/chall6.png"), caption: [Interface du chatbot, challenge 6])<chall6>
 
 
 === Challenge 7
