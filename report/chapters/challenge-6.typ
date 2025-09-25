@@ -30,20 +30,6 @@ Une fois les fichiers supprimés, le joueur·euse a réussi à neutraliser une p
 === Tools
 //TODO
 
-Qu'est-ce que l'injection XSS ?
-Quelques fonctions utiles en JavaScript
-Balises souvent utilisées dans des exemples XSS
-Exemples de déclencheurs d’événements
-Accéder au contenu de la page (DOM)
-Exemple complet d’injection XSS
-Explications en vidéo !
+Pour ce challenge, j'ai ajouté un outil expliquant les vulnérabilités XSS et comment elles peuvent être exploitées pour voler des cookies de session. J'y explique les différents éléments qui vont composer une attaque XSS, comme la notion de fonction, de balises et d'éléments pour accéder au contenu de la page. J'ai aussi inclu un exemple concret d'attaques XSS, afin que le joueur·euse puisse comprendre comment fonctionne cette vulnérabilité, comment elle est structurée et comment elle peut être exploitée pour voler des cookies de session.
 
-Ajout d'informations sur les routes les liens les urls et endpoints
-C’est quoi la différence ?
-Exemples rapides
-  Lien HTML (navigateur)
-  Route côté serveur (Express / Node)
-  Route côté front (ex. SPA React Router)
-  Endpoint d’API (quelle méthode ?)
-Chemins : absolus vs relatifs
-Paramètres & query
+De même que le challenge 5, l'outil d'explication des routes, liens, URLs et endpoints a été complété afin d'y inclure des informations supplémentaires et comprendre comment les attaquants peuvent structurer leurs applications web.

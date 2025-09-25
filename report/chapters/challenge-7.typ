@@ -26,8 +26,5 @@ Le message suivant s'affiche :
 *Flag attendu :* Le flag attendu est le message `blk_185-225-123-77_ok` qui confirme que l’adresse IP de l’attaquant a été bloquée avec succès. Cela permet de sécuriser le réseau et d'empêcher toute nouvelle tentative d'exfiltration de données.
 
 === Tools
-//TODO
 
-Ajout d'informations sur les logs
-Logs
-Qu'est-ce qu'une adresse IP ?
+Pour ce dernier challenge, j'ai ajouté un outil expliquant les logs et leur importance dans la sécurité informatique. J'y explique ce qu'est un log et la structure typique d'un fichier de log, avec des exemples concrets. J'ai aussi inclus une section sur les bonnes pratiques pour analyser les logs, comme la recherche de motifs inhabituels ou d'adresses IP suspectes.

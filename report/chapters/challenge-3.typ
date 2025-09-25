@@ -17,7 +17,7 @@ Le joueur·euse reçoit le message suivant pour introduire le challenge :
 
 *Indices graduels* :
 - Le premier indice permet de montrer au joueur·euse que l'URL contient un paramètre `dir=` et qu'il faut essayer d'aller à la racine. "_Le paramètre `dir=` dans l’URL permet de contrôler l’emplacement affiché._"
-- Le deuxième indice suggère au joueur d'essayer d'aller à la racine "_Essaie d'aller à la racine avec `?dir=/` puis explore les dossiers disponibles._"
+- Le deuxième indice suggère au joueur·euse d'essayer d'aller à la racine "_Essaie d'aller à la racine avec `?dir=/` puis explore les dossiers disponibles._"
 - Le troisième indice précise que le fichier ZIP d’audit est daté de juillet, ce qui correspond au nom `patient_audit_07-12.zip`. Il faut donc chercher dans les sous-dossiers de l’année 2025, puis dans le dossier du mois 07 (juillet), pour trouver le fichier à télécharger. "_Le fichier visé porte un nom en fonction de la date de l'attaque (jour-mois)._"
 
 *Flag attendu* : Le flag `patient_audit_07-12.zip` est un fichier zip qui contient potentiellement tous les dossiers sur les patients ainsi que d'autres éléments.

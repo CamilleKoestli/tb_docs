@@ -26,19 +26,9 @@ Pour ce faire, le participant·e reçoit le message suivant :
 Une fois cette page découverte, le joueur·euse pourra s'y rendre pour exploiter la vulnérabilité du bot de monitoring des attaquants et escalader ses privilèges vers les droits administrateur.
 
 === Tools
-//TODO
+Pour analyser les données encodées dans le script, j'ai ajouté un outil expliquant le Base64 et son fonctionnement. J'y explique d'abord ce qu'est le Base64, pourquoi il est utilisé, pour encoder des données binaires en texte lisible, et comment il fonctionne. J'ai inclus des exemples concrets de chaînes encodées et décodées pour illustrer le processus. Un autre point important est d'expliquer comment identifier une chaîne encodée en Base64, en soulignant les caractéristiques typiques comme la présence de caractères spécifiques et les terminaisons par `=` ou `==`.
 
-Ajout d'informations sur le reverse engineering
-Qu'est-ce que le reverse engineering et la Base64 ?
+J'ai ensuite expliqué les différences entre les routes, les liens, les URLs et les endpoints. En effet, pour ce challenge le joueur·euse doit comprendre la différence entre ces notions pour reconstituer correctement l'URL de la page vulnérable. J'ai donné des exemples faciles pour chaque concept, comme un lien HTML dans un navigateur, une route côté serveur (par exemple avec Express/Node), une route côté front (comme dans une SPA avec React Router), et un endpoint d'API en précisant la méthode HTTP utilisée. J'ai aussi abordé les notions de chemins absolus vs relatifs, ainsi que les paramètres et les queries dans les URLs.
 
-Ajout d'informations sur les routes les liens les urls et endpoints
-C’est quoi la différence ?
-Exemples rapides
-  Lien HTML (navigateur)
-  Route côté serveur (Express / Node)
-  Route côté front (ex. SPA React Router)
-  Endpoint d’API (quelle méthode ?)
-Chemins : absolus vs relatifs
-Paramètres & query
+Pareil que pour le challenge 4, j'ai complété les informations déjà présentes sur Python. 
 
-Ajout d'informations le code python avec l'écriture de code

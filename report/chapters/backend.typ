@@ -6,39 +6,78 @@ L’implémentation backend de la plateforme a été conçue pour compléter les
 Pour ce premier challenge, le backend repose sur l’utilisation du docker `ssh-whois`. Il permet, depuis le terminal intégré côté frontend, de lancer une commande `whois` et de récupérer les informations relatives au domaine frauduleux qui apparaît dans l’email suspect.
 
 
-=== Challenge 2
+=== Challenge 2 // TODO A CORRIGER
 Le deuxième challenge exploite davantage le backend, en particulier avec deux aspects.
 
 Le premier, plutôt que de stocker les flags directement dans le code côté frontend (ce qui serait facilement contournable), une API REST a été créée dans le fichier `index.js`. Elle permet de récupérer dynamiquement le flag correspondant à un challenge et à une année.
 
 ```js
-// Get flag for specific challenge
-app.get("/:year/getFlag/:chall", (req, res) => {
-  const { year, chall } = req.params;
-
-  if (!VALID_YEARS.includes(year)) {
-    return res.status(404).json({ error: "Invalid year" });
+// Challenge 2 2025
+app.post("/challenge2/validate", (req, res) => {
+  if (!req.body.user && !req.body.pass) {
+    return res.status(400).json({ error: "Email et mot de passe requis" });
   }
 
-  const flagsString = process.env[`CHALL_FLAGS_${year}`];
-  if (!flagsString) {
-    return res.status(404).json({ error: "No flags found" });
+  // WAF qui bloque certains patterns d'injection SQL
+  function wafFilter(input) {
+    const blockedPatterns = [/\bOR\b/i, /--/, /\bUNION\b/i, /\bSELECT\b/i];
+    
+    for (const pattern of blockedPatterns) {
+      if (pattern.test(input)) {
+        return false;
+      }
+    }
+    return true;
   }
 
-  const targetFlag = flagsString
-    .split(";")
-    .find((flag) => flag.startsWith(`chall${chall}=`));
-  if (!targetFlag) {
-    return res.status(404).json({ error: "Flag not found" });
+  const email = req.body.user;
+  const password = req.body.pass;
+
+  // Application WAF 
+  if (!wafFilter(email) || !wafFilter(password)) {
+    return res.status(403).json({ error: "WAF : Tentative d\'injection détectée et bloquée. Patterns bloqués : OR, --, UNION, SELECT" });
   }
 
-  return res.json({ flag: targetFlag.split("=")[1] });
+  // Première vérif si email existe dans la base de données
+  pool.query(
+    "SELECT * FROM users WHERE ID = ?",
+    [email],
+    function (err, results, fields) {
+      if (err) {
+        return res.status(500).json({ error: "Database error" });
+      }
+      
+      if (results.length === 0) {
+        return res.status(404).json({ error: "Email incorrect" });
+      }
+
+      // Si email existe, valider mdp avec requête vulnérable
+      pool.query(
+        "SELECT * FROM users WHERE ID = '" + email + "' AND pass = '" + password + "'",
+        function (err, results, fields) {
+          if (err) {
+            return res.status(500).json({ error: "Authentication error" });
+          }
+          
+          if (results.length > 0) {
+            let flag = process.env.CHALL_FLAGS_2025.split(";")
+              .filter((x) => x.startsWith("chall2"))[0]
+              .split("=")[1];
+            return res.status(200).json({ 
+              success: true, 
+              message: "Authentication ok",
+              user: results[0],
+              flag: flag
+            });
+          } else {
+            return res.status(401).json({ error: "Mot de passe incorrect" });
+          }
+        }
+      );
+    }
+  );
 });
 ```
-Ce code définit une route `/:year/getFlag/:chall`. Lorsqu’un joueur·euse tente de valider un challenge, l’application appelle cette API en lui passant l’année (par exemple 2025) et le numéro du challenge. La route vérifie d’abord que l’année demandée est valide. Ensuite, elle va chercher dans les variables d’environnement la liste des flags définis pour cette année.\
-Chaque flag est stocké sous la forme `challX=FLAG_X`, séparés par des points-virgules. La fonction cherche alors le flag correspondant au challenge demandé et le renvoie au format JSON. Ce mécanisme permet de garder une flexibilité : les flags sont définis côté serveur dans des variables d’environnement et ne sont jamais visibles en clair dans le code source.
-
-
 
 Ensuite , Pour rendre la simulation d’une attaque par injection SQL plus crédible, les utilisateurs et leurs mots de passe sont stockés dans une base de données MySQL, plutôt que directement en dur dans le code. Cela permet de montrer le fonctionnement classique d’une application vulnérable.
 
@@ -143,8 +182,78 @@ Cette fonction récupère le paramètre dir passé dans l’URL et charge la pag
 
 Une seconde fonction, `navigateToDirectory`, met à jour l’URL et recharge l’iframe lorsque l’utilisateur clique sur un bouton de navigation. Cela permet de reproduire le fonctionnement d’un gestionnaire de fichiers.
 
-=== Challenge 4
-Le challenge 4 reprend le principe du challenge 1, mais cette fois avec un docker `ssh-zipinfo`. Ce module permet d’analyser un fichier ZIP via le terminal intégré, directement connecté au backend. Le joueur peut ainsi exécuter une commande `zipinfo` et récupérer des informations sur le contenu de l’archive sans l’ouvrir directement. 
+=== Challenge 4 // TODO A COMPLETER
+Le challenge 4 reprend le principe du challenge 1, mais cette fois avec un docker `ssh-zipinfo`. Ce module permet d’analyser un fichier ZIP via le terminal intégré, directement connecté au backend. Le joueur·euse peut ainsi exécuter une commande `zipinfo` et récupérer des informations sur le contenu de l’archive sans l’ouvrir directement. 
+
+
+```js
+// Challenge 4 2025
+app.post("/challenge4/validate", (req, res) => {
+  if (!req.body.flag) {
+    return res.sendStatus(400);
+  }
+
+  const challengeName = "2025_chall4";
+  
+  db.models.flag.findOne({chall_name: challengeName}, (err, flag) => {
+    if (err || !flag) {
+      return res.sendStatus(404);
+    }
+
+    const hash = new SHA3(256);
+    hash.update(req.body.flag);
+    
+    if (hash.digest('hex') === flag.value) {
+      // HTML fichiers décompressés
+      const decompressedFilesHtml = `
+        <div class="challenge-card">
+          <div class="header">
+            <h2>📁 Dossier: /archives/2025/patient_audit_07-12</h2>
+            <div class="user-info">
+              <button disabled title="Accès administrateur requis">🗑️ Supprimer</button>
+            </div>
+          </div>
+          <div class="file-browser">
+            <table class="file-table">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Type</th>
+                  <th>Taille</th>
+                  <th>Modifié</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="file-name">🐍 monitor_check_wip.py</td>
+                  <td>fichier</td>
+                  <td>1.9 KB</td>
+                  <td>25/01/2025</td>
+                </tr>
+                <tr>
+                  <td class="file-name">📄 patients_HorizonSante.xlsx</td>
+                  <td>fichier</td>
+                  <td>67 MB</td>
+                  <td>12/07/2025</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+
+      return res.status(200).json({ 
+        success: true, 
+        message: "ZIP décompressé",
+        decompressedFiles: decompressedFilesHtml 
+      });
+    } else {
+      console.log('invalid flag for challenge 4');
+      return res.sendStatus(401);
+    }
+  });
+});
+```
 
 
 === Challenge 5
