@@ -1,5 +1,8 @@
 = Implémentation des challenges <implementation>
 
+== Architecture générale <architecture-generale>
+//TODO schéma architecture
+
 #include "frontend.typ"
 #pagebreak()
 
@@ -183,3 +186,8 @@ chall6=all_files_deleted;chall7=blk_185-225-123-77_ok"
 ```
 Les bénéfices d'avoir des flags côté serveur sont qu'aucun secret/flag n’apparaît dans le code client. De plus, cela permet une gestion centralisée et versionnée par année, ainsi qu'une facilité d’opération (rotation, ajout/suppression sans rebuild du frontend).
 
+//TODO a completer
+== Améliorations de l'implémentation et future correction <ameliorations-corrections>
+
+Plus de Challenges
+Amélioration du bot -> problème avec les cookies -> récupère les cookies de la session du joueur et non celui du bot
