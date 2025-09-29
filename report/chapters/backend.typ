@@ -375,22 +375,6 @@ app.get("/challenge6/deleteFiles", (req, res) => {
 
 Un point essentiel pour que le challenge reste jouable dans le cas où plusieurs joueurs interagissent avec le bot. En effet, si plusieurs joueurs interagissent avec le bot en même temps, il faut éviter qu’ils ne se perturbent mutuellement. Pour cela, chaque joueur est associé à un identifiant unique `playerId`, généré sous forme d’UUID. Cet identifiant est utilisé dans toutes les requêtes, aussi bien côté bot que côté backend.
 
-// Utilisation de Puppeteer
-// Bot conteneurisé dans `docker-bot` qui permet d’envoyer des requêtes HTTP depuis le terminal intégré. Le joueur·euse doit exploiter ce bot pour envoyer une requête avec un cookie admin spécifique.
-
-// Ajout des routes dans Traefik pour exposer le service du bot et permettre la communication entre le terminal et le backend.
-
-
-// Un service `log-viewer` utilise Dozzle pour visualiser les logs Docker via une interface web.
-
-
-// Comportement du bot dans `bot.js`. Le bot envoie une requête GET à la route `/challenge6/deleteFiles` du backend, en incluant le cookie admin dans les cookies de la requête.
-
-// Dans `index.js`, une route API `/challenge6/validate` permet de vérifier la valeur du cookie admin soumis par le joueur·euse.
-
-
-// Une autre route `/challenge6/deleteFiles` permet de simuler la suppression de fichiers, mais uniquement si le cookie admin correct est présent dans les cookies de la requête.
-
 
 === Challenge 7
 Enfin, le challenge 7 ne fait pas appel au backend. L’ensemble du challenge (analyse des logs et blocage de l’adresse IP) est simulé directement côté frontend pour simplifier l’implémentation et rester accessible sans nécessiter de configuration serveur complexe.
