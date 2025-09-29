@@ -1,2 +1,7 @@
-= Remerciements
+= Remerciements <remerciements>
 
+Je tiens tout d’abord à exprimer ma gratitude envers M. Pasini Sylvain, mon professeur, pour son accompagnement, ses conseils précieux et sa disponibilité tout au long de ce projet. Grâce à lui, j'ai pu réaliser un projet que j'ai réellement apprécié. Je le remercie également pour la confiance qu'il m'a accordée afin de réaliser ce projet important pour le groupe Y-Security. Je remercie également M. Vallon Axel pour son aide et ses retours constructifs qui m’ont permis d’avancer dans ma réflexion et d’améliorer la qualité de mon travail. Je tiens aussi à remercier l'équipe Y-Security pour m'avoir donné l'opportunité de travailler sur ce projet passionnant. Leur conseils et leur expertise ont été d'une grande aide pour mener à bien ce travail.
+
+Je souhaite aussi adresser mes sincères remerciements aux personnes qui ont pris le temps de relire mon rapport et de leurs retours variés et constructifs : Mme Koestli Nathalie, M. Oliveira Kevin, M. Roland Samuel et Mme Oliveira Vitória. Leurs remarques et leur patience ont été d’une grande aide.
+
+Enfin, je remercie chaleureusement toutes les personnes qui ont accepté de tester mon application. Leurs retours m’ont permis d’identifier des axes d’amélioration et de renforcer l’expérience offerte par le serious game. Grâce à leur implication, ce projet a pu évoluer et atteindre une maturité pédagogique et technique solide.
