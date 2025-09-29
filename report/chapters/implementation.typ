@@ -14,7 +14,7 @@
 L’intégration des nouveaux challenges "Blackout" dans la plateforme existante s’est faite en trois parties :
 
 + Initialisation des flags et extension du modèle de données
-+ Ajout d’un nouveau « mini-site » de jeu (fichiers blackoutgame.html et blackoutmain.js)
++ Ajout d’un nouveau "mini-site" de jeu (fichiers `blackoutgame.html` et `blackoutmain.js`)
 + Raccordement à l’expérience globale (lien depuis `index.html`, pop-ups d’intro avec les indices et configuration `.env`).\ Ces ajouts s’alignent sur l’architecture en place : un frontend statique routé par Traefik, un backend Express, et des données persistées (MongoDB et MySQL) déjà utilisées par les scénarios 2020/2021.
 
 === Initialisation des flags côté serveur
@@ -174,7 +174,7 @@ const VALID_YEARS = ["2020", "2021", "2025"];
 <!-- ... -->
 ```
 
-Cette page – comme tout le frontend – est servie via Traefik (terminaison TLS, StripPrefix pour /backend et /ssh), ce qui permet au client d’appeler /backend/... et d’intégrer des iframes /ssh?... sans connaître la topologie interne. C’est ce même schéma qui rend « Blackout » plug-and-play au sein du site.
+Cette page – comme tout le frontend – est servie via Traefik (terminaison TLS, StripPrefix pour /backend et /ssh), ce qui permet au client d’appeler /backend/... et d’intégrer des iframes /ssh?... sans connaître la topologie interne. C’est ce même schéma qui rend "Blackout" plug-and-play au sein du site.
 
 Enfin, les flags sont définis côté serveur, dans `.env` et `.env.prod`. Lors du boot, `db.js` se charge de les hacher et de les insérer si besoin. Le format clé-valeur séparé par ; reste identique. 
 ```env

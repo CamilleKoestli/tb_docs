@@ -87,7 +87,7 @@ Le rendu intermédiaire est prévu pour la date du 31 juillet 2025, le rendu fin
 ### Décomposition des tâches
 
 1. Analyse du scénario existant : _07.07.2025 – 09.07.2025_
-    - Étudier les mécaniques de jeu et les défis utilisés dans « Shana a disparu ».
+    - Étudier les mécaniques de jeu et les défis utilisés dans "Shana a disparu".
     - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
     - Évaluer les points positifs et les points à améliorer du scénario actuel.
     - Étudier l’architecture de la plateforme _CyberGame_.

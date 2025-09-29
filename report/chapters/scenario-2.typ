@@ -19,7 +19,7 @@ Le plan d’exfiltration se déroule en cinq étapes ; chacun correspond à un "
   [1],
   [#link(<ch2-1>)[Hotspot Mirage]],
   [OSINT et Cryptographie],
-  [Retrouver le mot de passe Wi-Fi en comparant le SHA-1 stocké dans les métadonnées du PDF « keynote_KeyWave.pdf ».],
+  [Retrouver le mot de passe Wi-Fi en comparant le SHA-1 stocké dans les métadonnées du PDF "keynote_KeyWave.pdf".],
 
   [2],
   [#link(<ch2-2>)[Admin Bypass]],

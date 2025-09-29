@@ -160,7 +160,7 @@ Côté frontend, la réception de cette réponse positive déclenche l'affichage
 
 == Infrastructure Docker compose
 
-La couche serveur repose sur Node.js/Express avec MongoDB et MySQL, le tout orchestré par Docker Compose. Un reverse-proxy Traefik termine le TLS et route les requêtes vers trois familles de services : l’API « backend », le site « frontend » et la passerelle « webssh » qui sert d’interface vers de petites machines SSH dédiées à certains défis. Cette séparation permet d’isoler les composants pédagogiques (ex. SQL volontairement vulnérable) sans impacter la persistance « réelle » (progression des joueur·euse·s).
+La couche serveur repose sur Node.js/Express avec MongoDB et MySQL, le tout orchestré par Docker Compose. Un reverse-proxy Traefik termine le TLS et route les requêtes vers trois familles de services : l’API "backend", le site "frontend" et la passerelle "webssh" qui sert d’interface vers de petites machines SSH dédiées à certains défis. Cette séparation permet d’isoler les composants pédagogiques (ex. SQL volontairement vulnérable) sans impacter la persistance "réelle" (progression des joueur·euse·s).
 
 Le fichier `docker-compose.yml` (Annexe@docker-compose.yml) définit l'ensemble des services nécessaires à l'application, y compris le backend et les bases de données. Chaque service est configuré avec des variables d'environnement spécifiques pour garantir un fonctionnement optimal.
 

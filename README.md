@@ -1,4 +1,4 @@
-# Conception d’un nouveau serious game autour du « Ethical Hacking »
+# Conception d’un nouveau serious game autour du "Ethical Hacking"
 
 > Documentation de mon Travail de Bachelor (TB)
 
