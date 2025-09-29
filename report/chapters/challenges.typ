@@ -1,6 +1,3 @@
-// TODO scénario confus parfois trop détaillé ou pas assez
-// fil rouge à revoir
-
 = Scénario définitif et liste des challenges détaillés <scenario-challenges>
 Ce chapitre présente les différents challenges du scénario retenu, chacun visant à sensibiliser les participant·e·s à des aspects spécifiques de la sécurité informatique. Chaque challenge suit l'intrigue et est écrit pour être interactif et éducatif. Cela permet aux participant·e·s d'apprendre en pratiquant. \
 Chacun des challenges est expliqué plus en détail sur l'implémentation, ce qui est attendu du joueur·euse avec les consignes, les indices et les solutions attendues.

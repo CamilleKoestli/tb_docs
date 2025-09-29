@@ -6,7 +6,7 @@ L’implémentation backend de la plateforme a été conçue pour compléter les
 Pour ce premier challenge, le backend repose sur l’utilisation du docker `ssh-whois`, déjà créé et proposé dans les scénarios précédents. Il permet, depuis le terminal côté frontend, de lancer une commande `whois` et de récupérer les informations relatives au domaine frauduleux qui apparaît dans l’email suspect.
 
 
-=== Challenge 2 // TODO A CORRIGER
+=== Challenge 2
 Le deuxième challenge exploite davantage le backend, en particulier avec deux aspects.
 
 Le premier, plutôt que de stocker les flags directement dans le code côté frontend, ce qui serait facilement contournable, une API REST a été créée dans le fichier `index.js`. 
@@ -51,7 +51,7 @@ app.post("/challenge2/validate", (req, res) => {
         return res.status(404).json({ error: "Email incorrect" });
       }
 
-      // Si email existe, valider mdp avec requête vulnérable
+      // Si email existe valider mdp avec requête vulnérable
       pool.query(
         "SELECT * FROM users WHERE ID = '" + email + "' AND pass = '" + password + "'",
         function (err, results, fields) {
@@ -183,7 +183,7 @@ Cette fonction récupère le paramètre dir passé dans l’URL et charge la pag
 
 Une seconde fonction, `navigateToDirectory`, met à jour l’URL et recharge l’iframe lorsque l’utilisateur clique sur un bouton de navigation. Cela permet de reproduire le fonctionnement d’un gestionnaire de fichiers.
 
-=== Challenge 4 // TODO A COMPLETER
+=== Challenge 4
 Le challenge 4 reprend le principe du challenge 1, mais cette fois avec un docker `ssh-zipinfo`. Ce module permet d’analyser un fichier ZIP via le terminal intégré, directement connecté au backend. Le joueur·euse peut ainsi exécuter une commande `zipinfo` et récupérer des informations sur le contenu de l’archive sans l’ouvrir directement. 
 
 En suite, pour valider le flag, une route API a été créée dans `index.js` pour vérifier la valeur du flag soumis par le joueur·euse.
@@ -261,7 +261,7 @@ Ici , la route `/challenge4/validate` attend un flag dans le corps de la requêt
 === Challenge 5
 Le challenge 5 est entièrement géré côté frontend. Il n’a pas besoin du backend, car l’analyse repose sur l’IDE Python intégré (Pyodide) et les scripts fournis directement dans l’interface.
 
-//TODO a completer
+
 === Challenge 6
 
 Le challenge 6  consiste en la mise en place d’un bot automatisé qui a pour objectif d’interagir avec le backend en injectant un cookie administrateur spécifique. Le but principal est de simuler un scénario de type "bot headless administrateur" qui visite des pages et déclenche des actions sensibles grâce à un cookie privilégié. Le joueur·euse n’a pas directement accès à ce cookie, mais il doit trouver un moyen d’exploiter le bot pour qu’il l'envoie au backend et ainsi récupérer le flag.

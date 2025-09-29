@@ -28,7 +28,6 @@ Pour ce faire, le participant·e reçoit le message suivant :
 Une fois les fichiers supprimés, le joueur·euse a réussi à neutraliser une partie importante de l'attaque en empêchant les cybercriminels d'exploiter les données sensibles des patients volées. Le joueur·euse peut passer au défi suivant pour bloquer l'attaquant.
 
 === Tools
-//TODO
 
 Pour ce challenge, j'ai ajouté un outil expliquant les vulnérabilités XSS et comment elles peuvent être exploitées pour voler des cookies de session. J'y explique les différents éléments qui vont composer une attaque XSS, comme la notion de fonction, de balises et d'éléments pour accéder au contenu de la page. J'ai aussi inclu un exemple concret d'attaques XSS, afin que le joueur·euse puisse comprendre comment fonctionne cette vulnérabilité, comment elle est structurée et comment elle peut être exploitée pour voler des cookies de session.
 
