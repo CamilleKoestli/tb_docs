@@ -1,12 +1,12 @@
 = Architecture de la plateforme _CyberGame_ existante <architecture>
-Ce chapitre présente l'architecture technique de la plateforme _CyberGame_, en détaillant le frontend et backend, ainsi que les mécanismes de jeu. Il est important de souligner qu'il s'agit d'une analyse de la plateforme de 2020 avant sa restructuration qui a eu lieu en 2025. Cette analyse porte donc sur l’état initial du site, avant l’ajout de nouvelles fonctionnalités, la refonte du design ou l’amélioration de l’expérience utilisateur. 
+Ce chapitre présente l'architecture technique de la plateforme _CyberGame_, en détaillant le frontend et backend, ainsi que les mécanismes de jeu. Il est important de souligner qu'il s'agit d'une analyse de la plateforme de 2020 avant sa restructuration qui a eu lieu en 2025. Cette analyse porte donc sur l’état initial du site, avant l’ajout de nouvelles fonctionnalités, la refonte du design ou l’amélioration de l’expérience utilisateur.
 
 == Présentation générale <presentation>
 Le site web est une plateforme pédagogique créée par le pôle Y-Sécurity de la HEIG-VD. Il a pour objectif d'introduire au ethical hacking et propose actuellement deux scénarios interactifs. La plateforme est donc conçue avec une page d'accueil @InitiationAuEthical qui présente le cadre général. Le premier jeu "Shana a disparu" @ShanaDisparuRetrouvela ainsi qu'un autre scénario "Sauve la Terre de l'arme galactique" @SauveTerreLarme se trouvent sur la plateforme. Pour aider les joueur·euse·s à avancer dans les différents challenges, une boîte à outils et un petit IDE Python ont été développés @InitiationAuEthical.
 
 == Mécanisme de jeu <mécanisme-de-jeu>
 
-La plateforme CyberGame propose deux parcours structurés sous forme d'histoire progressive qui mettent en œuvre des techniques clés du hacking éthiques. Chacun propose une enquête avec un scénario dont les étapes doivent être validées dans l'ordre afin de pouvoir progresser dans le déroulement de l'enquête.
+La plateforme _CyberGame_ propose deux parcours structurés sous forme d'histoire progressive qui mettent en œuvre des techniques clés du hacking éthiques. Chacun propose une enquête avec un scénario dont les étapes doivent être validées dans l'ordre afin de pouvoir progresser dans le déroulement de l'enquête.
 
 === Scénario 1 : "Shana a disparu" <shana>
 
@@ -41,7 +41,7 @@ De plus, grâce à un mini IDE Python et un terminal intégré, comme le montre 
 === Axes d'amélioration
 Cependant, quelques points mériteraient des améliorations.
 
-D’abord, la police d'écriture utilisée, elle permet de créer une certaine ambiance mais elle est peu lisible, ce qui peut gêner la compréhension et la lecture des consignes. 
+D’abord, la police d'écriture utilisée, elle permet de créer une certaine ambiance mais elle est peu lisible, ce qui peut gêner la compréhension et la lecture des consignes.
 
 Un autre élément d'amélioration aurait été de réaliser un changement de curseur sur les éléments cliquables (par exemple, en utilisant `cursor: pointer` en CSS) pour permettre au joueur·euse d’identifier les zones interactives.
 
@@ -59,7 +59,7 @@ Ensuite, pour la validation de l'étape, il faut impérativement entrer une rép
   caption: [Interface du jeu après la validation d'un challenge],
 )<bug-interface1-imgs>
 
- #figure(
+#figure(
   image("imgs/bug-interface2.png"),
   caption: [Interface du jeu qui ne change pas après la validation d'un challenge et pas de progression dans l'histoire.],
 )<bug-interface2-imgs>
@@ -121,10 +121,12 @@ Ce fichier permet d'avoir une vue d'ensemble sur les challenges, c'est-à-dire c
   [`01_windows_login/windows_login.html`],
   [OSINT et mot de passe à partir des réseaux sociaux],
   [Montrer l’impact de l'exploitation des données personnelles publiquement accessibles],
+
   [2],
   [`02_browser_history/browser_history.html`],
   [Lecture d’historique],
   [Comprendre la collecte de preuves côté client],
+
   [3], [`03_same_color_text/index-01.html`], [Texte blanc-sur-blanc], [Chercher du contenu caché dans le DOM],
   [4], [`04_html_comment/comment.html`], [Commentaires HTML], [Repérage d’indices dans la source],
   [5], [`05_admin_cookie/index.html`], [Manipulation de cookie], [Bypass d’autorisation client-side],
@@ -214,18 +216,18 @@ Exemple : `GET /ssh/?hostname=sshmachine` → wssh se connecte en interne à `ss
 Routage des appels API frontend
 L'architecture de communication entre le frontend et le backend s'articule autour d'un système de routage centralisé. Les écrans et scripts JavaScript du frontend communiquent avec l'API backend via le préfixe `/backend/`, qui est automatiquement retiré par Traefik avant transmission à Express.
 
-Routage principal des pages : 
-La page d'accueil index.html effectue un appel `POST /backend/visitor` pour incrémenter le compteur de visiteurs de la plateforme. 
-La page de connexion `login.html` utilise deux endpoints : `POST /backend/login` pour l'authentification des utilisateurs et `GET /backend/logout` pour la déconnexion. 
-La page de statistiques statistics.html interroge plusieurs endpoints via `GET /backend/stats/*` pour récupérer les données de progression et de performance. 
+Routage principal des pages :
+La page d'accueil index.html effectue un appel `POST /backend/visitor` pour incrémenter le compteur de visiteurs de la plateforme.
+La page de connexion `login.html` utilise deux endpoints : `POST /backend/login` pour l'authentification des utilisateurs et `GET /backend/logout` pour la déconnexion.
+La page de statistiques statistics.html interroge plusieurs endpoints via `GET /backend/stats/*` pour récupérer les données de progression et de performance.
 
-Scripts JavaScript globaux : 
-Le script `js/main.js` gère les interactions du scénario principal avec deux appels principaux : `POST /backend/2020/flag` pour la validation des réponses et `POST /backend/user` pour la gestion des données utilisateur. Le script `js/galacmain.js` suit la même logique pour le scénario galactique avec `POST /backend/2021/flag` et `POST /backend/user`. 
+Scripts JavaScript globaux :
+Le script `js/main.js` gère les interactions du scénario principal avec deux appels principaux : `POST /backend/2020/flag` pour la validation des réponses et `POST /backend/user` pour la gestion des données utilisateur. Le script `js/galacmain.js` suit la même logique pour le scénario galactique avec `POST /backend/2021/flag` et `POST /backend/user`.
 
-Challenges spécifiques : 
-Le challenge Windows Login (`challenges/01_windows_login/windows_login.html`) utilise l'endpoint `POST /backend/2020/checkFlag` pour valider les tentatives d'authentification OSINT. Le challenge d'injection SQL (`challenges/08_SQL_injection/sql_injection.html`) communique directement avec `POST /backend/db` pour permettre l'exploitation des vulnérabilités de base de données. 
+Challenges spécifiques :
+Le challenge Windows Login (`challenges/01_windows_login/windows_login.html`) utilise l'endpoint `POST /backend/2020/checkFlag` pour valider les tentatives d'authentification OSINT. Le challenge d'injection SQL (`challenges/08_SQL_injection/sql_injection.html`) communique directement avec `POST /backend/db` pour permettre l'exploitation des vulnérabilités de base de données.
 
-Gestion des défis terminal 
+Gestion des défis terminal
 Pour les défis nécessitant un accès terminal, l'architecture implémente un système d'iframe pointant vers `/ssh?....` Ce flux de données transite par Traefik qui redirige vers le service webssh, lequel établit la connexion avec les conteneurs cibles `sshmachine*` dédiés à chaque type d'exercice. Cette approche permet d'isoler les environnements d'apprentissage tout en maintenant une interface utilisateur cohérente intégrée dans le navigateur.
 
 // Les écrans/JS du frontend appellent l’API via `/backend/...` (le préfixe est retiré avant Express) :
@@ -241,7 +243,7 @@ Pour les défis nécessitant un accès terminal, l'architecture implémente un s
 
 === API Express (Annexe@index.js)
 
-L'API Express constitue la couche serveur principale de la plateforme CyberGame. Elle est structurée autour de plusieurs modules fonctionnels qui gèrent les différents aspects du système de jeu et d'administration.
+L'API Express constitue la couche serveur principale de la plateforme _CyberGame_ . Elle est structurée autour de plusieurs modules fonctionnels qui gèrent les différents aspects du système de jeu et d'administration.
 
 Gestion des flags et progression
 Le système de validation des défis repose sur deux endpoints principaux. L'endpoint `POST /:year/flag` effectue la vérification complète d'un flag soumis par un joueur. Il procède au hashage de la réponse proposée avec l'algorithme SHA3-256, puis compare ce hash avec les valeurs stockées dans la base MongoDB. En cas de correspondance, le système ajoute automatiquement l'identifiant `<year>_<chall>` au tableau `user.flagged`, permettant ainsi le suivi de la progression du joueur. L'endpoint `POST /:year/checkFlag` offre une variante qui se contente de vérifier la validité du flag sans modifier la progression, utile pour les vérifications intermédiaires.
@@ -306,13 +308,13 @@ Tous les conteneurs SSH utilisent une configuration similaire basée sur Ubuntu 
 
 
 == Analyse de la sécurité <analyse-sécurité>
-L'architecture de sécurité de la plateforme CyberGame repose sur une approche de séparation stricte des responsabilités entre deux systèmes de gestion de base de données distincts. MongoDB assure la gestion fiable de l'état du jeu, incluant les profils utilisateurs, la progression et les données critiques du système, tandis que MySQL est uniquement utilisé pour les exercices d'injection SQL, créant ainsi une surface de vulnérabilité contrôlée et isolée.
+L'architecture de sécurité de la plateforme _CyberGame_ repose sur une approche de séparation stricte des responsabilités entre deux systèmes de gestion de base de données distincts. MongoDB assure la gestion fiable de l'état du jeu, incluant les profils utilisateurs, la progression et les données critiques du système, tandis que MySQL est uniquement utilisé pour les exercices d'injection SQL, créant ainsi une surface de vulnérabilité contrôlée et isolée.
 
 La gestion des variables sensibles s'appuie sur un système d'injection sécurisé via les fichiers d'environnement (.env). Les flags de validation des challenges sont stockés sous forme de hash SHA-3 256 dans MongoDB, garantissant qu'aucune réponse n'est exposée en clair dans le système principal. Cette approche préserve l'intégrité pédagogique des exercices tout en maintenant un niveau de sécurité approprié pour les données persistantes.
 
 L'architecture présente volontairement des vulnérabilités dans les routes SQL qui utilisent des concaténations de chaînes sans échappement, permettant ainsi l'apprentissage pratique des techniques d'injection. Cette faiblesse intentionnelle est circonscrite à MySQL et ne compromet pas l'intégrité des données MongoDB grâce à la séparation architecturale stricte. Les étudiants peuvent ainsi explorer les failles d'injection SQL sans risquer d'altérer les vrais enregistrements du système.
 
-L'utilisation de Traefik avec la fonctionnalité StripPrefix simplifie considérablement le code applicatif Express en gérant automatiquement les préfixes d'URL publics. 
+L'utilisation de Traefik avec la fonctionnalité StripPrefix simplifie considérablement le code applicatif Express en gérant automatiquement les préfixes d'URL publics.
 
 Cette approche permet au serveur d'application de se concentrer sur la logique métier sans avoir à gérer la complexité du routage externe, améliorant ainsi la maintenabilité et la sécurité du code.Cette architecture bicéphale offre un environnement d'apprentissage sécurisé où les vulnérabilités pédagogiques restent confinées à leur domaine d'application spécifique, préservant l'intégrité globale du système tout en offrant une expérience d'apprentissage authentique aux utilisateurs.
 

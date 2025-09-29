@@ -2,10 +2,10 @@
 
 ## Contexte
 
-_Cybergame_ est une plateforme de serious game développée initialement par le pôle Y-Security de la HEIG-VD.
+_CyberGame_ est une plateforme de serious game développée initialement par le pôle Y-Security de la HEIG-VD.
 Le pôle Y-Security est reconnu comme un acteur majeur de la cybersécurité en Suisse romande. Il a pour mission de former, sensibiliser et accompagner différents publics autour des enjeux de sécurité informatique, grâce à la recherche appliquée, la formation et la mise en place d’outils innovants.
 
-La plateforme _Cybergame_ vise à rendre l’apprentissage de la cybersécurité ludique et accessible à tou·te·s, à travers des scénarios interactifs et progressifs.
+La plateforme _CyberGame_ vise à rendre l’apprentissage de la cybersécurité ludique et accessible à tou·te·s, à travers des scénarios interactifs et progressifs.
 Le jeu "Shana a disparu" est un exemple phare : il propose une initiation au ethical hacking, combinant narration immersive et challenges techniques pour faire découvrir les bases de la cybersécurité.
 
 Le jeu a eu un grand succès, ce qui fait que de nombreuses personnes l’ont déjà terminé. Ce projet vise donc à développer une extension du scénario existant ou à créer un tout autre scénario. Le but est d’intégrer de nouveaux défis de niveau plus avancé, tout en gardant cette idée d’approche narrative immersive qui a fait l’intérêt du projet.

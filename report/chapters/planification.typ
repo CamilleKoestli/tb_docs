@@ -5,7 +5,7 @@
   - Étudier les mécaniques de jeu et les défis utilisés dans "Shana a disparu".
   - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
   - Évaluer les points positifs et les points à améliorer du scénario actuel.
-  - Étudier l’architecture de la plateforme _Cybergame_
+  - Étudier l’architecture de la plateforme _CyberGame_
 + Recherche et écriture du scénario	: _10.07.2025 – 23.07.2025_
   - S’inspirer de CTF, serious games et projets similaires pour la structure et le contenu des défis.
   - Identifier les outils et environnements de développement.
@@ -17,8 +17,8 @@
   - Développer les services ou environnements nécessaires.
   - Ajouter un bot interactif pour simuler certaines interactions ou attaques.
   - S’assurer de la clarté des consignes et de la logique de chaque challenge.
-+ Intégration dans la plateforme _Cybergame_ :	_04.09.2025 – 09.09.2025_
-  - Adapter les contenus au format de _Cybergame_.
++ Intégration dans la plateforme _CyberGame_ :	_04.09.2025 – 09.09.2025_
+  - Adapter les contenus au format de _CyberGame_.
 + Tests et validation :	_10.09.2025 – 19.09.2025_
   - Réaliser des tests unitaires pour chaque challenge.
   - Réaliser des tests utilisateur·trice·s et faire tester les défis par d’autres personnes pour ajuster la difficulté.
@@ -40,7 +40,7 @@
 //   [07 – 09 \ juillet 2025],
 //   [
 //     Étude des mécaniques des deux jeux, inventaire des technologies,
-//     analyse critique, analyse de l’architecture _Cybergame_.
+//     analyse critique, analyse de l’architecture _CyberGame_.
 //   ],
 
 //   [2. Recherche et écriture du scénario],
@@ -58,10 +58,10 @@
 //     clarification des consignes.
 //   ],
 
-//   [4. Intégration dans la plateforme _Cybergame_],
+//   [4. Intégration dans la plateforme _CyberGame_],
 //   [04 – 09 \ septembre 2025],
 //   [
-//     Adaptation des contenus et déploiement au format _Cybergame_.
+//     Adaptation des contenus et déploiement au format _CyberGame_.
 //   ],
 
 //   [5. Tests et validation],

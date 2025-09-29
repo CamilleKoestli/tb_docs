@@ -2,7 +2,7 @@
 == Contexte <contexte>
 _CyberGame_ est une plateforme de serious game développée initialement par le pôle Y-Security de la HEIG-VD. Le pôle Y-Security est reconnu comme un acteur majeur en cybersécurité en Suisse romande. Il a pour mission de former, sensibiliser et accompagner différents publics autour des enjeux de sécurité informatique, grâce à la recherche appliquée, la formation et la mise en place d’outils innovants.
 
-La plateforme CyberGame vise à rendre l’apprentissage de la cybersécurité ludique et accessible à tous, à travers des scénarios interactifs et progressifs. Le jeu « Shana a disparu » est un exemple phare : il propose une initiation au ethical hacking, combinant narration immersive et challenges techniques pour faire découvrir les bases de la cybersécurité.
+La plateforme _CyberGame_ vise à rendre l’apprentissage de la cybersécurité ludique et accessible à tous, à travers des scénarios interactifs et progressifs. Le jeu « Shana a disparu » est un exemple phare : il propose une initiation au ethical hacking, combinant narration immersive et challenges techniques pour faire découvrir les bases de la cybersécurité.
 
 Ce jeu a rencontré un grand succès auprès d’un large public.
 
@@ -41,7 +41,7 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
   - Intégrer un robot interactif pour simuler le comportement d’utilisateur·trice·s vulnérables (ex. clics sur une XSS).
   - Intégrer tous les challenges dans une narration immersive et cohérente, fidèle à l’esprit du projet.
 - Développer le nouveau serious game :
-  - Il doit être intégré dans la plateforme _Cybergame_ existante, tant sur la forme, que sur le contenu des technologies utilisées.
+  - Il doit être intégré dans la plateforme _CyberGame_ existante, tant sur la forme, que sur le contenu des technologies utilisées.
   - Inclure le scénario complet, les étapes du jeu, les mécaniques interactives, ainsi que les apports techniques et pédagogiques nécessaires.
   - Gérer les parties backend nécessaires.
   - Garantir la sécurité de l’infrastructure et du contenu.
@@ -49,11 +49,11 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
 
 === Livrables <livrables>
 Les livrables seront les suivants :
-- Plateforme _Cybergame_ mise à jour, incluant l’ensemble du nouveau scénario opérationnel.
+- Plateforme _CyberGame_ mise à jour, incluant l’ensemble du nouveau scénario opérationnel.
 - Un rapport complet, comprenant :
   - Des propositions de scénarios, avec motivation du scénario retenu.
   - La documentation détaillée du scénario retenu, incluant la liste complète des challenges.
-  - La documentation de la plateforme _Cybergame_, incluant la description de l’existant et des évolutions apportées, ainsi que l’explication et justification des choix techniques.
+  - La documentation de la plateforme _CyberGame_, incluant la description de l’existant et des évolutions apportées, ainsi que l’explication et justification des choix techniques.
   - Une analyse de la sécurité de la plateforme.
   - Les tests fonctionnels réalisés.
   - Les tests utilisateur·trice·s réalisés : méthodologie, résultats, retours collectés, et correctifs appliqués.

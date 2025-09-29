@@ -22,16 +22,19 @@ Les serious games sont une méthode reconnue pour permettre d'engager, de motive
 
 Depuis plus de vingt ans, la HEIG-VD est un acteur majeur de la cybersécurité en Suisse romande et en Europe. Le pôle Y-Security de la HEIG-VD est reconnu pour sa recherche appliquée, sa formation et son accompagnement dans le domaine de la sécurité informatique. Il regroupe une douzaine d'expert·e·s et un réseau industriel suisse et européen, ce qui en fait un véritable "écosystème" pour la formation et l'innovation en Suisse romande @YSecurityHEIGVD.
 
-Pour rendre plus accessible la pratique du hacking éthique, le pôle a donc créé une plateforme _Cybergame_ et décide de se pencher sur les serious game. L'objectif de ces serious games est de sensibiliser et former les utilisateur·trice·s aux bases de la cybersécurité, en leur permettant de découvrir les techniques d'ethical hacking grâce à une approche narrative immersive. Ces jeux sont destinés à un large public, allant des débutant·e·s aux personnes ayant déjà des connaissances en sécurité informatique.
+Pour rendre plus accessible la pratique du hacking éthique, le pôle a donc créé une plateforme _CyberGame_ et décide de se pencher sur les serious game. L'objectif de ces serious games est de sensibiliser et former les utilisateur·trice·s aux bases de la cybersécurité, en leur permettant de découvrir les techniques d'ethical hacking grâce à une approche narrative immersive. Ces jeux sont destinés à un large public, allant des débutant·e·s aux personnes ayant déjà des connaissances en sécurité informatique.
 Il propose actuellement deux scénarios en ligne sur cette thématique @InitiationAuEthical:
 - "Shana a disparu" (2020) : une enquête qui vise à retrouver Shana et qui initie les débutant·e·s aux bases du piratage éthique.
 - "Sauve la Terre de l'arme galactique" (2021) : une mission interplanétaire qui a pour objectif se récupérer des plans d'une arme galactique.
 
 "Shana a disparu"  nous raconte l'histoire d'une jeune femme qui a disparu et dont il faut retrouver la trace. Le joueur·euse doit résoudre des énigmes et des défis techniques pour progresser dans l'histoire et découvrir ce qui est arrivé à Shana. Le jeu est conçu pour être accessible aux débutant·e·s, tout en offrant des défis intéressants pour les joueur·euse·s plus expérimenté·e·s. L'interface se présente sous la forme d'un site web interactif, où les joueur·euse·s peuvent naviguer entre différentes pages, résoudre des énigmes et interagir avec des éléments du jeu.
 
-#figure(image("imgs/shana-interface.png"), caption: ["Shana a disparu" - Interface du jeu @ShanaDisparuRetrouvela])<shana-interface>
+#figure(
+  image("imgs/shana-interface.png"),
+  caption: ["Shana a disparu" - Interface du jeu @ShanaDisparuRetrouvela],
+)<shana-interface>
 
-La @shana-interface permet de voir la plateforme _Cybergame_ et la construction de l'interface pour le joueur·euse. L'utilisateur·trice peut naviguer d'un défi à l'autre grâce à la barre de navigation en haut de la page. Chaque challenge est présenté à travers une page dédiée avec une description du défi, des indices ainsi qu'un bouton afin de démarrer le challenge. Une fois le défi lancé, il peut explorer le site web, inspecter les éléments, analyser le code source, ...
+La @shana-interface permet de voir la plateforme _CyberGame_ et la construction de l'interface pour le joueur·euse. L'utilisateur·trice peut naviguer d'un défi à l'autre grâce à la barre de navigation en haut de la page. Chaque challenge est présenté à travers une page dédiée avec une description du défi, des indices ainsi qu'un bouton afin de démarrer le challenge. Une fois le défi lancé, il peut explorer le site web, inspecter les éléments, analyser le code source, ...
 Une fois le défi résolu, il devra remplir le champ `Valider l'étape !` avec la réponse correcte pour passer à l'étape suivante.
 
 Pour aider le joueur·euse, dans la pop-up de description du défi, il y a un bouton `Indice` qui permet d'afficher un indice pour l'aider à résoudre le défi. De plus, sur le site web, nous retrouvons aussi une boîte à outils.
@@ -53,4 +56,4 @@ Le succès de "Shana a disparu" a atteint ses limites, beaucoup de personnes ont
 
 La question est donc : #quote("Comment créer une nouvelle histoire immersive et prenante qui intègre plusieurs techniques d’ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ?")
 
-L'objectif de ce travail de Bachelor est de répondre à cette question en développant un nouveau scénario pour la plateforme _Cybergame_. Ce scénario doit être accessible aux débutant·e·s tout en proposant des défis plus complexes pour les utilisateur·trice·s plus expérimenté·e·s. Il doit également intégrer des éléments narratifs immersifs pour maintenir l'intérêt et la motivation des joueur·euse·s.
+L'objectif de ce travail de Bachelor est de répondre à cette question en développant un nouveau scénario pour la plateforme _CyberGame_. Ce scénario doit être accessible aux débutant·e·s tout en proposant des défis plus complexes pour les utilisateur·trice·s plus expérimenté·e·s. Il doit également intégrer des éléments narratifs immersifs pour maintenir l'intérêt et la motivation des joueur·euse·s.

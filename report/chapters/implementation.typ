@@ -191,3 +191,5 @@ Les bénéfices d'avoir des flags côté serveur sont qu'aucun secret/flag n’a
 
 Plus de Challenges
 Amélioration du bot -> problème avec les cookies -> récupère les cookies de la session du joueur et non celui du bot
+
+Enfin, en ce qui concerne les éléments d'amélioration au niveau de l'implémentation, le challenge 6, qui utilise un bot automatisé, présente également des problèmes techniques de gestion des cookies qui devront être corrigés pour garantir son bon fonctionnement.
