@@ -1,3 +1,0 @@
-== Tests unitaires <tests-unitaires>
-
-utilisation de jest pour réaliser des tests unitaires sur les différentes fonctions critiques de la plateforme. Cela inclut la validation des mécanismes d'authentification, la gestion des sessions, et la vérification des permissions d'accès aux différentes sections du site. Les tests unitaires permettent de s'assurer que chaque composant fonctionne correctement de manière isolée avant de les intégrer dans le système global.

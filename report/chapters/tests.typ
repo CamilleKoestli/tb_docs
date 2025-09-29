@@ -1,6 +1,6 @@
 = Tests <tests>
 
-#include "tests-fonctionnels.typ"
+#include "tests-unitaires.typ"
 #pagebreak()
 #include "tests-utilisateurs.typ"
 #pagebreak()
