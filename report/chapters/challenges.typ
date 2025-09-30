@@ -80,10 +80,10 @@ Chaque minute compte, l’avenir des patient·e·s est entre vos mains._"
 
 *Stratégie de complexités des challenges* <complexité-challenges>
 
-//TODO a compléter
-Il s'agit donc d'une stratégie de complexité croissante, où chaque challenge est conçu pour être accessible à un large public, tout en offrant des défis intéressants pour les utilisateur·trice·s plus expérimenté·e·s.
+La conception des consignes et des indices s’appuie sur une logique adaptée aux différents niveaux de compétence. Un·e participant·e avancé·e doit pouvoir résoudre les défis sans utiliser les indices, ou au maximum en consultant le premier. À l’inverse, les débutant·e·s peuvent recourir à l'ensemble des indices graduels, ce qui devrait leur permettre d’avancer pas à pas et de parvenir malgré tout à la résolution du challenge.
 
-Pour réaliser la consigne et les indices, la stratégie utilisée est que pour un joueur·euse de niveau avancé·e·s, il doit pouvoir le résoudre sans utiliser les indices, voire seulement le premier. Pour les participant·e·s débutant·e·s, il doit pouvoir le résoudre en utilisant les indices graduels. 
+Il s’agit d’une progression à difficulté croissante où chaque challenge est conçu pour rester accessible au plus grand nombre, tout en offrant des défis intéressants pour les utilisateur·trice·s plus expérimenté·e·s.
+
 
 #pagebreak()
 #include "challenge-1.typ"

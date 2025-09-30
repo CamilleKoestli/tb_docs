@@ -34,7 +34,7 @@
 // #lorem(100)
 // 
 
-
+//TODO à terminer
 = Contexte et enjeux
 
 Le jeu pédagogique *"Shana a disparu"*, développé par le pôle Y-Security de la HEIG-VD, a rencontré un grand succès auprès du public en proposant une initiation au ethical hacking grâce à une histoire immersive. Cependant, la majorité des participants ayant terminé ce scénario, il devient nécessaire de développer un nouveau jeu proposant des défis techniques plus avancés tout en maintenant l'accessibilité aux débutants. Ce projet vise à créer un nouveau scénario sur la plateforme _CyberGame_, *"Blackout dans le Centre Hospitalier Horizon Santé"*, qui plonge les joueur·euse·s dans une situation de crise réelle, tout en leur permettant d'acquérir des compétences pratiques en cybersécurité.
