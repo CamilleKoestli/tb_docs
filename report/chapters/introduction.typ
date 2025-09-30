@@ -25,7 +25,7 @@ Depuis plus de vingt ans, la HEIG-VD est un acteur majeur de la cybersécurité 
 Pour rendre plus accessible la pratique du hacking éthique, le pôle a donc créé une plateforme _CyberGame_ et décide de se pencher sur les serious game. L'objectif de ces serious games est de sensibiliser et former les utilisateur·trice·s aux bases de la cybersécurité, en leur permettant de découvrir les techniques d'ethical hacking grâce à une approche narrative immersive. Ces jeux sont destinés à un large public, allant des débutant·e·s aux personnes ayant déjà des connaissances en sécurité informatique.
 Il propose actuellement deux scénarios en ligne sur cette thématique @InitiationAuEthical:
 - "Shana a disparu" (2020) : une enquête qui vise à retrouver Shana et qui initie les débutant·e·s aux bases du piratage éthique.
-- "Sauve la Terre de l'arme galactique" (2021) : une mission interplanétaire qui a pour objectif se récupérer des plans d'une arme galactique.
+- "Sauve la Terre de l'arme galactique !" (2021) : une mission interplanétaire qui a pour objectif se récupérer des plans d'une arme galactique.
 
 "Shana a disparu"  nous raconte l'histoire d'une jeune femme qui a disparu et dont il faut retrouver la trace. Le joueur·euse doit résoudre des énigmes et des défis techniques pour progresser dans l'histoire et découvrir ce qui est arrivé à Shana. Le jeu est conçu pour être accessible aux débutant·e·s, tout en offrant des défis intéressants pour les joueur·euse·s plus expérimenté·e·s. L'interface se présente sous la forme d'un site web interactif, où les joueur·euse·s peuvent naviguer entre différentes pages, résoudre des énigmes et interagir avec des éléments du jeu.
 
@@ -42,17 +42,17 @@ Pour aider le joueur·euse, dans la pop-up de description du défi, il y a un bo
 
 Cette @tools-imgs permet de mettre en évidence la boîte à outils présente sur le site web. Elle aide les joueur·euse·s à trouver les outils nécessaires pour résoudre les défis. Par exemple, un outil pour inspecter le code source, un autre pour analyser les requêtes HTTP, ou comment écrire un petit script en Python.
 
-En ce qui concerne le second scénario, "Sauve la Terre de l'arme galactique", il s'agit d'une mission interplanétaire où le joueur·euse doit récupérer des plans d'une arme galactique. Il reprend les mêmes bases que le premier scénario, comme le montre la @galac-interface, avec la même interface et les mêmes mécaniques de jeu. Cependant, il est moins populaire que le premier scénario, car il ne propose pas de nouveaux défis techniques et reste dans la même idée que le premier scénario.
+En ce qui concerne le second scénario, "Sauve la Terre de l'arme galactique !", il s'agit d'une mission interplanétaire où le joueur·euse doit récupérer des plans d'une arme galactique. Il reprend les mêmes bases que le premier scénario, comme le montre la @galac-interface, avec la même interface et les mêmes mécaniques de jeu. Cependant, il est moins populaire que le premier scénario, car il ne propose pas de nouveaux défis techniques et reste dans la même idée que le premier scénario.
 #figure(
   image("imgs/galac-interface.png"),
-  caption: ["Sauve la Terre de l'arme galactique" - Interface du jeu @SauveTerreLarme],
+  caption: ["Sauve la Terre de l'arme galactique !" - Interface du jeu @SauveTerreLarme],
 )<galac-interface>
 
 Grâce à leur narration immersive et leurs défis, ces jeux, en particulier "Shana a disparu" ont rencontré un grand succès auprès du public. Cependant, la majorité des participant·e·s les ont déjà terminés.
 
 == Problématique <problématique>
 
-Le succès de "Shana a disparu" a atteint ses limites, beaucoup de personnes ont actuellement terminé ce jeu, et la plupart des joueur·euse·s maîtrisent déjà certaines bases, d'autant plus que le jeu "Sauve la Terre de l'arme galactique", reprend les mêmes bases que le premier scénario. Afin de pousser les utilisateur·trice·s à continuer à pratiquer et approfondir ces sujets, il est essentiel d'élargir et de réaliser des challenges plus complexes. De plus, le monde du travail demande des profils capables de gérer des menaces plus sophistiquées. La plateforme doit donc évoluer afin de proposer une nouvelle histoire immersive plus difficile tout en maintenant la motivation et en introduisant des nouveaux défis plus techniques de niveau intermédiaire à avancé.
+Le succès de "Shana a disparu" a atteint ses limites, beaucoup de personnes ont actuellement terminé ce jeu, et la plupart des joueur·euse·s maîtrisent déjà certaines bases, d'autant plus que le jeu "Sauve la Terre de l'arme galactique !", reprend les mêmes bases que le premier scénario. Afin de pousser les utilisateur·trice·s à continuer à pratiquer et approfondir ces sujets, il est essentiel d'élargir et de réaliser des challenges plus complexes. De plus, le monde du travail demande des profils capables de gérer des menaces plus sophistiquées. La plateforme doit donc évoluer afin de proposer une nouvelle histoire immersive plus difficile tout en maintenant la motivation et en introduisant des nouveaux défis plus techniques de niveau intermédiaire à avancé.
 
 La question est donc : #quote("Comment créer une nouvelle histoire immersive et prenante qui intègre plusieurs techniques d’ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ?")
 

@@ -7,7 +7,7 @@ La plateforme _CyberGame_ vise à rendre l’apprentissage de la cybersécurité
 Ce jeu a rencontré un grand succès auprès d’un large public.
 
 === Problématique <problématique>
-Le succès de "Shana a disparu", créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, Galac game, a été mis en place en 2021 mais a remporté un plus faible succès.
+Le succès de "Shana a disparu", créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, "Sauve la Terre de l'arme galactique !", a été mis en place en 2021 mais a remporté un plus faible succès.
 
 Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant·e à un plus haut niveau de compétences.
 
