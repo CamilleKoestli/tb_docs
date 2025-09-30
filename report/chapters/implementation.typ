@@ -120,7 +120,7 @@ Le fichier HTML charge le thème, les scripts communs, les pop-ups par challenge
 
 ==== `blackoutmain.js`
 
-Le fichier `blackoutmain.js` (annexe@blackoutmain.js) constitue le cœur du moteur du scénario Blackout 2025. Développé avec le framework Phaser, il orchestre l’affichage du niveau, le déplacement du personnage, l’interaction avec les plateformes représentant les différents challenges, ainsi que la communication avec le backend pour la validation des étapes.
+Le fichier `blackoutmain.js` (@blackoutmain.js) constitue le cœur du moteur du scénario Blackout 2025. Développé avec le framework Phaser, il orchestre l’affichage du niveau, le déplacement du personnage, l’interaction avec les plateformes représentant les différents challenges, ainsi que la communication avec le backend pour la validation des étapes.
 
 Dès l’initialisation, le script charge les éléments visuels nécessaires : le fond, les textures des plateformes, le héros, ainsi que les données décrivant la disposition des plateformes dans le fichier `level01Blackout.json`. Le héros est représenté comme un sprite animé pouvant se déplacer horizontalement et s’orienter automatiquement vers la gauche ou la droite selon la direction.
 

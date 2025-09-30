@@ -309,7 +309,7 @@ Le service `log-viewer` est basé sur l’image publique Dozzle et se connecte a
     profiles:
       - monitoring
 ```
-Le bot, implémenté sur `bot.js` (Annexe@bot.js) avec Puppeteer, a pour rôle d’ouvrir des pages, de gérer les cookies et de transmettre des requêtes HTTP vers le backend. Il expose une API permettant au joueur de créer une session, de positionner des cookies et de demander au bot d’exécuter une requête donnée. Ce mécanisme reproduit un cas concret d’attaque où un attaquant cherche à exploiter un bot ou un navigateur headless utilisé en interne pour exécuter des actions avec plus de privilèges qu’un simple utilisateur.
+Le bot, implémenté sur `bot.js` (@bot.js) avec Puppeteer, a pour rôle d’ouvrir des pages, de gérer les cookies et de transmettre des requêtes HTTP vers le backend. Il expose une API permettant au joueur de créer une session, de positionner des cookies et de demander au bot d’exécuter une requête donnée. Ce mécanisme reproduit un cas concret d’attaque où un attaquant cherche à exploiter un bot ou un navigateur headless utilisé en interne pour exécuter des actions avec plus de privilèges qu’un simple utilisateur.
 
 Côté backend, plusieurs routes sont définies et utilisées pour le déroulement du challenge. La route `POST /challenge6/validate` reçoit en entrée un corps JSON contenant un champ `adminCookie`. Elle compare cette valeur à celle attendue et renvoie une réponse si le cookie est valide ou pas. Cela permet aux joueur·euse·s de tester différentes hypothèses sans forcément passer par le bot, mais sans qu’aucune action sensible ne soit exécutée.
 

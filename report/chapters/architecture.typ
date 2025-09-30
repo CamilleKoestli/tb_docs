@@ -111,7 +111,7 @@ Si la réponse est correcte, le backend va réaliser la mise à jour de la progr
 
 === Cartographie des challenges <cartographie>
 
-La cartographie des challenges (Annexe@annex-config-json) de la plateforme est réalisée à l'aide d'un tableau JSON qui répertorie les différents challenges, les techniques ciblées et les intentions pédagogiques. Chaque ligne du tableau correspond à un challenge spécifique, avec des informations sur le dossier ou le fichier de lancement, la technique ciblée et l'intention pédagogique. Cela permet de visualiser rapidement la structure des jeux et les compétences que chaque challenge vise à développer.
+La cartographie des challenges (@annex-config-json) de la plateforme est réalisée à l'aide d'un tableau JSON qui répertorie les différents challenges, les techniques ciblées et les intentions pédagogiques. Chaque ligne du tableau correspond à un challenge spécifique, avec des informations sur le dossier ou le fichier de lancement, la technique ciblée et l'intention pédagogique. Cela permet de visualiser rapidement la structure des jeux et les compétences que chaque challenge vise à développer.
 
 Ce fichier permet d'avoir une vue d'ensemble sur les challenges, c'est-à-dire combien d'épreuves il y a, dans quel ordre et où se trouve le fichier de lancement de chacun. De plus, ce fichier permet un contrôle d'intégrité. Si la plateforme ne se charge pas, il est facile de vérifier si le lien dans le JSON pointe vers un fichier existant. Enfin, si l'équipe ajoute un nouveau challenge, il suffira d'actualiser le JSON.
 
@@ -146,7 +146,7 @@ La même logique est appliquée au scénario "Sauve la Terre de l'arme galactiqu
 
 === Backend <backend>
 
-La couche serveur repose sur une architecture composée de Node.js, MongoDB et MySQL, guidé par Docker. Les modèles Mongoose, définis dans `db.js` (Annexe@db.js), gèrent trois collections principales : `Flag`, `User` et `Visitor`. Le système d'initialisation automatique calcule un hash SHA-3 256 pour chaque flag déclaré dans les variables d'environnement `CHALL_FLAGS_2020` et `CHALL_FLAGS_2021`, puis l'insère en base s'il n'existe pas déjà. Cette approche assure une gestion persistante des comptes utilisateurs et du système de score sans exposer les réponses en clair.
+La couche serveur repose sur une architecture composée de Node.js, MongoDB et MySQL, guidé par Docker. Les modèles Mongoose, définis dans `db.js` (@db.js), gèrent trois collections principales : `Flag`, `User` et `Visitor`. Le système d'initialisation automatique calcule un hash SHA-3 256 pour chaque flag déclaré dans les variables d'environnement `CHALL_FLAGS_2020` et `CHALL_FLAGS_2021`, puis l'insère en base s'il n'existe pas déjà. Cette approche assure une gestion persistante des comptes utilisateurs et du système de score sans exposer les réponses en clair.
 
 ==== Séquence de validation d'un challenge <sequence-validation>
 
@@ -154,11 +154,11 @@ Lorsque le joueur·euse soumet une réponse, le frontend envoie une requête POS
 
 Si la validation réussit, le backend met à jour les champs `Flag` et `User.flagged` dans la base MongoDB, puis renvoie une réponse `HTTP 200` avec soit le flag, soit l'URL qui mène à la prochaine étape du challenge.
 
-Côté frontend, la réception de cette réponse positive déclenche l'affichage d'une pop-up de félicitations et déverrouille automatiquement l'accès à la page suivante, en suivant la configuration définie dans le fichier de mapping JSON (Annexe@annex-config-json) qui gère la progression entre les différents challenges.
+Côté frontend, la réception de cette réponse positive déclenche l'affichage d'une pop-up de félicitations et déverrouille automatiquement l'accès à la page suivante, en suivant la configuration définie dans le fichier de mapping JSON (@annex-config-json) qui gère la progression entre les différents challenges.
 
 === Configuration Docker Compose <docker-compose-config>
 
-Le fichier `docker-compose.yml` (Annexe@docker-compose.yml) définit l'ensemble des services nécessaires à l'application et orchestre leur déploiement. Un reverse proxy Traefik termine le TLS et route les requêtes vers trois groupes de services : l'API backend, le site frontend et la passerelle webSSH qui sert d'interface vers des machines SSH utilisées pour certains défis.
+Le fichier `docker-compose.yml` (@docker-compose.yml) définit l'ensemble des services nécessaires à l'application et orchestre leur déploiement. Un reverse proxy Traefik termine le TLS et route les requêtes vers trois groupes de services : l'API backend, le site frontend et la passerelle webSSH qui sert d'interface vers des machines SSH utilisées pour certains défis.
 
 Le service Traefik agit comme point d'entrée de la plateforme, qui écoute sur les ports `80` et `443`. Il assure la terminaison TLS et effectue un routage sur des labels Docker. L'entrypoint web redirige automatiquement le trafic HTTP vers HTTPS pour garantir la sécurité des communications. Le routage s'appuie sur trois règles principales : le frontend est servi sur la racine du domaine, le backend est accessible via le préfixe `/backend` avec un middleware StripPrefix, et le service webSSH est routé via les préfixes `/ssh` et `/static`.
 
@@ -170,7 +170,7 @@ Le service webSSH, basé sur un serveur Python wssh, fournit une interface web p
 
 L'architecture utilise deux systèmes de gestion de base de données distincts pour séparer les responsabilités et les niveaux de sécurité. \
 MongoDB stocke les données critiques de la plateforme,  les flags hachés en SHA-3 256 initialisés depuis les variables d'environnement `CHALL_FLAGS_2020` et `CHALL_FLAGS_2021`, les profils utilisateur avec les champs `uuid`, `name`, `surname`, `mail` et un tableau `flagged` pour suivre la progression, ainsi que les compteurs de visiteurs par heure. Cette base assure la persistance des données utilisateur. \
-La base MySQL, initialisée via le script `init.sql` (Annexe@init.sql), sert exclusivement aux défis d'injection SQL. Elle contient deux tables qui sont `users` avec les champs `ID` et `pass` (mots de passe volontairement stockés en clair), et `posts` pour les fonctionnalités de recherche. Cette base de données ene possède aucune protection pour servir de cible lors d'attaques. L'objectif est d'isoler cette base de données vulnérable sans risquer d'altérer les vrais enregistrements MongoDB si un étudiant·e pousse l'exploit plus loin.
+La base MySQL, initialisée via le script `init.sql` (@init.sql), sert exclusivement aux défis d'injection SQL. Elle contient deux tables qui sont `users` avec les champs `ID` et `pass` (mots de passe volontairement stockés en clair), et `posts` pour les fonctionnalités de recherche. Cette base de données ene possède aucune protection pour servir de cible lors d'attaques. L'objectif est d'isoler cette base de données vulnérable sans risquer d'altérer les vrais enregistrements MongoDB si un étudiant·e pousse l'exploit plus loin.
 
 === Routage des requêtes <routage-requetes>
 
@@ -192,7 +192,7 @@ Pour les défis qui demandent un accès terminal, l'architecture implémente un 
 
 === API Express <api-express>
 
-L'API Express (Annexe@index.js) constitue la partie serveur principale de la plateforme _CyberGame_. Elle est structurée autour de plusieurs modules fonctionnels qui gèrent les différents éléments du jeu et d'administration.
+L'API Express (@index.js) constitue la partie serveur principale de la plateforme _CyberGame_. Elle est structurée autour de plusieurs modules fonctionnels qui gèrent les différents éléments du jeu et d'administration.
 
 Le système de validation des défis repose sur deux endpoints principaux. L'endpoint `POST /:year/flag` effectue la vérification complète d'un flag soumis par un joueur en procédant au hashage de la réponse proposée avec l'algorithme SHA-3 256, puis en comparant ce hash avec les valeurs stockées dans la base MongoDB. En cas de correspondance, le système ajoute automatiquement l'identifiant `<year>_<chall>` au tableau `user.flagged`. Ainsi, le suivi de la progression du joueur est assuré. L'endpoint `POST /:year/checkFlag` vérifie la validité du flag sans modifier la progression.
 

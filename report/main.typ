@@ -86,8 +86,7 @@
 #include "chapters/journal-de-travail.typ"
 
 
-/* — Mode Annexes : niveau 1 (titre "Annexes") sans numéro,
-   niveau 2 : "Annexe‑A", "Annexe‑B", ... — */
+
 #let appendix(body) = {
   counter(heading).update(0)
 
@@ -95,10 +94,13 @@
   show heading.where(level: 1): set heading(numbering: none, supplement: none)
 
   // Niveau 2 : "Annexe A"
-  show heading.where(level: 2): set heading(
-    numbering: "A",
-    supplement: [Annexe-]   // ← pas de tiret
-  )
+  set heading(numbering: (..nums) => {
+    let vals = nums.pos()
+    if vals.len() == 2 {
+      "Annexe " + numbering("A", vals.at(1))
+    }
+  })
+  show heading.where(level: 2): set heading(supplement: [Annexe])
 
   body
 }
@@ -106,7 +108,7 @@
 #show: appendix
 
 #outline(
-  target: heading.where(level: 2, supplement: [Annexe-]),
+  target: heading.where(level: 2, supplement: [Annexe]),
   title: [Annexes]
 )
 #pagebreak()
