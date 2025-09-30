@@ -9,7 +9,7 @@ Ce jeu a rencontré un grand succès auprès d’un large public.
 === Problématique <problématique>
 Le succès de "Shana a disparu", créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, Galac game, a été mis en place en 2021 mais a remporté un plus faible succès.
 
-Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant à un plus haut niveau de compétences.
+Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant·e à un plus haut niveau de compétences.
 
 L’objectif est donc d’intégrer des défis techniquement plus avancés, tout en conservant l’approche narrative immersive qui fait l’intérêt et l’originalité du "serious game".
 
