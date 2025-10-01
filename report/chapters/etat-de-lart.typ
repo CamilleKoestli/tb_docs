@@ -1,34 +1,34 @@
 = État de l'art <etatdelart>
 
-Ce chapitre analyse les approches existantes de formation en cybersécurité — des cyber-ranges professionnels aux CTF techniques — pour identifier le positionnement unique des serious games narratifs comme _CyberGame_. Il établit le contexte académique et industriel qui justifie le développement d'un nouveau scénario accessible mais techniquement approfondi.
+Ce chapitre a pour objectif d’explorer, comprendre et poser les différentes bases concernant les divers sujets abordés dans ce travail de Bachelor. Il s’agit d'analyser les approches existantes de formation en cybersécurité pour identifier la place que pourraient avoir les serious games narratifs comme _CyberGame_. 
 
 == Enjeu des compétences en cybersécurité <compétences-cybersécurité>
 
-Le secteur fait face à une pénurie critique : 4,8 millions de professionnels manquent à l'échelle mondiale @2024ISC2Cybersecurity. Plus préoccupant encore, 64 % des experts considèrent que le déficit de compétences impacte davantage les organisations qu'un simple manque d'effectifs. Cette lacune se traduit directement en incidents : 70 % des failles graves de cybersécurité résultent d'erreurs humaines @fortinetFortinet2024Cybersecurity2024. La formation devient donc un levier stratégique, tant pour les professionnels que pour sensibiliser le grand public aux bonnes pratiques.
+Le secteur fait face à une pénurie importante, plusieurs enquêtes annuelles estiment qu'environ 4,8 millions de professionnels manquent à l'échelle mondiale @2024ISC2Cybersecurity. De plus, 64 % des experts dans le domaine considèrent que le manque de compétences impacte davantage les organisations qu'un simple manque d'effectifs. Cette lacune se traduit directement en incidents avec environ 70 % des failles graves de cybersécurité qui sont du à des erreurs humaines @fortinetFortinet2024Cybersecurity2024. La formation devient donc une stratégie à considérer, que ce soit pour les professionnels que pour sensibiliser le grand public aux bonnes pratiques.
 
-== Panorama des approches de formation <écosystèmes-existants>
+== Différentes classes de plateformes existantes <écosystèmes-existants>
 
-L'écosystème de formation en cybersécurité se structure autour de quatre grandes catégories d'outils, chacune répondant à des besoins et publics différents : les cyber-ranges pour l'entraînement professionnel avancé, les plateformes CTF (Hack The Box @HackBox1, TryHackMe @TryHackMeSimpleCTF, RootMe @RootMePlateforme) pour la pratique technique, les outils de sensibilisation en entreprise, et les serious games narratifs. Comprendre leurs forces et limites permet de positionner _CyberGame_ dans ce paysage.
+Actuellement, les différents outils de formations en cybersécurité se structure autour de quatre grandes catégories d'outils, chacune répondant à des besoins et publics différents : les cyber-ranges pour réaliser un entraînement professionnel, les plateformes CTF (Hack The Box @HackBox1, TryHackMe @TryHackMeSimpleCTF, RootMe @RootMePlateforme) pour faire de la pratique, les outils de sensibilisation en entreprise, et les serious games narratifs. Il est important de comprendre leurs forces et limites afin d'avoir un premier aperçu de l'intérêt des serious games.
 
 === Cyber-ranges académiques et industriels <cyber-ranges>
-Les cyber-ranges (@cyber-range-imgs) sont des environnements simulés utilisés par les institutions et entreprises pour l'entraînement professionnel avancé @WhatCyberRange. Ils reproduisent des infrastructures réalistes où les équipes Blue Team testent leurs défenses, identifient des vulnérabilités et pratiquent la réponse à incident dans un environnement sans risque @QuestceQuunCyber2024.
+Les cyber-ranges (@cyber-range-imgs) sont des environnements simulés utilisés par les institutions et entreprises pour l'entraînement professionnel avancé @WhatCyberRange. Ils reproduisent des infrastructures réalistes où les équipes Blue Team testent leurs défenses, identifient des vulnérabilités et protègent le système dans un environnement sans risque @QuestceQuunCyber2024.
 
 #figure(image("imgs/cyber-range.png"), caption: [Schéma d'un cyber-range @WhatCyberRange])<cyber-range-imgs>
 
-*Limite* : Ces plateformes ciblent exclusivement des professionnel·le·s expérimenté·e·s et restent inaccessibles au grand public, tant par leur complexité que par leur coût. Elles ne répondent pas à l'objectif de sensibilisation large visé par _CyberGame_.
+Les limites de ces plateformes sont qu'elles ciblent exclusivement des professionnel·le·s expérimenté·e·s et restent inaccessibles au grand public, du à leur complexité et à leur coût. Elles ne répondent pas à l'objectif de sensibilisation large visé par _CyberGame_.
 
 
 === Plateformes CTF (Capture The Flag) <plateformes-ctf>
-Les CTF proposent des défis techniques isolés — cryptographie, exploitation de vulnérabilités, forensics — organisés par catégorie (@rootme-challenge-imgs). Utilisées en compétition ou comme ressources pédagogiques, ces plateformes (Hack The Box, TryHackMe, RootMe) permettent aux participant·e·s de capturer des "flags" cachés dans des systèmes vulnérables @CTFHackingGuide.
+Les CTF proposent des défis techniques isolés organisés par catégorie (@rootme-challenge-imgs). Ils sont utilisées lors de compétitions ou comme ressources pédagogiques, ces plateformes (Hack The Box, TryHackMe, RootMe) permettent aux participant·e·s de capturer des "flags" cachés dans des systèmes vulnérables @CTFHackingGuide.
 
 #figure(image("imgs/rootme-challenge.png"), caption: [Page des challenges de RootMe @RootMePlateforme])<rootme-challenge-imgs>
 
-*Limite* : L'approche segmentée et technique exige des prérequis solides et ne favorise pas la progression narrative. L'absence de fil conducteur immersif rend ces plateformes moins adaptées à la sensibilisation d'un public débutant ou non-technique.
+Le problème de ce genre de dispositif est qu'il s'agit d'une approche très technique et segmentée, où chaque défi est indépendant et ne s'inscrit pas dans une progression narrative. De plus, les participant·e·s doivent souvent avoir une base technique solide pour aborder les défis, ce qui peut décourager les débutant·e·s.
 
 === Outils de sensibilisation en entreprise <outils-sensibilisation>
-Les formations en ligne, ateliers pratiques et simulations d'attaques (ex. SoSafe @SensibilisationCybersecuriteGestion2022) visent à sensibiliser les collaborateur·trice·s aux menaces courantes — phishing, ingénierie sociale, gestion des mots de passe.
+Les formations en ligne, ateliers pratiques et simulations d'attaques (ex. SoSafe @SensibilisationCybersecuriteGestion2022) visent à sensibiliser les collaborateur·trice·s aux menaces courantes, comme le phishing, ingénierie sociale, gestion des mots de passe, ...
 
-*Limite* : Souvent théoriques et peu immersifs, ces outils proposent un apprentissage passif. Leur accès payant et leur ciblage corporate restreignent leur portée au grand public. Ils manquent de l'engagement actif et de la dimension ludique qui caractérisent les serious games.
+Souvent théoriques et peu immersifs, ces outils proposent un apprentissage avec peu de pratique. Leur accès payant et leur ciblage corporate restreignent leur portée au grand public. Ils manquent la dimension ludique qui caractérisent les serious games.
 
 === Serious games narratifs en cybersécurité <serious-games>
 Les serious games utilisent la mécanique ludique pour enseigner des concepts complexes. Définis par _Zyda_ comme #quote("un concours intellectuel, joué sur ordinateur selon des règles spécifiques, qui utilise le divertissement pour atteindre des objectifs de formation, d'éducation, de santé, de politique publique ou de communication stratégique") @zydaVisualSimulationVirtual2005 (p.26, citation traduite), ils combinent engagement actif, narration immersive et apprentissage par l'expérimentation — permettant aux joueur·euse·s de prendre des décisions et d'observer leurs conséquences dans un environnement sécurisé.

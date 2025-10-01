@@ -5,7 +5,7 @@ Le joueur·euse a identifié le domaine frauduleux `horizonsante-support.com`. C
 Ce challenge sensibilise aux failles d’injection et montre qu’une protection insuffisante peut être contournée par des techniques simples.
 
 La consigne suivante est donnée aux joueur·euse·s :
-"_Vous avez identifié le domaine pirate hébergeant un faux portail. C’est ici que les données volées sont exfiltrées et ressemble à l'interface d'un site légitime pour éviter d'attirer trop rapidement les soupçons. Connectez-vous au portail. Un WAF basique protège la connexion, mais il est mal configuré. Une fois connecté·e, l'information *`co_<SESSION_ID>`* vous sera accessible._"
+"_Vous avez identifié le domaine pirate hébergeant un faux portail. C’est ici que les données volées sont exfiltrées et ce portail ressemble à l'interface d'un site légitime pour éviter d'attirer trop rapidement les soupçons. Connectez-vous au portail. Un WAF basique protège la connexion, mais il est mal configuré. Une fois connecté·e, l'information *`co_<SESSION_ID>`* vous sera accessible._"
 
 *Étapes pour résoudre le challenge :*
 + Utiliser une adresse e-mail valide, `support@horizonsante-support.com` , qu’il se trouve dans le challenge précédant et compléter dans le champ Email pour passer le contrôle du mail dans la base de données.

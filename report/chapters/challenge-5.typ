@@ -16,7 +16,7 @@ Pour ce faire, le participant·e reçoit le message suivant :
 *Outils nécessaires :* Pour ce challenge les outils nécessaires sont un éditeur de texte/IDE pour lire le script, un outil de décodage Base64 (comme CyberChef ou un script Python).
 
 *Indices graduels :*
-- Le premier indice rappelle que le script contient des chaînes de caractères encodées en Base64, ce qui signifie qu'il faut les décoder pour obtenir les informations cachées. "_Cherche des chaînes longues terminant par `=` ou `==`._"
+- Le premier indice rappelle que le script contient des chaînes de caractères encodées en Base64, ce qui signifie qu'il faut les décoder pour obtenir les informations cachées. "_Regarde les chaînes longues terminant par `=` ou `==`, elles devraient te faire penser à un décodage.._"
 - Le second indice suggère d'utiliser un outil de décodage Base64 pour faciliter le processus. Il est également suggéré de vérifier les commentaires du script, car ils peuvent contenir des indices sur la manière dont les chaînes sont concaténées. "_Utilise CyberChef ou un petit script Python pour le décodage en Base64._"
 - Le troisième indice indique que les chaînes sont concaténées, ce qui signifie qu'il faut les assembler pour obtenir le login et le mot de passe complets. "_Les morceaux décodés doivent être assemblés pour obtenir des informations intéressantes. Attention aux leurres._"
 

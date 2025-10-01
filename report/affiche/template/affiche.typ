@@ -55,9 +55,9 @@
 
   set par(spacing: 2em)
   block(
-    height: 55%, 
+    height: 60%,
     columns(
-      2, 
+      2,
       content
     )
   )
