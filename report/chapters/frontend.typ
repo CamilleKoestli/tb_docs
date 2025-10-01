@@ -24,7 +24,7 @@ Le challenge 5 garde l’IDE Python embarqué, mais cette fois pour pousser le j
 
 === Challenge 6
 
-Le challenge 6 propose une interface avec un chatbot interactif. Il permet au joueur·euse de tester différentes commandes, comme `help`, mais contient aussi des vulnérabilités de sécurité qu'il va devoir exploiter. L’idée était de rendre l’expérience plus ludique et interactive, tout en introduisant des notions liées aux failles XSS et à la compromission de sessions. Le chatbot devient donc à la fois un outil d’aide et une cible d’attaque. #figure(image("imgs/chall6.png", width: 80%), caption: [Interface du chatbot, challenge 6])<chall6>
+Le challenge 6 propose une interface avec un chatbot interactif. Il permet au joueur·euse de tester différentes commandes, comme `help`, mais contient aussi des vulnérabilités de sécurité qu'il va devoir exploiter. L’idée était de rendre l’expérience plus ludique et interactive, tout en introduisant des notions liées aux failles XSS et à la compromission de sessions. Le chatbot devient donc à la fois un outil d’aide et une cible d’attaque. #figure(image("imgs/chall6'.png", width: 80%), caption: [Interface du chatbot, challenge 6])<chall6>
 
 === Challenge 7
 
