@@ -5,7 +5,7 @@ Dans l'archive déchiffrée (`patient_audit_07-12.zip`) se trouve `monitor_check
 Ce challenge permet de sensibiliser à l'importance de la sécurité des scripts et de la nécessité de vérifier les scripts avant de les exécuter. Il montre également comment les attaquants peuvent laisser des traces compromettantes dans leurs propres outils.
 
 Pour ce faire, le participant·e reçoit le message suivant :
-"_L'archive est maintenant déverrouillée et vous constatez qu'effectivement elle contient bien toutes les informations sensibles concernant les patients. Il faut les supprimer rapidement. Cependant, vous ne disposez que de droits visiteur et ne pouvez pas accéder au bouton de suppression. En explorant l'archive déverrouillée, vous trouvez un script Python suspect (`monitor_check_wip.py`). En analysant ce script, vous découvrez que les pirates y ont laissé des commentaires sur leur propre système de surveillance. Ces informations révèlent l'existence d'*une route* vers une page vulnérable que vous pourrez exploiter pour obtenir les droits administrateur._"
+"_L'archive est maintenant déverrouillée et vous constatez qu'effectivement elle contient bien toutes les informations sensibles concernant les patients. Il faut les supprimer rapidement. Cependant, vous ne disposez que de droits visiteur et ne pouvez pas accéder au bouton de suppression. En explorant l'archive déverrouillée, vous trouvez un script Python suspect (`monitor_check_wip.py`). En analysant ce script, vous découvrez que les pirates y ont laissé des commentaires sur leur propre système de surveillance. Ces commentaires révèlent l'existence d'*une route* vers une page potentiellement vulnérable que vous pourrez exploiter pour obtenir les droits administrateur._"
 
 *Étapes pour résoudre le challenge :*
 + Ouvrir le fichier `monitor_check_wip.py` dans l'IDE.
@@ -25,7 +25,7 @@ Pour ce faire, le participant·e reçoit le message suivant :
 
 Une fois cette page découverte, le joueur·euse pourra s'y rendre pour exploiter la vulnérabilité du bot de monitoring des attaquants et escalader ses privilèges vers les droits administrateur.
 
-=== Tools
+=== Techniques et outils
 Pour analyser les données encodées dans le script, j'ai ajouté un outil expliquant le Base64 et son fonctionnement. J'y explique d'abord ce qu'est le Base64, pourquoi il est utilisé, pour encoder des données binaires en texte lisible, et comment il fonctionne. J'ai inclus des exemples concrets de chaînes encodées et décodées pour illustrer le processus. Un autre point important est d'expliquer comment identifier une chaîne encodée en Base64, en soulignant les caractéristiques typiques comme la présence de caractères spécifiques et les terminaisons par `=` ou `==`.
 
 J'ai ensuite expliqué les différences entre les routes, les liens, les URLs et les endpoints. En effet, pour ce challenge le joueur·euse doit comprendre la différence entre ces notions pour reconstituer correctement l'URL de la page vulnérable. J'ai donné des exemples faciles pour chaque concept, comme un lien HTML dans un navigateur, une route côté serveur (par exemple avec Express/Node), une route côté front (comme dans une SPA avec React Router), et un endpoint d'API en précisant la méthode HTTP utilisée. J'ai aussi abordé les notions de chemins absolus vs relatifs, ainsi que les paramètres et les queries dans les URLs.

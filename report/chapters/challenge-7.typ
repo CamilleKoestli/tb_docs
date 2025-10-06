@@ -5,7 +5,7 @@ Maintenant que les fichiers sont supprimés du côté des attaquants, le joueur�
 Ce challenge montre l'importance de la surveillance des logs et de la gestion des adresses IP suspectes pour prévenir les attaques.
 
 Le message suivant s'affiche :
-"_Le bot des pirates a été piégé et les fichiers sensibles ont été supprimés. Cependant un attaquant continue de tenter d’exfiltrer des données via le VPN. Il faut l’identifier et le bloquer immédiatement en l'ajoutant dans le pare-feu. Une fois dans la liste noire du pare-feu, *un message* devrait vous le confirmer._"
+"_Le bot des pirates a été piégé et les fichiers sensibles ont été supprimés. Cependant un attaquant continue de tenter d’exfiltrer des données. Il faut l’identifier et le bloquer immédiatement en l'ajoutant dans le pare-feu de l'hôpital. Une fois dans la liste noire du pare-feu, *un message* devrait vous le confirmer._"
 
 *Étapes pour résoudre le challenge :*
 + Depuis le portail IT interne `https://intra.horizonsante.com/it/`	, aller dans le menu de gauche "Outils SOC".
@@ -25,6 +25,6 @@ Le message suivant s'affiche :
 
 *Flag attendu :* Le flag attendu est le message `blk_185-225-123-77_ok` qui confirme que l’adresse IP de l’attaquant a été bloquée avec succès. Cela permet de sécuriser le réseau et d'empêcher toute nouvelle tentative d'exfiltration de données.
 
-=== Tools
+=== Techniques et outils
 
 Pour ce dernier challenge, j'ai ajouté un outil expliquant les logs et leur importance dans la sécurité informatique. J'y explique ce qu'est un log et la structure typique d'un fichier de log, avec des exemples concrets. J'ai aussi inclus une section sur les bonnes pratiques pour analyser les logs, comme la recherche de motifs inhabituels ou d'adresses IP suspectes.

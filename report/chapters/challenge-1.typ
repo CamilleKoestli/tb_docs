@@ -24,7 +24,7 @@ Voici le message que va recevoir le joueur·euse pour introduire le challenge :
 
 Une fois le sous-domaine identifié, le joueur·euse pourra passer au défi suivant qui sera la cible pour le challenge 2.
 
-=== Tools
+=== Techniques et outils
 
 Afin de rendre l’expérience plus pédagogique et d’éviter que les joueur·euse·s soient bloqué·e·s à cause du manque de connaissances, j’ai intégré plusieurs tools explicatifs directement dans le jeu. Ces outils ne donnent pas la solution des challenges, mais apportent les bases nécessaires pour comprendre et progresser.
 

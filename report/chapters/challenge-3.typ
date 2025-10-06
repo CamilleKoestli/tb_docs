@@ -5,7 +5,7 @@ Sur le portail, un onglet "Gestion des fichiers" mène à `?dir=/shared/`. À ca
 Ce challenge permet de montrer au joueur·euse l'importance de la validation des paramètres d'URL et du contrôle d'accès aux ressources sensibles. Il sensibilise aux vulnérabilités de type Directory Traversal qui permettent à un attaquant de contourner les restrictions d'accès aux fichiers en manipulant les paramètres de chemin, sans réaliser d'escalade de privilèges.
 
 Le joueur·euse reçoit le message suivant pour introduire le challenge :
-"_Vous avez réussi à pénétrer dans le portail des attaquants. En explorant le site, vous découvrez une section de gestion des fichiers. Vous constatez que l'accès semble restreint et ne montre qu'une partie du système de fichiers. Il pourrait y avoir des failles de sécurité à exploiter pour accéder à davantage de données sensibles. Explorez le système pour trouver *l'archive zip* contenant des informations sur les patients les plus récentes._"
+"_Vous avez réussi vous introduire dans le portail des attaquants. En explorant le site, vous découvrez une section de gestion des fichiers. Vous constatez que l'accès semble restreint et ne montre qu'une partie du système de fichiers. Il pourrait y avoir des failles de sécurité à exploiter pour accéder à davantage de données sensibles. Explorez le système pour trouver *l'archive zip* contenant des informations sur les patients les plus récentes._"
 
 *Étapes pour résoudre le challenge :*
 + Depuis le portail frauduleux, cliquer sur l'onglet "Gestion des fichiers". L'URL contient `?dir=/shared/` et ne montre qu'un dossier limité
@@ -24,7 +24,7 @@ Le joueur·euse reçoit le message suivant pour introduire le challenge :
 
 Ce zip fera l'objet du prochain challenge.
 
-=== Tools
+=== Techniques et outils
 Pour le challenge 3, un outil qui explique ce qu’est l’architecture des dossiers en informatique a été créé. L’idée était de donner aux joueur·euse·s une vision claire de la manière dont les fichiers et dossiers sont organisés, afin qu’ils puissent comprendre la logique de navigation dans un système de fichiers.
 
 J’y explique d’abord la hiérarchie classique selon les différents systèmes d'exploitation avec un dossier racine qui contient d’autres dossiers et fichiers, et la possibilité d’avoir des sous-dossiers imbriqués.

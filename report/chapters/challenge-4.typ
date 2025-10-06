@@ -3,11 +3,11 @@
 === Description
 Le joueur·euse a maintenant accès à l'archive `patient_audit_07-12.zip` mais le problème est qu'il est verrouillé. Le joueur·euse doit trouver le mot de passe pour déverrouiller ce zip. En inspectant les métadonnées du ZIP, le joueur·euse découvre un commentaire contenant seulement une empreinte SHA-1 : `f7fde1c3f044a2c3002e63e1b6c3f432b43936d0`.\
 Première solution: utiliser un site comme CrackStation pour trouver le mot de passe correspondant à cette empreinte SHA-1.\
-Deuxième solution : Les experts Blue Team ont remarqué que les pirates utilisent toujours un mot de passe de la forme : `horizon<nombre>` où `<nombre>` varie de 0 à 99 (par exemple horizon1).\
+Deuxième solution : réussir à faire un code python qui va hasher toutes les variations de horizon<nombre> pour trouver celle qui correspond à l'empreinte SHA-1.\
 Ce challenge montre l'importance de la cryptographie et de la gestion des mots de passe, ainsi que la nécessité de vérifier les métadonnées des fichiers.
 
 Le participant·e obtient le message suivant pour débuter le challenge :
-"_Vous avez réussi à accéder à l'archive `patient_audit_07-12.zip`. En l'analysant, vous remarquez qu'elle contient des fichiers de sauvegarde, qui pourraient être utiles pour votre enquête. Cependant, le dossier est protégé par un mot de passe. Essayez d'analyser le fichier pour découvrir des informations pour trouver le mot de passe qui vous permettra de l'extraire. Les experts Blue Team ont remarqué que la structure des mots de passe des pirates suit un schéma particulier : `*horizon<nombre>*`._"
+"_Vous avez réussi à accéder à l'archive `patient_audit_07-12.zip`. En l'analysant, vous remarquez qu'elle contient des fichiers de sauvegarde, qui pourraient être utiles pour votre enquête. Cependant, le dossier est protégé par un mot de passe. Essayez d'analyser le fichier pour découvrir des informations pour trouver le mot de passe qui vous permettra de l'extraire. On cherche un mot de passe commençant par `horizon<nombre>`._"
 
 *Étapes pour résoudre le challenge :*
 + Lister les métadonnées du zip avec `zipinfo -z patient_audit_07-12.zip` ou sur Windows en utilisant l'explorateur de fichiers.
@@ -26,7 +26,7 @@ Le participant·e obtient le message suivant pour débuter le challenge :
 
 Ce mot de passe permet de déverrouiller le zip et d'accéder au contenu du fichier `monitor_check_wip.py`.
 
-===  Tools
+===  Techniques et outils
 Dans un premier temps, il est important de comprendre le fonctionnement et l'utilisation de zipinfo, afin d'obtenir des informations détaillées sur le contenu d’une archive ZIP. J’ai détaillé son utilisation pour permettre aux joueur·euse·s d'analyser une archive pour identifier des éléments dissimulés. Certaines options sont nécessaires afin de trouver  des métadonnées cachées comme les commentaires.
 
 Le second outil présente la notion de hash et son fonctionnement. J'explique comment les hash sont générés et utilisés pour la sécurité des mots de passe. J’ai mis un exemple concret en Python pour montrer comment générer différents types de hash (MD5, SHA-1, SHA-256). Cet outil est utile car, dans le challenge, les joueur·euse·s font face à un mot de passe protégé par un hash. Il est donc important de comprendre ce concept pour leur permettre de savoir comment l’aborder, soit en le comparant à une base de données de hash connus, soit en essayant de casser le hash à l'aide d'un script.

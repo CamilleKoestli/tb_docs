@@ -24,7 +24,7 @@ La consigne suivante est donnée aux joueur·euse·s :
 
 Le joueur·euse peut maintenant accéder au site des attaquants.
 
-=== Tools
+=== Techniques et outils
 Pour ce challenge, une base déjà présente de ce qu'est une injection SQL était déjà présente sur la plateforme. Je l'ai donc enrichie pour l'adapter au niveau de difficulté du challenge.
 
 J’y explique d’abord ce qu’est une injection SQL et comment elle permet de manipuler une requête mal protégée afin d’accéder à des informations sensibles. Ensuite, je montre un exemple concret d’injection (' OR 1=1 --) qui illustre comment un attaquant peut rendre une condition toujours vraie et ainsi contourner l’authentification, afin de permettre au joueur·euse de mieux comprendre la vulnérabilité et le fonctionnement de cette technique.
