@@ -226,3 +226,29 @@ La gestion des variables sensibles s'appuie sur un système d'injection sécuris
 
 L'utilisation de Traefik avec la fonctionnalité StripPrefix simplifie le code Express et gère automatiquement les préfixes d'URL publics. Cela réduit les risques d'erreurs de routage et améliore la maintenabilité du code backend.
 
+Cependant, en examinant plus en détail la plateforme, une vulnérabilité de sécurité a été identifiée. En effet, il est possible d'accéder directement aux différents challenges sans avoir complété les précédents, en utilisant l'URL directe. Par exemple, en accédant à `https://shana.heig-vd.ch/challenges/05_admin_cookie/index.htmll`, le joueur·euse peut directement accéder au challenge de modification des cookies sans avoir validé les étapes précédentes, comme le montre les figures @bug1 et @bug2. Le joueur·euse peut ainsi résoudre un challenge via l'URL directe sans passer par l'interface du jeu.
+
+
+#figure(
+  image("imgs/bug-secu1.png"),
+  caption: [Identification de tous les liens pour les différents challenges],
+)<bug1>
+
+#figure(
+  image("imgs/bug-secu2.png"),
+  caption: [Accès à un challenge sans avoir complété les précédents via l'URL directe],
+)<bug2>
+
+De plus, il est possible d'accéder à toutes les popups des challenges avec les indices
+
+#figure(
+  image("imgs/bug-secu3.png"),
+  caption: [Accès à toutes les popups des challenges avec les indices],
+)<bug3>
+
+Enfin, il est possible de valider un challenge via une modification de requête POST, comme le montre la @bug4. Le joueur·euse peut ainsi envoyer une requête POST vers l'API backend avec le `chall` et la `flag` pour valider un challenge sans passer par l'interface du jeu.
+
+#figure(
+  image("imgs/bug-secu4.png"),
+  caption: [Résolution du challenge via une requête POST sans passer par l'interface du jeu],
+)<bug4>
