@@ -43,7 +43,7 @@ De plus, grâce à un mini IDE Python et un terminal intégré, comme le montre 
 === Axes d'amélioration
 Cependant, quelques points mériteraient des améliorations. D’abord, la police d'écriture utilisée, elle permet de créer une certaine ambiance mais elle est peu lisible, ce qui peut gêner la compréhension et la lecture des consignes.
 
-Un autre élément d'amélioration aurait été de réaliser un changement de curseur sur les éléments cliquables (par exemple, en utilisant `cursor: pointer` en CSS) pour permettre au joueur·euse d’identifier les zones interactives. Actuellement, certains éléments interactifs ne sont pas mis en valeur, ce qui peut rendre la navigation moins intuitive.
+Un autre élément d'amélioration serait de réaliser un changement de curseur sur les éléments cliquables (par exemple, en utilisant `cursor: pointer` en CSS) pour permettre au joueur·euse d’identifier les zones interactives. Actuellement, certains éléments interactifs ne sont pas mis en valeur, ce qui peut rendre la navigation moins intuitive.
 
 La gestion de la fenêtre du jeu pourrait être optimisée, par exemple après la fermeture d’une pop-up, le joueur·euse se retrouve parfois avec un fond noir sans indication, ce qui peut désorienter. Il serait utile d’ajouter des repères visuels ou des messages d’aide pour guider l’utilisateur·trice dans la progression, et de mieux intégrer la boîte à outils dès la page d’accueil pour que chacun·e sache où trouver les ressources.
 
@@ -73,7 +73,7 @@ Enfin, les indices actuels fournissent, dans un premier temps, un bon point de d
 
 === Vue d'ensemble de l'infrastructure <vue-ensemble>
 
-La plateforme _CyberGame_ est hébergée sur un serveur web accessible via le nom de domaine `heig-vd.ch` avec le sous-domaine `shana`. L'architecture repose sur une infrastructure conteneurisée réalisé à l'aide de Docker Compose, ce qui permet une séparation claire des responsabilités entre les différents composants du système.
+La plateforme _CyberGame_ est hébergée sur un serveur web accessible via le nom de domaine `heig-vd.ch` avec le sous-domaine `cybergame`. L'architecture repose sur une infrastructure conteneurisée réalisé à l'aide de Docker Compose, ce qui permet une séparation claire des responsabilités entre les différents composants du système.
 
 #figure(
   image("schemas/docker_compose.png"),
@@ -246,7 +246,7 @@ De plus, il est possible d'accéder à toutes les popups des challenges avec les
   caption: [Accès à toutes les popups des challenges avec les indices],
 )<bug3>
 
-Enfin, il est possible de valider un challenge via une modification de requête POST, comme le montre la @bug4. Le joueur·euse peut ainsi envoyer une requête POST vers l'API backend avec le `chall` et la `flag` pour valider un challenge sans passer par l'interface du jeu.
+Enfin, il est possible de valider un challenge via une modification de requête POST, comme le montre la @bug4. Le joueur·euse peut ainsi envoyer une requête POST vers l'API backend avec le `chall` et la `flag` pour valider un challenge sans passer par l'interface du jeu et sans avoir complété les étapes précédentes.
 
 #figure(
   image("imgs/bug-secu4.png"),

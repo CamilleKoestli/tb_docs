@@ -6,34 +6,23 @@ La plateforme _CyberGame_ vise à rendre l’apprentissage de la cybersécurité
 
 Ce jeu a rencontré un grand succès auprès d’un large public.
 
-=== Problématique <problématique>
+== Problématique <problématique>
 Le succès de "Shana a disparu", créé en 2020, a conduit de nombreuses personnes à le terminer entièrement. Un second scénario, "Sauve la Terre de l'arme galactique !", a été mis en place en 2021 mais a remporté un plus faible succès.
 
-Le public étant de plus en plus curieux et averti sur ce sujet, il devient nécessaire de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant·e à un plus haut niveau de compétences.
+Le public étant de plus en plus curieux et averti sur ce sujet, il devient pertinent de développer un nouveau scénario afin de répondre à la demande notamment en proposant une histoire qui techniquement amène le participant·e à un plus haut niveau de compétences.
 
 L’objectif est donc d’intégrer des défis techniquement plus avancés, tout en conservant l’approche narrative immersive qui fait l’intérêt et l’originalité du "serious game".
 
-Cette nouvelle histoire s’adressera donc à des participant·e·s ayant résolu le premier niveau scénario (Shana) ou ayant quelques connaissances de base en sécurité informatique.
+Cette nouvelle histoire s’adressera donc à des participant·e·s ayant résolu le premier scénario (Shana) ou ayant quelques connaissances de base en sécurité informatique.
 
-=== Solutions existantes <solutions-existantes>
-Il existe aussi d'autres solutions similaires dans le domaine de l'ethical hacking, mais plutôt sous la forme de Capture The Flag (CTF) comme "Root Me", "Hack the Box", "TryHackMe", ...; des cyber-ranges qui sont plutôt destinés à des expert·e·s en cybersécurité ; ou encore des formations en ligne comme "SoSafe" qui proposent des cours et des exercices pratiques sur la cybersécurité sans forcément intégrer d'histoire narrative et immersive.
 
-Ces solutions montrent une augmentation de l'intérêt général pour la cybersécurité. Elles utilisent des approches ludiques mais peu combinent une narration et une progression techniques comme le fait "Shana a disparu".
-
-=== Approches possibles <solutions-possibles>
-Pour proposer une nouvelle expérience qui s'adresse à tout le monde tout en permettant de sensibiliser mais aussi de rester ludique, plusieurs options peuvent être envisagées :
-- La première option serait de développer une extension directe du scénario existant avec de nouveaux challenges plus techniques.
-- Alors que la deuxième serait de créer un nouveau jeu totalement indépendant avec un nouveau scénario, tout en restant dans la même idée que le jeu précédent.
-
-L'option choisie est de créer un nouveau scénario qui s'adresse à tout le monde. Ce scénario doit être accessible aux débutant·e·s tout en proposant des défis plus complexes pour les utilisateur·trice·s plus expérimenté·e·s. Il doit également intégrer des éléments narratifs immersifs pour maintenir l'intérêt et la motivation des joueur·euse·s.
-
-=== Objectifs <objectifs>
-Le cahier des charges va permettre d’encadrer la conception d’un scénario immersif dans le domaine de la cybersécurité. L’objectif sera de produire une nouvelle expérience ludique tout en intégrant une approche de sensibilisation.
+== Objectifs <objectifs>
+L’objectif de ce travail est de produire une nouvelle expérience ludique tout en intégrant une approche de sensibilisation.
 
 - Concevoir un nouveau scénario :
   - Créer une histoire captivante, qui peut être une suite de Shana ou une intrigue totalement nouvelle.
   - Proposer des niveaux plus complexes que les scénarios existants.
-  - Inclure 5 à 10 challenges de difficultés progressives.
+  - Inclure 5 à 10 challenges de difficulté progressive.
   - Imaginer les épreuves en réfléchissant au côté sensibilisation et notamment aux messages que le participant·e en tirera.
   - Introduire les nouveaux concepts techniques et pédagogiques correspondants.
 - Thématiques techniques :
@@ -47,7 +36,7 @@ Le cahier des charges va permettre d’encadrer la conception d’un scénario i
   - Garantir la sécurité de l’infrastructure et du contenu.
 - Réaliser des tests utilisateur·trice·s et appliquer les correctifs nécessaires pour assurer une expérience optimale.
 
-=== Livrables <livrables>
+== Livrables <livrables>
 Les livrables seront les suivants :
 - Plateforme _CyberGame_ mise à jour, incluant l’ensemble du nouveau scénario opérationnel.
 - Un rapport complet, comprenant :
@@ -58,7 +47,7 @@ Les livrables seront les suivants :
   - Les tests fonctionnels réalisés.
   - Les tests utilisateur·trice·s réalisés : méthodologie, résultats, retours collectés, et correctifs appliqués.
 
-=== Planification <planification>
+== Planification <planification>
 Le travail se déroule entre le 7 juillet et le 10 octobre 2025, pour un total de 450h :
 - Du 7 juillet au 15 septembre : travail à temps plein (~45h/semaine).
 - Du 16 septembre au 10 octobre : travail à temps partiel (~12–13h/semaine).

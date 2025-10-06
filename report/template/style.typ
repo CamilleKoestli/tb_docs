@@ -42,11 +42,11 @@
     header: context{
       if not isfirsttwopages(page){
         if isevenpage(page){
-          columns(2, [
-            #align(left)[#smallcaps([#currentH()])]
-            #colbreak()
-            #align(right)[#confidentialText]
-          ])
+          grid(
+            columns: (3fr, 1fr),
+            align(left)[#smallcaps([#currentH()])],
+            align(right)[#confidentialText]
+          )
         } else {
           columns(2, [
             #align(left)[#confidentialText]

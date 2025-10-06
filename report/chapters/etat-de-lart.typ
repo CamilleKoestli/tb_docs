@@ -1,14 +1,16 @@
 = État de l'art <etatdelart>
 
-Ce chapitre a pour objectif d’explorer, comprendre et poser les différentes bases concernant les divers sujets abordés dans ce travail de Bachelor. Il s’agit d'analyser les approches existantes de formation en cybersécurité pour identifier la place que pourraient avoir les serious games narratifs comme _CyberGame_. 
-
-== Enjeu des compétences en cybersécurité <compétences-cybersécurité>
-
-Le secteur fait face à une pénurie importante, plusieurs enquêtes annuelles estiment qu'environ 4,8 millions de professionnels manquent à l'échelle mondiale @2024ISC2Cybersecurity. De plus, 64 % des experts dans le domaine considèrent que le manque de compétences impacte davantage les organisations qu'un simple manque d'effectifs. Cette lacune se traduit directement en incidents avec environ 70 % des failles graves de cybersécurité qui sont du à des erreurs humaines @fortinetFortinet2024Cybersecurity2024. La formation devient donc une stratégie à considérer, que ce soit pour les professionnels que pour sensibiliser le grand public aux bonnes pratiques.
+Ce chapitre a pour objectif d'analyser les approches existantes de formation en cybersécurité pour identifier la place que pourraient avoir les serious games narratifs comme _CyberGame_. 
 
 == Différentes classes de plateformes existantes <écosystèmes-existants>
 
-Actuellement, les différents outils de formations en cybersécurité se structure autour de quatre grandes catégories d'outils, chacune répondant à des besoins et publics différents : les cyber-ranges pour réaliser un entraînement professionnel, les plateformes CTF (Hack The Box @HackBox1, TryHackMe @TryHackMeSimpleCTF, RootMe @RootMePlateforme) pour faire de la pratique, les outils de sensibilisation en entreprise, et les serious games narratifs. Il est important de comprendre leurs forces et limites afin d'avoir un premier aperçu de l'intérêt des serious games.
+Actuellement, les différents outils de formations en cybersécurité se structurent autour de différentes catégories d'outils, chacune répondant à des besoins et publics différents : 
+- Les cyber-ranges pour réaliser un entraînement professionnel.
+- Les plateformes CTF (Hack The Box @HackBox1, TryHackMe @TryHackMeSimpleCTF, RootMe @RootMePlateforme) pour faire de la pratique.
+- Les outils de sensibilisation en entreprise.
+- Les cours, formations avec des exercices pratiques ou des laboratoires.
+- Les serious games narratifs pour sensibiliser et former à la cybersécurité.
+Il est important de comprendre leurs forces et limites afin d'avoir un premier aperçu de l'intérêt des serious games.
 
 === Cyber-ranges académiques et industriels <cyber-ranges>
 Les cyber-ranges (@cyber-range-imgs) sont des environnements simulés utilisés par les institutions et entreprises pour l'entraînement professionnel avancé @WhatCyberRange. Ils reproduisent des infrastructures réalistes où les équipes Blue Team testent leurs défenses, identifient des vulnérabilités et protègent le système dans un environnement sans risque @QuestceQuunCyber2024.
@@ -33,6 +35,7 @@ Souvent théoriques et peu immersifs, ces outils proposent un apprentissage avec
 === Serious games narratifs en cybersécurité <serious-games>
 Les serious games utilisent la mécanique ludique pour enseigner des concepts complexes. Définis par _Zyda_ comme #quote("un concours intellectuel, joué sur ordinateur selon des règles spécifiques, qui utilise le divertissement pour atteindre des objectifs de formation, d'éducation, de santé, de politique publique ou de communication stratégique") @zydaVisualSimulationVirtual2005 (p.26, citation traduite), ils combinent engagement actif, narration immersive et apprentissage par l'expérimentation — permettant aux joueur·euse·s de prendre des décisions et d'observer leurs conséquences dans un environnement sécurisé.
 
-Bien qu'efficaces pour la sensibilisation, la majorité des serious games en cybersécurité ciblent des utilisateur·trice·s avancé·e·s et privilégient les aspects techniques (piratage, architectures réseau) au détriment des dimensions humaines @ngCybersecuritySeriousGames2025. De plus, la plupart sont anglophones et payants (UrbanGaming @SeriousGameSecurite, Shirudo @ShirudoSeriousGame, Cyber Wargame @CyberWargameSerious), limitant leur accessibilité au grand public francophone.
+Bien qu'efficaces pour la sensibilisation, la majorité des serious games en cybersécurité ciblent des utilisateur·trice·s avancé·e·s et privilégient les aspects techniques (piratage, architectures réseau) au détriment des dimensions humaines @ngCybersecuritySeriousGames2025. De plus, la plupart sont anglophones et payants (UrbanGaming @SeriousGameSecurite, Shirudo @ShirudoSeriousGame, Cyber Wargame @CyberWargameSerious), ce qui limite leur accessibilité au grand public.
 
-La plateforme Y-Security se distingue en proposant des scénarios gratuits, en français, combinant accessibilité pour les débutant·e·s et progression technique. Le défi est désormais d'élargir l'offre avec un nouveau scénario plus avancé, tout en préservant la narration immersive qui a fait le succès de "Shana a disparu".
+== Plateforme _CyberGame_ <place-cybergame>
+La plateforme _Cybergame_ proposé par le groupe Y-Security se distingue en proposant des scénarios gratuits, en français, combinant accessibilité pour les débutant·e·s et progression technique. Le défi est désormais d'élargir l'offre avec un nouveau scénario plus avancé, tout en préservant la narration immersive qui a fait le succès de "Shana a disparu".

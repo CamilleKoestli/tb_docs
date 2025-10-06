@@ -5,7 +5,7 @@ Ce premier défi montre au joueur·euse un l’e-mail de phishing qui serait l�
 Ce challenge a pour objectif de sensibiliser aux signes d’un courriel d’hameçonnage.
 
 Voici le message que va recevoir le joueur·euse pour introduire le challenge :
-"_Un courriel suspect a été trouvé dans la boîte de réception d’un employé. Les équipes techniques de cybersécurité pensent qu’il pourrait s’agir du point d’entrée des attaquants. Vous devez l’analyser pour remonter jusqu’à son véritable expéditeur. Retrouvez *le domaine malveillant* créé par les attaquants._"
+"_Un courriel suspect a été trouvé dans la boîte de réception d’un employé. Les équipes techniques de cybersécurité pensent qu’il pourrait s’agir du point d’entrée des attaquants. Vous devez l’analyser pour remonter jusqu’à son véritable expéditeur. Retrouvez *le domaine malveillant* utilisé par les attaquants._"
 
 *Étapes pour résoudre le challenge :*
 + Ouvrir le fichier `planning_salle_op.eml` dans l’IDE.

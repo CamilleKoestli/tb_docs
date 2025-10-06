@@ -11,8 +11,8 @@
 #let TBacademicYears = "2025-26"
 
 #let TBdpt = "Département des Technologies de l'information et de la communication (TIC)"
-#let TBfiliere = "Informatique et systèmes de communication"
-#let TBorient = "Sécurité informatique"
+#let TBfiliere = "Filière Informatique et systèmes de communication"
+#let TBorient = "Orientation Sécurité informatique"
 
 #let TBauthor = studentFirstname + " " + studentLastname
 #let TBsupervisor = "Sylvain Pasini"

@@ -1,6 +1,9 @@
 = Planification <planification>
+
+Cette partie décrit la planification du projet avec la décomposition des tâches, les étapes clés et le calendrier prévu pour la réalisation du travail.
+
 // == Planification initiale <planification-initiale>
-== Décomposition des tâches <décomposition-tâches>
+//== Décomposition des tâches <décomposition-tâches>
 + Analyse du scénario existant : _07.07.2025 – 09.07.2025_
   - Étudier les mécaniques de jeu et les défis utilisés dans "Shana a disparu".
   - Identifier les technologies utilisées et les types de challenges (web, forensic, …).
