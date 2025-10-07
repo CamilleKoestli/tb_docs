@@ -191,11 +191,9 @@ Webssh fournit un terminal web via `/ssh`. Trois conteneurs cibles SSH sont disp
 
 == Analyse de la sécurité <analyse-sécurité>
 
-L'architecture de sécurité de la plateforme _CyberGame_ repose, dans un premier temps, sur la séparation entre deux systèmes de gestion de base de données distincts. MongoDB assure la gestion fiable de l'état du jeu, avec les profils utilisateurs, la progression et les données critiques du système, tandis que MySQL est uniquement utilisé pour les exercices d'injection SQL, créant ainsi une surface de vulnérabilité contrôlée et isolée.
+L'architecture de sécurité de la plateforme _CyberGame_ repose, dans un premier temps, sur la séparation entre deux systèmes de gestion de base de données distincts, créant ainsi une surface de vulnérabilité contrôlée et isolée.
 
-La gestion des variables sensibles s'appuie sur un système d'injection sécurisé via les fichiers d'environnement. Les flags de validation des challenges sont stockés sous forme de hash SHA3-256 dans MongoDB, garantissant qu'aucune réponse n'est exposée en clair dans le système. Cette approche conserve l'aspect pédagogique des exercices tout en permettant de garder un niveau de sécurité pour les données persistantes.
-
-L'utilisation de Traefik avec la fonctionnalité StripPrefix simplifie le code Express et gère automatiquement les préfixes d'URL publics. Cela réduit les risques d'erreurs de routage et améliore la maintenabilité du code backend.
+La gestion des variables sensibles s'appuie sur un système d'injection sécurisé via les fichiers d'environnement. Les flags de validation des challenges sont stockés sous forme de hash SHA3-256 dans MongoDB, garantissant qu'aucune réponse n'est exposée en clair. Cette approche conserve l'aspect pédagogique des exercices tout en permettant de garder un niveau de sécurité pour les données persistantes.
 
 Cependant, en examinant plus en détail la plateforme, une vulnérabilité de sécurité a été identifiée. En effet, il est possible d'accéder directement aux différents challenges sans avoir complété les précédents, en utilisant l'URL directe. Par exemple, en accédant à `https://shana.heig-vd.ch/challenges/05_admin_cookie/index.htmll`, le joueur·euse peut directement accéder au challenge de modification des cookies sans avoir validé les étapes précédentes, comme le montre les figures @bug1 et @bug2. Le joueur·euse peut ainsi résoudre un challenge via l'URL directe sans passer par l'interface du jeu.
 

@@ -12,95 +12,10 @@ Trois conteneurs SSH spécialisés ont été ajoutés pour supporter les nouveau
   caption: [Architecture Docker Compose de la plateforme _CyberGame_ avec les nouveaux challenges 2025],
 )<docker-compose-2025>
 
+#include "frontend.typ"
 #pagebreak()
 
-== Détails d'implémentation par challenge <implementation-details>
-
-L'implémentation de la plateforme a été pensée pour offrir aux joueur·euse·s une expérience immersive et cohérente, tout en restant fidèle au scénario du serious game. Chaque challenge combine une interface frontend simulant des environnements réalistes et, selon les besoins, un backend apportant des mécanismes techniques crédibles. L'objectif était de reproduire, directement dans le navigateur, les étapes que l'on retrouverait dans une véritable enquête de cybersécurité, sans nécessiter l'installation d'outils externes.
-
-=== Challenge 1
-Pour le challenge 1, une interface d'email a été développée, comme le montre la @chall1. #figure(image("imgs/chall1.png" , width: 70%), caption: [Visuel du mail avec en dessous le terminal, challenge 1])<chall1> Elle permet d'afficher un message suspect et d'accéder à ses détails techniques grâce à un bouton `Détails`. #figure(image("imgs/chall1'.png", width: 75%), caption: [Visuel des détails du mail, challenge 1])<chall1.1> L'idée est que le joueur·euse puisse à la fois consulter le mail tel qu'un employé l'aurait reçu et analyser ses en-têtes pour remonter au domaine frauduleux.
-
-Le backend repose sur l'utilisation du docker `ssh-whois`, déjà créé et proposé dans les scénarios précédents. Il permet, depuis le terminal côté frontend, de lancer une commande `whois` sur le faux domaine `horizonsante-support.com` et de récupérer les informations relatives au domaine frauduleux qui apparaît dans l'email suspect.
-
-=== Challenge 2
-Le challenge 2 propose une page de connexion illustrant une attaque par injection SQL sur un portail frauduleux, protégé par un WAF (pare-feu applicatif) volontairement basique. #figure(image("imgs/chall2''.png", width: 70%), caption: [Page de connexion au portail frauduleux avec un message d'alerte du WAF, challenge 2])<chall2> Après avoir saisi la requête SQL dans le champ de mot de passe, le joueur·euse peut contourner l'authentification et accéder à une page de session simulant la réussite de la connexion. #figure(image("imgs/chall2'.png", width: 70%), caption: [Session connexion réussite, challenge 2])<chall2.>
-
-Côté backend, une API REST a été créée dans le fichier `index.js`. Cette route `/challenge2/validate` intègre un WAF qui bloque certains patterns d'injection SQL (OR, --, UNION, SELECT). La vulnérabilité réside dans la seconde requête qui concatène directement les entrées utilisateur sans protection :
-
-```js
-// Requête vulnérable à l'injection SQL
-pool.query(
-  "SELECT * FROM users WHERE ID = '" + email + "' AND pass = '" + password + "'",
-  function (err, results, fields) {
-    // Si authentifié, retourne le flag
-    if (results.length > 0) {
-      let flag = process.env.CHALL_FLAGS_2025.split(";")
-        .filter((x) => x.startsWith("chall2"))[0].split("=")[1];
-      return res.status(200).json({ success: true, flag: flag });
-    }
-  }
-);
-```
-
-Les utilisateurs sont stockés dans une base de données MySQL pour rendre la simulation plus crédible et illustrer comment une mauvaise gestion des entrées utilisateur peut permettre d'injecter du SQL et de contourner l'authentification.
-
-=== Challenge 3
-Dans le challenge 3, l'objectif est de mettre en avant la navigation dans des dossiers, afin de sensibiliser aux problèmes de contrôle d'accès. Le joueur·euse commence le défi en arrivant sur le dashboard du site des attaquants. #figure(image("imgs/chall3.png", width: 80%), caption: [Dashboard une fois connecté sur la plateforme des attaquants, challenge 3])<chall3> Sur cette page, il pourra ensuite cliquer sur le lien `Gestion des fichers` qui simule un gestionnaire de fichiers, avec un premier accès restreint au répertoire `/shared`. #figure(image("imgs/chall3'.png", width: 80%), caption: [Dossiers shared, challenge 3])<chall3.1> Le joueur·euse doit manipuler directement l'URL, dans un premier temps, en modifiant le paramètre `?dir=` pour retrouver le dossier racine, qui est la figure @chall3.2, puis explorer l'arborescence complète. Chaque dossier correspond à une page HTML distincte, ce qui permet de rendre la navigation concrète et progressive. On peut ainsi passer du tableau de bord au répertoire partagé, puis remonter à la racine et enfin atteindre des sous-dossiers sensibles comme `/archives/2025`, qui se trouve dans la @chall3.3. #figure(image("imgs/chall3''.png", width: 80%), caption: [Dossiers racine, challenge 3])<chall3.2>
-#figure(image("imgs/chall3'''.png", width: 80%), caption: [Exploration des dossiers jusqu'au dossier `/archives/2025`, challenge 3])<chall3.3>
-
-Le backend est centré sur la navigation de répertoires simulés. Le fichier `blackoutmain.js` définit la logique permettant de mapper les paramètres `?dir=` de l'URL vers des fichiers HTML spécifiques. La fonction `loadIframe()` récupère le paramètre `dir` et charge la page correspondante dans un iframe selon un mapping prédéfini (`/archives/2025` → `archives_2025.html`). La fonction `navigateToDirectory()` met à jour l'URL et recharge l'iframe lors de la navigation, reproduisant ainsi le comportement d'un gestionnaire de fichiers.
-
-=== Challenge 4
-Le challenge 4 introduit un environnement Python directement intégré dans le navigateur grâce à Pyodide. Cette technologie permet d'exécuter du code Python sans rien installer, en offrant un terminal interactif.
-#figure(image("imgs/chall4.png"), caption: [IDE Python pour analyser le fichier et terminal afin de pouvoir réaliser un `zipinfo`, challenge 4])<chall4>
-Au niveau du terminal, il est possible de changer entre un terminal Linux classique afin que le joueur·euse puisse exécuter la commande système `zipinfo` et un terminal Python pour exécuter des scripts Python. #figure(image("imgs/chall4'.png"), caption: [Terminaux disponibles pour le challenge, challenge 4])<chall4.1>
-
-Le backend reprend le principe du challenge 1, mais cette fois avec un docker `ssh-zipinfo`. Ce module permet d'analyser un fichier ZIP via le terminal intégré, directement connecté au backend. Le joueur·euse peut ainsi exécuter une commande `zipinfo` et récupérer des informations sur le contenu de l'archive sans l'ouvrir directement.
-
-Pour valider le flag, une route API `/challenge4/validate` a été créée. Elle compare le hash SHA3-256 du flag soumis avec celui stocké en base de données. Si valide, elle renvoie un HTML simulant l'affichage des fichiers décompressés (contenant notamment le fichier `monitor_check_wip.py` révélant les identifiants hardcodés).
-
-=== Challenge 5
-Le challenge 5 garde l'IDE Python embarqué, mais cette fois pour pousser le joueur·euse à écrire un peu de code et analyser un script. Il s'agit de décoder des informations cachées dans un fichier et de reconstituer une URL que les attaquants sont susceptibles d'utiliser. Le terminal et l'IDE sont au cœur de l'interface, de manière à donner l'impression de travailler dans un véritable environnement d'analyse, tout en restant guidé par les consignes du scénario.
-#figure(image("imgs/chall5.png"), caption: [IDE Python pour analyser le fichier et réaliser du code pour identifer la page, challenge 5])<chall5>
-
-Ce challenge est entièrement géré côté frontend. Il n'a pas besoin du backend, car l'analyse repose sur l'IDE Python intégré (Pyodide) et les scripts fournis directement dans l'interface.
-
-=== Challenge 6
-Le challenge 6 propose une interface avec un chatbot interactif. Il permet au joueur·euse de tester différentes commandes, comme `help`, mais contient aussi des vulnérabilités de sécurité qu'il va devoir exploiter. L'idée était de rendre l'expérience plus ludique et interactive, tout en introduisant des notions liées aux failles XSS et à la compromission de sessions. Le chatbot devient donc à la fois un outil d'aide et une cible d'attaque. #figure(image("imgs/chall6'.png", width: 80%), caption: [Interface du chatbot, challenge 6])<chall6>
-
-Le backend simule un scénario de type "bot headless administrateur" qui visite des pages et déclenche des actions sensibles grâce à un cookie privilégié. Le joueur·euse doit exploiter le bot pour récupérer le flag.
-
-La configuration Docker du bot expose l'API sur le port 3001 via Traefik avec TLS. Un mécanisme de limitation de sessions évite qu'un joueur monopolise le bot trop longtemps. Un service `log-viewer` (Dozzle) permet de monitorer les logs du bot en mode développement.
-
-Le bot, implémenté avec Puppeteer dans `bot.js`, expose une API permettant de créer une session, positionner des cookies et demander au bot d'exécuter des requêtes. Chaque joueur est associé à un identifiant unique `playerId` (UUID) pour éviter les interférences entre plusieurs utilisateurs simultanés.
-
-Côté backend, deux routes sont essentielles :
-
-- `POST /challenge6/validate` : permet de tester si un cookie admin est valide (`ADM1N_53551ON_TOKEN25`)
-- `GET /challenge6/deleteFiles` : vérifie le cookie admin dans les headers et, si valide, retourne le flag extrait de la variable d'environnement `CHALL_FLAGS_2025`
-
-```js
-app.get("/challenge6/deleteFiles", (req, res) => {
-  const adminCookie = req.cookies.admin;
-
-  if (!adminCookie || adminCookie !== "ADM1N_53551ON_TOKEN25") {
-    return res.status(403).json({ error: "Accès non autorisé" });
-  }
-
-  // Extraction et retour du flag
-  const targetFlag = process.env.CHALL_FLAGS_2025
-    .split(";").find((flag) => flag.startsWith("chall6="));
-  return res.status(200).json({ success: true, flag: targetFlag.split("=")[1] });
-});
-```
-
-=== Challenge 7
-Enfin, le challenge 7 recrée l'interface interne de la plateforme hospitalière. #figure(image("imgs/chall7.png", width: 80%), caption: [Interface de la plateforme de l'hôpital, challenge 7])<chall7> Le joueur·euse y trouve un menu latéral regroupant différents outils, comme l'accès aux journaux VPN. Les logs peuvent être ouverts et analysés directement depuis l'interface, ce qui permet de repérer l'adresse IP la plus suspecte. #figure(image("imgs/chall7'.png"), caption: [Visuel des logs, challenge 7])<chall7.1>
-Une fois cette IP identifiée, un formulaire intégré permet de la bloquer dans le pare-feu. La validation est confirmée par un message spécifique, simulant le succès de l'action. #figure(image("imgs/chall7''.png", width: 70%), caption: [Formulaire pour bloquer une IP et obtenir le code de validation, challenge 7])<chall7.2>
-
-Ce challenge ne fait pas appel au backend. L'ensemble du challenge (analyse des logs et blocage de l'adresse IP) est simulé directement côté frontend pour simplifier l'implémentation et rester accessible sans nécessiter de configuration serveur complexe.
-
+#include "backend.typ"
 #pagebreak()
 
 == Intégration sur le site web <integration-site-web>
