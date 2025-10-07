@@ -1,17 +1,16 @@
 = Implémentation des challenges <implementation>
 
 == Architecture générale <architecture-generale>
-
-#figure(
-  image("schemas/docker_compose_2025.png"),
-  caption: [Architecture Docker Compose de la plateforme _CyberGame_ avec les nouveaux challenges 2025],
-)<docker-compose-2025>
-
 La @docker-compose-2025 présente l'architecture mise à jour de la plateforme après l'intégration des nouveaux challenges 2025. L'infrastructure de base reste identique à celle décrite au chapitre @architecture-technique, Traefik route les requêtes vers le Frontend (port 3001), le Backend (port 3000) et webSSH (port 8888), tandis que MongoDB et MySQL assurent la persistance des données.
 
 Les ajouts pour l'édition 2025 apparaissent clairement sur le schéma. Un nouveau service "Admin bot" a été créé sur le port 3002 pour le challenge 6, simulant un administrateur qui interagit avec le frontend via des requêtes automatisées. Le Backend expose désormais de nouveaux endpoints spécifiques aux challenges 2025 : `/2025/flag` et `/2025/checkFlag` pour la validation, ainsi que les routes de validation individuelles `/challenge2/validate`, `/challenge5/validate` et `/challenge6/validate`, complétées par l'endpoint `/challenge6/deleteFiles` pour la suppression des fichiers.
 
 Trois conteneurs SSH spécialisés ont été ajoutés pour supporter les nouveaux défis. Le conteneur ssh-whois-modify, pour le challenge 1, propose une variante modifiée du service WHOIS. Le conteneur ssh-zipinfo du challenge 4, fournit des outils d'analyse d'archives. Enfin, le conteneur MySQL continue de servir seulement pour les exercices d'injection SQL, spécifiquement pour le challenge 2. Cette architecture permet d'isoler chaque nouveau challenge tout en réutilisant l'infrastructure existante de la plateforme.
+
+#figure(
+  image("schemas/docker_compose_2025.png"),
+  caption: [Architecture Docker Compose de la plateforme _CyberGame_ avec les nouveaux challenges 2025],
+)<docker-compose-2025>
 
 #include "frontend.typ"
 #pagebreak()

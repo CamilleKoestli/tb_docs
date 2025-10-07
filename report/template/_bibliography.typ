@@ -5,4 +5,4 @@
 #show "Accessed": "Consulté le"
 
 
-#bibliography("../bibliography.bib", style: "iso-690-author-date")
+#bibliography("../bibliography.bib", style: "iso-690-numeric")

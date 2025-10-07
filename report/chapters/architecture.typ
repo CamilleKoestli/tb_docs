@@ -4,6 +4,11 @@ Ce chapitre présente l'architecture technique de la plateforme _CyberGame_, en 
 == Présentation générale <presentation>
 Le site web est une plateforme pédagogique créée par le pôle Y-Security de la HEIG-VD. Il a pour objectif d'introduire au ethical hacking et propose actuellement deux scénarios interactifs. La plateforme est donc conçue avec une page d'accueil @InitiationAuEthical qui présente le cadre général. Le premier jeu "Shana a disparu" @ShanaDisparuRetrouvela ainsi qu'un autre scénario "Sauve la Terre de l'arme galactique !" @SauveTerreLarme se trouvent sur la plateforme. Pour aider les joueur·euse·s à avancer dans les différents challenges, une boîte à outils et un petit IDE Python ont été développés @InitiationAuEthical.
 
+#figure(
+  image("schemas/site_web.png"),
+  caption: [Schéma de l'architecture globale de la plateforme _CyberGame_],
+)<site_web>
+
 == Mécanisme de jeu <mécanisme-de-jeu>
 
 La plateforme _CyberGame_ propose deux parcours structurés sous forme d'histoire progressive qui mettent en œuvre des techniques du hacking éthiques. Chacun propose une enquête avec un scénario dont les étapes doivent être validées dans l'ordre afin de pouvoir progresser dans le déroulement de l'enquête.

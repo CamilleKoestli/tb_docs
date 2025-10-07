@@ -18,6 +18,11 @@ Pour terminer, le joueur·euse reçoit un message de fin qui conclut l'aventure 
 
 En parcourant ces sept défis, le participant·e permet d'avoir un aperçu sur tout le cycle d’une réponse à incident : OSINT, exploitation Web, contrôle d’accès, cryptanalyse, reverse engineering, escalade de privilèges via XSS, et opérations de défense. Chaque étape montre une bonne pratique de cybersécurité à mettre en œuvre pour protéger les établissements de santé contre les ransomwares.
 
+#figure(
+  image("schemas/scenario.png"),
+  caption: [Schéma récapitulatif du scénario "Blackout dans le Centre Hospitalier Horizon Santé"],
+)<site_web>
+
 Il est important de noter que les challenges pourront être adaptés en fonction des compétences des joueur·euse·s et de leur niveau d'expérience lors de l'implémentation du code. Il s'agit que d'une proposition de structure et de contenu pour le scénario. Les défis peuvent être modifiés ou ajustés pour mieux correspondre aux objectifs pédagogiques et aux compétences visées.
 
 *Challenges à réaliser*
@@ -106,7 +111,3 @@ Une fois à la fin du challenge 7, une dernière popup, qui est le niveau 8, app
   Grâce à votre réactivité et vos compétences, le Centre Hospitalier Horizon Santé a pu sécuriser ses données sensibles... et un drame a été évité de justesse._"
 
 Le joueur·euse acquière une petite compréhension des enjeux de la cybersécurité dans un environnement hospitalier. Ces challenges permettent de montrer l’importance de la détection rapide des menaces, de l’analyse technique des incidents, de la maîtrise des techniques d’intrusion comme des mesures de défense. Ce scénario permet également d’illustrer comment une attaque informatique peut avoir des conséquences directes sur la possibilité de réaliser des soins et la sécurité des personnes, et pourquoi la cybersécurité est aussi un élément crucial pour les infrastructures de santé.
-
-
-#pagebreak()
-
