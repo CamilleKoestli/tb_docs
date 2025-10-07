@@ -1,5 +1,4 @@
 = Glossaire <glossaire>
-//TODO à relire et à enlever
 
 - *Admin Bypass* : Technique qui vise à contourner les mécanismes de contrôle d’accès d’une application web afin d’obtenir des privilèges administratifs.
 - *API (Application Programming Interface)* : Interface qui permet à différents logiciels de communiquer entre eux.
@@ -20,13 +19,13 @@
 - *Cyber-range* : Environnement simulé pour pratiquer des compétences en cybersécurité dans un cadre réaliste et sécurisé.
 // - *CyberGame* : Plateforme de serious game développée par le pôle Y-Security de la HEIG-VD pour l'apprentissage de la cybersécurité.
 
-- *Docker* : Technologie de virtualisation légère qui permet d’exécuter des applications dans des conteneurs isolés. Utilisée ici pour héberger les services backend, bases de données et bot.
+- *Docker* : Technologie de virtualisation qui permet d’exécuter des applications dans des conteneurs isolés. Utilisée ici pour déployer les services backend, bases de données et bot.
 // - *Docker Compose* : Outil permettant de définir et gérer des applications multi-conteneurs Docker.
 - *DOM (Document Object Model)* : Représentation d'un document HTML permettant de manipuler son contenu via JavaScript.
 
-- *Endpoint* : Point d'accès spécifique d'une API dans le but d'effectuer une opération particulière.
+//- *Endpoint* : Point d'accès spécifique d'une API dans le but d'effectuer une opération particulière.
 - *Ethical hacking* : Pratique légale et éthique du piratage informatique visant à identifier les vulnérabilités d'un système pour le sécuriser.
-- *EXIF (Exchangeable Image File Format)* : Métadonnées contenues dans les fichiers image.
+- *EXIF (Exchangeable Image File Format)* : Métadonnées contenues dans les fichiers image et audio.
 - *Exploit / Exploitation Web* : Technique qui utilise une vulnérabilité d’un site web pour en détourner le fonctionnement.
 - *Express* : Framework web minimaliste pour Node.js qui facilite la création d'applications et d'API.
 
@@ -42,7 +41,7 @@
 
 - *IDE (Integrated Development Environment)* : Environnement de développement intégré avec des outils pour écrire, tester et déboguer du code.
 - *Iframe* : Élément HTML permettant d'intégrer un document HTML dans un autre document.
-- *Injection SQL* : Attaque qui consiste à insérer du code SQL malveillant dans une requête pour manipuler une base de données.
+- *Injection SQL* : Attaque qui consiste à insérer du code SQL malveillant dans une requête pour détourner son but initial.
 
 - *JavaScript* : Langage de programmation utilisé pour rendre les pages web interactives.
 - *Jest* : Framework JavaScript permettant de réaliser des tests unitaires automatisés.
@@ -53,7 +52,7 @@
 - *Known-plaintext attack* : Attaque cryptographique où l'attaquant connaît une partie du texte en clair et du texte chiffré correspondant.
 
 - *Logs* : Fichiers qui enregistrent des événements et activités d'un système.
-- *LSB (Least Significant Bit)* : Technique de stéganographie cachant des données dans les bits de poids faible d'un fichier.
+//- *LSB (Least Significant Bit)* : Technique de stéganographie cachant des données dans les bits de poids faible d'un fichier.
 
 - *Métadonnées* : Données décrivant d'autres données, comme les informations EXIF dans une image
 - *Middleware* : Composant logiciel intermédiaire qui traite les requêtes entre le client et le serveur.
@@ -61,7 +60,7 @@
 - *Mongoose* : Bibliothèque Node.js qui permet l'interaction avec MongoDB.
 - *MySQL* : Base de données relationnelle SQL.
 
-- *ngrok* : Outil qui va créer des tunnels sécurisés pour exposer des serveurs locaux sur internet.
+- *ngrok* : Outil de développement qui permet d'exposer des serveurs locaux sur Internet sans nécessiter de changement de configuration de routeur.
 - *Node.js* : Environnement d’exécution JavaScript côté serveur, utilisé pour développer l’API backend du projet.
 - *Obfuscation* : Technique qui rend le code difficile à comprendre pour masquer son fonctionnement.
 - *OSINT (Open Source Intelligence)* : Technique de recherche et de collecte d’informations à partir de sources publiques (réseaux sociaux, sites web, documents en ligne, ...).
@@ -72,7 +71,7 @@
 // - *Plateforme* : Dans le contexte du jeu, élément visuel représentant un challenge sur lequel le personnage peut se déplacer.
 - *PowerShell* : Interface en ligne de commande et langage de script de Microsoft pour l'automatisation.
 - *Prototype Pollution* : Vulnérabilité JavaScript permettant de modifier les propriétés des objets prototypes.
-- *Puppeteer* : Bibliothèque Node.js qui contrôle un navigateur Chrome headless pour l'automatisation.
+- *Puppeteer* : Bibliothèque Node.js qui contrôle un navigateur Chrome sans interface graphique pour l'automatisation.
 - *Pyodide* : Port de Python vers WebAssembly permettant d'exécuter Python dans le navigateur.
 
 - *Rainbow table* : Table précalculée de correspondances entre des hashes et leurs valeurs originales pour le cassage de mots de passe.
@@ -87,7 +86,7 @@
 - *Session* : Ensemble d’informations stockées côté serveur ou client permettant de suivre l’état d’un utilisateur connecté.
 - *SHA (Secure Hash Algorithm)* : Famille d'algorithmes cryptographiques qui produit des empreintes numériques sécurisées.
 - *SOC (Security Operations Center)* : Centre opérationnel de sécurité qui surveille et analyse les menaces informatiques.
-- *Social Engineering (Ingénierie sociale)* : Manipulation psychologique qui trompe des individus pour leur soutirer des informations sensibles ou leur faire exécuter des actions.
+- *Social Engineering (Ingénierie sociale)* : Manipulation psychologique qui trompe des individus pour leur soutirer des informations sensibles ou leur faire exécuter des actions malveillantes.
 - *SQL (Structured Query Language)* : Langage standardisé pour gérer et interroger des bases de données relationnelles.
 - *SSH (Secure Shell)* : Protocole sécurisé pour se connecter à distance à des machines.
 - *Stéganographie* : Technique qui dissimule un message ou une donnée à l’intérieur d’un autre fichier (image, audio, texte).
@@ -104,7 +103,7 @@
 - *Webssh* : Interface web permettant d'accéder à un terminal SSH directement depuis un navigateur.
 - *WHOIS* : Protocole de recherche d'informations sur les propriétaires de noms de domaine ou d'adresses IP.
 
-- *XOR (Exclusive OR)* : Opération logique utilisée en cryptographie pour chiffrer/déchiffrer des données.
+//- *XOR (Exclusive OR)* : Opération logique utilisée en cryptographie pour chiffrer/déchiffrer des données.
 - *XSS (Cross-Site Scripting)* : Vulnérabilité qui injecte du code malveillant dans une page web consultée par d'autres utilisateurs.
 
 - *Zipinfo* : Commande qui affiche des informations détaillées sur le contenu d'une archive ZIP.

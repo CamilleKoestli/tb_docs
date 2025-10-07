@@ -42,6 +42,7 @@
  Cahier des charges
 */
 #include "chapters/cdc.typ"
+#include "chapters/glossaire.typ"
 
 // Set numbering for content
 #set heading(numbering: "1.1")
@@ -73,7 +74,6 @@
 /*
  Tables
 */
-#include "chapters/glossaire.typ"
 #include "template/_bibliography.typ"
 #include "template/_figures.typ"
 #include "template/_tables.typ"

@@ -280,10 +280,10 @@ chall6=all_files_deleted;chall7=blk_185-225-123-77_ok"
 ```
 Les bénéfices d'avoir des flags côté serveur sont qu'aucun secret/flag n’apparaît dans le code client. De plus, cela permet une gestion centralisée et versionnée par année, ainsi qu'une facilité d’opération (rotation, ajout/suppression sans rebuild du frontend).
 
-//TODO a completer
-== Améliorations de l'implémentation et future correction <ameliorations-corrections>
+== Améliorations de l'implémentation et futures corrections <ameliorations-corrections>
 
-Plus de Challenges
-Amélioration du bot -> problème avec les cookies -> récupère les cookies de la session du joueur et non celui du bot
+//L'implémentation actuelle des challenges 2025 constitue une base fonctionnelle, mais plusieurs axes d'amélioration ont été identifiés pour renforcer la plateforme et son expérience utilisateur.
 
-Enfin, en ce qui concerne les éléments d'amélioration au niveau de l'implémentation, le challenge 6, qui utilise un bot automatisé, présente également des problèmes techniques de gestion des cookies qui devront être corrigés pour garantir son bon fonctionnement.
+Le scénario pourrait avoir plus de challenges pour couvrir plus d'aspects de vulnérabilités et techniques d'attaque. Des challenges supplémentaires permettraient d'approfondir certaines thématiques et d'offrir une progression pédagogique plus complète.
+
+Le challenge 6, qui utilise un bot automatisé avec Puppeteer, présente un problème technique de gestion des cookies. Actuellement, le bot récupère les cookies de la session du joueur·euse au lieu d'utiliser son propre cookie administrateur privilégié.
