@@ -1,7 +1,7 @@
 = Implémentation des challenges <implementation>
 
 == Architecture générale <architecture-generale>
-La @docker-compose-2025 présente l'architecture mise à jour de la plateforme après l'intégration des nouveaux challenges 2025. L'infrastructure de base reste identique à celle décrite au chapitre @architecture-technique, Traefik route les requêtes vers le Frontend (port 3001), le Backend (port 3000) et webSSH (port 8888), tandis que MongoDB et MySQL assurent la persistance des données.
+La @docker-compose-2025 présente l'architecture mise à jour de la plateforme après l'intégration des nouveaux challenges 2025. L'infrastructure de base reste identique à celle décrite au chapitre @architecture-technique, Traefik route les requêtes vers le Frontend (port 3001), le Backend (port 3000) et webssh (port 8888), tandis que MongoDB et MySQL assurent la persistance des données.
 
 Les ajouts pour l'édition 2025 apparaissent clairement sur le schéma. Un nouveau service "Admin bot" a été créé sur le port 3002 pour le challenge 6, simulant un administrateur qui interagit avec le frontend via des requêtes automatisées. Le Backend expose désormais de nouveaux endpoints spécifiques aux challenges 2025 : `/2025/flag` et `/2025/checkFlag` pour la validation, ainsi que les routes de validation individuelles `/challenge2/validate`, `/challenge5/validate` et `/challenge6/validate`, complétées par l'endpoint `/challenge6/deleteFiles` pour la suppression des fichiers.
 
@@ -24,11 +24,11 @@ L’intégration des nouveaux challenges "Blackout" dans la plateforme existante
 
 + Initialisation des flags et extension du modèle de données
 + Ajout d’un nouveau "mini-site" de jeu (fichiers `blackoutgame.html` et `blackoutmain.js`)
-+ Raccordement à l’expérience globale (lien depuis `index.html`, pop-ups d’intro avec les indices et configuration `.env`).\ Ces ajouts s’alignent sur l’architecture en place : un frontend statique routé par Traefik, un backend Express, et des données persistées (MongoDB et MySQL) déjà utilisées par les scénarios 2020/2021.
++ Raccordement à l’expérience globale (lien depuis `index.html`, popups d’intro avec les indices et configuration `.env`).\ Ces ajouts s’alignent sur l’architecture en place : un frontend statique routé par Traefik, un backend Express, et des données persistées (MongoDB et MySQL) déjà utilisées par les scénarios 2020/2021.
 
 === Initialisation des flags côté serveur
 
-Pour éviter de placer les réponses dans le frontend, les flags 2025 sont déclarés dans les variables d’environnement et insérés au démarrage dans MongoDB au format SHA-3 256, comme les scénarios 2020/2021. Le fragment suivant, ajouté à `db.js`, parcourt `CHALL_FLAGS_2025`, découpe chaque entrée `challX=VAL`, calcule le hash, puis crée le document Flag s’il n’existe pas
+Pour éviter de placer les réponses dans le frontend, les flags 2025 sont déclarés dans les variables d’environnement et insérés au démarrage dans MongoDB au format SHA3-256, comme les scénarios 2020/2021. Le fragment suivant, ajouté à `db.js`, parcourt `CHALL_FLAGS_2025`, découpe chaque entrée `challX=VAL`, calcule le hash, puis crée le document Flag s’il n’existe pas
 
 ```js
 /* ... */
@@ -46,10 +46,10 @@ Pour éviter de placer les réponses dans le frontend, les flags 2025 sont décl
 ```
 
 === Ajout du mini-site de jeu "Blackout"
-Comme pour les anciens scénarios (chaque challenge = mini-site dans son dossier), Blackout introduit une page de jeu dédiée (`blackoutgame.html`) et un script de contrôle (`blackoutmain.js`). Cette approche permet d’orchestrer l’UI du scénario (iframe principale, champ de réponse, pop-ups d’aide/indices) sans impacter les autres jeux.
+Comme pour les anciens scénarios (chaque challenge = mini-site dans son dossier), Blackout introduit une page de jeu dédiée (`blackoutgame.html`) et un script de contrôle (`blackoutmain.js`). Cette approche permet d’orchestrer l’UI du scénario (iframe principale, champ de réponse, popups d’aide/indices) sans impacter les autres jeux.
 
 ==== `blackoutgame.html`
-Le fichier HTML charge le thème, les scripts communs, les pop-ups par challenge (0 à 8) et l’iframe qui héberge l’écran actif. On y retrouve également le champ de validation (réponse) et les includes HTML (header, popups) pour conserver la même UX que les autres scénarios.
+Le fichier HTML charge le thème, les scripts communs, les popups par challenge (0 à 8) et l’iframe qui héberge l’écran actif. On y retrouve également le champ de validation (réponse) et les includes HTML (header, popups) pour conserver la même UX que les autres scénarios.
 
 ```html
 <!doctype html>
@@ -130,7 +130,7 @@ La progression est gérée grâce à un système de cookies : `bk2025_xH92f_curr
 Lorsqu’un joueur·euse saisit un flag dans le champ de réponse et le valide, le script envoie une requête POST au backend sur la route `/backend/2025/flag`. Le serveur vérifie la validité du flag et renvoie un code HTTP : `200` pour une réussite, ce qui débloque la plateforme suivante et affiche un message de félicitations, `401` si le flag est incorrect, avec un message d’encouragement, `404` en cas d’erreur de challenge. \
 Cette logique garantit que la progression se fait de manière linéaire et que les étapes ne sont pas contournables. Les plateformes déjà résolues changent d’apparence (zone verte) pour offrir un retour visuel immédiat.
 
-Le moteur intègre également des cas spécifiques, comme pour le Challenge 3, où un paramètre `?dir=` permet de simuler la navigation dans des dossiers via un mapping prédéfini entre les chemins et des pages HTML distinctes. 
+Le moteur intègre également des cas spécifiques, comme pour le Challenge 3, où un paramètre `?dir=` permet de simuler la navigation dans des dossiers via un mapping prédéfini entre les chemins et des pages HTML distinctes.
 
 Enfin, `blackoutmain.js` prend en charge la compatibilité et l’expérience utilisateur : il vérifie le type de navigateur et alerte si le jeu est lancé sur un appareil mobile ou un navigateur non supporté, afin de garantir la meilleure expérience possible.
 
@@ -185,7 +185,7 @@ const VALID_YEARS = ["2020", "2021", "2025"];
 
 Cette page – comme tout le frontend – est servie via Traefik (terminaison TLS, StripPrefix pour /backend et /ssh), ce qui permet au client d’appeler /backend/... et d’intégrer des iframes /ssh?... sans connaître la topologie interne. C’est ce même schéma qui rend "Blackout" plug-and-play au sein du site.
 
-Enfin, les flags sont définis côté serveur, dans `.env` et `.env.prod`. Lors du boot, `db.js` se charge de les hacher et de les insérer si besoin. Le format clé-valeur séparé par ; reste identique. 
+Enfin, les flags sont définis côté serveur, dans `.env` et `.env.prod`. Lors du boot, `db.js` se charge de les hacher et de les insérer si besoin. Le format clé-valeur séparé par ; reste identique.
 ```env
 #...
 CHALL_FLAGS_2025="chall1=horizonsante-support.com;

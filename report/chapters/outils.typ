@@ -35,7 +35,7 @@ Cette aide m'a permis de maintenir une certaine qualité dans la rédaction tout
 === Infrastructure et déploiement
 - Traefik pour le reverse proxy et le routage des requêtes
 - ngrok pour le tunneling sécurisé des tests utilisateurs à distance
-- WebSSH (wssh) pour l'interface web des terminaux SSH
+- Webssh (wssh) pour l'interface web des terminaux SSH
 
 === Tests
 - Jest pour le framework de tests unitaires JavaScript

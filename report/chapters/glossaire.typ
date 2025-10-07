@@ -101,7 +101,7 @@
 - *Vulnérabilité* : Faille de sécurité dans un système pouvant être exploitée par un attaquant.
 
 - *WAF (Web Application Firewall)* : Pare-feu qui protège les applications web contre diverses attaques.
-- *WebSSH* : Interface web permettant d'accéder à un terminal SSH directement depuis un navigateur.
+- *Webssh* : Interface web permettant d'accéder à un terminal SSH directement depuis un navigateur.
 - *WHOIS* : Protocole de recherche d'informations sur les propriétaires de noms de domaine ou d'adresses IP.
 
 - *XOR (Exclusive OR)* : Opération logique utilisée en cryptographie pour chiffrer/déchiffrer des données.
