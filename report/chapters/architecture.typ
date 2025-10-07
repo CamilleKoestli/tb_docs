@@ -183,7 +183,7 @@ L'API Express (@index.js) gère la logique serveur via plusieurs modules fonctio
 
 === Webssh et conteneurs SSH <webssh-conteneurs>
 
-Webssh (serveur Python wssh, `Dockerfile_ssh`) fournit un terminal web via `/ssh`. Trois conteneurs cibles (Ubuntu 14.04, OpenSSH, Supervisor, `PermitRootLogin yes`) :
+Webssh fournit un terminal web via `/ssh`. Trois conteneurs cibles SSH sont disponibles, chacun avec des outils spécifiques pour les défis :
 - `ssh` : `rbash` restreint, outils (exiftool, ls)
 - `sshmachine-whois` : binaire whois personnalisé, OSINT
 - `sshmachine-galactic-forensic` : `libimage-exiftool-perl`, fichiers forensiques (`photo-gallery.jpg`)
