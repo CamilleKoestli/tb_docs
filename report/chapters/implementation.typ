@@ -49,7 +49,7 @@ Les utilisateurs sont stockés dans une base de données MySQL pour rendre la si
 Dans le challenge 3, l'objectif est de mettre en avant la navigation dans des dossiers, afin de sensibiliser aux problèmes de contrôle d'accès. Le joueur·euse commence le défi en arrivant sur le dashboard du site des attaquants. #figure(image("imgs/chall3.png", width: 80%), caption: [Dashboard une fois connecté sur la plateforme des attaquants, challenge 3])<chall3> Sur cette page, il pourra ensuite cliquer sur le lien `Gestion des fichers` qui simule un gestionnaire de fichiers, avec un premier accès restreint au répertoire `/shared`. #figure(image("imgs/chall3'.png", width: 80%), caption: [Dossiers shared, challenge 3])<chall3.1> Le joueur·euse doit manipuler directement l'URL, dans un premier temps, en modifiant le paramètre `?dir=` pour retrouver le dossier racine, qui est la figure @chall3.2, puis explorer l'arborescence complète. Chaque dossier correspond à une page HTML distincte, ce qui permet de rendre la navigation concrète et progressive. On peut ainsi passer du tableau de bord au répertoire partagé, puis remonter à la racine et enfin atteindre des sous-dossiers sensibles comme `/archives/2025`, qui se trouve dans la @chall3.3. #figure(image("imgs/chall3''.png", width: 80%), caption: [Dossiers racine, challenge 3])<chall3.2>
 #figure(image("imgs/chall3'''.png", width: 80%), caption: [Exploration des dossiers jusqu'au dossier `/archives/2025`, challenge 3])<chall3.3>
 
-Le backend est centré sur la navigation de répertoires simulés. Le fichier `blackoutmain.js` définit la logique permettant de mapper les paramètres `?dir=` de l'URL vers des fichiers HTML spécifiques. La fonction `loadIframe()` récupère le paramètre `dir` et charge la page correspondante dans un iframe selon un mapping prédéfini (`/archives/2025` → `archives_2025.html`). La fonction `navigateToDirectory()` met à jour l'URL et recharge l'iframe lors de la navigation, reproduisant ainsi le comportement d'un gestionnaire de fichiers.
+Le backend est centré sur la navigation de répertoires simulés. Le fichier `intrusionmain.js` définit la logique permettant de mapper les paramètres `?dir=` de l'URL vers des fichiers HTML spécifiques. La fonction `loadIframe()` récupère le paramètre `dir` et charge la page correspondante dans un iframe selon un mapping prédéfini (`/archives/2025` → `archives_2025.html`). La fonction `navigateToDirectory()` met à jour l'URL et recharge l'iframe lors de la navigation, reproduisant ainsi le comportement d'un gestionnaire de fichiers.
 
 === Challenge 4
 Le challenge 4 introduit un environnement Python directement intégré dans le navigateur grâce à Pyodide. Cette technologie permet d'exécuter du code Python sans rien installer, en offrant un terminal interactif.
@@ -108,7 +108,7 @@ Ce challenge ne fait pas appel au backend. L'ensemble du challenge (analyse des 
 L’intégration des nouveaux challenges "Intrusion" dans la plateforme existante s’est faite en trois parties :
 
 + Initialisation des flags et extension du modèle de données
-+ Ajout d’un nouveau "mini-site" de jeu (fichiers `blackoutgame.html` et `blackoutmain.js`)
++ Ajout d’un nouveau "mini-site" de jeu (fichiers `intrusiongame.html` et `intrusionmain.js`)
 + Raccordement à l’expérience globale (lien depuis `index.html`, popups d’intro avec les indices et configuration `.env`).\ Ces ajouts s’alignent sur l’architecture en place : un frontend statique routé par Traefik, un backend Express, et des données persistées (MongoDB et MySQL) déjà utilisées par les scénarios 2020/2021.
 
 === Initialisation des flags côté serveur
@@ -131,9 +131,9 @@ Pour éviter de placer les réponses dans le frontend, les flags 2025 sont décl
 ```
 
 === Ajout du mini-site de jeu "Intrusion"
-Comme pour les anciens scénarios (chaque challenge = mini-site dans son dossier), Intrusion introduit une page de jeu dédiée (`blackoutgame.html`) et un script de contrôle (`blackoutmain.js`). Cette approche permet d’orchestrer l’UI du scénario (iframe principale, champ de réponse, popups d’aide/indices) sans impacter les autres jeux.
+Comme pour les anciens scénarios (chaque challenge = mini-site dans son dossier), Intrusion introduit une page de jeu dédiée (`intrusiongame.html`) et un script de contrôle (`intrusionmain.js`). Cette approche permet d’orchestrer l’UI du scénario (iframe principale, champ de réponse, popups d’aide/indices) sans impacter les autres jeux.
 
-==== `blackoutgame.html`
+==== `intrusiongame.html`
 Le fichier HTML charge le thème, les scripts communs, les popups par challenge (0 à 8) et l’iframe qui héberge l’écran actif. On y retrouve également le champ de validation (réponse) et les includes HTML (header, popups) pour conserver la même UX que les autres scénarios.
 
 ```html
@@ -164,7 +164,7 @@ Le fichier HTML charge le thème, les scripts communs, les popups par challenge 
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
 </head>
-<div class="game blackoutgame" w3-include-html="./header.html"></div>
+<div class="game intrusiongame" w3-include-html="./header.html"></div>
 <body>
     <input id="inputHint" type="text" id="flag" name="flag" placeholder="réponse">
     <button id="sumbitHint" class="submitHint">Valider l'étape !</button>
@@ -172,7 +172,7 @@ Le fichier HTML charge le thème, les scripts communs, les popups par challenge 
     <iframe id="iframeChall" src="" frameborder="0" style="display: block;background: #000;border: none;overflow:hidden;height:100vh;width:100%">
     </iframe>
 
-    <!-- Challenge popup includes for Blackout 2025 -->
+    <!-- Challenge popup includes for Intrusion 2025 -->
     <div w3-include-html="./challenges2025/0_intro/popup.html"></div>
     <div w3-include-html="./challenges2025/1_mail_contagieux/popup.html"></div>
     <div w3-include-html="./challenges2025/2_portail_frauduleux/popup.html"></div>
@@ -196,17 +196,17 @@ Le fichier HTML charge le thème, les scripts communs, les popups par challenge 
     includeHTML();
 </script>
 <script src="js/phaser.min.js"></script>
-<script src="js/blackoutmain.js"></script>
+<script src="js/intrusionmain.js"></script>
 <script src="node_modules/@azerion/phaser-input/build/phaser-input.js"></script>
 
 <script src="https://www.google.com/recaptcha/api.js"></script>
 ```
 
-==== `blackoutmain.js`
+==== `intrusionmain.js`
 
-Le fichier `blackoutmain.js` (@blackoutmain.js) constitue le cœur du moteur du scénario Intrusion. Développé avec le framework Phaser, il orchestre l’affichage du niveau, le déplacement du personnage, l’interaction avec les plateformes représentant les différents challenges, ainsi que la communication avec le backend pour la validation des étapes.
+Le fichier `intrusionmain.js` (@intrusionmain.js) constitue le cœur du moteur du scénario Intrusion. Développé avec le framework Phaser, il orchestre l’affichage du niveau, le déplacement du personnage, l’interaction avec les plateformes représentant les différents challenges, ainsi que la communication avec le backend pour la validation des étapes.
 
-Dès l’initialisation, le script charge les éléments visuels nécessaires : le fond, les textures des plateformes, le héros, ainsi que les données décrivant la disposition des plateformes dans le fichier `level01Blackout.json`. Le héros est représenté comme un sprite animé pouvant se déplacer horizontalement et s’orienter automatiquement vers la gauche ou la droite selon la direction.
+Dès l’initialisation, le script charge les éléments visuels nécessaires : le fond, les textures des plateformes, le héros, ainsi que les données décrivant la disposition des plateformes dans le fichier `level01Intrusion.json`. Le héros est représenté comme un sprite animé pouvant se déplacer horizontalement et s’orienter automatiquement vers la gauche ou la droite selon la direction.
 
 Chaque plateforme est associée à un challenge et rendue cliquable. Lorsqu’une plateforme est sélectionnée, le personnage se déplace automatiquement jusqu’à elle. Si le challenge est accessible, une popup s’ouvre pour présenter les consignes et permettre de lancer l’interface spécifique. Cette interface est affichée dans une iframe intégrée à la page principale.
 
@@ -217,12 +217,12 @@ Cette logique garantit que la progression se fait de manière linéaire et que l
 
 Le moteur intègre également des cas spécifiques, comme pour le Challenge 3, où un paramètre `?dir=` permet de simuler la navigation dans des dossiers via un mapping prédéfini entre les chemins et des pages HTML distinctes.
 
-Enfin, `blackoutmain.js` prend en charge la compatibilité et l’expérience utilisateur : il vérifie le type de navigateur et alerte si le jeu est lancé sur un appareil mobile ou un navigateur non supporté, afin de garantir la meilleure expérience possible.
+Enfin, `intrusionmain.js` prend en charge la compatibilité et l’expérience utilisateur : il vérifie le type de navigateur et alerte si le jeu est lancé sur un appareil mobile ou un navigateur non supporté, afin de garantir la meilleure expérience possible.
 
 
 === Raccordement dans la page d’accueil, routage et configuration des flags `.env` / `.env.prod`
 
-Pour exposer le nouveau scénario dans l’UI globale, index.html reçoit une déclaration de l’année dans la constante `VALID_YEARS`, pour que la logique cliente supporte 2025 (au même titre que 2020/2021) et un bloc de présentation (texte + vidéo) et un bouton d’accès à `blackoutgame.html`.
+Pour exposer le nouveau scénario dans l’UI globale, index.html reçoit une déclaration de l’année dans la constante `VALID_YEARS`, pour que la logique cliente supporte 2025 (au même titre que 2020/2021) et un bloc de présentation (texte + vidéo) et un bouton d’accès à `intrusiongame.html`.
 
 Cette intégration conserve le parcours utilisateur habituel : découverte, teaser, puis accès aux défis.
 
@@ -232,13 +232,13 @@ Cette intégration conserve le parcours utilisateur habituel : découverte, teas
 
 const VALID_YEARS = ["2020", "2021", "2025"];
 <!-- ... -->
-      <a href="./blackoutgame.html" class="btn btn-white btn-outline-white px-3 py-3 long-txt-button col-2 ml-xl-5"> Blackout<span class="ion-arrow-right-c"></span></a>
+      <a href="./intrusiongame.html" class="btn btn-white btn-outline-white px-3 py-3 long-txt-button col-2 ml-xl-5"> Intrusion<span class="ion-arrow-right-c"></span></a>
 <!-- ... -->
 <!-- ... -->
 <section class="section bg-light element-animate" id="game3">
     <div class="container introhacking">
         <div class="row justify-content-center align-items-center mb-5">
-            <h2 class="">Blackout de le Centre Hospitalier Horizon Santé</h2>
+            <h2 class="">Intrusion dans le Centre Hospitalier Horizon Santé</h2>
         </div>
         <div class="row align-items-center mb-5">
             <div class="col-md-7 pr-md-5 mb-5">
@@ -259,7 +259,7 @@ const VALID_YEARS = ["2020", "2021", "2025"];
                     <iframe src="https://www.youtube.com/embed/jgkrl94bnvw" allowfullscreen></iframe>
                 </div>
                 <br>
-                <a href="./blackoutgame.html" class="btn btn-white btn-outline-white px-3 py-3 long-txt-button">Accéder aux
+                <a href="./intrusiongame.html" class="btn btn-white btn-outline-white px-3 py-3 long-txt-button">Accéder aux
                     défis ! <span class="ion-arrow-right-c"></span></a>
             </div>
         </div>
@@ -268,7 +268,7 @@ const VALID_YEARS = ["2020", "2021", "2025"];
 <!-- ... -->
 ```
 
-Cette page – comme tout le frontend – est servie via Traefik (terminaison TLS, StripPrefix pour /backend et /ssh), ce qui permet au client d’appeler /backend/... et d’intégrer des iframes /ssh?... sans connaître la topologie interne. C’est ce même schéma qui rend "Blackout" plug-and-play au sein du site.
+Cette page est servie via Traefik (terminaison TLS, StripPrefix pour /backend et /ssh), ce qui permet au client d’appeler /backend/... et d’intégrer des iframes /ssh?... sans connaître la topologie interne. C’est ce même schéma qui rend "Intrusion" plug-and-play au sein du site.
 
 Enfin, les flags sont définis côté serveur, dans `.env` et `.env.prod`. Lors du boot, `db.js` se charge de les hacher et de les insérer si besoin. Le format clé-valeur séparé par ; reste identique.
 ```env

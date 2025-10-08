@@ -1,4 +1,4 @@
-//BLACKOUT 2025
+//INTRUSION 2025
 PlayState = {};
 
 //Const variables for cookie name
@@ -16,9 +16,9 @@ PlayState.preload = function () {
   this.game.load.image("background", "images/background-black.png");
 
   //levels datas
-  this.game.load.json("level:1", "data/level01Blackout.json");
+  this.game.load.json("level:1", "data/level01Intrusion.json");
 
-  //plateforms for Blackout 2025
+  //plateforms for Intrusion 2025
   this.game.load.image("ground0", "images/redZone.png");
   this.game.load.image("ground1", "images/redZone.png");
   this.game.load.image("ground2", "images/redZone.png");
