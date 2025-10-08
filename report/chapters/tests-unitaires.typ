@@ -1,6 +1,6 @@
 == Tests unitaires <tests-unitaires>
 
-L'utilisation de Jest a permis de réaliser des tests unitaires sur les différentes fonctions critiques du scénario Blackout. Cela inclut la validation des mécanismes d'authentification, la gestion des sessions, et la vérification des permissions d'accès aux différentes sections du site. Les tests unitaires permettent de s'assurer que chaque composant fonctionne correctement de manière isolée avant de les intégrer dans le système global.
+L'utilisation de Jest a permis de réaliser des tests unitaires sur les différentes fonctions critiques du scénario Intrusion. Cela inclut la validation des mécanismes d'authentification, la gestion des sessions, et la vérification des permissions d'accès aux différentes sections du site. Les tests unitaires permettent de s'assurer que chaque composant fonctionne correctement de manière isolée avant de les intégrer dans le système global.
 
 === Configuration de l'environnement de test
 Jest est configuré pour exécuter les tests dans un environnement Node.js. La configuration permet de mesurer la couverture du code testé et génère des rapports pour vérifier la qualité des tests.

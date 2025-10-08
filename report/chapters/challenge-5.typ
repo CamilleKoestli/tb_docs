@@ -5,7 +5,7 @@ Dans l'archive déchiffrée (`patient_audit_07-12.zip`) se trouve `monitor_check
 Ce challenge permet de sensibiliser à l'importance de la sécurité des scripts et de la nécessité de vérifier les scripts avant de les exécuter. Il montre également comment les attaquants peuvent laisser des traces compromettantes dans leurs propres outils.
 
 Pour ce faire, le participant·e reçoit le message suivant :
-"_L'archive est maintenant déverrouillée et vous constatez qu'effectivement elle contient bien toutes les informations sensibles concernant les patients. Il faut les supprimer rapidement. Cependant, vous ne disposez que de droits visiteur et ne pouvez pas accéder au bouton de suppression. En explorant l'archive déverrouillée, vous trouvez un script Python suspect (`monitor_check_wip.py`). En analysant ce script, vous découvrez que les pirates y ont laissé des commentaires sur leur propre système de surveillance. Ces commentaires révèlent l'existence d'*une route* vers une page potentiellement vulnérable que vous pourrez exploiter pour obtenir les droits administrateur._"
+"_L'archive est maintenant accessible et contient effectivement toutes les données sensibles des patients. Il faut les supprimer d'urgence, mais vous ne disposez que de droits utilisateurs. En fouillant l'archive, vous tombez sur un script Python suspect (`monitor_check_wip.py`). Analysez-le attentivement : les attaquants y ont peut-être laissé des informations exploitables, notamment une *route* vers une page vulnérable._"
 
 *Étapes pour résoudre le challenge :*
 + Ouvrir le fichier `monitor_check_wip.py` dans l'IDE.

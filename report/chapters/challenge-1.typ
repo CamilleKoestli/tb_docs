@@ -5,7 +5,7 @@ Ce premier défi montre au joueur·euse un l’e-mail de phishing qui serait l�
 Ce challenge a pour objectif de sensibiliser aux signes d’un courriel d’hameçonnage.
 
 Voici le message que va recevoir le joueur·euse pour introduire le challenge :
-"_Un courriel suspect a été trouvé dans la boîte de réception d’un employé. Les équipes techniques de cybersécurité pensent qu’il pourrait s’agir du point d’entrée des attaquants. Vous devez l’analyser pour remonter jusqu’à son véritable expéditeur. Retrouvez *le domaine malveillant* utilisé par les attaquants._"
+"_Un courriel suspect a été trouvé dans la boîte de réception d'un employé. Les équipes techniques de cybersécurité pensent qu'il pourrait s'agir du point d'entrée des attaquants. Analysez-le pour identifier le *domaine malveillant* utilisé par les attaquants._"
 
 *Étapes pour résoudre le challenge :*
 + Ouvrir le fichier `planning_salle_op.eml` dans l’IDE.
@@ -30,7 +30,7 @@ Afin de rendre l’expérience plus pédagogique et d’éviter que les joueur·
 
 Chaque tool suit la même logique : apporter un cadre de compréhension pour que les joueur·euse·s puissent se concentrer sur l’investigation et développer leurs compétences d’analyse. Ils permettent ainsi de faire le lien entre la théorie et la pratique des challenges, tout en rendant l’expérience plus accessible et plus formatrice.
 
-Pour le challenge lié aux emails, j’ai écrit un outil qui explique les notions importantes, comme qu’est-ce qu’un email forgé (spoofing), comment se compose une adresse email et quels sont les éléments techniques que l’on retrouve dans les en-têtes. Cet outil permet au joueur·euse de savoir où chercher les indices dans un message suspect et de mieux interpréter les informations disponibles, sans pour autant lui donner directement la réponse.
+Pour le challenge lié aux emails, j’ai écrit un outil qui explique les notions importantes, comme qu’est-ce qu’un email de phising, comment se compose une adresse email et quels sont les éléments techniques que l’on retrouve dans les en-têtes. Cet outil permet au joueur·euse de savoir où chercher les indices dans un message suspect et de mieux interpréter les informations disponibles, sans pour autant lui donner directement la réponse.
 
 Je n'ai pas eu besoin d'ajouter d'informations supplémentaires sur le WHOIS, car une base existait déjà dans la plateforme et est suffisante pour ce niveau de challenge.
 

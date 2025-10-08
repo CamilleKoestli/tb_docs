@@ -7,7 +7,7 @@ Deuxième solution : réussir à faire un code python qui va hasher toutes les v
 Ce challenge montre l'importance de la cryptographie et de la gestion des mots de passe, ainsi que la nécessité de vérifier les métadonnées des fichiers.
 
 Le participant·e obtient le message suivant pour débuter le challenge :
-"_Vous avez réussi à accéder à l'archive `patient_audit_07-12.zip`. En l'analysant, vous remarquez qu'elle contient des fichiers de sauvegarde, qui pourraient être utiles pour votre enquête. Cependant, le dossier est protégé par un mot de passe. Essayez d'analyser le fichier pour découvrir des informations pour trouver le mot de passe qui vous permettra de l'extraire. On cherche un mot de passe commençant par `horizon<nombre>`._"
+"_Vous avez découvert l'archive *patient_audit_07-12.zip*, mais elle est protégée par un mot de passe. Analysez le fichier pour trouver des indices qui vous permettront de le déverrouiller. Le mot de passe recherché commence par *`horizon<nombre>`*._"
 
 *Étapes pour résoudre le challenge :*
 + Lister les métadonnées du zip avec `zipinfo -z patient_audit_07-12.zip` ou sur Windows en utilisant l'explorateur de fichiers.

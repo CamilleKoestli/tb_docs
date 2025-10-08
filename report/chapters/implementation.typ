@@ -105,7 +105,7 @@ Ce challenge ne fait pas appel au backend. L'ensemble du challenge (analyse des 
 
 == Intégration sur le site web <integration-site-web>
 
-L’intégration des nouveaux challenges "Blackout" dans la plateforme existante s’est faite en trois parties :
+L’intégration des nouveaux challenges "Intrusion" dans la plateforme existante s’est faite en trois parties :
 
 + Initialisation des flags et extension du modèle de données
 + Ajout d’un nouveau "mini-site" de jeu (fichiers `blackoutgame.html` et `blackoutmain.js`)
@@ -130,8 +130,8 @@ Pour éviter de placer les réponses dans le frontend, les flags 2025 sont décl
     }
 ```
 
-=== Ajout du mini-site de jeu "Blackout"
-Comme pour les anciens scénarios (chaque challenge = mini-site dans son dossier), Blackout introduit une page de jeu dédiée (`blackoutgame.html`) et un script de contrôle (`blackoutmain.js`). Cette approche permet d’orchestrer l’UI du scénario (iframe principale, champ de réponse, popups d’aide/indices) sans impacter les autres jeux.
+=== Ajout du mini-site de jeu "Intrusion"
+Comme pour les anciens scénarios (chaque challenge = mini-site dans son dossier), Intrusion introduit une page de jeu dédiée (`blackoutgame.html`) et un script de contrôle (`blackoutmain.js`). Cette approche permet d’orchestrer l’UI du scénario (iframe principale, champ de réponse, popups d’aide/indices) sans impacter les autres jeux.
 
 ==== `blackoutgame.html`
 Le fichier HTML charge le thème, les scripts communs, les popups par challenge (0 à 8) et l’iframe qui héberge l’écran actif. On y retrouve également le champ de validation (réponse) et les includes HTML (header, popups) pour conserver la même UX que les autres scénarios.
@@ -139,7 +139,7 @@ Le fichier HTML charge le thème, les scripts communs, les popups par challenge 
 ```html
 <!doctype html>
 <head>
-    <title>Blackout de le Centre Hospitalier Horizon Santé</title>
+    <title>Les données de l'hôpital Horizon Santé ont été volées ! Aide nous à les récupérer.</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -204,7 +204,7 @@ Le fichier HTML charge le thème, les scripts communs, les popups par challenge 
 
 ==== `blackoutmain.js`
 
-Le fichier `blackoutmain.js` (@blackoutmain.js) constitue le cœur du moteur du scénario Blackout 2025. Développé avec le framework Phaser, il orchestre l’affichage du niveau, le déplacement du personnage, l’interaction avec les plateformes représentant les différents challenges, ainsi que la communication avec le backend pour la validation des étapes.
+Le fichier `blackoutmain.js` (@blackoutmain.js) constitue le cœur du moteur du scénario Intrusion. Développé avec le framework Phaser, il orchestre l’affichage du niveau, le déplacement du personnage, l’interaction avec les plateformes représentant les différents challenges, ainsi que la communication avec le backend pour la validation des étapes.
 
 Dès l’initialisation, le script charge les éléments visuels nécessaires : le fond, les textures des plateformes, le héros, ainsi que les données décrivant la disposition des plateformes dans le fichier `level01Blackout.json`. Le héros est représenté comme un sprite animé pouvant se déplacer horizontalement et s’orienter automatiquement vers la gauche ou la droite selon la direction.
 

@@ -42,7 +42,7 @@ Le jeu pédagogique *"Shana a disparu"*, développé par le pôle Y-Security de 
 
 // La sensibilisation aux risques numériques est devenue un enjeu majeur dans notre société, où les cyberattaques se multiplient et touchent aussi bien les particuliers que les organisations. Pour répondre à ce défi, les serious games offrent une approche innovante et motivante, permettant d’apprendre la cybersécurité par la pratique à travers des situations réalistes. Ce projet s’inscrit dans la continuité du jeu pédagogique *"Shana a disparu"* et vise à développer un nouveau scénario d’ethical hacking, intégré à la plateforme _CyberGame_, afin de toucher un public encore plus large.
 
-= Le scénario "Blackout"
+= Le scénario "Intrusion"
 L’objectif principal du projet est de concevoir et de développer un scénario original combinant narration immersive et défis techniques progressifs. Le Centre Hospitalier Horizon Santé subit une attaque par ransomware qui menacent de publier les données sensibles des patients. Dans la peau d'un membre de l'équipe de cybersécurité, le joueur doit résoudre sept challenges techniques progressifs pour infiltrer le système des attaquants, supprimer les données sensibles volées des patients et bloquer toute nouvelle tentative d'intrusion. Chaque étape aborde une thématique de la cybersécurité, comme l’OSINT, l’exploitation web, l'exploitation de failles de contrôle d'accès, la cryptographie, le reverse engineering, une attaque XSS ou encore la défense et l’analyse des logs. L’objectif est à la fois pédagogique et pratique : sensibiliser aux menaces numériques tout en transmettant des compétences concrètes.
 
 = Implémentation et résultats

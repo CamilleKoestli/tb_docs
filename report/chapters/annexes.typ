@@ -687,7 +687,7 @@ services:
 ```
 #pagebreak()
 
-== Implémentation du jeu "Blackout" (`blackoutmain.js`) <blackoutmain.js>
+== Implémentation du jeu "Intrusion" (`blackoutmain.js`) <blackoutmain.js>
 ```js
 //BLACKOUT 2025
 PlayState = {};
