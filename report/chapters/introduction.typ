@@ -42,9 +42,25 @@ Le second scénario (@galac-interface) reprend la même mécanique, mais reste m
 
 La plateforme _CyberGame_ doit relever plusieurs défis : celui de maintenir l'engagement des utilisateur·trice·s qui ont terminé les scénarios existants, et celui de répondre à la demande croissante du marché pour des compétences techniques plus avancées. Pour continuer à sensibiliser efficacement à la cybersécurité, il est crucial d'offrir de nouveaux défis plus complexes qui approfondissent les techniques d'ethical hacking, tout en préservant l'accessibilité et l'immersion narrative qui ont fait le succès de "Shana a disparu".
 
-La question centrale est donc : #quote("Comment créer une nouvelle histoire immersive et prenante qui intègre plusieurs techniques d’ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ? ")
+La question centrale est donc : #quote("Comment créer une nouvelle histoire immersive et prenante qui intègre plusieurs techniques d'ethical hacking, afin de sensibiliser et former les utilisateur·trice·s de tous les niveaux ? ")
 
-Ce travail de Bachelor vise à développer un nouveau scénario pour _CyberGame_ qui intègre des défis de niveau intermédiaire mais qui est aussi accessible aux débutant·e·s dans une narration captivante. L'objectif est de sensibiliser le grand public aux enjeux de sécurité informatique tout en étant dans une optique de formation et d'apprentissage.
+== Motivations et objectifs du projet <motivations>
+
+Le projet vise à développer un nouveau scénario pour la plateforme _CyberGame_ qui réponde à plusieurs objectifs clés.
+
+=== Découvrir et démystifier l'ethical hacking
+L'image du "pirate informatique" reste souvent associée à des activités illégales et malveillantes. Ce projet vise à faire découvrir l'ethical hacking au grand public et à démystifier la démarche d'un·e professionnel·le de la sécurité. En mettant les joueur·euse·s dans la peau d'un·e hacker éthique, le scénario permet de comprendre les techniques utilisées dans le but de protéger et non pas de nuire.
+
+=== Sensibiliser aux dangers et transmettre les bonnes pratiques
+À travers son approche immersive, le jeu vise à sensibiliser les gens aux dangers du numérique. Grâce à l'exploitation de vulnérabilités dans un environnement contrôlé, les joueur·euse·s découvrent, de manière implicite, certaines techniques de protection qu'ils peuvent appliquer dans leur vie.
+
+=== Promouvoir la HEIG-VD et son pôle Y-Security
+Ce serious game constitue également une sorte de publicité pour la HEIG-VD et son pôle Y-Security. Le projet contribue à faire connaître les formations dans le domaine de la cybersécurité. Il montre aussi l'engagement de la HEIG-VD dans la sensibilisation et la formation.
+
+=== Orienter les jeunes vers la cybersécurité
+Enfin, ce projet offre aux jeunes une opportunité de tester et de découvrir la cybersécurité sans avoir forcément beaucoup de connaissances préalables. Le jeu aide les futur·e·s étudiant·e·s à les orienter vers cet avenir professionnel grâce au côté ludique du serious game.
+
+L'objectif global est donc de développer un nouveau scénario pour _CyberGame_ qui intègre des défis de niveau intermédiaire tout en restant accessible aux débutant·e·s, le tout dans une narration captivante. Ce serious game doit sensibiliser le grand public aux enjeux de sécurité informatique tout en étant dans une optique de formation, d'apprentissage et en répondant aussi à ces motivations.
 
 == Solutions existantes <solutions-existantes>
 Il existe aussi d'autres solutions similaires dans le domaine de l'ethical hacking, mais plutôt sous la forme de Capture The Flag (CTF) comme "Root Me", "Hack the Box", "TryHackMe", ...; des cyber-ranges qui sont plutôt destinés à des expert·e·s en cybersécurité ; ou encore des formations en ligne comme "SoSafe" qui proposent des cours et des exercices pratiques sur la cybersécurité sans forcément intégrer d'histoire narrative et immersive.
