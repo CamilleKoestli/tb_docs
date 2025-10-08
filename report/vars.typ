@@ -24,9 +24,12 @@
 ]
 
 #let TBresumePubliable = [
-Ce travail est dans la continuité de "Shana a disparu", un jeu pédagogique en ligne visant à initier le public à l'ethical hacking via une narration immersive et des défis techniques. L'objectif est de concevoir et développer un nouveau scénario s'adressant à un large public pour renforcer la sensibilisation aux risques numériques.
-Le projet comporte 7 challenges techniques de difficulté progressive intégrés dans "Intrusion" dans le Centre Hospitalier Horizon Santé". Ce scénario s'inspire d'attaques réelles par ransomware perturbant le fonctionnement d'un hôpital. Le joueur·euse incarne un membre du SOC devant réagir rapidement pour limiter les impacts. Les défis couvrent diverses thématiques, comme l'OSINT et l'analyse forensique d'emails de phishing, l'exploitation web par injection SQL, la gestion des accès et sessions, la cryptographie avec analyse de métadonnées, le reverse engineering de scripts obfusqués, l'exploitation XSS pour détourner un bot, et la défense via l'analyse de logs pour bloquer un attaquant.
-L'implémentation s'appuie sur l'architecture existante de CyberGame, un frontend HTML/CSS/JavaScript, un backend Node.js/Express et des bases MongoDB et MySQL. De nouveaux outils enrichissent l'expérience, comme un IDE Python embarqué avec Pyodide, des terminaux SSH interactifs et un bot automatisé qui simule des interactions réalistes. La validation repose sur des tests unitaires Jest et des tests utilisateurs avec des profils variés (débutant à avancé).
-Réalisé sur 450 heures, le projet produit un contenu technique, scénarisé et réutilisable, intégré à la plateforme et accessible via navigateur sans installation.
-Ce projet démontre le potentiel des serious games pour la formation en cybersécurité, ce qui rend l'apprentissage interactif motivant et accessible à tou·te·s.
+Les cyberattaques contre les infrastructures critiques, comme les hôpitaux, se multiplient. Les ransomwares perturbent gravement le fonctionnement des établissements de santé et mettent en danger la vie des patients. Face à ces menaces, la sensibilisation et la formation du personnel deviennent essentielles.
+
+Ce projet s'inscrit dans la continuité du serious game "Shana a disparu", développé par la HEIG-VD pour initier le public à la cybersécurité. L'objectif était de concevoir un nouveau scénario immersif qui permet de faire découvir à un large public les mécanismes d'une cyberattaque et d'apprendre à y réagir de manière ludique et pédagogique.
+
+Le scénario "Intrusion dans le Centre Hospitalier Horizon Santé" a été développé et il est composé 7 challenges techniques de difficulté progressive. Le joueur incarne un membre de l'équipe de sécurité de l'hôpital qui doit réagir rapidement face à une attaque par ransomware. Les défis abordent l'OSINT, l'analyse forensique, l'injection SQL, l'exploitation XSS, le reverse engineering et l'analyse de logs. L'implémentation s'est appuyée sur l'architecture existante (Node.js, MongoDB, MySQL) et a été enrichie avec un IDE Python embarqué, des terminaux SSH interactifs et un bot automatisé. Le projet a nécessité environ 450 heures de développement et a été validé par des tests utilisateurs.
+
+Ce travail démontre l'efficacité des serious games pour rendre la formation en cybersécurité interactive, motivante et accessible à tous, sans installation requise.
+
 ]
