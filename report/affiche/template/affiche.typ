@@ -71,7 +71,7 @@
       Auteure: #author \
       //Répondant externe: #industryContact \
       Prof. responsable: #supervisor \
-      Sujet proposé par: #industryName \
+      Sujet proposé par: #supervisor \
     ],
     image("images/logo_hes-so.png", width: 25%)
   ))
@@ -80,6 +80,6 @@
 
   // Footer
   align(bottom + right, text(size: 12pt)[
-    *HEIG-VD #sym.copyright #datetime.today().display("[year]") filière #filiere_long*
+    *HEIG-VD #sym.copyright #datetime.today().display("[year]") #filiere_long*
   ])
 }
