@@ -5,7 +5,7 @@ Sur le portail, un onglet "Gestion des fichiers" mène à `?dir=/shared/`. À ca
 Ce challenge permet de montrer au joueur·euse l'importance de la validation des paramètres d'URL et du contrôle d'accès aux ressources sensibles. Il sensibilise aux vulnérabilités de type Directory Traversal qui permettent à un attaquant de contourner les restrictions d'accès aux fichiers en manipulant les paramètres de chemin, sans réaliser d'escalade de privilèges.
 
 Le joueur·euse reçoit le message suivant pour introduire le challenge :
-"_Vous êtes parvenu à pénétrer dans le portail des attaquants. Il s'agit manifestement d'un système utilisé pour exfiltrer les données volées de l'hôpital. Explorez le portail pour localiser *l'archive zip* contenant les informations les plus récentes sur les patients._"
+"_Vous êtes parvenu à vous introduire dans le portail des attaquants. Il s'agit manifestement d'un système utilisé pour exfiltrer les données volées de l'hôpital. Explorez le portail pour localiser l'*archive zip* contenant les informations les plus récentes sur les patients._"
 
 *Étapes pour résoudre le challenge :*
 + Depuis le portail frauduleux, cliquer sur l'onglet "Gestion des fichiers". L'URL contient `?dir=/shared/` et ne montre qu'un dossier limité

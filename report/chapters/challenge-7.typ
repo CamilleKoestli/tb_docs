@@ -5,10 +5,10 @@ Maintenant que les fichiers sont supprimés du côté des attaquants, le joueur�
 Ce challenge montre l'importance de la surveillance des logs et de la gestion des adresses IP suspectes pour prévenir les attaques.
 
 Le message suivant s'affiche :
-"_Le bot des pirates a été piégé et les fichiers sensibles ont été supprimés. Cependant un attaquant continue de tenter d’exfiltrer des données. Il faut l’identifier et le bloquer immédiatement en l'ajoutant dans le pare-feu de l'hôpital. Une fois dans la liste noire du pare-feu, *un message* devrait vous le confirmer._"
+"_Les fichiers sensibles ont été supprimés du portail des attaquants. Cependant, l'équipe de surveillance réseau de l'hôpital vous alerte qu'un attaquant continue activement de tenter d'exfiltrer des données depuis le réseau de l'hôpital. Identifiez cet attaquant et bloquez-le immédiatement en l'ajoutant à la liste noire du pare-feu. Un *message* devrait confirmer le blocage une fois l'opération réussie._"
 
 *Étapes pour résoudre le challenge :*
-+ Depuis le portail IT interne `https://intra.horizonsante.com/it/`	, aller dans le menu de gauche "Outils SOC".
++ Depuis le portail IT interne	, aller dans le menu de gauche "Outils SOC".
 + Cliquer sur "Logs & Diagnostics", puis sur "VPN Access" , ce qui fait apparaître une liste de fichiers.
 + Ouvrir le fichier log le plus récent `vpn_access_2025-07-12.log` dans un éditeur de texte. Chaque ligne commence par l’IP source.
 + Repérer l’adresse IP qui apparaît le plus souvent `185.225.123.77`	qui est donc la machine de l’attaquant.
