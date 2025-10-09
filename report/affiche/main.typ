@@ -43,11 +43,11 @@ Le Centre Hospitalier Horizon Santé subit une attaque par ransomware. Les attaq
 #image("imgs/terminal.png")
 
 
-= Implémentation et résultats
+= Implémentation
 L'architecture s'appuie sur la plateforme CyberGame orchestrée avec Docker Compose : frontend HTML/CSS/JavaScript, backend Node.js/Express, bases MongoDB et MySQL. Des fonctionnalités enrichissent l'expérience : terminaux SSH interactifs, IDE Python embarqué, et bot Puppeteer vulnérable aux attaques XSS.
 #image("imgs/scenario.png")
 
-= Impact et perspectives
+= Résultats et perspectives
 
 Les tests utilisateurs révèlent des résultats positifs. Les profils avancés apprécient la diversité et la cohérence narrative. Les débutants, malgré certaines difficultés, maintiennent leur motivation et expriment une grande satisfaction. Ce projet démontre le potentiel des serious games pour la formation en cybersécurité et enrichit l'offre du pôle Y-Security.
 
