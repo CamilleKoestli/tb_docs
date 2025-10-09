@@ -81,9 +81,9 @@ Il s’agit d’une progression à difficulté croissante où chaque challenge e
 
 Le joueur·euse reçoit une première popup, qui représente le niveau 0, qui correspond à l'intrigue générale pour commencer l'histoire : \
 "_Vous faites partie d'une équipe d'intervention en cybersécurité travaillant pour l'Hôpital Horizon Santé. En arrivant sur place ce mardi 12 juillet 2025 à 12h32, vous découvrez l'établissement en état de crise : une demande de rançon vient d'être reçue.\
-  Le Centre hospitalier Horizon Santé est un grand hôpital universitaire de la région, centre de référence pour les soins d'urgence, les soins intensifs et les interventions chirurgicales complexes. C'est également un important centre de recherche médicale.\
-  Les premiers éléments de l'enquête révèlent qu'un groupe de cybercriminels a réussi à infiltrer le réseau de l'hôpital. Un ransomware a exfiltré les données sensibles de tous les patients et les attaquants menacent maintenant de les divulguer publiquement.\
-  Votre mission est de vous introduire dans le système des attaquants, supprimer les données sensibles qu'ils ont volées et les bloquer définitivement pour qu'ils ne puissent plus accéder au réseau de l'hôpital._"
+Le Centre hospitalier Horizon Santé est un grand hôpital universitaire de la région, centre de référence pour les soins d'urgence, les soins intensifs et les interventions chirurgicales complexes. C'est également un important centre de recherche médicale.\
+Les premiers éléments de l'enquête révèlent qu'un groupe de cybercriminels a réussi à infiltrer le réseau de l'hôpital. Un ransomware a exfiltré les données sensibles de tous les patients et les attaquants menacent maintenant de les divulguer publiquement.\
+Votre mission est de vous introduire dans le système des attaquants, supprimer les données sensibles qu'ils ont volées et les bloquer définitivement pour qu'ils ne puissent plus accéder au réseau de l'hôpital._"
 
 
 #pagebreak()
