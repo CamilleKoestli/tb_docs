@@ -30,8 +30,8 @@ Parmi les forces de la plateforme, les enquêtes sont construites afin de suivre
 
 En effet, la boîte à outils intégrée, qui contient les fiches pratiques, évite aux débutant·e·s de devoir faire trop de recherches et ainsi leur permet de se focaliser sur le jeu.
 
-//TODO A REVOIR
-De plus, grâce à un mini IDE Python et un terminal intégré, comme le montre les @ide-img et @terminal-img, le joueur·euse n'a rien besoin d'installer sur sa machine. L'expérience se déroule entièrement sur le navigateur, ce qui abaisse la barrière d’entrée et la variété des techniques abordées offrant un panorama cohérent de la sécurité offensive.
+De plus, grâce à un mini IDE Python et un terminal intégré, comme le montre les @ide-img et @terminal-img, le joueur·euse n'a rien besoin d'installer sur sa machine. L'expérience se déroule entièrement sur le navigateur, ce qui facilite l'accès au jeu et évite les installations complexes. 
+
 #figure(
   image("imgs/ide-interface.png"),
   caption: [IDE présent sur le jeu "Sauve la Terre de l'arme galactique !", dans le challenge 6],

@@ -34,7 +34,6 @@
 // #lorem(100)
 // 
 
-//TODO ajouter image
 = Contexte et enjeux
 
 Suite au succès du jeu "Shana a disparu" du pôle Y-Security de la HEIG-VD, ce projet développe un nouveau scénario proposant des défis techniques plus avancés tout en restant accessible aux débutants comme aux joueur·euse·s expérimenté·e·s.

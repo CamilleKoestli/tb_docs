@@ -45,12 +45,11 @@ pool.query(
 
 Les utilisateurs sont stockés dans une base de données MySQL pour rendre la simulation plus crédible et illustrer comment une mauvaise gestion des entrées utilisateur peut permettre d'injecter du SQL et de contourner l'authentification.
 
-// TODO A REVOIR ET REFAIRE IMAGES
 === Challenge 3
-Dans le challenge 3, l'objectif est de mettre en avant la navigation dans des dossiers, afin de sensibiliser aux problèmes de contrôle d'accès. Le joueur·euse commence le défi en arrivant sur le dashboard du site des attaquants. #figure(image("imgs/chall3.png", width: 80%), caption: [Dashboard une fois connecté sur la plateforme des attaquants, challenge 3])<chall3> Sur cette page, il pourra ensuite cliquer sur le lien `Gestion des fichers` qui simule un gestionnaire de fichiers, avec un premier accès restreint au répertoire `/shared`. #figure(image("imgs/chall3'.png", width: 80%), caption: [Dossiers shared, challenge 3])<chall3.1> Le joueur·euse doit manipuler directement l'URL, dans un premier temps, en modifiant le paramètre `?dir=` pour retrouver le dossier racine, qui est la figure @chall3.2, puis explorer l'arborescence complète. Chaque dossier correspond à une page HTML distincte, ce qui permet de rendre la navigation concrète et progressive. On peut ainsi passer du tableau de bord au répertoire partagé, puis remonter à la racine et enfin atteindre des sous-dossiers sensibles comme `/archives/2025`, qui se trouve dans la @chall3.3. #figure(image("imgs/chall3''.png", width: 80%), caption: [Dossiers racine, challenge 3])<chall3.2>
+Dans le challenge 3, l'objectif est de mettre en avant la navigation dans des dossiers, afin de sensibiliser aux problèmes de contrôle d'accès. Le joueur·euse commence le défi en arrivant sur le dashboard du site des attaquants. #figure(image("imgs/chall3.png", width: 80%), caption: [Dashboard une fois connecté sur la plateforme des attaquants, challenge 3])<chall3> Sur cette page, il pourra ensuite cliquer sur le lien `Gestion des fichers` qui simule un gestionnaire de fichiers, avec un premier accès restreint au répertoire `/shared`. #figure(image("imgs/chall3'.png", width: 80%), caption: [Dossiers shared, challenge 3])<chall3.1> Le joueur·euse doit manipuler directement l'URL, dans un premier temps, en modifiant le paramètre `?dir=` pour retrouver le dossier racine, qui est la @chall3.2, puis explorer l'arborescence complète. Chaque dossier correspond à une page HTML distincte, ce qui permet de rendre la navigation concrète et progressive. On peut ainsi passer du tableau de bord au répertoire partagé, puis remonter à la racine et enfin atteindre des sous-dossiers sensibles comme `/archives`, qui se trouve dans la @chall3.3. #figure(image("imgs/chall3''.png", width: 80%), caption: [Dossiers racine, challenge 3])<chall3.2>
 #figure(image("imgs/chall3'''.png", width: 80%), caption: [Exploration des dossiers jusqu'au dossier `/archives`, challenge 3])<chall3.3>
 
-Le backend est centré sur la navigation de répertoires simulés. Le fichier `horizonmain.js` définit la logique permettant de mapper les paramètres `?dir=` de l'URL vers des fichiers HTML spécifiques. La fonction `loadIframe()` récupère le paramètre `dir` et charge la page correspondante dans un iframe selon un mapping prédéfini (`/archives/2025` → `archives_2025.html`). La fonction `navigateToDirectory()` met à jour l'URL et recharge l'iframe lors de la navigation, reproduisant ainsi le comportement d'un gestionnaire de fichiers.
+Le backend est centré sur la navigation de répertoires simulés. Le fichier `horizonmain.js` définit la logique permettant de mapper les paramètres `?dir=` de l'URL vers des fichiers HTML spécifiques. La fonction `loadIframe()` récupère le paramètre `dir` et charge la page correspondante dans un iframe selon un mapping prédéfini. La fonction `navigateToDirectory()` met à jour l'URL et recharge l'iframe lors de la navigation, reproduisant ainsi le comportement d'un gestionnaire de fichiers.
 
 === Challenge 4
 Le challenge 4 introduit un environnement Python directement intégré dans le navigateur grâce à Pyodide. Cette technologie permet d'exécuter du code Python sans rien installer, en offrant un terminal interactif.
@@ -255,10 +254,10 @@ const VALID_YEARS = ["2020", "2021", "2025"];
                 </div>
             </div>
             <div class="col-md-4 ">
-                <!-- TODO CHANGE VIDEO LINK-->
-                <div class="embed-responsive embed-responsive-16by9">
+                <!-- TODO CHANGE VIDEO -->
+                <!-- <div class="embed-responsive embed-responsive-16by9">
                     <iframe src="https://www.youtube.com/embed/jgkrl94bnvw" allowfullscreen></iframe>
-                </div>
+                </div>-->
                 <br>
                 <a href="./horizongame.html" class="btn btn-white btn-outline-white px-3 py-3 long-txt-button">Accéder aux
                     défis ! <span class="ion-arrow-right-c"></span></a>

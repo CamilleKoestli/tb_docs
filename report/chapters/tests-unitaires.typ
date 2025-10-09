@@ -20,5 +20,4 @@ Pour le challenge 6, deux séries de tests unitaires ont été développées. La
 
 Enfin, les tests du challenge 7 vérifient le mécanisme de génération de code de blocage d’adresses IP. Les tests s'assurent que le format des adresses est correct et que le code de confirmation produit est bien ce qui est attendu. La validation du flag est également testée pour s’assurer qu’un code généré correspond bien à l’IP suspecte identifiée. Cela permet de s’assurer que le challenge reste cohérent et que les joueurs peuvent interagir avec le système de manière réaliste.
 
-//TODO A REVOIR
-Pour terminer, des tests de la base de données MongoDB valident l'initialisation sécurisée des flags de challenges. Ils vérifient que la création des flags est correcte à partir des variables d'environnement pour les différentes années, la validation du hachage des valeurs des flags, la connexion à la base de données, la gestion des entrées et en cas de duplications de flags.
+Pour terminer, des tests de la base de données MongoDB valident l'initialisation sécurisée des flags de challenges. Ils vérifient que la création des flags est correcte à partir des variables d'environnement pour les différentes années, la validation du hachage des valeurs des flags et la connexion à la base de données.
