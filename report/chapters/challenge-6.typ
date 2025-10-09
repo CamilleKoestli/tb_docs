@@ -20,8 +20,8 @@ Pour ce faire, le participant·e reçoit le message suivant :
 
 *Indices graduels :*
 - Le premier indice explique que les balises HTML ne sont pas échappées dans le champ Message, ce qui permet d'injecter du code JavaScript. "_Les champs du formulaire ne filtrent pas correctement le code HTML, les balises HTML ne sont pas échappées, vous pouvez exécuter du JavaScript._"
-- Le second indice suggère le type d'attaque à utiliser. "_Injecte du JavaScript malveillant dans un message pour voler les cookies quand le chatbot le traite._"
-- Le troisième indice explique la récupération du cookie. "_Une fois le cookie récupéré, utilise F12, Application, puis Cookies pour remplacer ta session par celle du bot admin._"
+- Le second indice suggère le type d'attaque à utiliser. "_Injectez du JavaScript malveillant (XSS) dans un message pour voler les cookies quand le chatbot le traite._"
+- Le troisième indice explique la récupération du cookie. "_Une fois le cookie récupéré, utilisez F12 (ou clic droit, puis Inspecter), Stockage ou Application, puis Cookies pour remplacer votre session admin par celle du bot admin._"
 
 *Flag attendu* : la réponse du serveur `all_files_deleted`, ce qui montre au joueur·euse que tous les fichiers ont été supprimés avec succès.
 

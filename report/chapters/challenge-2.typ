@@ -15,9 +15,9 @@ La consigne suivante est donnée aux joueur·euse·s :
 *Outils nécessaires :* Un navigateur web (avec éventuellement les outils de développement pour observer les requêtes) suffit pour ce défi. Aucune extension spécifique n’est requise, juste la saisie de la charge malveillante dans le formulaire.
 
 *Indices graduels :*
-- Le premier indice rappelle qu’il faut utiliser une adresse email valide pour contourner le contrôle du mail invalide. Il est suggéré de récupérer l’adresse email utilisée par les attaquants dans le challenge précédent. "_Retrouver l’adresse email utilisée par les attaquants dans le challenge précédent avec comme fin `@horizonsante-support.com`_"
+- Le premier indice rappelle qu’il faut utiliser une adresse email valide pour contourner le contrôle du mail invalide. Il est suggéré de récupérer l’adresse email utilisée par les attaquants dans le challenge précédent. "_Retrouvez l’adresse email utilisée par les attaquants dans le challenge précédent avec comme fin `@horizonsante-support.com`_"
 - Le second indice suggère que la vulnérabilité ne se trouve pas dans le champ email et donc que l'injection doit se faire dans le mot de passe. "_L’adresse email doit seulement être correcte pour passer la vérification. La véritable vulnérabilité se cache dans le champ mot de passe._"
-- Le troisième indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour ces éléments. "_Le WAF bloque `OR` et les commentaires `--`, mais il existe d’autres syntaxes pour ces opérations..._"
+- Le troisième indice indique que le WAF bloque les mots-clés `OR` et les commentaires `--`, mais qu’il existe d’autres syntaxes SQL pour ces éléments. "_Le WAF (Web Application Firewall) bloque `OR` et les commentaires `--`, mais il existe d’autres syntaxes pour ces opérations..._"
 
 
 *Flag attendu* : Le flag `co_S3ss10n4Cc3s5` montre que la connexion au site a bien été établie.

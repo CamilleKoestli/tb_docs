@@ -9,7 +9,7 @@ Le message suivant s'affiche :
 
 
 *Étapes pour résoudre le challenge :*
-+ Depuis le portail IT interne	, aller dans le menu de gauche "Outils SOC".
++ Depuis le portail IT interne	, aller dans le menu de gauche "Outils sécurité".
 + Cliquer sur "Logs et Diagnostics", puis sur "VPN Access" , ce qui fait apparaître une liste de fichiers.
 + Ouvrir le fichier log le plus récent `vpn_access_2025-07-12.log` dans un éditeur de texte. Chaque ligne commence par l’IP source.
 + Repérer l’adresse IP qui apparaît le plus souvent `185.225.123.77`	qui est donc la machine de l’attaquant.
@@ -21,11 +21,11 @@ Le message suivant s'affiche :
 
 *Indices graduels :*
 - Le premier indice rappelle que le menu "Logs et Diagnostics" contient tous les journaux, cherche celui qui mentionne "VPN Access". "_Le menu "Logs et Diagnostics" contient les journaux VPN, c'est ici que vous pourrez trouver des informations sur les connexions en cours._"
-- Le deuxième indice indique que dans le fichier, chaque entrée commence par l’IP source. Cela signifie qu'il faut chercher les lignes qui commencent par une adresse IP. "_Les IPs apparaissent au début de chaque ligne du fichier log._"
-- Le troisième indice suggère de bloquer l’IP trouvée dans le pare-feu. "_Bloquez l’IP trouvée via le formulaire de la "Liste noire"._"
+- Le deuxième indice indique que dans le fichier, chaque entrée commence par l’IP source. Cela signifie qu'il faut chercher les lignes qui commencent par une adresse IP. "_Les IPs apparaissent au début de chaque ligne du fichier log. L'attaque a eu lieu vers 12h32._"
+- Le troisième indice suggère de bloquer l’IP le plus répondu à l'heure de l'attaque dans le pare-feu. "_Bloquez l'IP trouvée via le formulaire de la "Liste noire"._"
 
 *Flag attendu :* Le flag attendu est le message `blk_185-225-123-77_ok` qui confirme que l’adresse IP de l’attaquant a été bloquée avec succès. Cela permet de sécuriser le réseau et d'empêcher toute nouvelle tentative d'exfiltration de données.
 
 === Techniques et outils
 
-Pour ce dernier challenge, un outil expliquant les logs et leur importance dans la sécurité informatique a été ajouté. J'y explique ce qu'est un log et la structure typique d'un fichier de log, avec des exemples concrets. Une section sur les bonnes pratiques pour analyser les logs, comme la recherche de motifs inhabituels ou d'adresses IP suspectes, y est également incluse.
+Pour ce dernier challenge, un outil expliquant les logs et leur importance dans la sécurité informatique a été ajouté. La section explique ce qu'est un log et la structure typique d'un fichier de log, avec des exemples concrets. Une section sur les bonnes pratiques pour analyser les logs, comme la recherche de motifs inhabituels ou d'adresses IP suspectes, y est également incluse.

@@ -16,9 +16,9 @@ Voici le message que va recevoir le joueur·euse pour introduire le challenge :
 *Outils nécessaires :* Les outils nécessaires pour ce défi sont un éditeur de texte/IDE pour afficher les en-têtes de l’email, et un service WHOIS/OSINT en ligne pour vérifier le domaine.
 
 *Indices graduels :*
-- Le premier indice suggère de se concentrer sur les premiers en-têtes `Received:`. La véritable origine de l’email est souvent dans la ligne la plus basse, car c’est le premier serveur à avoir reçu le message. "_La véritable origine est souvent dans la dernière ligne `Received:`, en bas de la liste._"
+- Le premier indice suggère de se concentrer sur les premiers en-têtes `Received:`. La véritable origine de l’email est souvent dans la ligne la plus basse, car c’est le premier serveur à avoir reçu le message. "_La véritable origine se trouve dans la première ligne `Received:`, en haut de la liste, qui montre d'où provient réellement le message._"
 - Le second indice indique que l’expéditeur imite le sous-domaine support d’Horizon Santé, mais un détail dans le nom de domaine trahit la fraude. Il faut donc regarder attentivement le domaine après le `@`. "_L’expéditeur imite un sous-domaine du support Horizon Santé, mais un détail dans le nom trahit la fraude._"
-- Le troisième indice rappelle de vérifier la réputation du domaine suspect via un service WHOIS/OSINT. On découvre que le domaine ressemble à `horizonsante.com`, mais il a été enregistré récemment et est signalé comme malveillant. "_Vérifie la réputation du domaine suspect sur un service WHOIS/OSINT._"
+- Le troisième indice rappelle de vérifier la réputation du domaine suspect via un service WHOIS/OSINT. On découvre que le domaine ressemble à `horizonsante.com`, mais il a été enregistré récemment et est signalé comme malveillant. "_Vérifiez la réputation du domaine suspect sur un service WHOIS/OSINT._"
 
 *Flag attendu :* Le flag serait donc le nom de domaine frauduleux utilisé par l'attaquant `horizonsante-support.com`.
 
