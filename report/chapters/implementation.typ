@@ -145,7 +145,6 @@ Le moteur intègre également des cas spécifiques, comme pour le Challenge 3, o
 
 Enfin, `horizonmain.js` prend en charge la compatibilité et l’expérience utilisateur : il vérifie le type de navigateur et alerte si le jeu est lancé sur un appareil mobile ou un navigateur non supporté, afin d'afficher une erreur si le navigateur n'est pas supporté.
 
-//TODO A REVOIR
 === Raccordement dans la page d’accueil, routage et configuration des flags `.env` / `.env.prod`
 
 Pour exposer le nouveau scénario dans l’UI globale, index.html reçoit une déclaration de l’année dans la constante `VALID_YEARS`, pour que la logique cliente supporte 2025 (comme 2020/2021) et un bloc de présentation (texte + vidéo) et un bouton d’accès à `horizongame.html`.

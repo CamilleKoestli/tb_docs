@@ -6,7 +6,7 @@ Dans un premier temps, le joueur·euse doit remonter à l'origine de l'attaque e
 
 "Le Centre hospitalier Horizon Santé tourne sur groupe électrogène depuis trois heures : un ransomware a chiffré les serveurs cliniques, puis a sauté la barrière réseau et mis hors service le réseau électrique qui alimente le bloc opératoire. Le générateur de secours n’a plus que 68 minutes d’autonomie. Si rien n’est fait, huit opérations à cœur ouvert devront être interrompues.
 Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’hôpital. Votre mission : remettre les services vitaux en ligne avant la fin du compte à rebours et bloquer la seconde vague annoncée par les attaquants."
-
+#pagebreak()
 *Challenges à réaliser*
 #table(
   columns: (auto, 1fr, 1fr, 2fr),

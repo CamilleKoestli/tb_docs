@@ -112,7 +112,7 @@ Le joueur·euse a maintenant le `session_token`, mais il doit effacer toute trac
 === _SecureNote Cipher_ : Cryptographie <ch2-4>
 Le joueur·euse a réussi à se connecter à l'intranet de KeyWave Systems, mais il doit maintenant accéder aux plans FIDO2. Ils sont stockés dans un fichier sécurisé `design_note.sec` dans le répertoire `/vault/`. Le fichier est chiffré avec un XOR répété de 3 octets.
 La structure du fichier est la suivante : un en-tête non chiffré qui est `KWSXORv1` (8 octets), puis le contenu chiffré commence immédiatement après l'en-tête. Le joueur·euse sait que le texte chiffré commence par le mot `TITLE:` (6 octets). Il s'agit d'une attaque de type "known plaintext" (texte clair connu) sur un chiffrement XOR.
-
+#pagebreak()
 + Télécharger `design_note.sec`.
 + Charger le fichier dans CyberChef et isoler le bloc chiffré.
 + XOR le bloc avec le plaintext connu `TITLE:`, permet de retrouver la clé.

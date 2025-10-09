@@ -157,7 +157,7 @@ Les défis qui ont besoin d'un terminal utilisent des iframes qui pointent vers 
 ==== API Express <api-express>
 
 L'API Express (@index.js) gère la logique serveur via plusieurs modules fonctionnels :
-
+#pagebreak()
 *Validation des défis* :
 - `POST /:year/flag` : hash SHA3-256 de la réponse, comparaison avec MongoDB, ajout à `user.flagged`
 - `POST /:year/checkFlag` : validation sans mise à jour de progression
