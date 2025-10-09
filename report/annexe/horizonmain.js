@@ -1,4 +1,4 @@
-//BLACKOUT 2025
+//HORIZON 2025
 PlayState = {};
 
 //Const variables for cookie name
@@ -33,13 +33,12 @@ PlayState.preload = function () {
   this.game.load.image("finishGround", "images/greenZone.png");
   //invisible ground
   this.game.load.image("inv1", "images/ground.png");
-      //hero
-    this.game.load.spritesheet('hero', 'images/herov4.png', 27, 50);
-
+  //hero
+  this.game.load.spritesheet("hero", "images/herov4.png", 27, 50);
 };
 
 PlayState.init = function () {
-    this.game.renderer.renderSession.roundPixels = true;
+  this.game.renderer.renderSession.roundPixels = true;
 };
 
 /////////////////////////////////////////////////////////////////////////
@@ -47,46 +46,45 @@ PlayState.init = function () {
 /////////////////////////////////////////////////////////////////////////
 
 function Hero(game, x, y) {
-    Phaser.Sprite.call(this, game, x, y, 'hero');
-    this.anchor.set(0, 0.5);
-    this.game.physics.enable(this);
-    this.body.collideWorldBounds = true;
-    this.positionx = x;
-    this.direction = 1;
-    this.accessibleChall = new Set();
+  Phaser.Sprite.call(this, game, x, y, "hero");
+  this.anchor.set(0, 0.5);
+  this.game.physics.enable(this);
+  this.body.collideWorldBounds = true;
+  this.positionx = x;
+  this.direction = 1;
+  this.accessibleChall = new Set();
 
-    this.animations.add('stop', [0]);
-    this.animations.add('run', [0, 1, 2, 3, 4, 5, 6], 8, true); // 8fps looped
+  this.animations.add("stop", [0]);
+  this.animations.add("run", [0, 1, 2, 3, 4, 5, 6], 8, true); // 8fps looped
 }
 
 // inherit from Phaser.Sprite
 Hero.prototype = Object.create(Phaser.Sprite.prototype);
 Hero.prototype.constructor = Hero;
 Hero.prototype.move = function (direction) {
-        const SPEED = 300;
-        this.body.velocity.x = direction * SPEED;
-        if (this.body.velocity.x < 0) {
-            this.scale.x = -1;
-        } else if (this.body.velocity.x > 0) {
-            this.scale.x = 1;
-        }
+  const SPEED = 300;
+  this.body.velocity.x = direction * SPEED;
+  if (this.body.velocity.x < 0) {
+    this.scale.x = -1;
+  } else if (this.body.velocity.x > 0) {
+    this.scale.x = 1;
+  }
 };
 Hero.prototype._getAnimationName = function () {
-    let name = 'stop'; // default animation
+  let name = "stop"; // default animation
 
-    if (this.body.velocity.x !== 0) {
-        name = 'run';
-    }
-    return name;
+  if (this.body.velocity.x !== 0) {
+    name = "run";
+  }
+  return name;
 };
 Hero.prototype.update = function () {
-    // update sprite animation, if it needs changing
-    let animationName = this._getAnimationName();
-    if (this.animations.name !== animationName) {
-        this.animations.play(animationName);
-    }
+  // update sprite animation, if it needs changing
+  let animationName = this._getAnimationName();
+  if (this.animations.name !== animationName) {
+    this.animations.play(animationName);
+  }
 };
-
 
 /////////////////////////////////////////////////////////////////////////
 //  load and spawn methodes to create sprites, background ...
@@ -342,21 +340,16 @@ function loadIframe(idChall, urlChall) {
     var queryParams = new URLSearchParams(window.location.search);
     var dirParam = queryParams.get("dir");
 
-    // Mapping paramètres dir vers html
-    var fileMapping = {
-      "/": "dir.html",
-      "/shared": "shared.html",
-      "/shared/": "shared.html",
-      "/public": "public.html",
-      "/public/": "public.html",
-      "/archives": "archives.html",
-      "/archives/": "archives.html",
-    };
+    // Résoudre la cible via util si dispo
+    var targetFile =
+      typeof resolveDirToFile === "function"
+        ? resolveDirToFile(dirParam)
+        : null;
 
-    if (dirParam && fileMapping[dirParam]) {
+    if (dirParam && targetFile) {
       // Construire chemin vers html
       var basePath = urlChall.replace("index.html", "");
-      iframe.src = basePath + fileMapping[dirParam];
+      iframe.src = basePath + targetFile;
     } else if (dirParam) {
       // Paramètre dir inconnu donc vers dir=/
       var basePath = urlChall.replace("index.html", "");
@@ -383,29 +376,25 @@ function navigateToDirectory(dirPath) {
     // Chemin de base chall3
     var basePath = iframe.src.split("/").slice(0, -1).join("/") + "/";
 
-    // Mapping paramètres dir vers html
-    var fileMapping = {
-      "/": "dir.html",
-      "/shared": "shared.html",
-      "/public": "public.html",
-      "/archives": "archives.html",
-    };
-
-    if (fileMapping[dirPath]) {
-      iframe.src = basePath + fileMapping[dirPath];
+    var targetFile =
+      typeof resolveDirToFile === "function" ? resolveDirToFile(dirPath) : null;
+    if (targetFile) {
+      iframe.src = basePath + targetFile;
     }
   }
 }
 
 function spawnPopup(idChall, urlChall) {
-  // get the popup html element from game.html
   var popup = document.getElementById(idChall);
   var beginBtn = null;
+
+  // Réinitialiser hint new chall
+  $('[class^="indice_text_"]').css("display", "none");
 
   // get current query params
   var queryParams = new URLSearchParams(window.location.search);
 
-  // if chall3, don't set dir parameter initially - let it start on index.html
+  // Si chall3 ne pas définir le paramètre dir -> index.html
   if (idChall === "chall3") {
     // Ne pas définir de paramètre dir au début pour commencer sur index.html
     queryParams.delete("dir");
@@ -420,7 +409,7 @@ function spawnPopup(idChall, urlChall) {
     history.replaceState(null, null, "?" + queryParams.toString());
   }
 
-  // if chall0 the normaly start challenge button will close the popup and get next chall accessible, update plateform
+  // Si chall0 démarrage normal chall et prochain chall accessible
   if (idChall === "chall0") {
     closeBtnbis = document.getElementById("intro_close");
     closeBtnbis.onclick = function () {
@@ -432,7 +421,6 @@ function spawnPopup(idChall, urlChall) {
   }
   if (idChall === "chall8") {
   }
-  // else, start challenge button will close popup then load iframe, set cookie for current chall
   else {
     beginBtn = document.getElementById(idChall + "_begin");
     if (beginBtn != null)
@@ -440,16 +428,16 @@ function spawnPopup(idChall, urlChall) {
         loadIframe(idChall, urlChall);
         popup.style.display = "none";
         setCookie(cookieName_currentChall, idChall);
-        //hide hint for all popup
-        $(".indice_text").css("display", "none");
+        // cache hint popup
+        $('[class^="indice_text_"]').css("display", "none");
       };
   }
-  // show the popup, close button will close popup and hide hint for all popup
+  // montre popup bouton close ferme popup et cache hint
   popup.style.display = "block";
   closeBtn = document.getElementById(idChall + "_close");
   closeBtn.onclick = function () {
     popup.style.display = "none";
-    $(".indice_text").css("display", "none");
+    $('[class^="indice_text_"]').css("display", "none");
   };
 }
 
@@ -484,10 +472,12 @@ function getCookie(name) {
   }
 }
 
-function show_hide_indice() {
-  if ($(".indice_text").css("display") === "block") {
-    $(".indice_text").css("display", "none");
+// Fonction pour afficher/cacher indice spécifique
+function show_hide_indice_specific(indiceNumber) {
+  var indiceElement = $('.indice_text_' + indiceNumber);
+  if (indiceElement.css("display") === "block") {
+    indiceElement.css("display", "none");
   } else {
-    $(".indice_text").css("display", "block");
+    indiceElement.css("display", "block");
   }
 }
