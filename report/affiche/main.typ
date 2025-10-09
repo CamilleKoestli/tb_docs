@@ -34,12 +34,14 @@
 // #lorem(100)
 // 
 
+//TODO ajouter image
 = Contexte et enjeux
 
 Suite au succès du jeu "Shana a disparu" du pôle Y-Security de la HEIG-VD, ce projet développe un nouveau scénario proposant des défis techniques plus avancés tout en restant accessible aux débutants comme aux joueur·euse·s expérimenté·e·s.
 
 = Le scénario "Horizon"
 Le Centre Hospitalier Horizon Santé subit une attaque par ransomware. Les attaquants menacent de publier les données des patients. Dans la peau d'un·e expert·e en cybersécurité, le joueur résout sept challenges progressifs (OSINT, exploitation web, cryptographie, reverse engineering, XSS, analyse de logs) pour infiltrer le système des attaquants et supprimer les données volées. L'objectif : sensibiliser aux menaces numériques et transmettre des compétences concrètes.
+#image("imgs/terminal.png")
 
 
 = Implémentation et résultats
