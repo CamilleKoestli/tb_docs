@@ -4,7 +4,7 @@ Le scénario définitif retenu est l'histoire 1, intitulé "Blackout dans le _Ce
 Le scénario retenu, dans son ensemble inclue le détail des challenges, chacun visant à sensibiliser les participant·e·s à des aspects spécifiques de la sécurité informatique. Chaque challenge suit l'intrigue et est écrit pour être interactif et éducatif. Cela permet aux participant·e·s d'apprendre en pratiquant. \
 Chacun des challenges est expliqué plus en détail sur l'implémentation, ce qui est attendu du joueur·euse avec les consignes, les indices et les solutions attendues.
 
-Le titre a du être remanié pour coller avec le scénario de l'histoire et donc porte le nom "Intrusion dans le _Centre Hospitalier Horizon Santé_". De ce fait, les anciens noms "Blackout" ont été remplacés par "Intrusion".
+Le titre a du être remanié pour coller avec le scénario de l'histoire et donc porte le nom "Fuite de données dans le _Centre Hospitalier Horizon Santé_". De ce fait, les anciens noms "Blackout" ont été remplacés par "Horizon".
 
 *Fil rouge du scénario*
 
@@ -19,7 +19,7 @@ En parcourant ces sept défis, le participant·e permet d'avoir un aperçu sur t
 
 #figure(
   image("schemas/scenario.png"),
-  caption: [Schéma récapitulatif du scénario "Intrusion dans le Centre Hospitalier Horizon Santé"],
+  caption: [Schéma récapitulatif du scénario "Fuite de données dans le Centre Hospitalier Horizon Santé"],
 )<site_web>
 
 Il est important de noter que les challenges pourront être adaptés en fonction des compétences des joueur·euse·s et de leur niveau d'expérience lors de l'implémentation du code. Il s'agit que d'une proposition de structure et de contenu pour le scénario. Les défis peuvent être modifiés ou ajustés pour mieux correspondre aux objectifs pédagogiques et aux compétences visées.
