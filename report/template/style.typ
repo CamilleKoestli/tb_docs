@@ -68,8 +68,8 @@
       }
     },
     margin: (
-      top: 150pt,
-      bottom: 150pt,
+      top: 100pt,
+      bottom: 100pt,
       x: 1in
     )
   )
