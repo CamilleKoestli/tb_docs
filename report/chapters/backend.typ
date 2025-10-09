@@ -3,7 +3,7 @@
 L’implémentation backend de la plateforme a été conçue pour compléter les interfaces frontend et apporter des mécanismes réalistes aux challenges. Le backend n’est pas utilisé de manière uniforme pour tous les challenges : certains s’appuient sur des scripts spécifiques accessibles via SSH, d’autres sur des routes d’API ou une base de données, tandis que certains n’en nécessitent pas du tout.
 
 === Challenge 1
-Pour ce premier challenge, le backend repose sur l’utilisation du docker `ssh-whois`, déjà créé et proposé dans les scénarios précédents. Il permet, depuis le terminal côté frontend, de lancer une commande `whois` et de récupérer les informations relatives au domaine frauduleux qui apparaît dans l’email suspect.
+Pour ce premier challenge, le backend repose sur l’utilisation du Docker `ssh-whois`, déjà créé et proposé dans les scénarios précédents. Il permet, depuis le terminal côté frontend, de lancer une commande `whois` et de récupérer les informations relatives au domaine frauduleux qui apparaît dans l’email suspect.
 
 
 === Challenge 2
@@ -29,10 +29,10 @@ pool.query(
 Ensuite, pour rendre la simulation plus crédible, les utilisateurs sont stockés dans une base de données MySQL. Cela permet d'illustrer comment une mauvaise gestion des entrées utilisateur peut permettre d'injecter du SQL et de contourner l'authentification.
 
 === Challenge 3
-Le backend du challenge 3 est centré sur la navigation de répertoires simulés. Le fichier `horizonmain.js` définit la logique permettant de mapper les paramètres `?dir=` de l'URL vers des fichiers HTML spécifiques. La fonction `loadIframe()` récupère le paramètre `dir` et charge la page correspondante dans un iframe selon un mapping prédéfini (`/archives/2025` → `archives_2025.html`). La fonction `navigateToDirectory()` met à jour l'URL et recharge l'iframe lors de la navigation, reproduisant ainsi le comportement d'un gestionnaire de fichiers.
+Le backend du challenge 3 est centré sur la navigation de répertoires simulés. Le fichier `horizonmain.js` définit la logique permettant de mapper les paramètres `?dir=` de l'URL vers des fichiers HTML spécifiques. La fonction `loadIframe()` récupère le paramètre `dir` et charge la page correspondante dans un iframe selon un mapping prédéfini. La fonction `navigateToDirectory()` met à jour l'URL et recharge l'iframe lors de la navigation, reproduisant ainsi le comportement d'un gestionnaire de fichiers.
 
 === Challenge 4
-Le challenge 4 reprend le principe du challenge 1, mais cette fois avec un docker `ssh-zipinfo`. Ce module permet d’analyser un fichier ZIP via le terminal intégré, directement connecté au backend. Le joueur·euse peut ainsi exécuter une commande `zipinfo` et récupérer des informations sur le contenu de l’archive sans l’ouvrir directement. 
+Le challenge 4 reprend le principe du challenge 1, mais cette fois avec un Docker `ssh-zipinfo`. Ce module permet d’analyser un fichier ZIP via le terminal intégré, directement connecté au backend. Le joueur·euse peut ainsi exécuter une commande `zipinfo` et récupérer des informations sur le contenu de l’archive sans l’ouvrir directement. 
 
 Pour valider le flag, une route API `/challenge4/validate` a été créée. Elle compare le hash SHA3-256 du flag soumis avec celui stocké en base de données. Si valide, elle renvoie un HTML simulant l'affichage des fichiers décompressés (contenant notamment le fichier `monitor_check_wip.py` révélant les identifiants hardcodés).
 

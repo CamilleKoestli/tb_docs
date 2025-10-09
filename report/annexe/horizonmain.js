@@ -351,18 +351,6 @@ function loadIframe(idChall, urlChall) {
       "/public/": "public.html",
       "/archives": "archives.html",
       "/archives/": "archives.html",
-      "/archives/2020": "archives_2020.html",
-      "/archives/2020/": "archives_2020.html",
-      "/archives/2021": "archives_2021.html",
-      "/archives/2021/": "archives_2021.html",
-      "/archives/2022": "archives_2022.html",
-      "/archives/2022/": "archives_2022.html",
-      "/archives/2023": "archives_2023.html",
-      "/archives/2023/": "archives_2023.html",
-      "/archives/2024": "archives_2024.html",
-      "/archives/2024/": "archives_2024.html",
-      "/archives/2025": "archives_2025.html",
-      "/archives/2025/": "archives_2025.html",
     };
 
     if (dirParam && fileMapping[dirParam]) {
@@ -401,12 +389,6 @@ function navigateToDirectory(dirPath) {
       "/shared": "shared.html",
       "/public": "public.html",
       "/archives": "archives.html",
-      "/archives/2020": "archives_2020.html",
-      "/archives/2021": "archives_2021.html",
-      "/archives/2022": "archives_2022.html",
-      "/archives/2023": "archives_2023.html",
-      "/archives/2024": "archives_2024.html",
-      "/archives/2025": "archives_2025.html",
     };
 
     if (fileMapping[dirPath]) {

@@ -5,7 +5,7 @@ Ce chapitre présente l'architecture technique de la plateforme _CyberGame_, en 
 Le site web est une plateforme pédagogique créée par le pôle Y-Security de la HEIG-VD. Il a pour objectif d'introduire à l'ethical hacking et propose actuellement deux scénarios interactifs. La plateforme est donc conçue avec une page d'accueil @InitiationAuEthical qui présente le cadre général. Le premier jeu "Shana a disparu" @ShanaDisparuRetrouvela ainsi qu'un autre scénario "Sauve la Terre de l'arme galactique !" @SauveTerreLarme se trouvent sur la plateforme. Pour aider les joueur·euse·s à avancer dans les différents challenges, tout en restant dans son navigateur, une boîte à outils et un petit IDE Python ont été mis en place @InitiationAuEthical.
 
 #figure(
-  image("schemas/site_web.png"),
+  image("schemas/site_web.png", width: 75%),
   caption: [Schéma de l'architecture globale de la plateforme _CyberGame_],
 )<site_web>
 
@@ -77,7 +77,7 @@ Enfin, les indices actuels fournissent, dans un premier temps, un bon point de d
 La plateforme _CyberGame_ est hébergée sur le sous-domaine `cybergame.heig-vd.ch` et repose sur une infrastructure conteneurisée avec Docker Compose (@docker-compose.yml), ce qui permet une séparation claire des responsabilités.
 
 #figure(
-  image("schemas/docker_compose.png", width: 95%),
+  image("schemas/docker_compose.png"),
   caption: [Architecture Docker Compose de la plateforme _CyberGame_],
 )<docker-compose-img>
 

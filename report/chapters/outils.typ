@@ -6,7 +6,7 @@ La rédaction de ce rapport a bénéficié de l'assistance d'intelligences artif
 - La structuration de certains paragraphes pour une meilleure cohérence
 - La vérification des termes techniques
 
-Cette aide m'a permis de maintenir une certaine qualité dans la rédaction tout en respectant le contenu technique et les objectifs pédagogiques du projet. L’IA n’a pas écrit le rapport à ma place, mais elle a été utilisée comme un outil de soutien à la rédaction.
+Cette aide m'a permis de maintenir une certaine qualité dans la rédaction tout en respectant l'aspect technique et les objectifs pédagogiques du projet. L’IA n’a pas écrit le rapport à ma place, mais elle a été utilisée comme un outil de soutien à la rédaction.
 
 === Outils de documentation
 - Template Typst pour la rédaction et mise en forme du rapport
@@ -45,7 +45,7 @@ Cette aide m'a permis de maintenir une certaine qualité dans la rédaction tout
 L'IA a également été utilisée lors du développement pour :
 - Le débogage afin d'identifier et résoudre des erreurs de code ou d'exécution
 - Optimiser et améliorer certaines fonctions
-- Résoudre des problèmes techniques qui ont demandé une assistance quand j'étais bloquée sur des configurations spécifiques (Docker, Puppeteer, gestion des cookies)
+- Résoudre des problèmes techniques qui ont demandé une assistance lors de blocages sur des configurations spécifiques (Docker, Puppeteer, gestion des cookies)
 - La compréhension des bibliothèques et la clarification de la documentation des technologies utilisées (notamment Puppeteer et Pyodide)
 
 L’usage de l’IA a donc servi d’assistant de débogage et de documentation, pour faciliter la compréhension de certains messages d’erreur et accélérer le processus de développement.

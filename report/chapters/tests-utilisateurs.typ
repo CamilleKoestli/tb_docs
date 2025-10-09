@@ -10,8 +10,8 @@ Dans le but de limiter au maximum les perturbations et d’éventuelles interact
 L’outil ngrok a été utilisé pour permettre aux testeurs d’accéder à distance à la plateforme en créant un tunnel sécurisé vers le serveur local. Cela a facilité la mise en place de tests réalistes sans contrainte de réseau ou d’installation.
 
 ==== Participant·e·s
-Un premier alpha test a été réalisé avec un·e participant·e avancé·e, ayant des connaissances approfondies en informatique de manière générale. Il a testé les challenges au fur et à mesure de leur mise en production. L'objectif était de valider la compréhension des défis que ce soit pour la consigne et les indices, et l'intérêt du scénario narratif.
-Ensuite, quatre autres participant·e·s sont intervenu·e·s, deux avec des connaissances avancées en informatique (dont un·e ayant suivi une formation en cybersécurité) et deux totalement débutant·e·s, c'est-à-dire sans aucune expérience de programmation. Ceux-ci ont réalisé l’ensemble du scénario en une seule session. Cette diversité de profils a permis de recueillir des retours variés et d’identifier des points d’amélioration pour différents niveaux de compétences.
+Un premier alpha test a été réalisé avec une personne avancée, ayant des connaissances approfondies en informatique de manière générale. Il a testé les challenges au fur et à mesure de leur mise en production. L'objectif était de valider la compréhension des défis que ce soit pour la consigne et les indices, et l'intérêt du scénario narratif.
+Ensuite, quatre autres participant·e·s sont intervenu·e·s, deux avec des connaissances avancées en informatique (dont un ayant suivi une formation en cybersécurité) et deux totalement débutant·e·s, c'est-à-dire sans aucune expérience de programmation. Ceux-ci ont réalisé l’ensemble du scénario en une seule session. Cette diversité de profils a permis de recueillir des retours variés et d’identifier des points d’amélioration pour différents niveaux de compétences, soit 3 personnes au niveau avancé et 2 débutant·e·s.
 
 ==== Procédure de test
 Une procédure de test similaire a été suivie pour chaque participant·e et se présente comme suit : 
