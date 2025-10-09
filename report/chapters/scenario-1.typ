@@ -2,7 +2,7 @@
 
 Ce scénario reprend une situation fictive, mais inspirée de faits réels. Ici, le joueur·euse fait partie d'une équipe de cybersécurité qui fait face à une attaque par ransomware dans un hôpital. Le but est de résoudre des défis techniques pour rétablir les services vitaux avant qu'il ne soit trop tard. L'inspiration de ce scénario vient de plusieurs incidents réels, notamment les attaques de ransomware avec une hausse croissante sur des infrastructures critiques comme les hôpitaux et les réseaux électriques @WhenRansomwareKills2025.
 
-Dans un premier temps, le joueur·euse doit remonter à l'origine de l'attaque en analysant un e-mail de phishing qui a permis aux attaquants de pénétrer le réseau de l'hôpital. L’e-mail de phishing révèle le domaine pirate ; c’est la première piste. Ensuite, il devra explorer un faux portail VPN mis en place par les attaquants pour exfiltrer des données. Grâce au commentaire HTML laissé par négligence, le joueur·euse voit l’inventaire complet des sauvegardes et récupère une archive historique qui contient un malware. Dans cette archive se cache `hx_dropper.ps1` ; la dé-obfuscation fournit l’adresse du serveur C2, prouvant que l’hôpital est toujours sous contrôle externe. Sur le C2, un fichier de configuration chiffré recèle le mot de passe administratif du ransomware ; une simple attaque XOR suffit à l’extraire. Grâce à ce mot de passe, le joueur·euse peut accéder aux journaux du ransomware et découvrir un kill-switch caché dans une radiographie. En entrant ce kill-switch dans la console d’urgence, le joueur·euse neutralise la seconde vague d’attaques et sauve les services vitaux de l’hôpital.
+Dans un premier temps, le joueur·euse doit remonter à l'origine de l'attaque en analysant un email de phishing qui a permis aux attaquants de pénétrer le réseau de l'hôpital. L’email de phishing révèle le domaine pirate ; c’est la première piste. Ensuite, il devra explorer un faux portail VPN mis en place par les attaquants pour exfiltrer des données. Grâce au commentaire HTML laissé par négligence, le joueur·euse voit l’inventaire complet des sauvegardes et récupère une archive historique qui contient un malware. Dans cette archive se cache `hx_dropper.ps1` ; la dé-obfuscation fournit l’adresse du serveur C2, prouvant que l’hôpital est toujours sous contrôle externe. Sur le C2, un fichier de configuration chiffré recèle le mot de passe administratif du ransomware ; une simple attaque XOR suffit à l’extraire. Grâce à ce mot de passe, le joueur·euse peut accéder aux journaux du ransomware et découvrir un kill-switch caché dans une radiographie. En entrant ce kill-switch dans la console d’urgence, le joueur·euse neutralise la seconde vague d’attaques et sauve les services vitaux de l’hôpital.
 
 "Le Centre hospitalier Horizon Santé tourne sur groupe électrogène depuis trois heures : un ransomware a chiffré les serveurs cliniques, puis a sauté la barrière réseau et mis hors service le réseau électrique qui alimente le bloc opératoire. Le générateur de secours n’a plus que 68 minutes d’autonomie. Si rien n’est fait, huit opérations à cœur ouvert devront être interrompues.
 Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’hôpital. Votre mission : remettre les services vitaux en ligne avant la fin du compte à rebours et bloquer la seconde vague annoncée par les attaquants."
@@ -16,8 +16,8 @@ Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’
 
   [1],
   [#link(<ch1-1>)[Mail Contagieux]],
-  [OSINT & forensic e-mail],
-  [Analyse d’un fichier .eml : inspection des entêtes `Received/Return-Path` pour identifier l’IP et le domaine d’envoi.],
+  [OSINT & forensic email],
+  [Analyse d’un fichier .eml : inspection des en-têtes `Received/Return-Path` pour identifier l’IP et le domaine d’envoi.],
 
   [2],
   [#link(<ch1-2>)[Shadow VPN Portal]],
@@ -41,7 +41,7 @@ Votre équipe vient d’être branchée en urgence sur le réseau isolé de l’
 )
 
 === _Mail Contagieux_ : OSINT et forensic d'email<ch1-1>
-Dans un premier temps, le joueur·euse doit analyser un e-mail de phishing qui a permis aux attaquants de pénétrer le réseau de l'hôpital. Cet e-mail contient une pièce jointe malveillante `planning_salle_op.xlsx` qui a été ouverte par un employé, déclenchant ainsi l'attaque.
+Dans un premier temps, le joueur·euse doit analyser un email de phishing qui a permis aux attaquants de pénétrer le réseau de l'hôpital. Cet email contient une pièce jointe malveillante `planning_salle_op.xlsx` qui a été ouverte par un employé, déclenchant ainsi l'attaque.
 
 + Ouvrir `planning_salle_op.eml` dans l’IDE.
 + Ouvrir les en-têtes (Thunderbird / webmail / outil en ligne).
@@ -51,7 +51,7 @@ Dans un premier temps, le joueur·euse doit analyser un e-mail de phishing qui a
 *Outils nécessaires* : IDE, WHOIS.
 
 *Indices graduels*
-- Indice 1 : Consulte uniquement les tous premiers entêtes `Received:`, la vraie origine est souvent dans la ligne la plus basse.
+- Indice 1 : Consulte uniquement les tous premiers en-têtes `Received:`, la vraie origine est souvent dans la ligne la plus basse.
 - Indice 2 : L’expéditeur imite le sous-domaine support d’Horizon Santé.
 - Indice 3 : Vérifie la réputation WHOIS : un domaine proche d’`horizonsante.com`, mais pas identique, ressort comme malveillant.
 

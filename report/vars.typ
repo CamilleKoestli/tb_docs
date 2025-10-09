@@ -28,10 +28,10 @@ La HEIG-VD a développé un serious game dans l'objectif de démystifier le ethi
 
 Ce travail de Bachelor s'inscrit dans la continuité. L'objectif était de concevoir un nouveau scénario immersif permettant au public de découvrir une nouvelle intrigue ainsi que de nouvelles techniques de ethical hacking.
 
-Ce travail a débuté par la proposition de plusieurs scénarios ont été proposés, puis un seul a été retenu "Fuite de données dans le Centre Hospitalier Horizon Santé". Ce dernier serious game est composé 7 nouveaux challenges techniques de difficulté progressive. Il a été implémenté sur l'architecture existante (Node.js, MongoDB, MySQL) et a été enrichi avec un IDE Python embarqué, des terminaux SSH interactifs et un bot automatisé. 
+Ce travail a débuté par la proposition de plusieurs scénarios ont été proposés, puis un seul a été retenu "Fuite de données dans le _Centre Hospitalier Horizon Santé_". Ce dernier serious game est composé 7 nouveaux challenges techniques de difficulté progressive. Il a été implémenté sur l'architecture existante (Node.js, MongoDB, MySQL) et a été enrichi avec un IDE Python embarqué, des terminaux SSH interactifs et un bot automatisé. 
 
 Le joueur incarne un membre de l'équipe de sécurité de l'hôpital et doit réagir rapidement face à une demande de rançon sur les données volées. Les défis abordent l'analyse forensique, l'injection SQL, l'exploitation XSS, le reverse engineering et l'analyse de logs.
 
-Ce nouveau serious game permettra aux futur-e-s participant-e-s de d'immerger dans un scénario réel, devant s'introduire dans le serveur des attaquants, et découvrant de nouvelles techniques de ethical hacking.
+Ce nouveau serious game permettra aux futur·e·s participant·e·s de s'immerger dans un scénario réel, devant s'introduire dans le serveur des attaquants, et découvrant de nouvelles techniques de ethical hacking.
 
 ]

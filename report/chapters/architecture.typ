@@ -1,8 +1,8 @@
 = Architecture de la plateforme _CyberGame_ existante <architecture>
-Ce chapitre présente l'architecture technique de la plateforme _CyberGame_, en détaillant le frontend et backend, ainsi que les mécanismes de jeu. Il est important de souligner qu'il s'agit d'une analyse de la plateforme de 2020 avant sa restructuration qui a eu lieu en 2025. Cette analyse porte donc sur l’état initial du site, avant l’ajout de nouvelles fonctionnalités, la refonte du design ou l’amélioration de l’expérience utilisateur.
+Ce chapitre présente l'architecture technique de la plateforme _CyberGame_, en détaillant le frontend et backend, ainsi que les mécanismes de jeu. Il est important de souligner qu'il s'agit d'une analyse de la plateforme de 2020 avant sa restructuration qui aura lieu. Cette analyse porte donc sur l’état initial du site, avant l’ajout de nouvelles fonctionnalités, la refonte du design ou l’amélioration de l’expérience utilisateur.
 
 == Présentation générale <presentation>
-Le site web est une plateforme pédagogique créée par le pôle Y-Security de la HEIG-VD. Il a pour objectif d'introduire au ethical hacking et propose actuellement deux scénarios interactifs. La plateforme est donc conçue avec une page d'accueil @InitiationAuEthical qui présente le cadre général. Le premier jeu "Shana a disparu" @ShanaDisparuRetrouvela ainsi qu'un autre scénario "Sauve la Terre de l'arme galactique !" @SauveTerreLarme se trouvent sur la plateforme. Pour aider les joueur·euse·s à avancer dans les différents challenges, tout en restant dans son navigateur, une boîte à outils et un petit IDE Python ont été mis en place @InitiationAuEthical.
+Le site web est une plateforme pédagogique créée par le pôle Y-Security de la HEIG-VD. Il a pour objectif d'introduire à l'ethical hacking et propose actuellement deux scénarios interactifs. La plateforme est donc conçue avec une page d'accueil @InitiationAuEthical qui présente le cadre général. Le premier jeu "Shana a disparu" @ShanaDisparuRetrouvela ainsi qu'un autre scénario "Sauve la Terre de l'arme galactique !" @SauveTerreLarme se trouvent sur la plateforme. Pour aider les joueur·euse·s à avancer dans les différents challenges, tout en restant dans son navigateur, une boîte à outils et un petit IDE Python ont été mis en place @InitiationAuEthical.
 
 #figure(
   image("schemas/site_web.png"),
@@ -11,9 +11,9 @@ Le site web est une plateforme pédagogique créée par le pôle Y-Security de l
 
 == Mécanisme de jeu <mécanisme-de-jeu>
 
-La plateforme _CyberGame_ propose deux parcours structurés sous forme d'histoire progressive qui mettent en œuvre des techniques du hacking éthique. Chacun propose une enquête avec un scénario dont les étapes doivent être validées dans l'ordre afin de pouvoir progresser dans le déroulement de l'enquête.
+La plateforme _CyberGame_ propose deux parcours structurés sous forme d'histoires progressives qui mettent en œuvre des techniques du hacking éthique. Chacun propose une enquête avec un scénario dont les étapes doivent être validées dans l'ordre afin de pouvoir progresser dans le déroulement de l'enquête.
 
-Le participant·e découvre, étape par étape, la méthodologie d'un professionnel de la cybersécurité à travers la chaîne "collecte – exploitation – preuve", où chaque résolution dévoile un indice pour le défi suivant. Chaque challenge reste en surface pour montrer à quoi pourrait ressembler des attaques de grandes envergures qui combinent une suite de failles bien différentes sur des aspects réseau, d'application web, d'analyses de fichier ou de systèmes intégrant de la cryptographie.
+Le participant·e découvre, étape par étape, la méthodologie d'un professionnel·le de la cybersécurité à travers la chaîne "collecte – exploitation – preuve", où chaque résolution dévoile un indice pour le défi suivant. Chaque challenge reste en surface pour montrer à quoi pourrait ressembler des attaques de grandes envergures qui combinent une suite de failles bien différentes sur des aspects réseau, d'application web, d'analyses de fichier ou de systèmes intégrant de la cryptographie.
 
 === Scénario 1 : "Shana a disparu" <shana>
 
@@ -24,20 +24,14 @@ Le scénario "Shana a disparu" @ShanaDisparuRetrouvela a pour objectif d'amener 
 
 Le second scénario que nous retrouvons sur la plateforme "Sauve la Terre de l'arme galactique !" @InitiationAuEthical, utilise les mêmes principes mais dans un univers de science-fiction. Le joueur·euse est plongé·e dans une enquête afin de retrouver les plans d'une arme galactique et ainsi sauver le monde. Dans un premier temps, le joueur·euse exploite la barre de recherche d'un réseau fictif pour obtenir des fragments de conversation. Ensuite, le participant·e va utiliser l’ingénierie sociale pour retrouver des réponses de sécurité, imprudemment divulguées en ligne, ce qui va permettre de retrouver le mot de passe et ainsi d'accéder au profil. Des challenges similaires se retrouvent dans les deux jeux comme la manipulation des cookies, l'ajustement d'un paramètre dans l'URL d'un lien, l'injection SQL afin de contourner un mot de passe, l'utilisation des métadonnées d'une image à l'aide de l'outil exiftool et enfin de la cryptographie. Des challenges supplémentaires ont été ajoutés comme l'utilisation d'une requête WHOIS, qui sert à identifier le propriétaire d'une adresse IPv6 et intercepter son trafic. Pour terminer, le joueur·euse doit réaliser une attaque par bruteforce en codant un petit script Python.
 
-
-// === Techniques mobilisées <technologies-utilisees>
-
-// Les jeux utilisent un ensemble de techniques du hacking éthique : recherche OSINT sur les réseaux sociaux, lecture du code HTML et des CSS pour trouver du contenu dissimulé, modification manuelle des cookies et des paramètres de l'URL afin de détourner la logique d'un site, injection SQL afin de contourner les contrôles d'authentification, extraction et interprétation des métadonnées EXIF d'images, cryptanalyse, rédaction de courts scripts Python, enfin, utilisation des services WHOIS et des requêtes DNS pour cartographier une infrastructure et remonter jusqu'à son propriétaire, le tout dans une histoire narrative progressive.
-
-// Le participant·e découvre, étape par étape, la méthodologie d'un professionnel de la cybersécurité à travers la chaîne "collecte – exploitation – preuve", où chaque résolution dévoile un indice pour le défi suivant.
-
 == Analyse critique <positifs-améliorer>
 === Points forts
 Parmi les forces de la plateforme, les enquêtes sont construites afin de suivre une progression graduelle. Chaque épreuve ré-exploite la précédente et favorise un apprentissage différent. La narration permet de maintenir le joueur·euse motivé·e mais le garde dans une optique d'apprentissage.
 
 En effet, la boîte à outils intégrée, qui contient les fiches pratiques, évite aux débutant·e·s de devoir faire trop de recherches et ainsi leur permet de se focaliser sur le jeu.
 
-De plus, grâce à un mini IDE Python et un terminal intégré, comme le montre la @ide-img et @terminal-img, le joueur·euse n'a rien besoin d'installer sur sa machine. L'expérience se déroule entièrement sur le navigateur ce qui abaisse la barrière d’entrée, et la variété des techniques abordées offrant un panorama cohérent de la sécurité offensive.
+//TODO A REVOIR
+De plus, grâce à un mini IDE Python et un terminal intégré, comme le montre les @ide-img et @terminal-img, le joueur·euse n'a rien besoin d'installer sur sa machine. L'expérience se déroule entièrement sur le navigateur, ce qui abaisse la barrière d’entrée et la variété des techniques abordées offrant un panorama cohérent de la sécurité offensive.
 #figure(
   image("imgs/ide-interface.png"),
   caption: [IDE présent sur le jeu "Sauve la Terre de l'arme galactique !", dans le challenge 6],
@@ -54,7 +48,7 @@ La gestion de la fenêtre du jeu pourrait être optimisée, par exemple après l
 
 Le design du site présente parfois des problèmes d’affichage selon la taille de la fenêtre du navigateur, comme le chevauchement d’éléments.
 
-Le champ pour saisir sa réponse ne précise pas toujours le format exigé. De temps en temps, la consigne affiche un mot mis en gras, qui représente la réponse attendue, mais l’information passe facilement inaperçue ou l’utilisateur·trice ignore toujours le format attendu (un mot-clé, une URL complète, un hash ou une date). Inclure le format attendu avec des exemples, dans l'indice ou dans la consigne, pourrait faciliter la validation du challenge une fois le secret trouvé.
+Le champ pour saisir sa réponse ne précise pas toujours le format exigé. De temps en temps, la consigne affiche un mot mis en gras, qui représente la réponse attendue, mais l’information passe facilement inaperçue ou l’utilisateur·trice ignore toujours le bon format (un mot-clé, une URL complète, un hash ou une date). Inclure le format attendu avec des exemples, dans l'indice ou dans la consigne, pourrait faciliter la validation du challenge une fois le secret trouvé.
 
 Ensuite, pour la validation de l'étape, il faut impérativement entrer une réponse valide dans le champ "Réponse" malgré que l'interface visuelle du jeu change en fonction de ce que le joueur·euse à réalisé comme manipulation et du message de félicitations.
 #figure(
@@ -73,7 +67,7 @@ Le passage d’un challenge au suivant manque parfois de fiabilité, la popup ex
 
 Un autre élément d'amélioration serait de réaliser un changement de curseur sur les éléments cliquables (par exemple, en utilisant `cursor: pointer` en CSS) pour permettre au joueur·euse d’identifier les zones interactives. Actuellement, certains éléments interactifs ne sont pas mis en valeur, ce qui peut rendre la navigation moins intuitive.
 
-Enfin, les indices actuels fournissent, dans un premier temps, un bon point de départ. Cependant, cela peut se révéler insuffisant pour les joueur·euse·s débutant·e·s. La mise en place d'aides graduelles pourraient limiter le risque d'abandon tout en gardant le défi intéressant.
+Enfin, les indices actuels fournissent, dans un premier temps, un bon point de départ. Cependant, cela peut se révéler insuffisant pour les joueur·euse·s débutant·e·s. La mise en place d'aides graduelles pourrait limiter le risque d'abandon tout en gardant le défi intéressant.
 
 
 == Architecture technique <architecture-technique>
@@ -87,11 +81,11 @@ La plateforme _CyberGame_ est hébergée sur le sous-domaine `cybergame.heig-vd.
   caption: [Architecture Docker Compose de la plateforme _CyberGame_],
 )<docker-compose-img>
 
-Le fichier `docker-compose.yml` (@docker-compose.yml) définit l'ensemble des services nécessaires à l'application et orchestre leur déploiement. La @docker-compose-img présente l'architecture complète. Traefik (ports `80`/`443`) assure la terminaison TLS et route les requêtes vers trois services principaux : le Frontend (port `3001`, répertoire `DigitalDay_APP`), le Backend (port `3000`, répertoire `DigitalDay_BACKEND`, API Node.js Express), et webssh (port `8888`, serveur Python wssh). Le service webssh agit comme une passerelle SSH et permet de se connecter trois conteneurs SSH spécialisés : `ssh-whois` (requêtes WHOIS), `ssh-machine` (analyse système), et `ssh-galactic-forensic` (forensique). La persistance repose sur MongoDB (port `27017`, données critiques) et MySQL (port `3306`, exercices d'injection SQL isolés).
+Le fichier `docker-compose.yml` (@docker-compose.yml) définit l'ensemble des services nécessaires à l'application et orchestre leur déploiement. La @docker-compose-img présente l'architecture complète. Traefik (ports `80`/`443`) assure la terminaison TLS et route les requêtes vers trois services principaux : le frontend (port `3001`, répertoire `DigitalDay_APP`), le backend (port `3000`, répertoire `DigitalDay_BACKEND`, API Node.js Express), et webssh (port `8888`, serveur Python wssh). Le service webssh agit comme une passerelle SSH et permet de se connecter aux trois conteneurs SSH spécialisés : `ssh-whois` (requêtes WHOIS), `ssh-machine` (analyse système), et `ssh-galactic-forensic` (forensique). La persistance repose sur MongoDB (port `27017`, données critiques) et MySQL (port `3306`, exercices d'injection SQL isolés).
 
 === Frontend <frontend>
 
-Chaque challenge est développé comme un "mini-site" indépendant dans son propre dossier (ex: `01_windows_login/`, `07_url_modification/`). La structure type est un fichier HTML de lancement chargeant `css/style.css`, des scripts globaux dans `/js`, un header commun (logo, progression, bouton retour), `popup.html` pour introduction/indices, et un dossier `img/` pour les ressources visuelles.
+Chaque challenge est développé comme un "mini-site" indépendant dans son propre dossier (ex: `01_windows_login/`, `07_url_modification/`). La structure type est un fichier HTML de lancement chargeant `css/style.css`, des scripts globaux dans `/js`, un header commun (logo, progression, bouton retour), `popup.html` pour introduction avec les indices, et un dossier `img/` pour les ressources visuelles.
 
 Lorsque le joueur·euse arrive sur un challenge, une popup s'ouvre avec le contexte et un bouton "Commencer le challenge !". Un bouton "Indice" est disponible pour obtenir de l'aide.
 
@@ -195,7 +189,7 @@ L'architecture de sécurité de la plateforme _CyberGame_ repose, dans un premie
 
 La gestion des variables sensibles s'appuie sur un système d'injection sécurisé via les fichiers d'environnement. Les flags de validation des challenges sont stockés sous forme de hash SHA3-256 dans MongoDB, garantissant qu'aucune réponse n'est exposée en clair. Cette approche conserve l'aspect pédagogique des exercices tout en permettant de garder un niveau de sécurité pour les données persistantes.
 
-Cependant, en examinant plus en détail la plateforme, une vulnérabilité de sécurité a été identifiée. En effet, il est possible d'accéder directement aux différents challenges sans avoir complété les précédents, en utilisant l'URL directe. Par exemple, en accédant à `https://shana.heig-vd.ch/challenges/05_admin_cookie/index.htmll`, le joueur·euse peut directement accéder au challenge de modification des cookies sans avoir validé les étapes précédentes, comme le montre les figures @bug1 et @bug2. Le joueur·euse peut ainsi résoudre un challenge via l'URL directe sans passer par l'interface du jeu.
+Cependant, en examinant plus en détail la plateforme, une vulnérabilité de sécurité a été identifiée. En effet, il est possible d'accéder directement aux différents challenges sans avoir complété les précédents, en utilisant l'URL directe. Par exemple, en accédant à `https://shana.heig-vd.ch/challenges/05_admin_cookie/index.html`, le joueur·euse peut directement accéder au challenge de modification des cookies sans avoir validé les étapes précédentes, comme le montre les @bug1 et @bug2. Le joueur·euse peut ainsi résoudre un challenge via l'URL directe sans passer par l'interface du jeu.
 
 
 #figure(

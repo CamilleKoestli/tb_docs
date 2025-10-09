@@ -3,13 +3,13 @@
 == Sensibilisation à la sécurité informatique <sensibilisation-sécurité>
 La digitalisation expose, chaque jour, les utilisateur·trice·s aux menaces informatiques. 79% des Européen·ne·s estiment que l'amélioration de la cybersécurité est indispensable @europeancommission.directorategeneralforcommunicationsnetworkscontentandtechnology.DigitalDecade2024, pourtant 52 % ne se sentent pas capables de se protéger suffisamment @wahlEurobarometerEuropeansAttitudes2020. Le phishing représente 36 % des failles de sécurité, avec plus de 3,4 milliards de courriels frauduleux envoyés quotidiennement @spysPhishingStatistics20252025. Les attaques deviennent de plus en plus complexes, les ransomwares ont augmenté de 57,5 % entre novembre 2024 et février 2025 @knowbe4PhishingThreatTrends2025, et les cybercriminels utilisent désormais l'IA pour personnaliser leurs attaques.
 
-De plus, le monde professionnel fait face à une pénurie critique de compétences. En 2024, 67 % des organisations estiment ne pas disposer des compétences nécessaires pour atteindre leurs objectifs de sécurité @2024ISC2Cybersecurity, et 58 % des incidents majeurs sont directement liés à un manque de formation @fortinet2024CybersecuritySkills2024.
+De plus, le monde professionnel fait face à une pénurie critique de compétences. En 2024, 67 % des organisations estimaient ne pas disposer des compétences nécessaires pour atteindre leurs objectifs de sécurité @2024ISC2Cybersecurity, et 58 % des incidents majeurs étaient directement liés à un manque de formation @fortinet2024CybersecuritySkills2024.
 
 Face à ces défis, les serious games émergent comme une solution prometteuse. La recherche démontre leur efficacité pour sensibiliser même les personnes sans bagage technique @ngCybersecuritySeriousGames2025. Ces jeux permettent d'apprendre la cryptographie, les réseaux, les scripts et les attaques web dans un environnement sans risque, où expérimenter et faire des erreurs deviennent nécessaire pour un apprentissage @hillComparingSeriousGames2020.
 
 == Enjeu des compétences en cybersécurité <compétences-cybersécurité>
 
-Le secteur fait face à une pénurie importante, plusieurs enquêtes annuelles estiment qu'environ 4,8 millions de professionnels manquent à l'échelle mondiale @2024ISC2Cybersecurity. De plus, 64 % des experts dans le domaine considèrent que le manque de compétences impacte davantage les organisations qu'un simple manque d'effectifs. Cette lacune se traduit directement en incidents avec environ 70 % des failles graves de cybersécurité qui sont du à des erreurs humaines @fortinetFortinet2024Cybersecurity2024. La formation devient donc une stratégie à considérer, que ce soit pour les professionnels que pour sensibiliser le grand public aux bonnes pratiques.
+Le secteur fait face à une pénurie importante, plusieurs enquêtes annuelles estiment qu'environ 4,8 millions de professionnels manquent à l'échelle mondiale @2024ISC2Cybersecurity. De plus, 64 % des experts dans le domaine considèrent que le manque de compétences impacte davantage les organisations qu'un simple manque d'effectifs. Cette lacune se traduit directement en incidents avec environ 70 % des failles graves de cybersécurité qui sont dues à des erreurs humaines @fortinetFortinet2024Cybersecurity2024. La formation devient donc une stratégie à considérer, pour les professionnels et pour sensibiliser le grand public aux bonnes pratiques.
 
 == Contexte <contexte>
 
@@ -49,7 +49,7 @@ La question centrale est donc : #quote("Comment créer une nouvelle histoire imm
 Le projet vise à développer un nouveau scénario pour la plateforme _CyberGame_ qui réponde à plusieurs objectifs clés.
 
 === Découvrir et démystifier l'ethical hacking
-L'image du "pirate informatique" reste souvent associée à des activités illégales et malveillantes. Ce projet vise à faire découvrir l'ethical hacking au grand public et à démystifier la démarche d'un·e professionnel·le de la sécurité. En mettant les joueur·euse·s dans la peau d'un·e hacker éthique, le scénario permet de comprendre les techniques utilisées dans le but de protéger et non pas de nuire.
+L'image du "pirate informatique" reste souvent associée à des activités illégales et malveillantes. Ce projet vise à faire découvrir l'ethical hacking au grand public et à démystifier la démarche d'un·e professionnel·le de la sécurité. En mettant les joueur·euse·s dans la peau d'un·e hacker éthique, le scénario permet de comprendre les techniques utilisées dans le but de protéger et non de nuire.
 
 === Sensibiliser aux dangers et transmettre les bonnes pratiques
 À travers son approche immersive, le jeu vise à sensibiliser les gens aux dangers du numérique. Grâce à l'exploitation de vulnérabilités dans un environnement contrôlé, les joueur·euse·s découvrent, de manière implicite, certaines techniques de protection qu'ils peuvent appliquer dans leur vie.
@@ -70,6 +70,6 @@ Ces solutions montrent une augmentation de l'intérêt général pour la cybers�
 == Approches possibles <solutions-possibles>
 Pour proposer une nouvelle expérience qui s'adresse à tout le monde tout en permettant de sensibiliser mais aussi de rester ludique, plusieurs options peuvent être envisagées :
 - La première option serait de développer une extension directe du scénario existant avec de nouveaux challenges plus techniques.
-- Alors que la deuxième serait de créer un nouveau jeu totalement indépendant avec un nouveau scénario, tout en restant dans la même idée que le jeu précédent.
+- Alors que la deuxième serait de créer un nouveau jeu totalement indépendant avec un nouveau scénario, tout en restant dans le même mode de fonctionnement que le jeu précédent.
 
 L'option choisie est de créer un nouveau scénario qui s'adresse à tout le monde. Ce scénario doit être accessible aux débutant·e·s tout en proposant des défis plus complexes pour les utilisateur·trice·s plus expérimenté·e·s. Il doit également intégrer des éléments narratifs immersifs pour maintenir l'intérêt et la motivation des joueur·euse·s.

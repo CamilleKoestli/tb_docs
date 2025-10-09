@@ -7,7 +7,7 @@
 
 - *Backend* : Partie serveur d’une application, qui traite les données, gère la logique et interagit avec la base de données.
 - *Base64* : Méthode d'encodage permettant de représenter des données binaires sous forme de texte ASCII, souvent utilisée pour transmettre des données.
-- *Blue Team* : Équipe qui s'occupe de la défense et de la protection d’un système informatique contre les cyberattaques.
+// - *Blue Team* : Équipe qui s'occupe de la défense et de la protection d’un système informatique contre les cyberattaques.
 - *Bot* : Programme automatisé simulant le comportement humain. 
 - *Bruteforce* : Technique d'attaque qui consiste à tester toutes les combinaisons possibles pour découvrir un mot de passe ou une clé.
 

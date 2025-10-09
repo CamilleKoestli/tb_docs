@@ -70,7 +70,7 @@ Le code permet d'avoir accès au Wi-Fi ainsi qu'à la page de connexion des part
 
 
 === _Admin Bypass_ : Web Exploitation<ch2-2>
-Le joueur·euse doit maintenant accéder à l'intranet de KeyWave Systems `https://intra.keywave.local/partners/login.php` pour voler les plans. Le formulaire de connexion comporte les champs e-mail et mot de passe. Un email de la responsable média se trouve sur le flyer. Il faudra l'utiliser pour ce challenge. Il doit contourner le filtre basique WAF (Web Application Firewall) sur la page de connexion des partenaires, qui refuse toute requête contenant le mot-clé exact `OR` (maj/min indifférent) ou la séquence `--`. Aucune requête préparée et le backend exécute toujours :
+Le joueur·euse doit maintenant accéder à l'intranet de KeyWave Systems `https://intra.keywave.local/partners/login.php` pour voler les plans. Le formulaire de connexion comporte les champs email et mot de passe. Un email de la responsable média se trouve sur le flyer. Il faudra l'utiliser pour ce challenge. Il doit contourner le filtre basique WAF (Web Application Firewall) sur la page de connexion des partenaires, qui refuse toute requête contenant le mot-clé exact `OR` (maj/min indifférent) ou la séquence `--`. Aucune requête préparée et le backend exécute toujours :
 ```sql
 SELECT partner_id, session_token
 FROM partners
@@ -78,7 +78,7 @@ WHERE email = '$mail' AND passwd = '$pw';
 ```
 Pour contourner le filtre, le joueur·euse doit utiliser une injection SQL pour éviter la restriction WAF. Il peut utiliser un commentaire `(/**/)` SQL au milieu du mot-clé pour casser le mot-clé `OR` et ainsi obtenir le `session_token` du partenaire.
 
-+ Renseigner e-mail avec une vraie adresse interne, qui se trouve dans le pdf `Responsable média : alice.martin@keywave.com`.
++ Renseigner email avec une vraie adresse interne, qui se trouve dans le pdf `Responsable média : alice.martin@keywave.com`.
 + Dans mot de passe, saisir : `' O/**/R 1=1 #` (le `/**/` casse le mot-clé pour le WAF ; `#` remplace `--` comme commentaire fin de ligne accepté par MySQL).
 
 *Outils nécessaires* : Navigateur.

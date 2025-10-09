@@ -3,9 +3,9 @@
 == Architecture générale <architecture-generale>
 La @docker-compose-2025 présente l'architecture mise à jour de la plateforme après l'intégration des nouveaux challenges 2025. L'infrastructure de base reste identique à celle décrite au chapitre @architecture-technique.
 
-Un nouveau service "Admin bot" a été créé sur le port 3002 pour le challenge 6, simulant un administrateur qui interagit avec le frontend via des requêtes automatisées. Le Backend expose désormais de nouveaux endpoints spécifiques aux challenges 2025 : `/2025/flag` et `/2025/checkFlag` pour la validation, ainsi que les routes de validation individuelles `/challenge2/validate`, `/challenge5/validate` et `/challenge6/validate`, complétées par l'endpoint `/challenge6/deleteFiles` pour la suppression des fichiers.
+Un nouveau service "Admin bot" a été créé sur le port 3002 pour le challenge 6, simulant un administrateur qui interagit avec le frontend via des requêtes automatisées. Le backend expose désormais de nouveaux endpoints spécifiques aux challenges 2025 : `/2025/flag` et `/2025/checkFlag` pour la validation, ainsi que les routes de validation individuelles `/challenge2/validate`, `/challenge5/validate` et `/challenge6/validate`, complétées par l'endpoint `/challenge6/deleteFiles` pour la suppression des fichiers.
 
-Trois conteneurs SSH spécialisés ont été ajoutés pour supporter les nouveaux défis. Le conteneur ssh-whois-modify, pour le challenge 1, propose une variante modifiée du service WHOIS. Le conteneur ssh-zipinfo du challenge 4, fournit des outils d'analyse d'archives. Enfin, le conteneur MySQL continue de servir seulement pour les exercices d'injection SQL, spécifiquement pour le challenge 2. Cette architecture permet d'isoler chaque nouveau challenge tout en réutilisant l'infrastructure existante de la plateforme.
+Trois conteneurs SSH spécialisés ont été ajoutés pour supporter les nouveaux défis. Le conteneur ssh-whois-modify, pour le challenge 1, propose une variante modifiée du service WHOIS. Le conteneur ssh-zipinfo du challenge 4, fournit des outils d'analyse d'archives. Enfin, le conteneur MySQL est toujours destiné aux exercices d'injection SQL, spécifiquement pour le challenge 2. Cette architecture permet d'isoler chaque nouveau challenge tout en réutilisant l'infrastructure existante de la plateforme.
 
 #figure(
   image("schemas/docker_compose_2025.png"),
@@ -45,9 +45,10 @@ pool.query(
 
 Les utilisateurs sont stockés dans une base de données MySQL pour rendre la simulation plus crédible et illustrer comment une mauvaise gestion des entrées utilisateur peut permettre d'injecter du SQL et de contourner l'authentification.
 
+// TODO A REVOIR ET REFAIRE IMAGES
 === Challenge 3
 Dans le challenge 3, l'objectif est de mettre en avant la navigation dans des dossiers, afin de sensibiliser aux problèmes de contrôle d'accès. Le joueur·euse commence le défi en arrivant sur le dashboard du site des attaquants. #figure(image("imgs/chall3.png", width: 80%), caption: [Dashboard une fois connecté sur la plateforme des attaquants, challenge 3])<chall3> Sur cette page, il pourra ensuite cliquer sur le lien `Gestion des fichers` qui simule un gestionnaire de fichiers, avec un premier accès restreint au répertoire `/shared`. #figure(image("imgs/chall3'.png", width: 80%), caption: [Dossiers shared, challenge 3])<chall3.1> Le joueur·euse doit manipuler directement l'URL, dans un premier temps, en modifiant le paramètre `?dir=` pour retrouver le dossier racine, qui est la figure @chall3.2, puis explorer l'arborescence complète. Chaque dossier correspond à une page HTML distincte, ce qui permet de rendre la navigation concrète et progressive. On peut ainsi passer du tableau de bord au répertoire partagé, puis remonter à la racine et enfin atteindre des sous-dossiers sensibles comme `/archives/2025`, qui se trouve dans la @chall3.3. #figure(image("imgs/chall3''.png", width: 80%), caption: [Dossiers racine, challenge 3])<chall3.2>
-#figure(image("imgs/chall3'''.png", width: 80%), caption: [Exploration des dossiers jusqu'au dossier `/archives/2025`, challenge 3])<chall3.3>
+#figure(image("imgs/chall3'''.png", width: 80%), caption: [Exploration des dossiers jusqu'au dossier `/archives`, challenge 3])<chall3.3>
 
 Le backend est centré sur la navigation de répertoires simulés. Le fichier `horizonmain.js` définit la logique permettant de mapper les paramètres `?dir=` de l'URL vers des fichiers HTML spécifiques. La fonction `loadIframe()` récupère le paramètre `dir` et charge la page correspondante dans un iframe selon un mapping prédéfini (`/archives/2025` → `archives_2025.html`). La fonction `navigateToDirectory()` met à jour l'URL et recharge l'iframe lors de la navigation, reproduisant ainsi le comportement d'un gestionnaire de fichiers.
 
@@ -58,7 +59,7 @@ Au niveau du terminal, il est possible de changer entre un terminal Linux classi
 
 Le backend reprend le principe du challenge 1, mais cette fois avec un docker `ssh-zipinfo`. Ce module permet d'analyser un fichier ZIP via le terminal intégré, directement connecté au backend. Le joueur·euse peut ainsi exécuter une commande `zipinfo` et récupérer des informations sur le contenu de l'archive sans l'ouvrir directement.
 
-Pour valider le flag, une route API `/challenge4/validate` a été créée. Elle compare le hash SHA3-256 du flag soumis avec celui stocké en base de données. Si valide, elle renvoie un HTML simulant l'affichage des fichiers décompressés (contenant notamment le fichier `monitor_check_wip.py` révélant les identifiants hardcodés).
+Pour valider le flag, une route API `/challenge4/validate` a été créée. Elle compare le hash SHA3-256 du flag soumis avec celui stocké en base de données. S'il est valide, elle renvoie un HTML simulant l'affichage des fichiers décompressés (contenant notamment le fichier `monitor_check_wip.py` révélant les identifiants hardcodés).
 
 === Challenge 5
 Le challenge 5 garde l'IDE Python embarqué, mais cette fois pour pousser le joueur·euse à écrire un peu de code et analyser un script. Il s'agit de décoder des informations cachées dans un fichier et de reconstituer une URL que les attaquants sont susceptibles d'utiliser. Le terminal et l'IDE sont au cœur de l'interface, de manière à donner l'impression de travailler dans un véritable environnement d'analyse, tout en restant guidé par les consignes du scénario.
@@ -113,7 +114,7 @@ L’intégration des nouveaux challenges "Horizon" dans la plateforme existante 
 
 === Initialisation des flags côté serveur
 
-Pour éviter de placer les réponses dans le frontend, les flags 2025 sont déclarés dans les variables d’environnement et insérés au démarrage dans MongoDB au format SHA3-256, comme les scénarios 2020/2021. Le fragment suivant, ajouté à `db.js`, parcourt `CHALL_FLAGS_2025`, découpe chaque entrée `challX=VAL`, calcule le hash, puis crée le document Flag s’il n’existe pas
+Pour éviter de placer les réponses dans le frontend, les flags 2025 sont déclarés dans les variables d’environnement et insérés au démarrage dans MongoDB au format SHA3-256, comme les scénarios 2020/2021. Le fragment suivant, ajouté à `db.js`, parcourt `CHALL_FLAGS_2025`, découpe chaque entrée `challX=VAL`, calcule le hash, puis crée le document Flag s’il n’existe pas.
 
 ```js
 /* ... */
@@ -206,23 +207,23 @@ Le fichier HTML charge le thème, les scripts communs, les popups par challenge 
 
 Le fichier `horizonmain.js` (@horizonmain.js) constitue le cœur du moteur du scénario Horizon. Développé avec le framework Phaser, il orchestre l’affichage du niveau, le déplacement du personnage, l’interaction avec les plateformes représentant les différents challenges, ainsi que la communication avec le backend pour la validation des étapes.
 
-Dès l’initialisation, le script charge les éléments visuels nécessaires : le fond, les textures des plateformes, le héros, ainsi que les données décrivant la disposition des plateformes dans le fichier `level01Horizon.json`. Le héros est représenté comme un sprite animé pouvant se déplacer horizontalement et s’orienter automatiquement vers la gauche ou la droite selon la direction.
+Dès l’initialisation, le script charge les éléments visuels nécessaires : le fond, les textures des plateformes, le héros, ainsi que les données décrivant la disposition des plateformes dans le fichier `level01Horizon.json`. 
 
 Chaque plateforme est associée à un challenge et rendue cliquable. Lorsqu’une plateforme est sélectionnée, le personnage se déplace automatiquement jusqu’à elle. Si le challenge est accessible, une popup s’ouvre pour présenter les consignes et permettre de lancer l’interface spécifique. Cette interface est affichée dans une iframe intégrée à la page principale.
 
 La progression est gérée grâce à un système de cookies : `bk2025_xH92f_curr` enregistre l’étape en cours et `bk2025_mP81x_all` mémorise l’ensemble des challenges débloqués.
 
 Lorsqu’un joueur·euse saisit un flag dans le champ de réponse et le valide, le script envoie une requête POST au backend sur la route `/backend/2025/flag`. Le serveur vérifie la validité du flag et renvoie un code HTTP : `200` pour une réussite, ce qui débloque la plateforme suivante et affiche un message de félicitations, `401` si le flag est incorrect, avec un message d’encouragement, `404` en cas d’erreur de challenge. \
-Cette logique garantit que la progression se fait de manière linéaire et que les étapes ne sont pas contournables. Les plateformes déjà résolues changent d’apparence (zone verte) pour offrir un retour visuel immédiat.
+Cette logique garantit que la progression se fait de manière linéaire et que les étapes ne sont pas contournables. Les plateformes déjà résolues changent d’apparence (zone verte).
 
 Le moteur intègre également des cas spécifiques, comme pour le Challenge 3, où un paramètre `?dir=` permet de simuler la navigation dans des dossiers via un mapping prédéfini entre les chemins et des pages HTML distinctes.
 
 Enfin, `horizonmain.js` prend en charge la compatibilité et l’expérience utilisateur : il vérifie le type de navigateur et alerte si le jeu est lancé sur un appareil mobile ou un navigateur non supporté, afin de garantir la meilleure expérience possible.
 
-
+//TODO A REVOIR
 === Raccordement dans la page d’accueil, routage et configuration des flags `.env` / `.env.prod`
 
-Pour exposer le nouveau scénario dans l’UI globale, index.html reçoit une déclaration de l’année dans la constante `VALID_YEARS`, pour que la logique cliente supporte 2025 (au même titre que 2020/2021) et un bloc de présentation (texte + vidéo) et un bouton d’accès à `horizongame.html`.
+Pour exposer le nouveau scénario dans l’UI globale, index.html reçoit une déclaration de l’année dans la constante `VALID_YEARS`, pour que la logique cliente supporte 2025 (comme 2020/2021) et un bloc de présentation (texte + vidéo) et un bouton d’accès à `horizongame.html`.
 
 Cette intégration conserve le parcours utilisateur habituel : découverte, teaser, puis accès aux défis.
 
@@ -268,7 +269,7 @@ const VALID_YEARS = ["2020", "2021", "2025"];
 <!-- ... -->
 ```
 
-Cette page est servie via Traefik (terminaison TLS, StripPrefix pour /backend et /ssh), ce qui permet au client d’appeler /backend/... et d’intégrer des iframes /ssh?... sans connaître la topologie interne. C’est ce même schéma qui rend "Horizon" plug-and-play au sein du site.
+Cette page est servie via Traefik (terminaison TLS, StripPrefix pour `/backend` et `/ssh`), ce qui permet au client d’appeler `/backend/...` et d’intégrer des iframes `/ssh?...` sans connaître la topologie interne. C’est ce même schéma qui rend "Horizon" plug-and-play au sein du site.
 
 Enfin, les flags sont définis côté serveur, dans `.env` et `.env.prod`. Lors du boot, `db.js` se charge de les hacher et de les insérer si besoin. Le format clé-valeur séparé par ; reste identique.
 ```env
@@ -287,3 +288,5 @@ Les bénéfices d'avoir des flags côté serveur sont qu'aucun secret/flag n’a
 Le scénario pourrait avoir plus de challenges pour couvrir plus d'aspects de vulnérabilités et techniques d'attaque. Des challenges supplémentaires permettraient d'approfondir certaines thématiques et d'offrir une progression pédagogique plus complète.
 
 Le challenge 6, qui utilise un bot automatisé avec Puppeteer, présente un problème technique de gestion des cookies. Actuellement, le bot récupère les cookies de la session du joueur·euse au lieu d'utiliser son propre cookie administrateur privilégié.
+
+Enfin le challenge 7 a une petite incohérence scénaristique. Le joueur·euse est censé·e bloquer une IP malveillante, mais en réalité l'attaquant pourrait tout a fait utiliser une autre IP pour continuer son attaque. Une meilleure approche serait de simuler un blocage plus efficace, comme la fermeture du port d'accès.

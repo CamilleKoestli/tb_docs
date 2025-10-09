@@ -27,6 +27,6 @@ Ce zip fera l'objet du prochain challenge.
 === Techniques et outils
 Pour le challenge 3, un outil qui explique ce qu’est l’architecture des dossiers en informatique a été créé. L’idée était de donner aux joueur·euse·s une vision claire de la manière dont les fichiers et dossiers sont organisés, afin qu’ils puissent comprendre la logique de navigation dans un système de fichiers.
 
-J’y explique d’abord la hiérarchie classique selon les différents systèmes d'exploitation avec un dossier racine qui contient d’autres dossiers et fichiers, et la possibilité d’avoir des sous-dossiers imbriqués.
+Elle y explique d’abord la hiérarchie classique selon les différents systèmes d'exploitation avec un dossier racine qui contient d’autres dossiers et fichiers, et la possibilité d’avoir des sous-dossiers imbriqués.
 
-Enfin, j’ai expliqué le concept de chemin (par exemple /documents/rapport.docx), qui permet d’indiquer précisément l’emplacement d’un fichier. Cette explication prépare les joueur·euse·s à manipuler et analyser les chemins de fichiers dans le cadre du challenge, afin de retrouver où sont cachées les informations utiles.
+Enfin, le concept de chemin (par exemple /documents/rapport.docx) est expliqué, ce qui permet d’indiquer précisément l’emplacement d’un fichier. Cette explication prépare les joueur·euse·s à manipuler et analyser les chemins de fichiers dans le cadre du challenge, afin de retrouver où sont cachées les informations utiles.
