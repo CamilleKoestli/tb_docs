@@ -1,6 +1,6 @@
-# Conception d’un nouveau serious game autour du "Ethical Hacking" Note final : 6
+# Conception d’un nouveau serious game autour du "Ethical Hacking" 
 
-> Documentation de mon Travail de Bachelor (TB)
+> Documentation de mon Travail de Bachelor (TB) → Note final : 6
 
 ## Documents disponibles
 
